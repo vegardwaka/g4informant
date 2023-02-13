@@ -3,7 +3,7 @@ const NavBar = () => {
         <nav className="navbar">
             <h1>G4 Informant</h1>
             <div className="links">
-                <a href="/">Home</a>
+                <a href="/">Hjem</a>
             </div>
         </nav>
     );

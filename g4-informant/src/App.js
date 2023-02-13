@@ -1,5 +1,5 @@
 import NavBar from './NavBar';
-import Home from './Home';
+import { Home, Footer } from './Home';
 
 function App() {
   return (
@@ -7,6 +7,9 @@ function App() {
       <NavBar/>
       <div className="content">
         <Home/>
+      </div>
+      <div className="footer">
+        <Footer/>
       </div>
     </div>
   );
