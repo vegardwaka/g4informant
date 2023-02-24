@@ -45,3 +45,17 @@
   background-color: rgb(0, 0, 0);
   text-align: center;
 }
+/* blog previews / list */
+.blog-preview {
+  padding: 10px 16px;
+  margin: 20px 0;
+  border-bottom: 1px solid #fafafa;
+}
+.blog-preview:hover {
+  box-shadow: 1px 3px 5px rgba(0,0,0,0.1);
+}
+.blog-preview h2 {
+  font-size: 20px;
+  color: #5b35f1;
+  margin-bottom: 8px;
+}
