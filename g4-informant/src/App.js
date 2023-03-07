@@ -3,7 +3,7 @@ import { Home, Footer } from './Home';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Blogg from './Blogg';
 
-function App() {
+export default function App() {
   return (
     <Router>
     <div className="App">
@@ -21,5 +21,3 @@ function App() {
     </Router>
   );
 }
-
-export default App;
