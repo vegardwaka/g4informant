@@ -1,24 +1,28 @@
-import NavBar from './NavBar';
-import Home from './Home';
-import Footer from './Footer'
+import NavBar from './components/NavBar';
+import Home from './components/Home';
+import Footer from './components/Footer'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Blogg from './Blogg';
+import Blog from './components/Blog';
+import Login from './components/Login';
+import About from './components/About';
 
 export default function App() {
   return (
     <Router>
-    <div className="App">
-      <NavBar/>
-      <div className="content">
-        <Routes>
-          <Route path="/" element={<Home/>}/>
-          <Route path="/blogg" element={<Blogg/>}/>
-        </Routes>
+      <div className="App">
+        <NavBar/>
+        <div className="content">
+          <Routes>
+            <Route path='/' element={<Home/>}/>
+            <Route path='About' element={<About/>}/>
+            <Route path='Blog' element={<Blog/>}/>
+            <Route path='Login' element={<Login/>}/>
+          </Routes>
+        </div>
+        <div className="footer">
+          <Footer/>
+        </div>
       </div>
-      <div className="footer">
-        <Footer/>
-      </div>
-    </div>
     </Router>
   );
 }
