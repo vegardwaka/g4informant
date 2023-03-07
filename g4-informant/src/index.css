@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&family=Roboto:wght@300&family=Shadows+Into+Light&display=swap');
 
 /* base styles */
 * {
   margin: 0;
-  font-family: "Quicksand";
+  font-family: "Roboto";
   color: #333;
 }
 .navbar {
@@ -26,10 +26,22 @@
   padding: 6px;
 }
 .navbar a:hover {
-  color: #f1356d;
+  color: #5b35f1;
 }
 .content {
   max-width: 600px;
   margin: 40px auto;
   padding: 20px;
+}
+
+/* Footer */
+.footer *{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: white;
+  font-size: 12px;
+  background-color: rgb(0, 0, 0);
+  text-align: center;
 }
