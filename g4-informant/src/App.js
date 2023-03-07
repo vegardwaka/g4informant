@@ -1,5 +1,6 @@
 import NavBar from './NavBar';
-import { Home, Footer } from './Home';
+import Home from './Home';
+import Footer from './Footer'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Blogg from './Blogg';
 

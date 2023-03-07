@@ -1,4 +1,4 @@
-const Home = () => {
+export default function Home() {
     return (
       <div className="home">
         <h2>Hjemmeside</h2>
@@ -7,16 +7,5 @@ const Home = () => {
       </div>
     );
 }
-
-const Footer = () => {
-  return (
-    <div className="footer">
-        <footer>
-            <small>© 2023 G4 Informant. All rights reserved.</small>
-        </footer>
-    </div>
-    );
-}
  
-export { Home, Footer };
    
