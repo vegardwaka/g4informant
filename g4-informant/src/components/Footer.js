@@ -1,9 +1,9 @@
 export default function Footer() {
     return (
       <div className="footer">
-          <footer>
+          <section>
               <small>© 2023 G4 Informant. All rights reserved.</small>
-          </footer>
+          </section>
       </div>
     );
 }

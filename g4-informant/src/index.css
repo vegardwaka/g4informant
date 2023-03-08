@@ -1,36 +1,43 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron&family=Roboto:wght@300&family=Shadows+Into+Light&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
 /* base styles */
 * {
-  margin: 0;
-  font-family: "Roboto";
-  color: #333;
+  box-sizing: border-box;
 }
+
+body {
+  margin: 0;
+  font-family: "Poppins";
+  min-height: 100vh;
+  align-items: center;
+  background-color: whitesmoke;
+}
+
+/* NavBar */
+
 .navbar {
   padding: 20px;
   display: flex;
   align-items: center;
-  max-width: 600px;
   margin: 0 auto;
-  border-bottom: 1px solid #f2f2f2;
+  border-bottom: 1px solid #e4e4e4;
 }
 #navbar-title{
-  color: blue;
-  font-size: 20px;
+  color: rgb(0, 0, 0);
+  font-size: 25px;
 }
 .navbar .links {
   margin-left: auto;
 }
 .navbar a {
-  margin-left: 16px;
+  margin-left: 25px;
   text-decoration: none;
-  padding: 6px;
+  padding: 10px;
 }
 .navbar a:hover {
-  color: #5b35f1;
+  color: #3300ff;
 }
 .content {
-  max-width: 600px;
+  max-width: auto;
   margin: 40px auto;
   padding: 20px;
 }
@@ -66,9 +73,10 @@
 .login-container {
   display: flex;
   justify-content: center;
-  width: 100%;
+  width: 600px;
   border-radius: 10px;
   border: 5px solid #d1d1e0;
+  margin: auto;
 }
 
 .input--email {
@@ -102,16 +110,30 @@ padding: 20px;
   padding-top: 10px;
 }
 
-.blog-card {
-  width: 300px;
-  height: 300px;
-
-  border-radius: 10px;
-  border: 5px solid #d1d1e0;
+.blog {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 40px;
 }
 
+.blog-card {
+  display: flow-root;
+  width: 200px;
+  height: 300px;
+  border-radius: 10px;
+  border: 5px solid #4f4f4f;
+  transition: 1s;
+}
+.blog-card p{
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+}
 .blog-card:hover {
-  background-color: rgb(163, 163, 163);
+  /*background-color: rgb(203, 203, 203); */
+  transform: scale(1.3);
+  box-shadow: 2px 2px 2px #000;
 }
 
 .blog-tittel {
@@ -120,5 +142,66 @@ padding: 20px;
 }
 
 .blog-tekst {
+  padding: 10px 10px 0px 0px;
+}
+
+/* About */
+
+.about {
+  display: grid;
+  justify-content: center;
+}
+
+.about-title {
+  text-align: center;
+  padding-bottom: 70px;
+  letter-spacing: .1rem;
+  text-transform: uppercase;
+}
+
+.about-list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 100px;
+}
+
+.about-card {
+  display: flow-root;
+  width: 200px;
+}
+
+.about--img{
+  width: 100%;
+  height: auto;
+  align-self: center;
+  border-radius: 15px;
+  object-fit: cover;
+}
+
+.about--name {
+  text-align: center;
   padding-top: 10px;
+}
+
+.about--desc {
+  text-align: center;
+  padding-top: 10px;
+}
+
+.about--button {
+  align-items: center;
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: .1rem;
+  width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 70px;
+  padding: 10px 10px 10px 10px;
+  color: rgb(0, 0, 0);
+  background-color: rgb(240, 240, 240);
+  border-radius: 5px;
+  cursor: pointer;
 }
