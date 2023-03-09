@@ -6,6 +6,7 @@ export default function NavBar() {
                 <a href="/">Home</a>
                 <a href="/about">About</a>
                 <a href="/blog">Blog</a>
+                <a href="/foresporsel">Foresporsel</a>
                 <a href="/login">Login</a>
             </div>
         </nav>
