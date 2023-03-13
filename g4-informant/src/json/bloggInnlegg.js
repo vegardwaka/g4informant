@@ -8,7 +8,7 @@ export default [
         id: 2,
         title:"Milepæl 2",
         description:"Hi, I'm Bing and I love to help people find what they are looking for. I was born in 2009 as a rebranding of Microsoft previous search engine."
-    },
+    }/* ,
     {
         id: 3,
         title:"dag 3",
@@ -28,5 +28,5 @@ export default [
         id: 6,
         title:"dag 6",
         description:"sfdjghghfghgfd"
-    }
+    } */
 ]

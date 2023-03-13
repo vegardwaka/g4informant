@@ -18,7 +18,7 @@ export default function About() {
             <div className="about-list">
                 {list}
             </div>
-            <input type="button" value="Kom i kontakt" className="about--button"/>
+            <button className="about--button">Kontakt oss</button>
         </section>
     )
 }
