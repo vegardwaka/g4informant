@@ -6,25 +6,29 @@ import Blog from './components/Blog';
 import Login from './components/Login';
 import About from './components/About';
 import Foresporsel from './components/Foresporsel';
+import Workbench from './components/Workbench'
+
 
 export default function App() {
+
   return (
-    <Router>
-      <div className="App">
-        <NavBar/>
-        <div className="content">
-          <Routes>
-            <Route path='/' element={<Home/>}/>
-            <Route path='About' element={<About/>}/>
-            <Route path='Blog' element={<Blog/>}/>
-            <Route path='Login' element={<Login/>}/>
-            <Route path='Foresporsel' element={<Foresporsel/>}/>
-          </Routes>
+      <Router>
+        <div className="App">
+          <NavBar/>
+          <div className="content">
+            <Routes>
+              <Route path='/' element={<Home/>}/>
+              <Route path='About' element={<About/>}/>
+              <Route path='Blog' element={<Blog/>}/>
+              <Route path='Login' element={<Login/>}/>
+              <Route path='Foresporsel' element={<Foresporsel/>}/>
+              <Route path='Workbench' element={<Workbench/>}/>
+            </Routes>
+          </div>
+          <div className="footer">
+            <Footer/>
+          </div>
         </div>
-        <div className="footer">
-          <Footer/>
-        </div>
-      </div>
-    </Router>
+      </Router>
   );
 }
