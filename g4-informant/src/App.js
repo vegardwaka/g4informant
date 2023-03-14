@@ -7,6 +7,7 @@ import Login from './components/Login';
 import About from './components/About';
 import Foresporsel from './components/Foresporsel';
 import Workbench from './components/Workbench'
+import NotFound from './components/NotFound'
 
 
 export default function App() {
@@ -23,6 +24,7 @@ export default function App() {
               <Route path='Login' element={<Login/>}/>
               <Route path='Foresporsel' element={<Foresporsel/>}/>
               <Route path='Workbench' element={<Workbench/>}/>
+              <Route path='*' element={<NotFound/>}/>
             </Routes>
           </div>
           <div className="footer">

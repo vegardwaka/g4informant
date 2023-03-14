@@ -2,18 +2,18 @@ export default [
     {
         id: 1,
         title:"Milepæl 1",
-        description:"Hi, I'm Bing and I love to help people find what they are looking for. I was born in 2009 as a rebranding of Microsoft previous search engine."
+        description:"Milepæl 1 ble stort sett brukt som en introduksjon til produktet og planen fremover. En god start."
     },
     {
         id: 2,
         title:"Milepæl 2",
-        description:"Hi, I'm Bing and I love to help people find what they are looking for. I was born in 2009 as a rebranding of Microsoft previous search engine."
-    }/* ,
+        description:"Til milepæl 2 hadde vi fullført planleggingsfasen og startet på utviklingsfasen. I dette stadiet har vi databasen og domenet klart."
+    } ,
     {
         id: 3,
-        title:"dag 3",
-        description:"sfdjghghfghgfd"
-    },
+        title:"Uke 1 i utvikling",
+        description:"Vi har klart navbar og frontend for main, request, blog og login. Jobber med databasehåndtering."
+    }/*,
     {
         id: 4,
         title:"dag 4",
