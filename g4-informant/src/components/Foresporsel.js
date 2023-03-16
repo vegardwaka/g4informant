@@ -1,36 +1,47 @@
-import { useState } from "react";
+import {  useState } from "react";
 import { useNavigate } from 'react-router-dom';
 
 export default function Foresporsel() {
     const [title, setTitle] = useState("");
     const [category, setCategory] = useState('');
     const [message, setMessage] = useState('');
-    const navigate = useNavigate();
+    //const [apiid, setApiid] = useState(0);
+    //const [fkid, setFkid] = useState(0);
+    //const navigate = useNavigate();
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const apiReq = {title, category, message};
         console.log(e.target.title.value)
         console.log(e.target.category.value)
         console.log(e.target.message.value)
-
-        fetch("https://g4informant.com/api.php/records/api_foresporsel", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({"API_id": 0, "tittel": title, "fk_bruker_id": 2, "fritekst": message, "kategori": category}),
-            })  
-            .then((response) => response.json())
-            .then((apiReq) => {
-                console.log("Success:", apiReq);
-            })
-            .catch((error) => {
-                console.error("Error:", error);
-            });
+        createMerchant();
     }
 
-    
+   
+
+    /* NY KODE*/
+    function createMerchant() {
+    let name = "hater livet"
+    let email = "LOLOLOLgmail"
+    let brukertall = 1
+        fetch('http://localhost:3001/api_foresporsel', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify( {title, message, category}),
+          lol: brukertall,
+        })
+          .then(response => {
+            return response.text();
+          })
+          .then(data => {
+            alert(data);
+           // getMerchant();
+          });
+      }
+
+    //<button onClick={createMerchant}>TRYKK DENNE KNAPPEN FFDFD</button>
     return (    
         
         <div className="foresporsel--div">
