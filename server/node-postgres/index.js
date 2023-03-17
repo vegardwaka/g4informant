@@ -1,8 +1,7 @@
 const express = require('express')
 const app = express()
 const port = 3001
-
-const merchant_model = require('./merchant_model')
+const db = require('./db')
 
 app.use(express.json())
 app.use(function (req, res, next) {
@@ -13,8 +12,8 @@ app.use(function (req, res, next) {
 }); 
 
 
-app.get('/', (req, res) => {
-  merchant_model.getUsers()
+app.get('/bruker/:bruker_id', (req, res) => {
+  db.getUsers(req.params.bruker_id)
   .then(response => {
     res.status(200).send(response);
   })
@@ -22,9 +21,10 @@ app.get('/', (req, res) => {
     res.status(500).send(error);
   })
 })
+
 
 app.post('/api_foresporsel', (req, res) => {
-  merchant_model.createMerchant(req.body)
+  db.createRequest(req.body)
   .then(response => {
     res.status(200).send(response);
   })
@@ -33,8 +33,10 @@ app.post('/api_foresporsel', (req, res) => {
   })
 })
 
+
+
 app.delete('/test/:id', (req, res) => {
-  merchant_model.deleteMerchant(req.params.id)
+  db.deleteRequest(req.params.id)
   .then(response => {
     res.status(200).send(response);
   })

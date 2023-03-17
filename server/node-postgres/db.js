@@ -7,34 +7,36 @@ const pool = new Pool({
   port: 5432,
 });
 
+
 const getUsers = () => {
     return new Promise(function(resolve,reject){
-        pool.query('SELECT * FROM bruker',(error,results) => {
-            if (error) {
-                reject(error)
+       const bruker_id = parseInt(request.params.bruker_id)
+        pool.query('SELECT * FROM bruker WHERE bruker_id = $1', [ bruker_id ], (error,results) => {
+            if (err) {
+                console.log(err)
             }
             resolve(results.rows);
         })
     })
-  }
+  } 
 
 
-  const createMerchant = (body, lol) => {
+  const createRequest = (body) => {
     return new Promise(function(resolve, reject) {
-      const { title, message } = body
-      const {fk_bruker_id} = lol
-      pool.query('INSERT INTO api_foresporsel (tittel, fk_bruker_id, fritekst, kategori) VALUES ($1, $2, $3, $4) RETURNING *', [title, fk_bruker_id, message, category], (error, results) => {
+      const { title, category, message, brukertall } = body
+      pool.query('INSERT INTO api_foresporsel (tittel, kategori, bruker_id, fritekst ) VALUES ($1, $2, $3, $4) RETURNING *', 
+      [title, category, brukertall, message], (error, results) => {
         if (error) {
           reject(error)
         }
-        resolve(`A new merchant has been added added: ${results.rows[0]}`)
+        resolve(`Førespørsel sendt`)
       })
     })
   }
+ 
+ 
 
-
-
-  const deleteMerchant = () => {
+  const deleteRequest = () => {
     return new Promise(function(resolve, reject) {
       const id = parseInt(request.params.id)
       pool.query('DELETE FROM merchants WHERE id = $1', [id], (error, results) => {
@@ -48,6 +50,6 @@ const getUsers = () => {
   
   module.exports = {
     getUsers,
-    createMerchant,
-    deleteMerchant,
+    createRequest,
+    deleteRequest,
   }

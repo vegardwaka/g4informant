@@ -14,34 +14,29 @@ export default function Foresporsel() {
         console.log(e.target.title.value)
         console.log(e.target.category.value)
         console.log(e.target.message.value)
-        createMerchant();
+        createRequest();
     }
 
    
 
-    /* NY KODE*/
-    function createMerchant() {
-    let name = "hater livet"
-    let email = "LOLOLOLgmail"
+    /* Insert request */
+    function createRequest() {
     let brukertall = 1
         fetch('http://localhost:3001/api_foresporsel', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify( {title, message, category}),
-          lol: brukertall,
+          body: JSON.stringify( {title, category, brukertall, message}),
         })
           .then(response => {
             return response.text();
           })
           .then(data => {
             alert(data);
-           // getMerchant();
           });
       }
 
-    //<button onClick={createMerchant}>TRYKK DENNE KNAPPEN FFDFD</button>
     return (    
         
         <div className="foresporsel--div">

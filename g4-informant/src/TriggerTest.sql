@@ -34,3 +34,14 @@ CREATE TRIGGER last_name_changes
   ON api_foresporsel
   FOR EACH ROW
   EXECUTE PROCEDURE trigger_function();
+
+
+  CREATE TABLE api_foresporsel(
+     APIid SERIAL,
+     tittel VARCHAR(30), 
+     kategori VARCHAR(30),
+     fritekst VARCHAR(30),
+     PRIMARY KEY (APIid),
+     FOREIGN KEY (bruker_id)
+      REFERENCES bruker (bruker_id)
+  );
