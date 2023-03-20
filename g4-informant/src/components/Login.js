@@ -12,7 +12,7 @@ export default function Login() {
     const handleSubmit = async e => {
         e.preventDefault()
         getUser(); 
-        // setToken(token)
+        //setToken(bruker.map((y) => y.brukernavn))
     };
 
      /*
@@ -38,7 +38,7 @@ export default function Login() {
   
     
     const tabs = Array.isArray(bruker) ? bruker.map((y) => y.brukernavn) : [];
-   // setToken(tabs);
+    //setToken(tabs);
     let teksten = tabs
     //setToken(teksten)
     let tekst
