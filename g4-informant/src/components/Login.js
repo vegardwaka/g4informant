@@ -1,40 +1,49 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from 'react-router-dom'
 
 export default function Login() {
     const [epost, setEpost] = useState('');
     const [passord, setPassord] = useState('');
     const [feil, setFeil] = useState('');
-    const [bruker, setBruker] = useState([])
-
-    const handleChange = (e) => {
+    const [bruker, setBruker] = useState([]);
+    //const [token, setToken] = useState('');
+    const navigate = useNavigate();
+    
+    const handleSubmit = async e => {
         e.preventDefault()
-        //console.log(e.target.epost.value)
-        //console.log(e.target.passord.value)
-        getUser();
+        getUser(); 
+        // setToken(token)
     };
 
+     /*
+    useEffect(() => { 
+        getUser()
+    }, [])  */
+
     /* Hente bruker */
-    function getUser() {
-        let bruker_id = "2"
-        fetch(`http://localhost:3001/bruker/${bruker_id}`, {
+    async function getUser() {
+      //  let bruker_id = "1"
+        fetch(`http://localhost:3001/bruker/${epost}&${passord}`, {
             method: 'GET',
         })
           .then(response => {
              return response.json()
           })
           .then(data => { setBruker(data) 
+          })
+          .then(() => {
+            navigate('/');
         });
     }
-/*
-    useEffect(() => { 
-    getUser()
-    }, []) */
-      
-    const tabs = bruker.map(y => y.epost)
-    let tekst
-    console.log("brukerid = " + bruker.epost)
+  
     
+    const tabs = Array.isArray(bruker) ? bruker.map((y) => y.brukernavn) : [];
+   // setToken(tabs);
+    let teksten = tabs
+    //setToken(teksten)
+    let tekst
     console.log(tabs.length)
+    
     
     /*
     function feilSjekk(event) {
@@ -45,12 +54,11 @@ export default function Login() {
        }
    } */
 
-
     return (
         <div className="login-container">
-            <h1>{tabs}</h1>
+            <h1>{tabs.length > 0 ? "bruker finnes" : "bruker finnes ikke"}</h1>
             <div className="login--form">
-                <h2 className="login--title">Logg inn</h2>
+                <h2 className="login--title">Login</h2>
                 <input 
                     type="text" 
                     value={epost} 
@@ -67,10 +75,12 @@ export default function Login() {
                     placeholder="Password..."
                 />
                 <br/>
-                <button className="login--button" onClick={handleChange}>submit</button>
+                <button className="login--button" onClick={handleSubmit}>submit</button>
                 <br/>
                 <p className="input--feil">{tekst}</p>
             </div>
         </div>
     )
 }
+
+

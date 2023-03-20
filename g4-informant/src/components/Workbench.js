@@ -1,5 +1,5 @@
 export default function Workbench() {
     return (
-        <h1>Kommer snart....</h1>
+        <h1>:eyes: emoji</h1>
     )
 }

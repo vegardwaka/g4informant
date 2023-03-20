@@ -14,11 +14,11 @@ export default function About() {
 
     return(
         <section className="about">
-            <h2 className="about-title">Vårt team</h2>
+            <h2 className="about-title">Our team</h2>
             <div className="about-list">
                 {list}
             </div>
-            <button className="about--button">Kontakt oss</button>
+            <button className="about--button">Contact us</button>
         </section>
     )
 }

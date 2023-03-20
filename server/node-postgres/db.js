@@ -8,17 +8,30 @@ const pool = new Pool({
 });
 
 
-const getUsers = () => {
+/*const getUsers = () => {
     return new Promise(function(resolve,reject){
        const bruker_id = parseInt(request.params.bruker_id)
-        pool.query('SELECT * FROM bruker WHERE bruker_id = $1', [ bruker_id ], (error,results) => {
-            if (err) {
-                console.log(err)
+       console.log("db bruker_id: " + bruker_id)
+        pool.query('SELECT * FROM bruker WHERE bruker_id = ' + bruker_id, (error,results) => {
+            if (error) {
+              console.log(error)
+              reject(error)
             }
             resolve(results.rows);
         })
     })
-  } 
+  } */
+  const getUsers = (epost, passord) => {
+    return new Promise(function(resolve, reject){
+      pool.query('SELECT * FROM bruker WHERE epost = $1 AND passord = $2', [epost, passord], (error, results) => {
+        if (error) {
+          console.log(error)
+          reject(error)
+        }
+        resolve(results.rows);
+      })
+    })
+  }
 
 
   const createRequest = (body) => {

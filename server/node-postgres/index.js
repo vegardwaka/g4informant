@@ -12,8 +12,8 @@ app.use(function (req, res, next) {
 }); 
 
 
-app.get('/bruker/:bruker_id', (req, res) => {
-  db.getUsers(req.params.bruker_id)
+app.get('/bruker/:epost&:passord', (req, res) => {
+  db.getUsers(req.params.epost, req.params.passord)
   .then(response => {
     res.status(200).send(response);
   })
@@ -34,7 +34,6 @@ app.post('/api_foresporsel', (req, res) => {
 })
 
 
-
 app.delete('/test/:id', (req, res) => {
   db.deleteRequest(req.params.id)
   .then(response => {
@@ -44,6 +43,7 @@ app.delete('/test/:id', (req, res) => {
     res.status(500).send(error);
   })
 })
+
 app.listen(port, () => {
   console.log(`App running on port ${port}.`)
 })

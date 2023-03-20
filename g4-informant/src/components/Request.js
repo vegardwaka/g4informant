@@ -17,11 +17,9 @@ export default function Request() {
         createRequest();
     }
 
-   
-
     /* Insert request */
     function createRequest() {
-    let brukertall = 1
+        let brukertall = 1
         fetch('http://localhost:3001/api_foresporsel', {
           method: 'POST',
           headers: {
@@ -35,10 +33,9 @@ export default function Request() {
           .then(data => {
             alert(data);
           });
-      }
+    }
 
     return (    
-        
         <div className="foresporsel--div">
             <form className="foresporsel--form" onSubmit={handleSubmit}>
                 <h1 className="foresporsel--tittel">API request</h1>

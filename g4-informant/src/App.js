@@ -5,10 +5,10 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Blog from './components/Blog';
 import Login from './components/Login';
 import About from './components/About';
-import Foresporsel from './components/Foresporsel';
+import Request from './components/Foresporsel';
 import Workbench from './components/Workbench'
 import NotFound from './components/NotFound'
-
+import { useState } from 'react'
 
 export default function App() {
 
@@ -22,7 +22,7 @@ export default function App() {
               <Route path='About' element={<About/>}/>
               <Route path='Blog' element={<Blog/>}/>
               <Route path='Login' element={<Login/>}/>
-              <Route path='Foresporsel' element={<Foresporsel/>}/>
+              <Route path='Foresporsel' element={<Request/>}/>
               <Route path='Workbench' element={<Workbench/>}/>
               <Route path='*' element={<NotFound/>}/>
             </Routes>
