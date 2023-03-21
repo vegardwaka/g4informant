@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import NavBar from './components/NavBar';
 import Home from './components/Home';
 import Footer from './components/Footer'
@@ -22,7 +23,7 @@ export default function App() {
               <Route path='/' element={<Home/>}/>
               <Route path='/About' element={<About/>}/>
               <Route path='/Blog' element={<Blog/>}/>
-              <Route path='/Login' render={() => <Login setToken={setToken} />} element={<Login/>}/>
+              <Route path='/Login' element={<Login setToken={setToken} />} />
               <Route path='/Foresporsel' element={<Request/>}/>
               <Route path='/Workbench' element={<Workbench/>}/>
               <Route path='*' element={<NotFound/>}/>

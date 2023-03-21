@@ -2,15 +2,6 @@ import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types'
 
-async function LoginUser(credentials) {
-    return fetch('https://localhost:3001/login',{
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(credentials)
-    }).then(data => data.json())
-}
 
 export default function Login({ setToken }) {
     const [epost, setEpost] = useState('');
@@ -21,8 +12,7 @@ export default function Login({ setToken }) {
     
     const handleSubmit = async (e) => {
         e.preventDefault()
-        getUser(); 
-        const token = await LoginUser({
+        const token = await getUser({
             epost,
             passord
         })
@@ -30,7 +20,7 @@ export default function Login({ setToken }) {
     };
 
     /* Hente bruker */
- function getUser() {
+async function getUser() {
         fetch(`http://localhost:3001/bruker/${epost}&${passord}`, {
             method: 'GET',
         })
