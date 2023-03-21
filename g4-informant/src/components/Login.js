@@ -1,28 +1,36 @@
-import { useEffect, useState } from "react";
-import { useNavigate } from 'react-router-dom'
+import { useState } from "react";
+import { useNavigate } from 'react-router-dom';
+import PropTypes from 'prop-types'
 
-export default function Login() {
+async function LoginUser(credentials) {
+    return fetch('https://localhost:3001/login',{
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(credentials)
+    }).then(data => data.json())
+}
+
+export default function Login({ setToken }) {
     const [epost, setEpost] = useState('');
     const [passord, setPassord] = useState('');
-    const [feil, setFeil] = useState('');
+    //const [feil, setFeil] = useState('');
     const [bruker, setBruker] = useState([]);
-    //const [token, setToken] = useState('');
     const navigate = useNavigate();
     
-    const handleSubmit = async e => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
         getUser(); 
-        //setToken(bruker.map((y) => y.brukernavn))
+        const token = await LoginUser({
+            epost,
+            passord
+        })
+        setToken(token)
     };
 
-     /*
-    useEffect(() => { 
-        getUser()
-    }, [])  */
-
     /* Hente bruker */
-    async function getUser() {
-      //  let bruker_id = "1"
+ function getUser() {
         fetch(`http://localhost:3001/bruker/${epost}&${passord}`, {
             method: 'GET',
         })
@@ -38,29 +46,17 @@ export default function Login() {
   
     
     const tabs = Array.isArray(bruker) ? bruker.map((y) => y.brukernavn) : [];
-    //setToken(tabs);
-    let teksten = tabs
-    //setToken(teksten)
     let tekst
     console.log(tabs.length)
-    
-    
-    /*
-    function feilSjekk(event) {
-        if (epost.length === 0) {
-            setFeil("lol")
-        } else if (passord.length === 0) {
-            setFeil("lol")
-       }
-   } */
 
     return (
         <div className="login-container">
-            <h1>{tabs.length > 0 ? "bruker finnes" : "bruker finnes ikke"}</h1>
             <div className="login--form">
                 <h2 className="login--title">Login</h2>
                 <input 
-                    type="text" 
+                    required
+                    type="email" 
+                    name="email"
                     value={epost} 
                     onChange={(e) => setEpost(e.target.value)} 
                     className="input--email" 
@@ -68,7 +64,9 @@ export default function Login() {
                 />
                 <br/>
                 <input 
+                    required
                     type="password" 
+                    name="password"
                     value={passord} 
                     onChange={(e) => setPassord(e.target.value)} 
                     className="input--password" 
@@ -78,9 +76,16 @@ export default function Login() {
                 <button className="login--button" onClick={handleSubmit}>submit</button>
                 <br/>
                 <p className="input--feil">{tekst}</p>
+                <p>{tabs.length > 0 ? "bruker finnes" : "bruker finnes ikke"}</p>
             </div>
         </div>
     )
 }
+
+Login.propTypes = {
+    setToken: PropTypes.func.isRequired
+};
+
+
 
 

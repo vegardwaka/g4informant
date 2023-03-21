@@ -5,17 +5,11 @@ export default function Request() {
     const [title, setTitle] = useState("");
     const [category, setCategory] = useState('');
     const [message, setMessage] = useState('');
-    //const [apiid, setApiid] = useState(0);
-    //const [fkid, setFkid] = useState(0);
-    //const navigate = useNavigate();
-
+    
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(e.target.title.value)
-        console.log(e.target.category.value)
-        console.log(e.target.message.value)
         createRequest();
-    }
+    } 
 
     /* Insert request */
     function createRequest() {
@@ -50,7 +44,6 @@ export default function Request() {
                 />
                 <br/>
                 <label htmlFor="cars" className="foresporsel-label">Choose a category:</label>
-
                 <select 
                     id="cars"  
                     required
@@ -59,11 +52,13 @@ export default function Request() {
                     name="category"
                     className="foresporsel--liste"
                 >
-                    <option value="Velg">Choose</option>
+                    <option value="" selected disabled hidden>Choose here</option>
                     <option value="Nyheter">News</option>
                     <option value="Vær">Weather</option>
                     <option value="Skole">School</option>
                     <option value="Jobb">Job</option>
+                    <option value="Finans">Finance</option>
+                    <option value="Annen">Other</option>
                 </select><br/>
 
                 <label htmlFor="test">Additional information</label><br/>
