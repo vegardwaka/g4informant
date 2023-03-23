@@ -301,3 +301,28 @@ padding: 20px;
   background-color: darkgrey;
 
 }
+
+/* Workbench */
+
+.workbench-box {
+  display: grid;
+  align-items: center;
+  width: 150px;
+  height: 150px;
+  border: 1px #000000;
+  border-style: solid;
+  border-radius: 10px;
+}
+
+.workbench-counter{
+  text-align: center;
+}
+
+.workbench-button-add{
+  padding: 5px 10px 5px 10px;
+  border-radius: 15px;
+}
+.workbench-button-sub{
+  padding: 5px 10px 5px 10px;
+  border-radius: 15px;
+}

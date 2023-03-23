@@ -5,10 +5,12 @@ export default function Request() {
     const [title, setTitle] = useState("");
     const [category, setCategory] = useState('');
     const [message, setMessage] = useState('');
+    const navigate = useNavigate();
     
     const handleSubmit = (e) => {
         e.preventDefault();
         createRequest();
+        navigate("/");
     } 
 
     /* Insert request */

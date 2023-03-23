@@ -47,7 +47,7 @@ app.delete('/test/:id', (req, res) => {
 
 app.use('/login', (req, res) => {
   res.send({
-      token: {token: 'tester1111'}
+      token: 'flexnes'
   })
 })
 

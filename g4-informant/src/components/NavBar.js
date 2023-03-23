@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
-export default function NavBar() { 
+export default function NavBar() {
+
     return (  
         <nav className="navbar">
             <NavLink to="/" id="navbar-title">G4 Informant</NavLink>
@@ -9,7 +10,7 @@ export default function NavBar() {
                 <NavLink to="/blog">Blog</NavLink>
                 <NavLink to="/foresporsel">Request</NavLink>
                 <NavLink to="/workbench">Workbench</NavLink>
-                <NavLink to="/login">Login</NavLink>
+                <NavLink to="/login">logg inn</NavLink>
             </div>
         </nav>
     );

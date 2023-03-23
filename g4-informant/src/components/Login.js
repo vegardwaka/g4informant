@@ -6,22 +6,11 @@ import PropTypes from 'prop-types'
 export default function Login({ setToken }) {
     const [epost, setEpost] = useState('');
     const [passord, setPassord] = useState('');
-    //const [feil, setFeil] = useState('');
     const [bruker, setBruker] = useState([]);
     const navigate = useNavigate();
-    
-    const handleSubmit = async (e) => {
-        e.preventDefault()
-        const token = await getUser({
-            epost,
-            passord
-        })
-        setToken(token)
-    };
 
-    /* Hente bruker */
-async function getUser() {
-        fetch(`http://localhost:3001/bruker/${epost}&${passord}`, {
+    /*async function getUser() {
+        await fetch(`http://localhost:3001/bruker/${epost}&${passord}`, {
             method: 'GET',
         })
           .then(response => {
@@ -29,12 +18,41 @@ async function getUser() {
           })
           .then(data => { setBruker(data) 
           })
-          .then(() => {
-            navigate('/');
-        });
     }
-  
-    
+
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+        const token = await getUser({
+            epost,
+            passord
+        })
+        setToken(token)
+    }*/
+
+    async function getUser() {
+        const response = await fetch(`http://localhost:3001/bruker/${epost}&${passord}`, {
+          method: 'GET',
+        });
+        const data = await response.json();
+        setBruker(data);
+        let token = ""/*
+        const test = data.brukernavn
+        token = test*/
+        const testerr = bruker.map((y) => token = y.brukernavn)
+        return token;
+        //trenger en form for await, funker hvis vi trykker submit to ganger
+    }   
+      
+      
+      const handleSubmit = async (e) => {
+        e.preventDefault();
+        const token = await getUser();
+        setToken(token);
+       // navigate("/");
+      };
+
+    /* Hente bruker */
+
     const tabs = Array.isArray(bruker) ? bruker.map((y) => y.brukernavn) : [];
     let tekst
     console.log(tabs.length)

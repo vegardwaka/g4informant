@@ -1,32 +1,19 @@
 import {useState} from 'react'
-      
-
+      // IKKE RØR DETTE
 export default function useToken() {
-    const getToken = () =>{
-        const tokenString = localStorage.getItem('token')
-        if (tokenString) {
-        console.log(tokenString)
-        const userToken = JSON.parse(tokenString)
-        console.log(userToken)
-        if (userToken && userToken.token) {
-            return userToken?.token;
-          }
-          return null;
-        }
-     
-    } 
-
-    const [token, setToken] = useState(getToken())
-    const saveToken = userToken => {
-        if (userToken && userToken.token) {
-          localStorage.setItem('token', JSON.stringify(userToken))
-          setToken(userToken.token)
-          console.log(userToken)
-        }
-      }
-      
-      return {
-        setToken: saveToken,
-        token
-      }
+  const getToken =() =>{
+    const tokenString = localStorage.getItem('token')
+    const userToken = JSON.parse(tokenString)
+    return userToken?.token
+} 
+const [token, setToken] = useState(getToken())
+const saveToken = userToken => {
+  console.log(userToken)
+    localStorage.setItem('token', JSON.stringify(userToken))
+    setToken(userToken.token)
+  }
+  return {
+    setToken: saveToken,
+    token
+  }
 }
