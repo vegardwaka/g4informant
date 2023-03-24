@@ -1,6 +1,11 @@
 import { NavLink } from "react-router-dom";
 export default function NavBar() {
 
+    function signOut() {
+        localStorage.removeItem('token')
+        window.location.reload(false);
+    }
+
     return (  
         <nav className="navbar">
             <NavLink to="/" id="navbar-title">G4 Informant</NavLink>
@@ -10,9 +15,8 @@ export default function NavBar() {
                 <NavLink to="/blog">Blog</NavLink>
                 <NavLink to="/foresporsel">Request</NavLink>
                 <NavLink to="/workbench">Workbench</NavLink>
-                {localStorage.getItem('token') ? <NavLink to="/login">Sign Out</NavLink> : <NavLink to="/login">Login</NavLink>}
+                {localStorage.getItem('token') ? <NavLink to="/home" onClick={signOut}>Sign Out</NavLink> : <NavLink to="/login">Login</NavLink>}
             </div>
         </nav>
     );
 }
- 

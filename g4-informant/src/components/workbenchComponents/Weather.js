@@ -10,14 +10,14 @@ fetch(`http://localhost:3001/weather`, {
     })
     .then(data => { setWeather(data)
     })
-    const test = weather.map((y) => y.weather)
+    const test = weather.map((y) => y.air_temperature)
     /*
     -Gjøre API kall inne i denne komponenten?
     -Bilde for vær type?
     -Tempartur Celsius/Fahrenheit
     -Standard bakgrunnsbilde?
     -Flere opplysninger om vær?
-    -baby yoda
+    -baby yoda e dø
     */
     return (
         <div>

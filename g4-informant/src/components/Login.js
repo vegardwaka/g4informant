@@ -1,13 +1,13 @@
-import { useState, useEffect } from "react";
-import { useNavigate } from 'react-router-dom';
+import { useState, useEffect } from "react"
+import { useNavigate } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
 
 export default function Login({ setToken }) {
-    const [epost, setEpost] = useState('');
-    const [passord, setPassord] = useState('');
-    const [bruker, setBruker] = useState([]);
-    const navigate = useNavigate();
+    const [epost, setEpost] = useState('')
+    const [passord, setPassord] = useState('')
+    const [bruker, setBruker] = useState([])
+    const navigate = useNavigate()
 
     /* sjekker database */
 
@@ -19,17 +19,19 @@ export default function Login({ setToken }) {
             return response.json()
         })
         .then(data => {
-            setBruker(data);
+            setBruker(data)
             if (data.length > 0) {
                 const token = data[0].brukernavn;
-                setToken(token);
+                setToken(token)
             }
         });
     }
       
     const handleSubmit = async (e) => {
-        e.preventDefault();
-        await getUser();;
+        e.preventDefault()
+        await getUser()
+        navigate('/')
+        window.location.reload(false);
       };
 
     /* Hente bruker */
