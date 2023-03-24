@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types'
 
@@ -9,54 +9,33 @@ export default function Login({ setToken }) {
     const [bruker, setBruker] = useState([]);
     const navigate = useNavigate();
 
-    /*async function getUser() {
-        await fetch(`http://localhost:3001/bruker/${epost}&${passord}`, {
-            method: 'GET',
-        })
-          .then(response => {
-             return response.json()
-          })
-          .then(data => { setBruker(data) 
-          })
-    }
-
-    const handleSubmit = async (e) => {
-        e.preventDefault()
-        const token = await getUser({
-            epost,
-            passord
-        })
-        setToken(token)
-    }*/
+    /* sjekker database */
 
     async function getUser() {
         const response = await fetch(`http://localhost:3001/bruker/${epost}&${passord}`, {
-          method: 'GET',
+            method: 'GET',
+        })
+        .then(response => {
+            return response.json()
+        })
+        .then(data => {
+            setBruker(data);
+            if (data.length > 0) {
+                const token = data[0].brukernavn;
+                setToken(token);
+            }
         });
-        const data = await response.json();
-        setBruker(data);
-        let token = ""/*
-        const test = data.brukernavn
-        token = test*/
-        const testerr = bruker.map((y) => token = y.brukernavn)
-        return token;
-        //trenger en form for await, funker hvis vi trykker submit to ganger
-    }   
+    }
       
-      
-      const handleSubmit = async (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        const token = await getUser();
-        setToken(token);
-       // navigate("/");
+        await getUser();;
       };
 
     /* Hente bruker */
 
-    const tabs = Array.isArray(bruker) ? bruker.map((y) => y.brukernavn) : [];
+    const tabs = bruker?.map((y) => y.brukernavn) ?? [];
     let tekst
-    console.log(tabs.length)
-
     return (
         <div className="login-container">
             <div className="login--form">

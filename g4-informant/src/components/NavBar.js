@@ -10,7 +10,7 @@ export default function NavBar() {
                 <NavLink to="/blog">Blog</NavLink>
                 <NavLink to="/foresporsel">Request</NavLink>
                 <NavLink to="/workbench">Workbench</NavLink>
-                <NavLink to="/login">logg inn</NavLink>
+                {localStorage.getItem('token') ? <NavLink to="/login">Sign Out</NavLink> : <NavLink to="/login">Login</NavLink>}
             </div>
         </nav>
     );

@@ -1,9 +1,11 @@
-import {useState} from 'react';
+import { useState } from 'react';
 import APIKlokke from "./workbenchData/APIKlokke"
+import Weather from "./workbenchComponents/Weather"
+import Template from "./templates/Template"
 
 export default function Workbench() {
-    const [count, setCount] = useState(0);
     const [klokke, setKlokke] = useState("");
+    const [tall, setTall] = useState(4);
 
     function APIKlokke(){
         fetch("http://worldtimeapi.org/api/ip")
@@ -13,29 +15,56 @@ export default function Workbench() {
         });
     };
 
-    function handleClickAdd() {
-        setCount(count + 1)
-   
+    function testing() {
+        setTall(2);
     }
-
-    function handleClickSub() {
-        setCount(count - 1)
-    }
+    
 
     return (
-        <div className="workbench-container">
-            <h1>Velkommen til din arbeidsbenk</h1>
-            <p>Denne er WIP (work in progress)</p>
-            <p>Her kommer det noe.</p>
-            <div className="workbench-box">
-                <h2 className="workbench-counter">{count}</h2>
-                <button onClick={handleClickAdd} className="workbench-button-add">+</button>
-                <button onClick={handleClickSub} className="workbench-button-sub">-</button>
+      <div>
+        <h2 className="workbench-title">Welcome to your workbench</h2>
+        <div className="workbench">
+            <div className="workbench-template-list">
+                <h3 className="template-title">Templates</h3>
+                <div className="workbench-templates">
+                    <Template 
+                        antall="4"
+                        test={testing}
+                    />
+                    <Template 
+                        antall="6" 
+                        bredde="33.3%"
+                        test={testing}
+                    />
+                    <Template 
+                        antall="2" 
+                        bredde="50%" 
+                        hoy="100%"
+                        test={testing}
+                    />
+                    <Template 
+                        antall="2" 
+                        bredde="100%" 
+                        test={testing}
+                    />
+                    <Template 
+                        antall="4"
+                        test={testing}
+                    />
+                    <Template 
+                        antall="4"
+                        test={testing}
+                    />
+                    <Template 
+                        antall="4"
+                        test={testing}
+                    />
+                </div>
             </div>
-            <div className="workbench-box">
-                <h2 className="workbench-counter">{klokke} </h2>
-                <button onClick={APIKlokke} className="workbench-button-add">+</button>
+            <div className="workbench--screen">
+                <Template  antall={tall}/>
             </div>
         </div>
+    </div>
     )
 }

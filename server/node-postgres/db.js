@@ -1,3 +1,5 @@
+const { response } = require('express');
+
 const Pool = require('pg').Pool
 const pool = new Pool({
   user: 'postgres',
@@ -60,8 +62,27 @@ const pool = new Pool({
       })
     })
   }
+
+  const getWeather = () => {
+    return new Promise(function(resolve, reject) {
+      const id = parseInt(request.params.id)
+      fetch('https://api.met.no/weatherapi/locationforecast/2.0/compact?lat=60.10&lon=9.58 ', {
+        method: 'GET',
+      })
+      .then(response =>{
+        response.json()
+      })
+      .then(data => {return data})
+      if (error) {
+        reject(error)
+      }
+      resolve(`Weather fetched`)
+    })
+  }
+
   
   module.exports = {
+    getWeather,
     getUsers,
     createRequest,
     deleteRequest,

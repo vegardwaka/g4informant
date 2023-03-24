@@ -304,6 +304,49 @@ padding: 20px;
 
 /* Workbench */
 
+.workbench{
+  display: flex;
+}
+
+.template-title{
+  text-align: center;
+}
+
+.workbench-title{
+  text-align: center;
+  margin-top: auto;
+}
+
+.workbench-template-list{
+  width: 250px;
+  height: auto;
+  border: 1px #000000;
+  border-style: solid;
+  border-radius: 5px;
+  flex-direction: row;
+  flex: 0 0 auto;
+  overflow-x: auto;
+}
+
+.workbench-templates{
+  width: 100%;
+  height: 25%;
+  padding: 10px;
+}
+
+.workbench--screen{
+  display: flex;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 960px;
+  height: 590px;
+  border: 2px #000000;
+  border-style: solid;
+  border-radius: 5px;
+  
+}
+
 .workbench-box {
   display: grid;
   align-items: center;
@@ -326,3 +369,27 @@ padding: 20px;
   padding: 5px 10px 5px 10px;
   border-radius: 15px;
 }
+
+.templateBox {
+  display: flex;
+  position: relative;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 100%;
+  border: 1px;
+  border-style: solid;
+  box-sizing: border-box;
+}
+
+.div1 {
+  width: 50%;
+  height: 50%;
+  border: 1px;
+  border-style: dotted;
+  box-sizing: border-box;
+}
+
+.templateBox:hover {
+  background-color: grey;
+}
+
