@@ -13,8 +13,9 @@ export default function NavBar() {
                 <NavLink to="/" activeclassname="active">Home</NavLink>
                 <NavLink to="/about">About</NavLink>
                 <NavLink to="/blog">Blog</NavLink>
-                <NavLink to="/foresporsel">Request</NavLink>
-                <NavLink to="/workbench">Workbench</NavLink>
+                {localStorage.getItem('token') ? <NavLink to="/Request">Request</NavLink> : null}
+                {localStorage.getItem('token') ? <NavLink to="/workbench">Workbench</NavLink>: null}
+                {localStorage.getItem('token') ? <NavLink to="/UserCreate">Create user</NavLink>: null}
                 {localStorage.getItem('token') ? <NavLink to="/home" onClick={signOut}>Sign Out</NavLink> : <NavLink to="/login">Login</NavLink>}
             </div>
         </nav>

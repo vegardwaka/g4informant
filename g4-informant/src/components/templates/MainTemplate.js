@@ -1,4 +1,4 @@
-export default function Template(props) {
+export default function MainTemplate(props) {
     let nyListe = []
     for(let i=0; i<props.antall; i++)
         nyListe[i] = i;
@@ -6,13 +6,14 @@ export default function Template(props) {
     const liste = nyListe.map(x => 
         <div 
             className="div1" 
-            onClick={props.swap } 
+            onClick={props.swap} 
             style={{width: props.bredde, height: props.hoy}}>
+            <button className="feature-button">Add Feature +</button>
         </div>
     )
 
     return (
-        <div className="templateBox" >
+        <div className="templateBoxMain">
             {liste}
         </div>
     )

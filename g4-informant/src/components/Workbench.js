@@ -1,68 +1,44 @@
 import { useState } from 'react';
-import APIKlokke from "./workbenchData/APIKlokke"
-import Weather from "./workbenchComponents/Weather"
 import Template from "./templates/Template"
+import MainTemplate from "./templates/MainTemplate"
+import TemplateList from "./templates/TemplateList"
+import ComponentList from "./workbenchComponents/ComponentsList"
 
 export default function Workbench() {
-    const [klokke, setKlokke] = useState("");
-    const [tall, setTall] = useState(4);
+    const [tall, setTall] = useState(0)
+    const [hoyde, setHoyde] = useState('')
+    const [bredde, setBredde] = useState('')
+    const [isActive, setIsActive] = useState(false)
+    const [isActive2, setIsActive2] = useState(true)
+    const [render, setRender] = useState(true)
 
-    function APIKlokke(){
-        fetch("http://worldtimeapi.org/api/ip")
-        .then((response) => response.json())
-        .then((data) => {
-            setKlokke(data.datetime);
-        });
-    };
-
-    function testing() {
-        setTall(2);
+    const handleClick2 = () => {
+        setIsActive(false)
+        setIsActive2(true)
+        setTall(0)
+        setHoyde('')
+        setBredde('')
     }
-    
+
+
+
+    function templateStyles(tallet, hoys, breds) {
+        setTall(tallet)
+        setHoyde(hoys)
+        setBredde(breds)
+        //handleClick()
+    }
 
     return (
       <div>
+        
         <h2 className="workbench-title">Welcome to your workbench</h2>
         <div className="workbench">
-            <div className="workbench-template-list">
-                <h3 className="template-title">Templates</h3>
-                <div className="workbench-templates">
-                    <Template 
-                        antall="4"
-                        test={testing}
-                    />
-                    <Template 
-                        antall="6" 
-                        bredde="33.3%"
-                        test={testing}
-                    />
-                    <Template 
-                        antall="2" 
-                        bredde="50%" 
-                        hoy="100%"
-                        test={testing}
-                    />
-                    <Template 
-                        antall="2" 
-                        bredde="100%" 
-                        test={testing}
-                    />
-                    <Template 
-                        antall="4"
-                        test={testing}
-                    />
-                    <Template 
-                        antall="4"
-                        test={testing}
-                    />
-                    <Template 
-                        antall="4"
-                        test={testing}
-                    />
-                </div>
-            </div>
+            
+            {render ? <TemplateList/> : <ComponentList/>}
+
             <div className="workbench--screen">
-                <Template  antall={tall}/>
+                <MainTemplate  antall={tall} hoy={hoyde} bredde={bredde}/>
             </div>
         </div>
     </div>

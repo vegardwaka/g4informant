@@ -1,16 +1,16 @@
-import {  useState } from "react";
-import { useNavigate } from 'react-router-dom';
+import {  useState } from "react"
+import { useNavigate } from 'react-router-dom'
 
 export default function Request() {
-    const [title, setTitle] = useState("");
-    const [category, setCategory] = useState('');
-    const [message, setMessage] = useState('');
-    const navigate = useNavigate();
+    const [title, setTitle] = useState("")
+    const [category, setCategory] = useState('')
+    const [message, setMessage] = useState('')
+    const navigate = useNavigate()
     
     const handleSubmit = (e) => {
-        e.preventDefault();
-        createRequest();
-        navigate("/");
+        e.preventDefault()
+        createRequest()
+        navigate("/")
     } 
 
     /* Insert request */
@@ -27,7 +27,7 @@ export default function Request() {
             return response.text();
           })
           .then(data => {
-            alert(data);
+            alert(data)
           });
     }
 

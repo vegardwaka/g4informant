@@ -75,9 +75,10 @@ body {
   margin-bottom: 8px;
 }
 
-/* Login */
+/* input */
 
-.login-container {
+.input-container {
+  text-align: center;
   display: flex;
   justify-content: center;
   width: 300px;
@@ -88,7 +89,7 @@ body {
   margin: auto;
 }
 
-.login--title {
+.input--title {
   width: 100%;
   text-align: center;
   padding-bottom: 10px;
@@ -96,8 +97,8 @@ body {
 }
 
 .input--email {
+
   padding: 10px 10px 10px 10px;
-  margin-bottom: 10px;
   border-radius: 5px;
   border: 1px solid #D5D4D8;
 }
@@ -105,10 +106,11 @@ body {
 .input--password {
   padding: 10px 10px 10px 10px;
   border-radius: 5px;
+  margin-top: 10px;
   border: 1px solid #D5D4D8;
 }
 
-.login--button {
+.input--button {
   cursor: pointer;
   display: flex;
   justify-content: center;
@@ -128,12 +130,12 @@ body {
   cursor: pointer;
 }
 
-.login--button:hover {
+.input--button:hover {
   background-color: darkgrey;
 
 }
 
-.login--form {
+.input--form {
 padding: 20px;
   
 }
@@ -320,7 +322,18 @@ padding: 20px;
 .workbench-template-list{
   width: 250px;
   height: auto;
-  border: 1px #000000;
+  border: 2px #000000;
+  border-style: solid;
+  border-radius: 5px;
+  flex-direction: row;
+  flex: 0 0 auto;
+  overflow-x: auto;
+}
+
+.workbench-component-list{
+  width: 250px;
+  height: auto;
+  border: 2px #000000;
   border-style: solid;
   border-radius: 5px;
   flex-direction: row;
@@ -341,7 +354,7 @@ padding: 20px;
   margin-right: auto;
   width: 960px;
   height: 590px;
-  border: 2px #000000;
+  border: 3px #000000;
   border-style: solid;
   border-radius: 5px;
   
@@ -361,14 +374,6 @@ padding: 20px;
   text-align: center;
 }
 
-.workbench-button-add{
-  padding: 5px 10px 5px 10px;
-  border-radius: 15px;
-}
-.workbench-button-sub{
-  padding: 5px 10px 5px 10px;
-  border-radius: 15px;
-}
 
 .templateBox {
   display: flex;
@@ -379,6 +384,7 @@ padding: 20px;
   border: 1px;
   border-style: solid;
   box-sizing: border-box;
+  margin-bottom: 10px;
 }
 
 .div1 {
@@ -390,6 +396,28 @@ padding: 20px;
 }
 
 .templateBox:hover {
-  background-color: grey;
+  background-color: rgb(164, 164, 164);
 }
 
+.feature-button{
+  display: flex;
+  position: relative;
+  top: 50%;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  cursor: pointer;
+}
+
+.templateBoxMain {
+  display: flex;
+  position: relative;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 100%;
+  border: 1px;
+  border-style: solid;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+}

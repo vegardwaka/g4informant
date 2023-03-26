@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { useNavigate } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
@@ -28,20 +28,49 @@ export default function Login({ setToken }) {
     }
       
     const handleSubmit = async (e) => {
-        e.preventDefault()
+        //e.preventDefault()
         await getUser()
-        navigate('/')
-        window.location.reload(false);
+        if(localStorage.getItem('token')){
+            navigate('/')
+            window.location.reload(false)}
+        else {
+            window.alert("User not found! Check your email and password input")
+            return null
+        }
       };
 
     /* Hente bruker */
+    function validateemail() {
+            let res = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
+            return res.test(epost);
+    }
+    
+    function validatepassword() {
+        if (passord.length < 4) {
+            return false
+        }
+        return true
 
-    const tabs = bruker?.map((y) => y.brukernavn) ?? [];
-    let tekst
+    }
+    function submitknapp(){
+        validateemail()
+        validatepassword()
+        if(!validateemail(epost)) {
+            window.alert("Check your Email input!")
+            return null
+        }
+        else if(!validatepassword()) {
+            window.alert("Passwords cannot be less than 4 characters!")
+            return null
+        }
+        
+        handleSubmit()
+    }
+
     return (
-        <div className="login-container">
-            <div className="login--form">
-                <h2 className="login--title">Login</h2>
+        <div className="input-container">
+            <div className="input--form">
+                <h2 className="input--title">Login</h2>
                 <input 
                     required
                     type="email" 
@@ -62,10 +91,8 @@ export default function Login({ setToken }) {
                     placeholder="Password..."
                 />
                 <br/>
-                <button className="login--button" onClick={handleSubmit}>submit</button>
+                <button className="input--button" onClick={submitknapp}>submit</button>
                 <br/>
-                <p className="input--feil">{tekst}</p>
-                <p>{tabs.length > 0 ? "bruker finnes" : "bruker finnes ikke"}</p>
             </div>
         </div>
     )
