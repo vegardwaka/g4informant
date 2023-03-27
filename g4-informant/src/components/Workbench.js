@@ -31,7 +31,6 @@ export default function Workbench() {
 
     return (
       <div>
-        
         <h2 className="workbench-title">Welcome to your workbench</h2>
         <div className="workbench">
             

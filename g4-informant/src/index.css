@@ -254,7 +254,6 @@ padding: 20px;
 .foresporsel--div {
   display: flex;
   justify-content: center;
-  
 }
 
 .foresporsel--form {
@@ -420,4 +419,35 @@ padding: 20px;
   border-style: solid;
   box-sizing: border-box;
   margin-bottom: 10px;
+}
+
+
+/* HomeCard */
+
+.home-title{
+  text-align: center;
+  font-size: 40px;
+  text-transform: uppercase;
+  letter-spacing: .1rem;
+  margin-top: 150px;
+  margin-bottom: 250px;
+}
+
+.home-card-container{
+  width: 50%;
+  height: 200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.home-card-title{
+  text-align: center;
+  letter-spacing: .1rem;
+  text-transform: uppercase;
+  text-decoration: underline;
+}
+
+.home-card-desc{
+  text-align: center;
+
 }

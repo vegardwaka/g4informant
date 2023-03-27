@@ -29,11 +29,11 @@ export default function App() {
               <Route path='/Login' element={<Login setToken={setToken} />} />
               <Route path='*' element={<NotFound/>}/>
             </Routes>
-            </div>
-            <div className="footer">
-              <Footer/>
-            </div>
           </div>
+        </div>
+        <div className="footer">
+          <Footer/>
+        </div>
       </Router>
     ) 
   }

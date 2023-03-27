@@ -1,9 +1,12 @@
 import { NavLink } from "react-router-dom";
-export default function NavBar() {
+import { useNavigate } from 'react-router-dom'
 
+export default function NavBar() {
+    const navigate = useNavigate()
     function signOut() {
         localStorage.removeItem('token')
-        window.location.reload(false);
+        navigate('/')
+        window.location.reload(false)
     }
 
     return (  
@@ -14,9 +17,9 @@ export default function NavBar() {
                 <NavLink to="/about">About</NavLink>
                 <NavLink to="/blog">Blog</NavLink>
                 {localStorage.getItem('token') ? <NavLink to="/Request">Request</NavLink> : null}
-                {localStorage.getItem('token') ? <NavLink to="/workbench">Workbench</NavLink>: null}
+                {localStorage.getItem('token') ? <NavLink to="/Workbench">Workbench</NavLink>: null}
                 {localStorage.getItem('token') ? <NavLink to="/UserCreate">Create user</NavLink>: null}
-                {localStorage.getItem('token') ? <NavLink to="/home" onClick={signOut}>Sign Out</NavLink> : <NavLink to="/login">Login</NavLink>}
+                {localStorage.getItem('token') ? <NavLink to="/" onClick={signOut}>Sign Out</NavLink> : <NavLink to="/login">Login</NavLink>}
             </div>
         </nav>
     );

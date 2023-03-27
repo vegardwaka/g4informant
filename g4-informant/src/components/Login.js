@@ -4,30 +4,30 @@ import PropTypes from 'prop-types'
 
 
 export default function Login({ setToken }) {
-    const [epost, setEpost] = useState('')
-    const [passord, setPassord] = useState('')
-    const [bruker, setBruker] = useState([])
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    const [user, setUser] = useState([])
     const navigate = useNavigate()
 
-    /* sjekker database */
-
+    /* Get User from DB */
     async function getUser() {
-        const response = await fetch(`http://localhost:3001/bruker/${epost}&${passord}`, {
+        const response = await fetch(`https://g4informant.com/api.php/records/bruker/?filter=epost,eq,${email}&passord,eq,${password}`, {
             method: 'GET',
         })
         .then(response => {
             return response.json()
         })
         .then(data => {
-            setBruker(data)
-            if (data.length > 0) {
-                const token = data[0].brukernavn;
+            setUser(data)
+            if (data.records.length > 0) {
+                const token = data.records[0].brukernavn;
                 setToken(token)
             }
         });
     }
-      
-    const handleSubmit = async (e) => {
+
+    /* Set Token */
+    const tokenHandler = async (e) => {
         //e.preventDefault()
         await getUser()
         if(localStorage.getItem('token')){
@@ -40,31 +40,30 @@ export default function Login({ setToken }) {
       };
 
     /* Hente bruker */
-    function validateemail() {
+    function validateEmail() {
             let res = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
-            return res.test(epost);
+            return res.test(email);
     }
     
-    function validatepassword() {
-        if (passord.length < 4) {
+    function validatePassword() {
+        if (password.length < 4) {
             return false
         }
         return true
 
     }
-    function submitknapp(){
-        validateemail()
-        validatepassword()
-        if(!validateemail(epost)) {
+    function handleSubmit(){
+        validateEmail()
+        validatePassword()
+        if(!validateEmail(email)) {
             window.alert("Check your Email input!")
             return null
         }
-        else if(!validatepassword()) {
+        else if(!validatePassword()) {
             window.alert("Passwords cannot be less than 4 characters!")
             return null
         }
-        
-        handleSubmit()
+        tokenHandler()
     }
 
     return (
@@ -75,8 +74,8 @@ export default function Login({ setToken }) {
                     required
                     type="email" 
                     name="email"
-                    value={epost} 
-                    onChange={(e) => setEpost(e.target.value)} 
+                    value={email} 
+                    onChange={(e) => setEmail(e.target.value)} 
                     className="input--email" 
                     placeholder="Email..."
                 />
@@ -85,13 +84,13 @@ export default function Login({ setToken }) {
                     required
                     type="password" 
                     name="password"
-                    value={passord} 
-                    onChange={(e) => setPassord(e.target.value)} 
+                    value={password} 
+                    onChange={(e) => setPassword(e.target.value)} 
                     className="input--password" 
                     placeholder="Password..."
                 />
                 <br/>
-                <button className="input--button" onClick={submitknapp}>submit</button>
+                <button className="input--button" onClick={handleSubmit}>submit</button>
                 <br/>
             </div>
         </div>

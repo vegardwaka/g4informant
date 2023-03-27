@@ -6,7 +6,8 @@ export default function Request() {
     const [category, setCategory] = useState('')
     const [message, setMessage] = useState('')
     const navigate = useNavigate()
-    
+    let primaryKey;
+
     const handleSubmit = (e) => {
         e.preventDefault()
         createRequest()
@@ -14,14 +15,23 @@ export default function Request() {
     } 
 
     /* Insert request */
-    function createRequest() {
-        let brukertall = 1
-        fetch('http://localhost:3001/api_foresporsel', {
+    async function createRequest() { 
+        const response = await fetch(`https://g4informant.com/api.php/records/api_foresporsel`, {
+            method: 'GET',
+        })
+        .then(response => {
+            return response.json()
+        })
+        .then(data => {
+            primaryKey = data.records.length + 1         
+        })
+        
+        fetch(`https://g4informant.com/api.php/records/api_foresporsel`, {      
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
-          },
-          body: JSON.stringify( {title, category, brukertall, message}),
+          },    
+          body: JSON.stringify({"apiid":primaryKey,"tittel":title,"kategori":category,"brukernavn":localStorage.getItem('token').replace(/"/g, ""),"fritekst":message})
         })
           .then(response => {
             return response.text();
