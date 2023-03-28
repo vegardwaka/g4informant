@@ -1,75 +1,64 @@
 import Template from './Template'
-import Workbench from '../Workbench'
-import { useState } from 'react'
-import MainTemplate from "./MainTemplate"
+import TemplateVertical from './TemplateVertical'
 
-export default function TemplateList() {
-    const [tall, setTall] = useState(0)
-    const [hoyde, setHoyde] = useState('')
-    const [bredde, setBredde] = useState('')
-    const [isActive, setIsActive] = useState(false)
-    const [isActive2, setIsActive2] = useState(true)
-    
-    function templateStyles(tallet, hoys, breds) {
-        setTall(tallet)
-        setHoyde(hoys)
-        setBredde(breds)
-        handleClick()
+export default function TemplateList({ onQueryObj, onQueryHide, onQueryList}) {
+
+    function handleClick(count, height, width) {
+        onQueryObj({count: count, height: height, width: width})
+        onQueryHide(true)
+        onQueryList(false)
     }
-
-    const handleClick = () => {
-        setIsActive(true)
-        setIsActive2(false)
-    }
-
-    const handleClick2 = () => {
-        setIsActive(false)
-        setIsActive2(true)
-        setTall(0)
-        setHoyde('')
-        setBredde('')
-    }
-
     
     return (
-        <div className="workbench-template-list"  /* style={{display: isActive2 ? 'block' : 'none'}} */ >
-            <button className="prev-button" onClick={handleClick2} style={{display: isActive ? 'block' : 'none'}}>prev</button> 
+        <div className="workbench-template-list" style={{display: onQueryList ? 'block' : 'none'}} >
             <h3 className="template-title">Templates</h3>
             <div className="workbench-templates">
                 <Template 
-                    antall="4"
-                    hoy="50%"
-                    bredde="50%"
-                    swap={() => templateStyles(4, "50%", "50%")}
+                    count="4"
+                    height="50%"
+                    width="50%"
+                    swap={() => handleClick(4, "50%", "50%")}
                 />
                 <Template 
-                    antall="6" 
-                    hoy="50%"
-                    bredde="33.3%"
-                    swap={() => templateStyles(6, "50%", "33.3%")}
+                    count="6" 
+                    height="50%"
+                    width= "33.3%"
+                    swap={() => handleClick(6, "50%", "33.3%")}
                 />
                 <Template 
-                    antall="2" 
-                    bredde="50%" 
-                    hoy="100%"
-                    swap={() => templateStyles(2, "100%", "50%")}
+                    count="2" 
+                    height="100%"
+                    width="50%" 
+                    swap={() => handleClick(2, "100%", "50%")}
                 />
                 <Template 
-                    antall="2" 
-                    bredde="100%" 
-                    swap={() => templateStyles(2, "50%", "100%")}
+                    count="2" 
+                    width="100%" 
+                    swap={() => handleClick(2, "50%", "100%")}
                 />
                 <Template 
-                    antall="4"
-                
+                    count="4"
+                    height="100%"
+                    width="25%"
+                    swap={() => handleClick(4, "100%", "25%")}
                 />
                 <Template 
-                    antall="4"
-                    
+                    count="4"
+                    height="25%"
+                    width="100%"
+                    swap={() => handleClick(4, "25%", "100%")}
                 />
-                <Template 
-                    antall="4"
-                    
+                <TemplateVertical 
+                    count="4"
+                    height="50%"
+                    width="50%"
+                    swap={() => handleClick(4, "50%", "50%")}
+                />
+                <TemplateVertical 
+                    count="6"
+                    height="50%"
+                    width="33.3%"
+                    swap={() => handleClick(6, "50%", "33.3%")}
                 />
             </div>
         </div>

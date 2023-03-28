@@ -1,36 +1,85 @@
 import { useState } from "react"
-import { useNavigate } from 'react-router-dom'
 
 export default function UserCreate() {
-    const [epost, setEpost] = useState("")
-    const [passord,  setPassord] = useState("")
-    const [confirmPassword, setconfirmPassword] = useState("")
-    const [bruker, setBruker] = useState([])
+    const [email, setEmail] = useState("")
+    const [username, setUsername] = useState('')
+    const [password,  setPassword] = useState('')
+    const [confirmPassword, setconfirmPassword] = useState('')
+    const [primaryKey, setPrimaryKey] = useState('')
+    let text;
+
+ async function createUser() {
+    getUserId()
+    const response = await fetch('https://g4informant.com/api.php/records/bruker', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({"bruker_id":primaryKey ,"epost": email,"passord": password,"brukernavn": username})
+    })
+    .then(response => {
+        return response.json()
+    })
+    .then(data => { 
+        if (data.code === 1009) {
+            window.alert("User already exists!")
+            return null
+        } else if (data.code === 9999) {
+            console.log(data.code)
+            window.alert("Something went wrong. Try again!")
+            return null
+        } else {
+            console.log(data)
+            window.alert("User created!")
+            text = "User created!"
+        }
+    });
+}
+
+    async function getUserId(){
+        const response = await fetch('https://g4informant.com/api.php/records/bruker', {
+            method: 'GET',
+        })
+        .then(response => {
+            return response.json()
+        })
+        .then(data => {
+            setPrimaryKey(data.records.length + 1)
+        })
+    }
 
 function validateEmail() {
     let res = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
-    return res.test(epost);
+    return res.test(email);
 }
 
 function validatePassword() {
-    if (passord.length < 4) {
+    if (password.length < 4) {
         return false
     }
     return true
 }
 
 function validateConfirmPassword() {
-    if (passord !== confirmPassword) {
+    if (password !== confirmPassword) {
         return false
     }
     return true
 }
 
-function submitknapp(){
+function vaildateUsername() {
+    if (username.length < 4) {
+        return false
+    }
+    return true
+}
+
+function submitButton(){
     validateEmail()
     validatePassword()
     validateConfirmPassword()
-    if(!validateEmail(epost)) {
+    vaildateUsername()
+    if(!validateEmail(email)) {
         window.alert("Check your Email input!")
         return null
     }
@@ -42,10 +91,14 @@ function submitknapp(){
         window.alert("Passwords do not match!")
         return null
     }
+    else if(!vaildateUsername()) {
+        window.alert("Username cannot be less than 4 characters!")
+        return null
+    } 
+         createUser()
+  
 }
 
-    const tabs = bruker?.map((y) => y.brukernavn) ?? [];
-    let tekst
     return (
         <div className="input-container">
         <div className="input--form">
@@ -54,18 +107,28 @@ function submitknapp(){
                     required
                     type="email" 
                     name="email"
-                    value={epost} 
-                    onChange={(e) => setEpost(e.target.value)} 
+                    value={email} 
+                    onChange={(e) => setEmail(e.target.value)} 
                     className="input--email" 
                     placeholder="Email..."
                 />
                 <br/>
                 <input 
                     required
+                    type="username" 
+                    name="username"
+                    value={username} 
+                    onChange={(e) => setUsername(e.target.value)} 
+                    className="input--username" 
+                    placeholder="username..."
+                />
+                <br/>
+                <input 
+                    required
                     type="password" 
                     name="password"
-                    value={passord} 
-                    onChange={(e) => setPassord(e.target.value)} 
+                    value={password} 
+                    onChange={(e) => setPassword(e.target.value)} 
                     className="input--password" 
                     placeholder="Password..."
                 />
@@ -79,9 +142,9 @@ function submitknapp(){
                     placeholder="Confirm Password..."
                 />
                 <br/>
-                <button className="input--button" onClick={submitknapp}>submit</button>
+                <button className="input--button" onClick={submitButton}>submit</button>
                 <br/>
-                <p className="input--feil">{tekst}</p>
+                <p className="input--feil">{text}</p>
             </div>
         </div>
     )

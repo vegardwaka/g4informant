@@ -21,12 +21,12 @@ export default [
         id: 4,
         title:"27. Mars",
         description:"Vi sliter sterkt."
-    }/*,
+    },
     {
         id: 5,
-        title:"dag 5",
-        description:"sfdjghghfghgfd"
-    },
+        title:"28. Mars",
+        description:"Vi sliter litt mindre, men fortsatt sterkt"
+    }/*,
     {
         id: 6,
         title:"dag 6",
