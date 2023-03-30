@@ -21,7 +21,7 @@ fetch(`http://localhost:3001/weather`, {
     */
     return (
         <div>
-        <p>{test}</p>
+            <p>{test}</p>
         </div>
     )
 }

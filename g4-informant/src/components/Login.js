@@ -20,10 +20,10 @@ export default function Login({ setToken }) {
         .then(data => {
             setUser(data)
             if (data.records.length > 0) {
-                const token = data.records[0].brukernavn;
+                const token = data.records[0].brukernavn
                 setToken(token)
             }
-        });
+        })
     }
 
     /* Set Token */
@@ -41,8 +41,8 @@ export default function Login({ setToken }) {
 
     /* Hente bruker */
     function validateEmail() {
-            let res = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
-            return res.test(email);
+            let res = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/
+            return res.test(email)
     }
     
     function validatePassword() {

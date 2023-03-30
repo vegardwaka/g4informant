@@ -6,7 +6,7 @@ export default function Request() {
     const [category, setCategory] = useState('')
     const [message, setMessage] = useState('')
     const navigate = useNavigate()
-    let primaryKey;
+    let primaryKey
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -34,7 +34,7 @@ export default function Request() {
           body: JSON.stringify({"apiid":primaryKey,"tittel":title,"kategori":category,"brukernavn":localStorage.getItem('token').replace(/"/g, ""),"fritekst":message})
         })
           .then(response => {
-            return response.text();
+            return response.text()
           })
           .then(data => {
             alert(data)

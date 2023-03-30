@@ -6,21 +6,33 @@ export default function UserCreate() {
     const [password,  setPassword] = useState('')
     const [confirmPassword, setconfirmPassword] = useState('')
     const [primaryKey, setPrimaryKey] = useState('')
-    let text;
+    let text
+    let key
 
  async function createUser() {
-    getUserId()
+    
     const response = await fetch('https://g4informant.com/api.php/records/bruker', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({"bruker_id":primaryKey ,"epost": email,"passord": password,"brukernavn": username})
+        method: 'GET',
     })
     .then(response => {
         return response.json()
     })
+    .then(data => {
+        key = data.records.length + 1
+    })
+
+    const response2 = await fetch('https://g4informant.com/api.php/records/bruker', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({"bruker_id":key ,"epost": email,"passord": password,"brukernavn": username})
+    })
+    .then(response2 => {
+        return response2.json()
+    })
     .then(data => { 
+        console.log(data)
         if (data.code === 1009) {
             window.alert("User already exists!")
             return null
@@ -35,7 +47,7 @@ export default function UserCreate() {
         }
     });
 }
-
+/*
     async function getUserId(){
         const response = await fetch('https://g4informant.com/api.php/records/bruker', {
             method: 'GET',
@@ -47,7 +59,7 @@ export default function UserCreate() {
             setPrimaryKey(data.records.length + 1)
         })
     }
-
+*/
 function validateEmail() {
     let res = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
     return res.test(email);
@@ -74,7 +86,7 @@ function vaildateUsername() {
     return true
 }
 
-function submitButton(){
+async function submitButton(){
     validateEmail()
     validatePassword()
     validateConfirmPassword()
@@ -95,7 +107,8 @@ function submitButton(){
         window.alert("Username cannot be less than 4 characters!")
         return null
     } 
-         createUser()
+          
+          createUser()
   
 }
 

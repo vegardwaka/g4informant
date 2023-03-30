@@ -15,7 +15,6 @@ import useToken from './components/useToken'
 
 export default function App() {
   const { token, setToken } = useToken()
-  
   if(!localStorage.getItem('token')) { 
     return (
       <Router>
