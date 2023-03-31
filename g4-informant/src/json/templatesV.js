@@ -1,0 +1,20 @@
+export default [
+    {
+        id:1,
+        count:"4",
+        height:"50%",
+        width:"50%",
+    },
+    {
+        id:2,
+        count:"6",
+        height:"50%",
+        width:"33.3%",
+    },
+    {
+        id:3,
+        count:"2",
+        height:"50%",
+        width:"100%",
+    }
+]
