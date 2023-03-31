@@ -317,6 +317,16 @@ padding: 20px;
   display: flex;
 }
 
+.save-workbench-button{
+  position: relative;
+  display: flex;
+  justify-content: right;
+  margin-left: auto;
+  margin-right: 65px;
+  margin-bottom: 5px;
+  padding: 5px;
+}
+
 .prev-button{
   position: absolute;
 }
@@ -340,9 +350,15 @@ padding: 20px;
   overflow-x: auto;
 }
 
+.workbench-templates{
+  width: 100%;
+  height: 25%;
+  padding: 10px;
+}
+
 .workbench-component-list{
   width: 250px;
-  height: auto;
+  height: 590px;
   border: 2px #000000;
   border-style: solid;
   border-radius: 5px;
@@ -351,7 +367,7 @@ padding: 20px;
   overflow-x: auto;
 }
 
-.workbench-templates{
+.workbench-components{
   width: 100%;
   height: 25%;
   padding: 10px;
@@ -444,6 +460,22 @@ padding: 20px;
   margin-bottom: 10px;
 }
 
+.MainTemplateCross{
+  display: block;
+  position: relative;
+  top: -100%;
+  width: 30px;
+  padding-left: 9px;
+  margin-left: 10px;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border: 1px #000000;
+  border-style: solid;
+  border-radius: 30px;
+  background-color: whitesmoke;
+}
+
 .feature-button{
   display: flex;
   position: relative;
@@ -483,4 +515,49 @@ padding: 20px;
 .home-card-desc{
   text-align: center;
 
+}
+
+.weatherBox{
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  color: whitesmoke;
+  width: 200px;
+  height: 200px;
+  background-color: #66e0ff;
+  border: 2px rgb(0, 0, 0);
+  border-style: solid;
+  border-radius: 2px;
+}
+
+.weatherBox h3{
+
+  border-bottom: 1px #f4f4f4;
+}
+
+.weatherBox h1{
+  text-align: center;
+  letter-spacing: 0.1rem;
+
+}
+
+#weathericon {
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.clockBox{
+  display: inline-block;
+  box-sizing: border-box;
+  justify-content: center;
+  width: 200px;
+  height: 200px;
+  text-align: center;
+  border: 2px rgb(0, 0, 0);
+  border-style: solid;
+  border-radius: 2px;
 }

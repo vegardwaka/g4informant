@@ -17,6 +17,7 @@ export default function Workbench() {
     return (
       <div>
         <h2 className="workbench-title">Welcome to your workbench</h2>
+        <button type="submit" className="save-workbench-button">Save your work</button>
         <div className="workbench">
             <button 
                 className="prev-button" 
