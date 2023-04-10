@@ -4,10 +4,10 @@ import templatesH from "../../json/templatesH"
 import templatesV from "../../json/templatesV"
 
 export default function TemplateList({ onQueryObj, onQueryHide, onQueryList}) {
-
+    
     const templateListH = templatesH.map(x => 
         <Template 
-            count= {x.count}
+            count={x.count}
             height={x.height}
             width={x.width}
             swap={() => handleClick(x.count, x.height, x.width)}

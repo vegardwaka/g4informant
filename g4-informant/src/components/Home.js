@@ -15,10 +15,9 @@ export default function Home() {
 
   return (
       <div className="home">
-        
         <section id="home-section">
-        <APIKlokke/>
-        <Weather/>
+          <APIKlokke/>
+          <Weather/>
           <img src="" alt="" />
           <h1 className="home-title">informationscreen?????</h1>
         </section>

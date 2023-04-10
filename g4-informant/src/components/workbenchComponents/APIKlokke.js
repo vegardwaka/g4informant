@@ -4,7 +4,7 @@ import ExampleTime from '../../json/ExampleTime'
 export default function APIKlokke(props){
     const [SyncTime, setSyncTime] = useState([])
         useEffect(() => {
-            const proxyUrl = 'http://localhost:3001/APIClock'
+            const proxyUrl = 'http://localhost:3001/APIClock/Europe&Oslo'
             fetch(proxyUrl) 
             .then(response => response.json())
             .then(data => {
@@ -16,16 +16,16 @@ export default function APIKlokke(props){
             .catch(error => console.log(error))   
     }, []);
 
-    const [isActive, setIsActive] = useState(false)
-
-    const handleClick = () => {
-        setIsActive(current => !current)
-    }
+    
 
     return (
-        <div className="clockBox" style={{width: props.width, border: isActive ? '4px solid red' : ''}} onClick={handleClick}>
-            <p>{SyncTime.time}</p>
+        <div 
+            className="clockBox" 
+            style={{width: props.width, height: props.height, border: props.show ? '4px solid red' : ''}} 
+            onClick={props.toggle}
+        >
             <p>{SyncTime.dayOfWeek}</p>
+            <h1>{SyncTime.time}</h1>
             <p>{SyncTime.timeZone}</p>
             <p>{SyncTime.date}</p>
         </div>

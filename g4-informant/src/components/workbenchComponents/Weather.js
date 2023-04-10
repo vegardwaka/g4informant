@@ -1,28 +1,28 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 export default function Weather(props) {
-    const [isActive, setIsActive] = useState(false)
+    const [weather, setWeather] = useState([])
+    
 
-    const handleClick = () => {
-        setIsActive(current => !current)
-    }
-    /*
-    const [weather, setWeather] = useState("");
-
-    fetch(`http://G4Informant.com/weather`, {
+    async function getWeather() {
+        await fetch(`http://localhost:3001/Weather/59.40&9.06`, {
         method: 'GET',
         })
         .then(response => {
             return response.json()
         })
-        .then(data => { setWeather(data)
-    })
-
-    const test = weather.map((y) => y.air_temperature)
-    */
+        .then(data => { setWeather(data.properties.timeseries)
+        
+        })
+    }
+    useEffect(() => {
+        getWeather()
+    }, [])
+    
 
     let weatherType = "rain"
     let imgSrc = "rain.png";
+    let weatherHour = weather[0]
 
     switch(weatherType) {
         case "rain": imgSrc = "rain.png"; break;
@@ -31,10 +31,10 @@ export default function Weather(props) {
     }  
  
     return (
-        <div className="weatherBox" onClick={handleClick} style={{height:props.height, width:props.width, border:isActive ? '4px solid red' : ''}}>
+        <div className="weatherBox" onClick={props.toggle} style={{height:props.height, width:props.width, border:props.show ? '4px solid red' : ''}}>
             <h3>Norge - Bø</h3>
             <img src={`weathericon/png/${imgSrc}`} alt="" id="weathericon"/>
-            <h1>-3°C</h1>
+            <h1>{JSON.stringify(weatherHour)}</h1>
         </div>
     )
 }

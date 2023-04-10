@@ -7,17 +7,20 @@ export default function Workbench() {
     const [queryObj, setQueryObj] = useState({})
     const [queryHide, setQueryHide] = useState(false)
     const [queryList, setQueryList] = useState(true)
+    const [queryNumber, setQueryNumber] = useState(0)
     let test = true
 
     function handleClick() {
         setQueryHide(false)
         setQueryList(true)
+        setQueryObj({count:0})
+        setQueryNumber(0)
     }
 
     return (
       <div>
         <h2 className="workbench-title">Welcome to your workbench</h2>
-        <button type="submit" className="save-workbench-button">Save your work</button>
+        {queryHide && <button type="submit" className="save-workbench-button">Save your work</button>}
         <div className="workbench">
             <button 
                 className="prev-button" 
@@ -30,7 +33,9 @@ export default function Workbench() {
                     onQueryHide={setQueryHide}
                     onQueryList={setQueryList}
                 /> 
-              : <ComponentList/>
+              : <ComponentList
+                    onQueryNumber={setQueryNumber}
+                />
             }
 
             <div className="workbench--screen" style={{transform: test ? 'none' : 'rotate(90deg)'}}>
@@ -38,6 +43,7 @@ export default function Workbench() {
                     count={queryObj.count} 
                     height={queryObj.height} 
                     width={queryObj.width}
+                    number={queryNumber}
                 />
             </div>
         </div>

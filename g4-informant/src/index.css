@@ -551,13 +551,108 @@ padding: 20px;
 }
 
 .clockBox{
-  display: inline-block;
+  display: grid;
   box-sizing: border-box;
   justify-content: center;
+  align-items: center;
   width: 200px;
   height: 200px;
   text-align: center;
   border: 2px rgb(0, 0, 0);
   border-style: solid;
   border-radius: 2px;
+}
+
+/* Profile */
+
+.profile-title{
+  text-align: center;
+}
+
+.profile--header{
+  text-align: center;
+}
+.profile-workbench-container{
+  position: relative;
+  display: block;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 1000px;
+  height: 450px;
+}
+
+.profile-card{
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  border-top: 1px solid #000000;
+}
+.profile-card h2{
+  text-align: center;
+}
+.profile-buttons{
+  position: relative;
+  display: grid; 
+  justify-content: right;
+  padding: 10px;
+  margin-top: -250px;
+  margin-right: 60px;
+}
+
+.profile-screen{
+  border:1px #000000;
+  border-style: solid;
+  width: 480px;
+  height: 295px;
+  margin-left: 30px;
+}
+
+.profile--display{
+  align-items: center;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: .1rem;
+  width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
+  color: rgb(0, 0, 0);
+  background-color: rgb(240, 240, 240);
+  border-radius: 5px;
+  cursor: pointer;
+}
+.profile--edit{
+  align-items: center;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: .1rem;
+  width: 200px;
+  margin-top: 10px;
+  padding: 10px;
+  color: rgb(0, 0, 0);
+  background-color: rgb(240, 240, 240);
+  border-radius: 5px;
+  cursor: pointer;
+}
+.profile--delete{
+  align-items: center;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: .1rem;
+  width: 200px;
+  margin-top: 10px;
+  padding: 10px;
+  color: rgb(0, 0, 0);
+  background-color: rgb(240, 240, 240);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.profile--delete:hover {
+  background-color: rgb(255, 86, 86);
 }

@@ -26,10 +26,10 @@ export default [
         id: 5,
         title:"28. Mars",
         description:"Vi sliter litt mindre, men fortsatt sterkt"
-    }/*,
+    },
     {
         id: 6,
-        title:"dag 6",
-        description:"sfdjghghfghgfd"
-    } */
+        title:"10. April",
+        description:"tilbake igjen etter påske! :D"
+    } 
 ]

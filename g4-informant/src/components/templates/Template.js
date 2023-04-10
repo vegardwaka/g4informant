@@ -3,11 +3,16 @@ export default function Template(props) {
     for(let i=0; i<props.count; i++)
         list[i] = i
 
+    function toggle(id) {
+        props.swap()
+    }
+
     const templateCount = list.map(x => 
-        <div 
+        <div
             className="div1" 
-            onClick={props.swap } 
-            style={{width: props.width, height: props.height}}>
+            style={{width:props.width,  height:props.height}}
+            onClick={toggle}
+        >
         </div>
     )
 
