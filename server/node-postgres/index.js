@@ -3,7 +3,8 @@ const NodeCache = require( "node-cache" );
 const fetch = require('node-fetch')
 const app = express()
 
-const myCache = new NodeCache();
+const weatherCache = new NodeCache();
+const locationCache = new NodeCache();
        
 app.use(express.json())
 app.use(function (req, res, next) {
@@ -24,10 +25,34 @@ app.get('/APIClock/:region&:by', async (req, res) => {
   }
 })
 
+app.get('/Location/:city&:state', async (req, res) => {
+  if(locationCache.has(req.params.city + req.params.state)) {
+    console.log("location is Cached ")
+    res.send(locationCache.get(req.params.city + req.params.state))
+    return
+  }
+else {
+try {
+  const response = await fetch(`https://nominatim.openstreetmap.org/search?city=${req.params.city}&state=${req.params.state}&format=json`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'User-Agent': 'g4-informant, vebteo@gmail.com',
+      }}) 
+  const data = await response.json();
+  res.send(data)
+  locationCache.set(req.params.city + req.params.state, data, 3600)
+  console.log("Location not cached")
+} catch (error) {
+  console.error(error)
+  res.status(500).send('Error retrieving location data')
+}
+}})
+
 app.get('/Weather/:lat&:lon', async (req, res) => {
-  if(myCache.has(req.params.lat + req.params.lon)) {
-    console.log("Cached")
-    res.send(myCache.get(req.params.lat + req.params.lon))
+  if(weatherCache.has(req.params.lat + req.params.lon)) {
+    console.log("Weather is Cached")
+    res.send(weatherCache.get(req.params.lat + req.params.lon))
     return
   }
   else {
@@ -41,11 +66,11 @@ app.get('/Weather/:lat&:lon', async (req, res) => {
     const data = await response.json();
     res.send(data)
     let x = Math.random() * 900
-    myCache.set(req.params.lat + req.params.lon, data, 3600+x)
-    console.log("Not cached")
+    weatherCache.set(req.params.lat + req.params.lon, data, 3600+x)
+    console.log("Weather not cached")
   } catch (error) {
     console.error(error)
-    res.status(500).send('Error retrieving data')
+    res.status(500).send('Error retrieving weather data')
   }
 }})
 

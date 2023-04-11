@@ -20,13 +20,16 @@ export default function Workbench() {
     return (
       <div>
         <h2 className="workbench-title">Welcome to your workbench</h2>
+        {queryHide && <input type="text" className="name-your-work" placeholder="Name your work"/>}
+        {queryHide && <button type="submit" className="image-workbench-button">Upload background image</button>}
         {queryHide && <button type="submit" className="save-workbench-button">Save your work</button>}
+        
         <div className="workbench">
             <button 
                 className="prev-button" 
                 onClick={handleClick} 
                 style={{display: queryHide ? 'block' : 'none'}}
-            >Back</button>
+            >&larr;</button>
             {queryList ? 
                 <TemplateList 
                     onQueryObj={setQueryObj}
