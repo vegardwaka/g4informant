@@ -5,17 +5,17 @@ import Textarea from '../workbenchComponents/Textarea'
 
 export default function Square(props) {
     const[show, setShow] = useState(true)
-    const [lister, setLister] = useState([])
-    let element;
+    const [list, setList] = useState([])
     const [huskeListe, setHuskeListe] = []
-    let tallet;
+    let element
+    let tallet
     
     if(props.elementnumber === 1) {
-        element = <APIKlokke height="100%" width="100%"/>
+        element = <APIKlokke height="100%" width="100%" hide={true}/>
         tallet = 1
     } 
     else if (props.elementnumber === 2) {
-        element = <Weather height="100%" width="100%"/>
+        element = <Weather height="100%" width="100%" hide={true}/>
         tallet = 2
     }
     else if (props.elementnumber === 3) {
@@ -25,7 +25,7 @@ export default function Square(props) {
 
     const hideButton = () => {
         if(props.elementnumber > 0) {
-            lister[props.id] = element
+            list[props.id] = element
            // huskeListe[props.id] = tallet
             //setHuskeListe([...huskeListe])
            // console.log("Listen: " + huskeListe)
@@ -42,7 +42,7 @@ export default function Square(props) {
             style={{width: props.widthen, height: props.heighten}}
         >
             {show ? <button className="feature-button" onClick={hideButton} style={{display: show ? "block" : "none"}}>Add Feature +</button>
-            : lister[props.id]}
+            : list[props.id]}
             {show ? null : <p onClick={() => setShow(true)} className="MainTemplateCross">X</p>}
         </div>
     )

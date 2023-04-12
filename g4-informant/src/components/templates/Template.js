@@ -10,7 +10,7 @@ export default function Template(props) {
     const templateCount = list.map(x => 
         <div
             className="div1" 
-            style={{width:props.width,  height:props.height}}
+            style={{width:props.width, height:props.height}}
             onClick={toggle}
         >
         </div>

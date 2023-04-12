@@ -34,11 +34,11 @@ export default function CompontentsList({onQueryNumber}){
 
     return(
         <div className="workbench-component-list">
-            <h3 className="workbench-title">Elements</h3>
+            <h3 className="template-title">Elements</h3>
             <div className="workbench-components">
-                <APIKlokke width="100%"  toggle={handleClick} show={isActive}/>
+                <APIKlokke width="100%"  toggle={handleClick} show={isActive} hide={false}/>
                 <br />
-                <Weather width="100%" toggle={handleClick2} show={isActive2}/>
+                <Weather width="100%" toggle={handleClick2} show={isActive2} hide={false}/>
                 <br />
                 <Textarea width="100%" toggle={handleClick3} show={isActive3}/>
                 <br />

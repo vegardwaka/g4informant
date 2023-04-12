@@ -97,14 +97,12 @@ body {
 }
 
 .input--email {
-
   padding: 10px 10px 10px 10px;
   border-radius: 5px;
   border: 1px solid #D5D4D8;
 }
 
 .input--username {
-
   padding: 10px 10px 10px 10px;
   border-radius: 5px;
   margin-top: 10px;
@@ -144,8 +142,7 @@ body {
 }
 
 .input--form {
-padding: 20px;
-  
+  padding: 20px; 
 }
 
 .input--feil {
@@ -279,14 +276,6 @@ padding: 20px;
   text-align: center;
 }
 
-.foresporsel--liste {
-
-}
-
-.foresporsel--fritekst {
-
-}
-
 .foresporsel--button {
   display: flex;
   justify-content: center;
@@ -317,36 +306,55 @@ padding: 20px;
   display: flex;
 }
 
+.workbench-buttons{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 5px;
+  margin-bottom: 5px;
+  margin-left: 16.5%;
+}
+
 .name-your-work{
   position: relative;
   display: flex;
-  justify-content: right;
-  margin-left: auto;
-  margin-right: 935px;
-  margin-bottom: 5px;
-  padding: 5px;
+  justify-content: center;
+  align-items: center;
+  margin-right: 5px;
+  padding: 11px;
 }
 
 .save-workbench-button{
   position: relative;
   display: flex;
-  justify-content: right;
-  margin-left: auto;
-  margin-top: -35px;
-  margin-right: 134px;
-  margin-bottom: 5px;
-  padding: 5px;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: .1rem;
+  color: rgb(0, 0, 0);
+  background-color: rgb(240, 240, 240);
+  border-radius: 5px;
+  padding: 10px;
   cursor: pointer;
 }
 
 .image-workbench-button{
   position: relative;
   display: flex;
-  justify-content: right;
-  margin-left: 1050px;
-  margin-top: -34px;
-  margin-bottom: 5px;
-  padding: 5px;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: .1rem;
+  color: rgb(0, 0, 0);
+  background-color: rgb(240, 240, 240);
+  border-radius: 5px;
+  padding: 10px;
+  margin-right: 285px;
   cursor: pointer;
 }
 
@@ -363,10 +371,14 @@ padding: 20px;
 
 .template-title{
   text-align: center;
+  
 }
 
 .workbench-title{
   text-align: center;
+  padding-bottom: 10px;
+  letter-spacing: .1rem;
+  text-transform: uppercase;
 }
 
 .workbench-template-list{
@@ -509,13 +521,24 @@ padding: 20px;
 .feature-button{
   display: flex;
   position: relative;
-  top: 50%;
+  top: 45%;
   justify-content: center;
   align-items: center;
   margin-left: auto;
   margin-right: auto;
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: .1rem;
+  color: rgb(0, 0, 0);
+  background-color: rgb(240, 240, 240);
+  border-radius: 5px;
+  padding: 10px;
   cursor: pointer;
 }
+
+
+
 
 /* HomeCard */
 
@@ -544,7 +567,6 @@ padding: 20px;
 
 .home-card-desc{
   text-align: center;
-
 }
 
 .weatherBox{
@@ -577,11 +599,26 @@ padding: 20px;
   margin-top: -25px;
 }
 .weather-location-degrees{
-  margin-top: 5px;
-  
+  margin-top: 5px; 
+}
+.weather-location-button {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  font-size: 10px;
+  font-weight: bold;
+  letter-spacing: .1rem;
+  color: rgb(0, 0, 0);
+  background-color: rgb(240, 240, 240);
+  border-radius: 5px;
+  padding: 5px;
+  cursor: pointer;
+  margin-bottom: -12px;
 }
 #weathericon {
-  width: 150px;
+  width: 130px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -601,6 +638,24 @@ padding: 20px;
   border: 2px rgb(0, 0, 0);
   border-style: solid;
   border-radius: 2px;
+}
+
+.clockbox-day{
+  text-align: center;
+  font-size: 16px;
+  margin-top: 10px;
+  margin-bottom: 0px;
+}
+.clockbox-time{
+  font-size: 44px;
+}
+.clockbox-zone{
+  margin-top: -10px;
+  font-size: 14px;
+}
+.clockbox-date{
+  margin-top: -15px;
+  font-size: 18px;
 }
 
 .textbox-component{
