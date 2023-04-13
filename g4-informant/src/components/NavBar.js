@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom"
 import { useNavigate } from 'react-router-dom'
 
 export default function NavBar() {
@@ -17,12 +17,13 @@ export default function NavBar() {
                 <NavLink to="/" activeclassname="active">Home</NavLink>
                 <NavLink to="/about">About</NavLink>
                 <NavLink to="/blog">Blog</NavLink>
+                <NavLink to="/Display">Display</NavLink>
                 {localStorage.getItem('token') ? <NavLink to="/Profile">Profile</NavLink> : null}
                 {localStorage.getItem('token') ? <NavLink to="/Request">Request</NavLink> : null}
                 {localStorage.getItem('token') ? <NavLink to="/Workbench">Workbench</NavLink>: null}
-                {localStorage.getItem('token') ? <NavLink to="/UserCreate">Create user</NavLink>: null}
+                {localStorage.getItem('token') ? <NavLink to="/UserCreate">Create User</NavLink>: null}
                 {localStorage.getItem('token') ? <NavLink to="/login" onClick={signOut}>Sign Out</NavLink> : <NavLink to="/login">Login</NavLink>}
             </div>
         </nav>
-    );
+    )
 }

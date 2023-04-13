@@ -17,7 +17,6 @@ export default function TimeEditAPI() {
         console.log(data)
     })
 
-
     return (
         <div>
             <h1>{timeedit}</h1>

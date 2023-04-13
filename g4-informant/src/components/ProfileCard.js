@@ -17,7 +17,6 @@ export default function ProfileCard(props) {
                 <button className="profile--edit">Edit</button>
                 <button className="profile--delete" onClick={() => props.toggle(props.id)}>Delete</button>
             </div>
-            
         </div>
     )
 }

@@ -13,6 +13,6 @@ export default function BlogList(props) {
             </div>
             ))}
         </div>
-    );
+    )
 }
  

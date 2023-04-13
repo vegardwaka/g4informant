@@ -12,8 +12,8 @@ export default function MainTemplate(props) {
     const templateCount = list.map((x,i) => 
         <Square 
             elementnumber={props.number}
-            heighten={props.height}
-            widthen={props.width}
+            sqheight={props.heighten}
+            sqwidth={props.widthen}
             toggle={toggle}
             id={i}
             sizen={props.count}

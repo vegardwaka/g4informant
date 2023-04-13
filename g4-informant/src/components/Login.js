@@ -2,7 +2,6 @@ import { useState } from "react"
 import { useNavigate } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
-
 export default function Login({ setToken }) {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -37,7 +36,7 @@ export default function Login({ setToken }) {
             window.alert("User not found! Check your email and password input")
             return null
         }
-      };
+    }
 
     /* Hente bruker */
     function validateEmail() {
@@ -50,8 +49,8 @@ export default function Login({ setToken }) {
             return false
         }
         return true
-
     }
+    
     function handleSubmit(){
         validateEmail()
         validatePassword()

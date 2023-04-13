@@ -1,6 +1,6 @@
-import React from "react";
-import AboutCard from "./AboutCard";
-import omoss from "../json/omoss";
+import React from "react"
+import AboutCard from "./AboutCard"
+import omoss from "../json/omoss"
 
 export default function About() {
     const list = omoss.map(item => {

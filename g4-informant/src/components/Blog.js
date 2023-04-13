@@ -1,6 +1,6 @@
-import React from "react";
-import BlogCard from "./BlogCard";
-import bloggInnlegg from "../json/bloggInnlegg";
+import React from "react"
+import BlogCard from "./BlogCard"
+import bloggInnlegg from "../json/bloggInnlegg"
 
 export default function Blog() {
   const liste = bloggInnlegg.map(x => {
@@ -16,6 +16,6 @@ export default function Blog() {
     <section className="blog">
         {liste}
     </section>
-  );
+  )
 }
 

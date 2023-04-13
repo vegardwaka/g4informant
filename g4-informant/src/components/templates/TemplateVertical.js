@@ -1,5 +1,3 @@
-
-
 export default function TemplateVertical(props) {
     let list = []
     for(let i=0; i<props.count; i++)

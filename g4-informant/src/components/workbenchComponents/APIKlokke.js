@@ -1,10 +1,11 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react'
 import ExampleTime from '../../json/ExampleTime'
-export default function APIKlokke(props){
 
+export default function APIKlokke(props){
     const [SyncTime, setSyncTime] = useState([])
     const [position, setPosition] = useState(["Europe", "Oslo"])
     const [show, setShow] = useState(props.hide)
+    const [display, setDisplay] = useState(props.display)
 
     useEffect(() => {
         const proxyUrl = `http://localhost:3001/APIClock/${position[0]}&${position[1]}`
@@ -17,7 +18,7 @@ export default function APIKlokke(props){
             setSyncTime(data)
         })
         .catch(error => console.log(error))   
-    }, [position]);
+    }, [position])
 
     function changeLocation() {
         const out = prompt("Please write continent and capital separated by a space.", "Europe Oslo")
@@ -35,7 +36,7 @@ export default function APIKlokke(props){
             })
             .then(response => {
                 if (!response.ok) {
-                    throw new Error('Failed to fetch data');
+                    throw new Error('Failed to fetch data')
                 } else {  
                 return response.json()}
             })
@@ -45,11 +46,11 @@ export default function APIKlokke(props){
                     return
                 }
                 else {
-            
-            setPosition([outArray[0], outArray[1]])
-            console.log("array " + outArray[0], outArray[1])
-            console.log(position[0], position[1])
-            setShow(false)} 
+                
+                setPosition([outArray[0], outArray[1]])
+                console.log("array " + outArray[0], outArray[1])
+                console.log(position[0], position[1])
+                setShow(false)} 
             })  
     }
 
@@ -59,10 +60,10 @@ export default function APIKlokke(props){
             style={{width: props.width, height: props.height, border: props.show ? '3px dashed black' : ''}} 
             onClick={props.toggle}>
             {show && <button className="weather-location-button" onClick={changeLocation}>Set location</button>}
-            <p className="clockbox-day">{SyncTime.dayOfWeek}</p>
+            {display ? <p className="clockbox-day">{SyncTime.dayOfWeek}</p> : null}
             <h1 className="clockbox-time">{SyncTime.time}</h1>
-            <p className="clockbox-zone">{SyncTime.timeZone}</p>
-            <p className="clockbox-date">{SyncTime.date}</p>
+            {display ? <p className="clockbox-zone">{SyncTime.timeZone}</p> : null}
+            {display ? <p className="clockbox-date">{SyncTime.date}</p> : null}
         </div>
     )     
 }

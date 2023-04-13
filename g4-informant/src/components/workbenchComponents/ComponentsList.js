@@ -36,9 +36,9 @@ export default function CompontentsList({onQueryNumber}){
         <div className="workbench-component-list">
             <h3 className="template-title">Elements</h3>
             <div className="workbench-components">
-                <APIKlokke width="100%"  toggle={handleClick} show={isActive} hide={false}/>
+                <APIKlokke width="100%"  toggle={handleClick} show={isActive} hide={false} display={false}/>
                 <br />
-                <Weather width="100%" toggle={handleClick2} show={isActive2} hide={false}/>
+                <Weather width="100%" toggle={handleClick2} show={isActive2} hide={false} display={false}/>
                 <br />
                 <Textarea width="100%" toggle={handleClick3} show={isActive3}/>
                 <br />

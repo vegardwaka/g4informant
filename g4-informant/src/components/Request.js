@@ -33,12 +33,12 @@ export default function Request() {
           },    
           body: JSON.stringify({"apiid":primaryKey,"tittel":title,"kategori":category,"brukernavn":localStorage.getItem('token').replace(/"/g, ""),"fritekst":message})
         })
-          .then(response => {
+        .then(response => {
             return response.text()
-          })
-          .then(data => {
+        })
+        .then(data => {
             alert(data)
-          });
+        })
     }
 
     return (    
@@ -83,7 +83,7 @@ export default function Request() {
                     cols="30" 
                     className="foresporsel--fritekst"
                 >
-                    </textarea><br/>
+                </textarea><br/>
                 <button type="submit" className="foresporsel--button">submit</button>
             </form>
         </div>

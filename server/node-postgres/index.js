@@ -1,18 +1,42 @@
 const express = require('express')
-const NodeCache = require( "node-cache" );
+const NodeCache = require( "node-cache" )
 const fetch = require('node-fetch')
+const bodyParser = require('body-parser')
 const app = express()
+const fs = require('fs')
 
-const weatherCache = new NodeCache();
-const locationCache = new NodeCache();
+const weatherCache = new NodeCache()
+const locationCache = new NodeCache()
        
 app.use(express.json())
+
 app.use(function (req, res, next) {
   res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000')
   res.setHeader('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS')
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Access-Control-Allow-Headers')
-  next();
-}) 
+  next()
+})
+
+app.use(bodyParser.json())
+
+app.post('/data/:name', (req, res) => {
+  const message = req.body
+  const data = { message: 'Saved succ' }
+  console.log(message)
+  res.json(data)
+  fs.writeFile(`infoScreens/${req.params.name}.js`, JSON.stringify(message), 'utf8' , function (err) {
+    if (err) throw err
+    console.log('File written!')
+  })
+})
+
+app.get('/data/:name', (req, res) => {
+  const message = req.body
+  fs.readFile(`infoScreens/${req.params.name}.js`, 'utf8', function (err, data) {
+    if (err) throw err
+    res.send(data)
+  })
+})
 
 app.get('/APIClock/:region&:by', async (req, res) => {
   try {
@@ -39,7 +63,7 @@ try {
       'Content-Type': 'application/json',
       'User-Agent': 'g4-informant, vebteo@gmail.com',
       }}) 
-  const data = await response.json();
+  const data = await response.json()
   res.send(data)
   locationCache.set(req.params.city + req.params.state, data, 3600)
   console.log("Location not cached")
@@ -63,7 +87,7 @@ app.get('/Weather/:lat&:lon', async (req, res) => {
         'Content-Type': 'application/json',
         'User-Agent': 'g4-informant, vebteo@gmail.com',
         }}) 
-    const data = await response.json();
+    const data = await response.json()
     res.send(data)
     let x = Math.random() * 900
     weatherCache.set(req.params.lat + req.params.lon, data, 3600+x)

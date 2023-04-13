@@ -9,46 +9,7 @@ export default function UserCreate() {
     let text
     let key
 
- async function createUser() {
-    
-    const response = await fetch('https://g4informant.com/api.php/records/bruker', {
-        method: 'GET',
-    })
-    .then(response => {
-        return response.json()
-    })
-    .then(data => {
-        key = data.records.length + 1
-    })
-
-    const response2 = await fetch('https://g4informant.com/api.php/records/bruker', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({"bruker_id":key ,"epost": email,"passord": password,"brukernavn": username})
-    })
-    .then(response2 => {
-        return response2.json()
-    })
-    .then(data => { 
-        console.log(data)
-        if (data.code === 1009) {
-            window.alert("User already exists!")
-            return null
-        } else if (data.code === 9999) {
-            console.log(data.code)
-            window.alert("Something went wrong. Try again!")
-            return null
-        } else {
-            console.log(data)
-            window.alert("User created!")
-            text = "User created!"
-        }
-    });
-}
-/*
-    async function getUserId(){
+    async function createUser() {
         const response = await fetch('https://g4informant.com/api.php/records/bruker', {
             method: 'GET',
         })
@@ -56,61 +17,97 @@ export default function UserCreate() {
             return response.json()
         })
         .then(data => {
-            setPrimaryKey(data.records.length + 1)
+            key = data.records.length + 1
+        })
+
+        const response2 = await fetch('https://g4informant.com/api.php/records/bruker', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({"bruker_id":key ,"epost": email,"passord": password,"brukernavn": username})
+        })
+        .then(response2 => {
+            return response2.json()
+        })
+        .then(data => { 
+            console.log(data)
+            if (data.code === 1009) {
+                window.alert("User already exists!")
+                return null
+            } else if (data.code === 9999) {
+                console.log(data.code)
+                window.alert("Something went wrong. Try again!")
+                return null
+            } else {
+                console.log(data)
+                window.alert("User created!")
+                text = "User created!"
+            }
         })
     }
-*/
-function validateEmail() {
-    let res = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
-    return res.test(email);
-}
+    /*
+        async function getUserId(){
+            const response = await fetch('https://g4informant.com/api.php/records/bruker', {
+                method: 'GET',
+            })
+            .then(response => {
+                return response.json()
+            })
+            .then(data => {
+                setPrimaryKey(data.records.length + 1)
+            })
+        }
+    */
+    function validateEmail() {
+        let res = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
+        return res.test(email)
+    }
 
-function validatePassword() {
-    if (password.length < 4) {
-        return false
+    function validatePassword() {
+        if (password.length < 4) {
+            return false
+        }
+        return true
     }
-    return true
-}
 
-function validateConfirmPassword() {
-    if (password !== confirmPassword) {
-        return false
+    function validateConfirmPassword() {
+        if (password !== confirmPassword) {
+            return false
+        }
+        return true
     }
-    return true
-}
 
-function vaildateUsername() {
-    if (username.length < 4) {
-        return false
+    function vaildateUsername() {
+        if (username.length < 4) {
+            return false
+        }
+        return true
     }
-    return true
-}
 
-async function submitButton(){
-    validateEmail()
-    validatePassword()
-    validateConfirmPassword()
-    vaildateUsername()
-    if(!validateEmail(email)) {
-        window.alert("Check your Email input!")
-        return null
+    async function submitButton(){
+        validateEmail()
+        validatePassword()
+        validateConfirmPassword()
+        vaildateUsername()
+        if(!validateEmail(email)) {
+            window.alert("Check your Email input!")
+            return null
+        }
+        else if(!validatePassword()) {
+            window.alert("Passwords cannot be less than 4 characters!")
+            return null
+        }
+        else if(!validateConfirmPassword()) {
+            window.alert("Passwords do not match!")
+            return null
+        }
+        else if(!vaildateUsername()) {
+            window.alert("Username cannot be less than 4 characters!")
+            return null
+        } 
+        createUser() 
     }
-    else if(!validatePassword()) {
-        window.alert("Passwords cannot be less than 4 characters!")
-        return null
-    }
-    else if(!validateConfirmPassword()) {
-        window.alert("Passwords do not match!")
-        return null
-    }
-    else if(!vaildateUsername()) {
-        window.alert("Username cannot be less than 4 characters!")
-        return null
-    } 
-          
-          createUser()
-  
-}
 
     return (
         <div className="input-container">
@@ -133,7 +130,7 @@ async function submitButton(){
                     value={username} 
                     onChange={(e) => setUsername(e.target.value)} 
                     className="input--username" 
-                    placeholder="username..."
+                    placeholder="Username..."
                 />
                 <br/>
                 <input 
