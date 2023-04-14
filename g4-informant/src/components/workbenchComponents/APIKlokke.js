@@ -3,9 +3,11 @@ import ExampleTime from '../../json/ExampleTime'
 
 export default function APIKlokke(props){
     const [SyncTime, setSyncTime] = useState([])
-    const [position, setPosition] = useState(["Europe", "Oslo"])
+    const [position, setPosition] = useState(["" + props.propcontinent,"" + props.propcapital])
     const [show, setShow] = useState(props.hide)
     const [display, setDisplay] = useState(props.display)
+    console.log("Continent: " + props.propcontinent)
+    console.log("Capital: " + props.propcapital)
 
     useEffect(() => {
         const proxyUrl = `http://localhost:3001/APIClock/${position[0]}&${position[1]}`
@@ -50,13 +52,16 @@ export default function APIKlokke(props){
                 setPosition([outArray[0], outArray[1]])
                 console.log("array " + outArray[0], outArray[1])
                 console.log(position[0], position[1])
-                setShow(false)} 
+                setShow(false)
+                sessionStorage.setItem("continent",outArray[0])
+                sessionStorage.setItem("capital", outArray[1])
+            } 
             })  
     }
 
     return (
         <div 
-            className="clockBox" 
+            className="API-container" 
             style={{width: props.width, height: props.height, border: props.show ? '3px dashed black' : ''}} 
             onClick={props.toggle}>
             {show && <button className="weather-location-button" onClick={changeLocation}>Set location</button>}

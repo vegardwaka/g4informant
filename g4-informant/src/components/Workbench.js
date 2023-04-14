@@ -2,6 +2,7 @@ import { useState } from 'react'
 import MainTemplate from "./templates/MainTemplate"
 import TemplateList from "./templates/TemplateList"
 import ComponentList from "./workbenchComponents/ComponentsList"
+import Weather from "./workbenchComponents/Weather"
 
 export default function Workbench() {
     const [queryObj, setQueryObj] = useState({})
@@ -10,7 +11,7 @@ export default function Workbench() {
     const [title, setTitle] = useState('')
     const [queryNumber, setQueryNumber] = useState(0)
     let test = true
-
+    let key
     function handleClick() {
         setQueryHide(false)
         setQueryList(true)
@@ -18,27 +19,68 @@ export default function Workbench() {
         setQueryNumber(0)
     }
 
-    const submitButton = () => {
-      const data = { 
-        titletxt: title, 
+    async function submitButton() {
+      const mData = { 
+        title: title, 
         count: queryObj.count,
         tmpheight: queryObj.height,
         tmpwidth: queryObj.width, 
-        tmpquery: queryObj.queryNumber
+        tmpquery: queryObj.queryNumber,
+        user: localStorage.getItem('token').replace(/"/g, ""),
+        city: sessionStorage.getItem('city'),
+        state: sessionStorage.getItem('state'),
+        continent: sessionStorage.getItem('continent'),
+        capital: sessionStorage.getItem('capital')
      }
-      fetch(`http://localhost:3001/data/${title}`, {
-        method: 'POST',
+      await fetch(`https://g4informant.com/api.php/records/infoskjerm`, {
+        method: 'GET',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
       })
       .then(response => response.json())
       .then(data => {
-        console.log(data.message)
+        key = data.records.length + 1
+        console.log(key)
       })
-      .catch(error => {
+
+    await fetch(`https://g4informant.com/api.php/records/infoskjerm`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({"infoskjerm_id":key,"tittel":title,"user_name":localStorage.getItem('token').replace(/"/g, "")})
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log(data)
+        /*if(data.code === 1009) {
+            window.alert("There is already a workbench with that name")
+            return null
+        } else if (data.code === 9999) {
+            window.alert("Somthing went wrong")
+            return null
+        } else {*/
+          sendToBackend(mData)
+          window.alert("Screen saved")
+        //}
+    })
+    .catch(error => {
         console.error(error)
-      })
-    }
+        return null
+    })
+  }
+    
+  async function sendToBackend(data) {
+    await fetch(`http://localhost:3001/data/${title}`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data),
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log(data.message)
+    })
+    .catch(error => {
+      console.error(error)
+    })
+  }
 
     return (
       <div>
@@ -64,7 +106,7 @@ export default function Workbench() {
             >&larr;</button>}
         <div className="workbench">
             {queryList ? 
-                <TemplateList 
+                <TemplateList
                     onQueryObj={setQueryObj}
                     onQueryHide={setQueryHide}
                     onQueryList={setQueryList}
@@ -80,6 +122,7 @@ export default function Workbench() {
                     heighten={queryObj.height} 
                     widthen={queryObj.width}
                     number={queryNumber}
+                    choice={true}
                 />
             </div>
         </div>

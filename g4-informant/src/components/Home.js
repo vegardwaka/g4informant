@@ -1,12 +1,7 @@
 import HomeCard from './HomeCard'
 import info from '../json/info'
-import MainTemplate from './templates/MainTemplate'
-import { useState } from 'react'
 
 export default function Home() { 
-  
-  
-  
   
   const list = info.map(x => 
     <HomeCard 

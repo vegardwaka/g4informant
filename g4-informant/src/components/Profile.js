@@ -1,9 +1,30 @@
 import ProfileCard from './ProfileCard'
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 export default function Profile(){
-    const [thingsArray, setThingsArray] = useState([0,1,2])
+    const [thingsArray, setThingsArray] = useState([])
+    useEffect(() => {
     
+        fetch(`https://g4informant.com/api.php/records/infoskjerm/?filter=user_name,eq,${localStorage.getItem('token').replace(/"/g, "")}`, {
+            method: 'GET',
+            headers: { 'Content-Type': 'application/json' },
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Failed to fetch data')
+            } else {
+                return response.json()}
+        })
+        .then(data => {
+            console.log(data)
+            setThingsArray(data.records)
+        })
+        .catch(error => {
+            console.log(error)
+        })
+    } , [])
+    
+   
     function addItem(index) {
         setThingsArray(oldValues => {
             return oldValues.filter((_, i) => i !== index)
@@ -11,37 +32,21 @@ export default function Profile(){
         })
         console.log("value verdi: " + index)
     }
-    
-    const thingsElements = thingsArray.map((thing,i) =>
-        <ProfileCard 
-            key={i}
-            number={i} 
-            id={i}
-            toggle={() => addItem(i)}
-        /> 
-    )
 
-    /*
-    let list = []
-    for(let i=0; i<3; i++)
-        list[i] = i
 
-    let liste = list.map((i) => 
-        <ProfileCard 
-            key={i}
-            number={i+1} 
-            id={i}
-            toggle={toggle}
-        /> 
-    )
-    const [mainList, setMainList] = useState(liste)
+
+
     
-    function toggle(id) {
-        /*
-        console.log(id)
-        mainList.splice(id, 1);
-        console.log("liste etterpå: " + liste) */
-    
+    const thingsElements = thingsArray.map((thing, i) => (
+        <ProfileCard
+          key={thing.infoskjerm_id}
+          id={thing.infoskjerm_id}
+          tittel={thing.tittel}
+          user_name={thing.user_name}
+          toggle={() => addItem(i)}
+          number={i + 1}
+        />
+      ));
         
     return(
         <div className="profile-container">

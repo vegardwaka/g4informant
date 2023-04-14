@@ -5,8 +5,8 @@ export default function Weather(props) {
     const [location, setLocation] = useState({})
     const [lon, setLon] = useState()
     const [lat, setLat] = useState()
-    const [city, setCity] = useState("Stavanger")
-    const [state, setState] = useState("Rogaland")
+    const [city, setCity] = useState("" + props.propcity)
+    const [state, setState] = useState("" + props.propstate)
     let imgSrc = null
     var weatherHour = null
     const [show, setShow] = useState(props.hide)
@@ -105,6 +105,8 @@ export default function Weather(props) {
             setCity(outArray[0])
             setState(outArray[1])
             console.log(outArray[0], outArray[1])
+            sessionStorage.setItem("city", outArray[0])
+            sessionStorage.setItem("state", outArray[1])
             setShow(false)} 
             })  
     }

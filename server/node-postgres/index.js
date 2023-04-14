@@ -30,6 +30,13 @@ app.post('/data/:name', (req, res) => {
   })
 })
 
+app.delete('/data/:name', (req, res) => {
+  fs.unlink(`infoScreens/${req.params.name}.js`, function (err) {
+    if (err) throw err
+    console.log('File deleted!')
+  })
+})
+
 app.get('/data/:name', (req, res) => {
   const message = req.body
   fs.readFile(`infoScreens/${req.params.name}.js`, 'utf8', function (err, data) {

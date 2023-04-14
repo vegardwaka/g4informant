@@ -1,1 +1,1 @@
-{"titletxt":"1234567","count":"2","tmpheight":"100%","tmpwidth":"50%"}
+{"title":"1234567","count":"4","tmpheight":"50%","tmpwidth":"50%","user":"tester","city":"Haugesund","state":"Rogaland","continent":null,"capital":null}
