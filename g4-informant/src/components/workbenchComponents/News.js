@@ -2,27 +2,27 @@ import { useState, useEffect } from 'react'
 
 export default function News(props) {
     const [articles, setArticles] = useState([])
+    const [count, setCount] = useState(0)
+    const [show, setShow] = useState("")
+    const tv2Url = "https://www.tv2.no/rss/nyheter"
+    const nrkUrl = "https://www.nrk.no/toppsaker.rss"
 
-    async function getArticles() {
-        await fetch(`url`, {
-        method: 'GET',
-        headers: 'application/xml'
-        })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Failed to fetch news data')
-            } else {
-                return response.json()}
-        })
-        .then(data => { 
-            setArticles(data)
-        })
+    const getRss = async (e) => {
+        const urlRegex = /(http|ftp|https):\/\/[\w-]+(\.[\w-]+)+([\w.,@?^=%&amp;:\~+#-]*[\w@?^=%&amp;\/~+#-])*/g;
+        if (nrkUrl.match(urlRegex)) {
+          const response = await fetch(
+            `https://api.rss2json.com/v1/api.json?rss_url=${nrkUrl}`
+          )
+        .then(response => response.json())
+        .then(data => {
+            setArticles(data.items[0])
+        })   
+        }
     }
-    
-    useEffect(() => {
-        getArticles()
-    }, [])
 
+    useEffect(() => {
+        getRss()
+    }, [])
 
     return(
         <div
@@ -30,23 +30,9 @@ export default function News(props) {
             onClick={props.toggle} 
             style={{height:props.height, width:props.width, border:props.show ? '3px dashed black' : ''}}
         >
-            <h1 className="news-title">Nyheter</h1>
-            <p className="news-content">Bil kjørte inn i Elkjøp :O</p>
+
+            <h3>{articles.title}</h3>
+            <small>{articles.description}</small>
         </div>
     )
 }
-
-/*
-    import RSSParser from 'rss-parser'
-
-    const parser = new RSSParser()
-    
-    const feedURL = ""
-
-    const parse = async url => {
-        const feed = await parser.parseURL(url)
-
-        console.log(feed.title)
-    }
-    parse(feedURL)
-*/

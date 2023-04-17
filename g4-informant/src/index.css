@@ -716,12 +716,7 @@ body {
   color: rgb(0, 0, 0);
   cursor: pointer;
 }
-#image-image{
-  display: block;
-  object-fit: cover;
-  max-width: 100%;
-  max-height: 100%;
-}
+
 
 textarea{
   font-family:"Times New Roman"

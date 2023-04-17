@@ -20,6 +20,7 @@ export default function Image(props) {
                 <img
                     id="image-image"
                     alt="not found"
+                    style={{'object-fit': "cover", 'max-width': "100%", 'max-height': "100%"}}
                     src={URL.createObjectURL(image)}
                 />
                 <br />

@@ -10,7 +10,7 @@ export default function Square(props) {
     const[show, setShow] = useState(true)
     const [list, setList] = useState([])
     let element
-    
+
     if(props.elementnumber === 1) 
         element = <APIKlokke height="100%" width="100%" hide={true} display={true} propcontinent="Asia" propcapital="Tokyo"/>
     else if (props.elementnumber === 2) 
@@ -24,13 +24,28 @@ export default function Square(props) {
     else if (props.elementnumber === 6)
         element = <News height="100%" width="100%"/>
     
-    
+    console.log("workbench length: " + props.sizen)
     const hideButton = () => {
         if(props.elementnumber > 0) {
+            if(props.id === 0) 
+                sessionStorage.setItem("element1Nr", props.elementnumber)
+            else if(props.id === 1) 
+                sessionStorage.setItem("element2Nr", props.elementnumber)
+            else if(props.id === 2) 
+                sessionStorage.setItem("element3Nr", props.elementnumber)
+            else if(props.id === 3) 
+                sessionStorage.setItem("element4Nr", props.elementnumber)
+            else if(props.id === 4) 
+                sessionStorage.setItem("element5Nr", props.elementnumber)
+            else if(props.id === 5) 
+                sessionStorage.setItem("element6Nr", props.elementnumber)
+            
             list[props.id] = element
             setShow(false)
         }
     }
+
+    
   
     return(
         <div 

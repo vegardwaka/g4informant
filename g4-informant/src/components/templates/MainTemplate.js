@@ -34,6 +34,7 @@ export default function MainTemplate(props) {
                 city={props.city}
                 continent={props.continent}
                 capital={props.capital}
+                squares={props.squares}
             />
     )
 

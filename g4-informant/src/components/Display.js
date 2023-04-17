@@ -32,7 +32,9 @@ export default function Display() {
                   state={liste.state}
                   continent={liste.continent}
                   capital={liste.capital}
+                  squares={liste.squares}
                 />  
+          
 
     return (
         <>

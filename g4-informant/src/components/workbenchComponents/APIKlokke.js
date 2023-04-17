@@ -14,9 +14,7 @@ export default function APIKlokke(props){
         fetch(proxyUrl) 
         .then(response => response.json())
         .then(data => {
-            // setSyncTime(data)
             console.log(data.time)
-            //console.log(midlDataTime)
             setSyncTime(data)
         })
         .catch(error => console.log(error))   
@@ -58,6 +56,13 @@ export default function APIKlokke(props){
             } 
             })  
     }
+
+    useEffect(() => {
+                    setInterval(function(){
+                setPosition([sessionStorage.getItem("continent"), sessionStorage.getItem("capital")])
+            },60000)
+    }, [])
+        
 
     return (
         <div 

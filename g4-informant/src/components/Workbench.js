@@ -12,12 +12,20 @@ export default function Workbench() {
     const [queryNumber, setQueryNumber] = useState(0)
     let test = true
     let key
+
     function handleClick() {
         setQueryHide(false)
         setQueryList(true)
         setQueryObj({count:0})
         setQueryNumber(0)
     }
+
+    var e1 = parseInt(sessionStorage.getItem("element1Nr"))
+    var e2 = parseInt(sessionStorage.getItem("element2Nr"))
+    var e3 = parseInt(sessionStorage.getItem("element3Nr"))
+    var e4 = parseInt(sessionStorage.getItem("element4Nr"))
+    var e5 = parseInt(sessionStorage.getItem("element5Nr"))
+    var e6 = parseInt(sessionStorage.getItem("element6Nr"))
 
     async function submitButton() {
       const mData = { 
@@ -26,19 +34,57 @@ export default function Workbench() {
         tmpheight: queryObj.height,
         tmpwidth: queryObj.width, 
         tmpquery: queryObj.queryNumber,
+        squares: [
+          {
+            ruteNr: 0,
+            elementNr: e1
+          },
+          {
+            ruteNr: 1,
+            elementNr: e2
+          },
+          {
+            ruteNr: 2,
+            elementNr: e3
+          },
+          {
+            ruteNr: 3,
+            elementNr: e4
+          },
+          {
+            ruteNr: 4,
+            elementNr: e5
+          },
+          {
+            ruteNr: 5,
+            elementNr: e6
+          },
+        ],
         user: localStorage.getItem('token').replace(/"/g, ""),
         city: sessionStorage.getItem('city'),
         state: sessionStorage.getItem('state'),
         continent: sessionStorage.getItem('continent'),
         capital: sessionStorage.getItem('capital')
      }
+      //for(var i = 0; i =< props.sizen; i++) {test={ruteNr: i, elementNr: 0}; mData.square =+ test}
+      /*
+      for(let i=0; i< queryObj.count; i++) {
+        mData.square[i] = {ruteNr: i, elementNr: 0}
+      } */
       await fetch(`https://g4informant.com/api.php/records/infoskjerm`, {
         method: 'GET',
         headers: { 'Content-Type': 'application/json' },
       })
       .then(response => response.json())
       .then(data => {
-        key = data.records.length + 1
+        console.log(data.records[0].infoskjerm_id)
+        var largest = parseInt(data.records[0].infoskjerm_id)
+        for(var i = 0; i < data.records.length; i++) {
+          if(largest < data.records[i].infoskjerm_id) {
+            largest = data.records[i].infoskjerm_id
+        }
+      }
+        key = largest + 1
         console.log(key)
       })
 

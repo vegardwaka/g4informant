@@ -1,1 +1,1 @@
-{"title":"test","count":"1","tmpheight":"100%","tmpwidth":"100%","user":"tester","city":""}
+{"title":"test","count":"4","tmpheight":"50%","tmpwidth":"50%","testsig":"3","square":null,"user":"tester","city":"Stavanger","state":"Rogaland","continent":"Europe","capital":"Oslo"}

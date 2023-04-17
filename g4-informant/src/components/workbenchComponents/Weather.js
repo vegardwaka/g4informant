@@ -46,8 +46,8 @@ export default function Weather(props) {
             } else {
             return response.json()}
         })
-        .then(data => { setWeather(data)
-        
+        .then(data => { 
+            setWeather(data)
         })
     }
         if(lat && lon) {

@@ -21,12 +21,12 @@ export default function ProfileCard(props) {
         async function deleteFromDatabase() {
 
             //FIX FETCH LINKEN -VEBJØRN FUCK
-            const response = await fetch(`https://g4informant.com/api.php/records/infoskjerm/?filter=tittel,eq,${props.tittel}&user_name,eq,${localStorage.getItem('token')}`, {
+            const response = await fetch(`https://g4informant.com/api.php/records/infoskjerm/${props.id}`, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({"infoskjerm_id":props.id ,"tittel": props.tittel,"user_name": props.user_name})
+                //body: JSON.stringify({"infoskjerm_id":props.id ,"tittel": props.tittel,"user_name": props.user_name})
             })
             .then(response => {
                 return response.json()
