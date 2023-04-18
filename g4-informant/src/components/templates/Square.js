@@ -22,7 +22,7 @@ export default function Square(props) {
     else if (props.elementnumber === 5)
         element = <TimeEdit height="100%" width="100%" />
     else if (props.elementnumber === 6)
-        element = <News height="100%" width="100%"/>
+        element = <News height="100%" width="100%" hide={true} channelList={true} homeChannel={false}/>
     
     console.log("workbench length: " + props.sizen)
     const hideButton = () => {
@@ -45,8 +45,6 @@ export default function Square(props) {
         }
     }
 
-    
-  
     return(
         <div 
             className="div1" 

@@ -70,10 +70,10 @@ export default function APIKlokke(props){
             style={{width: props.width, height: props.height, border: props.show ? '3px dashed black' : ''}} 
             onClick={props.toggle}>
             {show && <button className="weather-location-button" onClick={changeLocation}>Set location</button>}
-            {display ? <p className="clockbox-day">{SyncTime.dayOfWeek}</p> : null}
+            {display ? <h3 className="clockbox-day">{SyncTime.dayOfWeek}</h3> : null}
             <h1 className="clockbox-time">{SyncTime.time}</h1>
             {display ? <p className="clockbox-zone">{SyncTime.timeZone}</p> : null}
-            {display ? <p className="clockbox-date">{SyncTime.date}</p> : null}
+            {display ? <h3 className="clockbox-date">{SyncTime.date}</h3> : null}
         </div>
     )     
 }

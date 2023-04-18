@@ -1,10 +1,17 @@
+import React, { Component } from 'react';
 import Template from "./templates/Template"
+import MainTemplate from './templates/MainTemplate'
+import Display from './Display'
+import { useState, useEffect } from 'react'
+
 
 export default function ProfileCard(props) {
 
+    const [componentLoaded, setComponentLoaded] = useState(false);
+    const [MyComponent, setMyComponent] = useState(null);
     function deleteScreen() {
         async function deleteScreen(data) {
-            await fetch(`http://localhost:3001/data/${props.tittel}`, {
+            await fetch(`http://localhost:3001/data/${props.title}`, {
               method: 'DELETE',
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify(data),
@@ -19,14 +26,11 @@ export default function ProfileCard(props) {
           }
 
         async function deleteFromDatabase() {
-
-            //FIX FETCH LINKEN -VEBJØRN FUCK
             const response = await fetch(`https://g4informant.com/api.php/records/infoskjerm/${props.id}`, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json'
-                },
-                //body: JSON.stringify({"infoskjerm_id":props.id ,"tittel": props.tittel,"user_name": props.user_name})
+                }
             })
             .then(response => {
                 return response.json()
@@ -44,28 +48,65 @@ export default function ProfileCard(props) {
                     console.log(data)
                     window.alert("Screen deleted!")
                     deleteScreen()
-                    props.toggle(props.tittel)
+                    props.toggle(props.title)
                 }
             })
         }
         deleteFromDatabase()
     }
 
+    function editScreen(){
+        
+    }
+
+
+
+    const handleClick = async () => {
+
+              // Define the file contents
+              const fileContents = `import React from 'react';
+          
+          function MyComponent() {
+            return (
+              <div>
+                <h1>Hello, World!</h1>
+              </div>
+            );
+          }
+          
+          export default MyComponent
+          `
+           
+          const blob = new window.Blob([fileContents], { type: 'application/javascript' });
+          const url = URL.createObjectURL(blob);
+          console.log('url:', url);
+          const { default: MyComponent } = await import(url);
+          setComponentLoaded(true);
+          setMyComponent(() => MyComponent);
+          URL.revokeObjectURL(url)
+
+  
+    
+            }
+    
     return(
         <div className="profile-card">
-            <h2>Screen {props.tittel}</h2>
-            <div className="profile-screen">
-                <Template 
-                  count={4}
-                  height="50%"
-                  width="50%"
-                />
-            </div>
+            <h2>Screen {props.title}</h2>
+            
+                <Display changeboolean={true} title={props.title}/>
             <div className="profile-buttons">
-                <button className="profile--display">Display screen</button>
-                <button className="profile--edit">Edit</button>
+                <div>
+                <button className="profile--display" onClick={handleClick}>Display screen</button>
+                {componentLoaded && (
+        <React.Suspense fallback={<div>Loading...</div>}>
+          <MyComponent />
+        </React.Suspense>
+                )}
+                </div>
+                <button className="profile--edit" onClick={editScreen}>Edit</button>
                 <button className="profile--delete" onClick={deleteScreen}>Delete</button>
             </div>
         </div>
     )
+
 }

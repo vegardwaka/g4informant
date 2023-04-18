@@ -489,6 +489,43 @@ body {
   border-style: dotted;
   box-sizing: border-box;
 }
+
+.div1-display{
+  width: 50%;
+  height: 50%;
+}
+
+.div1-display h1{
+  font-size: 20px;
+  padding-bottom: 4px;
+  margin-top: 0px;
+}
+.div1-display h2{
+  font-size: 12px;
+}
+.div1-display h3{
+  font-size: 10px;
+}
+.div1-display p{
+  font-size: 7px;
+}
+.div1-display #weathericon{
+  width: 70px; 
+  margin-top: -12px;
+}
+.div1-display #news-pic{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 20px;
+} 
+.div1-display textarea{
+  height: 100%;
+  width: 100%;
+}
+
 .div2 {
   width: 25%;
   height: 25%;
@@ -623,29 +660,28 @@ body {
   width: 200px;
   height: 200px;
   background-color: #66e0ff;
-  border: 2px rgb(0, 0, 0);
+  border: 1px rgb(0, 0, 0);
   border-style: solid;
   border-radius: 2px;
 }
 
 .weatherBox h3{
-
   border-bottom: 1px #f4f4f4;
-}
-
-.weatherBox h1{
-  text-align: center;
-  letter-spacing: 0.1rem;
 }
 .weather-location-city{
   text-align: center;
+  letter-spacing: 0.1rem;
+  font-size: 2rem;
 }
 .weather-location-state{
   text-align: center;
   margin-top: -25px;
+  font-size: 1rem;
 }
 .weather-location-degrees{
   margin-top: 5px; 
+  text-align: center;
+  font-size: 2rem;
 }
 .weather-location-button {
   position: relative;
@@ -681,9 +717,17 @@ body {
   width: 200px;
   height: 200px;
   text-align: center;
-  border: 2px rgb(0, 0, 0);
+  border: 1px rgb(0, 0, 0);
   border-style: solid;
   border-radius: 2px;
+}
+.API-container #news-pic{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50px;
 }
 
 .clockbox-day{
@@ -693,7 +737,7 @@ body {
   margin-bottom: 0px;
 }
 .clockbox-time{
-  font-size: 44px;
+  font-size: 46px;
 }
 .clockbox-zone{
   margin-top: -10px;
@@ -731,6 +775,35 @@ textarea{
   height: 100px;
   border: 2px solid #000000;
   border-radius: 50px;
+}
+
+div.slide-left {
+  display: grid;
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 200px;
+  text-align: center;
+  border: 2px rgb(0, 0, 0);
+  border-style: solid;
+  border-radius: 2px;
+  overflow: hidden;
+}
+div.slide-left p {
+  animation: slide-left 10s;
+}
+
+@keyframes slide-left {
+  from {
+    margin-left: 100%;
+    width: 300%; 
+  }
+
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
 }
 
 /* Profile */
@@ -771,12 +844,10 @@ textarea{
   margin-right: 60px;
 }
 
-.profile-screen{
-  border:1px #000000;
-  border-style: solid;
+.profile-display-screen{
   width: 480px;
   height: 295px;
-  margin-left: 30px;
+  padding-left: 30px;
 }
 
 .profile--display{

@@ -35,6 +35,7 @@ export default function MainTemplate(props) {
                 continent={props.continent}
                 capital={props.capital}
                 squares={props.squares}
+                tatext={props.tatext}
             />
     )
 

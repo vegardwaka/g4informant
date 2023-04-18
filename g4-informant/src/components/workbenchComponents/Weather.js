@@ -120,4 +120,4 @@ export default function Weather(props) {
             {display && <h1 className="weather-location-degrees">{weatherHour+" °C"}</h1>}
         </div>
     )
-}
+}   

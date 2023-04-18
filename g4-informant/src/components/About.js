@@ -11,7 +11,7 @@ export default function About() {
             />
         )
     })
-
+    
     return(
         <section className="about" id="about">
             <h2 className="about-title">Our team</h2>

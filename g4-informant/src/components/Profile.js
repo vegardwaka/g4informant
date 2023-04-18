@@ -23,25 +23,19 @@ export default function Profile(){
             console.log(error)
         })
     } , [])
-    
    
     function addItem(index) {
         setThingsArray(oldValues => {
             return oldValues.filter((_, i) => i !== index)
-            
         })
         console.log("value verdi: " + index)
     }
-
-
-
-
     
     const thingsElements = thingsArray.map((thing, i) => (
         <ProfileCard
           key={thing.infoskjerm_id}
           id={thing.infoskjerm_id}
-          tittel={thing.tittel}
+          title={thing.tittel}
           user_name={thing.user_name}
           toggle={() => addItem(i)}
           number={i + 1}

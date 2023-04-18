@@ -1,13 +1,12 @@
 import MainTemplate from './templates/MainTemplate'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
-export default function Display() {
-  var name = 1234567
+export default function Display(props) {
   let element
   const [liste, setListe] = useState({})
 
   async function submitButtonHent() {
-    await fetch(`http://localhost:3001/data/${name}`, {
+    await fetch(`http://localhost:3001/data/${props.title}`, {
       method: 'GET',
       headers: { 'Content-Type': 'application/json' },
     })
@@ -20,6 +19,10 @@ export default function Display() {
     })
   }
   
+  useEffect(() => {
+    submitButtonHent()
+  }, [])
+
   element = <MainTemplate  
                   count={liste.count} 
                   heighten={liste.tmpheight} 
@@ -33,22 +36,12 @@ export default function Display() {
                   continent={liste.continent}
                   capital={liste.capital}
                   squares={liste.squares}
-                />  
-          
+                  tatext={liste.tatext}
+            />  
 
-    return (
-        <>
-            <h1>Title: {liste.title }</h1>
-            <h1>Made by: {liste.user}</h1>
-            <h1>city test: {liste.city}</h1>
-            <h1>state test: {liste.state}</h1>
-            <h1>continent test: {liste.continent}</h1>
-            <h1>capital test: {liste.capital}</h1>
-            <button type="submit" className="save-workbench-button" onClick={submitButtonHent}>Show your work</button>
-            
-            <div className="workbench--screen"> 
-                {element}
-            </div>
-        </>
-    )
+  return (
+      <div className={props.changeboolean ? "profile-display-screen" : "workbench--screen"}> 
+          {element}
+      </div>
+  )
 }

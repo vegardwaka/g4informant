@@ -17,7 +17,7 @@ export default function HomeCard(props) {
         link = <small className="home-API-p">Weather data is collected from Norwegian Meteorological Institute and location data is gathered from <a href="openstreetmap.org/copyright">OpenStreetMap</a>.</small>
     }
     else if (props.id === 3) {
-        element = <Textarea taheight="100%" dis={true}/>
+        element = <Textarea taheight="100%"  dis={true} read={false}/>
     }
     else if (props.id === 4) {
         element = <Image imgheight="100%" hide={true}/>
@@ -26,7 +26,7 @@ export default function HomeCard(props) {
         element = <TimeEdit />
     }
     else if (props.id === 6) {
-        element = <News height="100%"/> 
+        element = <News height="100%" hide={true} homeChannel={false}/> 
         link = <small className="home-API-p">Top stories provided by NRK.</small>
     }
 

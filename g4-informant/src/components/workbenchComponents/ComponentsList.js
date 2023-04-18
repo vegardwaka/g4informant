@@ -83,13 +83,14 @@ export default function CompontentsList({onQueryNumber}){
                 <br />
                 <Weather width="100%" toggle={handleClick2} show={isActive2} hide={false} display={false} propcity="Juneau" propstate="Alaska"/>
                 <br />
-                <Textarea tawidth="100%" toggle={handleClick3} show={isActive3} dis={true}/>
+                <Textarea tawidth="100%" toggle={handleClick3} show={isActive3} dis={true} read={true}/>
                 <br />
                 <Image imgwidth="100%" toggle={handleClick4} show={isActive4} hide={false}/>
                 <br />
                 <TimeEdit width="100%" toggle={handleClick5} show={isActive5}/>
                 <br />
-                <News width="100%" toggle={handleClick6} show={isActive6}/>
+                <News width="100%" toggle={handleClick6} show={isActive6} homeChannel={true}/>
+                <br />
                 <Logo/>
             </div>
         </div>

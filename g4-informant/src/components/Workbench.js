@@ -28,89 +28,101 @@ export default function Workbench() {
     var e6 = parseInt(sessionStorage.getItem("element6Nr"))
 
     async function submitButton() {
-      const mData = { 
-        title: title, 
-        count: queryObj.count,
-        tmpheight: queryObj.height,
-        tmpwidth: queryObj.width, 
-        tmpquery: queryObj.queryNumber,
-        squares: [
-          {
-            ruteNr: 0,
-            elementNr: e1
-          },
-          {
-            ruteNr: 1,
-            elementNr: e2
-          },
-          {
-            ruteNr: 2,
-            elementNr: e3
-          },
-          {
-            ruteNr: 3,
-            elementNr: e4
-          },
-          {
-            ruteNr: 4,
-            elementNr: e5
-          },
-          {
-            ruteNr: 5,
-            elementNr: e6
-          },
-        ],
-        user: localStorage.getItem('token').replace(/"/g, ""),
-        city: sessionStorage.getItem('city'),
-        state: sessionStorage.getItem('state'),
-        continent: sessionStorage.getItem('continent'),
-        capital: sessionStorage.getItem('capital')
-     }
-      //for(var i = 0; i =< props.sizen; i++) {test={ruteNr: i, elementNr: 0}; mData.square =+ test}
-      /*
-      for(let i=0; i< queryObj.count; i++) {
-        mData.square[i] = {ruteNr: i, elementNr: 0}
-      } */
+      if(title.length === 0) {
+        window.alert("Give the informationscreen a name")
+      } 
+      else {
+        const mData = { 
+          title: title, 
+          count: queryObj.count,
+          tmpheight: queryObj.height,
+          tmpwidth: queryObj.width, 
+          tmpquery: queryObj.queryNumber,
+          squares: [
+            {
+              ruteNr: 0,
+              elementNr: e1
+            },
+            {
+              ruteNr: 1,
+              elementNr: e2
+            },
+            {
+              ruteNr: 2,
+              elementNr: e3
+            },
+            {
+              ruteNr: 3,
+              elementNr: e4
+            },
+            {
+              ruteNr: 4,
+              elementNr: e5
+            },
+            {
+              ruteNr: 5,
+              elementNr: e6
+            },
+          ],
+          user: localStorage.getItem('token').replace(/"/g, ""),
+          city: sessionStorage.getItem('city'),
+          state: sessionStorage.getItem('state'),
+          continent: sessionStorage.getItem('continent'),
+          capital: sessionStorage.getItem('capital'),
+          tatext: sessionStorage.getItem('taText')
+      }
+        //for(var i = 0; i =< props.sizen; i++) {test={ruteNr: i, elementNr: 0}; mData.square =+ test}
+        /*
+        for(let i=0; i< queryObj.count; i++) {
+          mData.square[i] = {ruteNr: i, elementNr: 0}
+        } */
+        await fetch(`https://g4informant.com/api.php/records/infoskjerm`, {
+          method: 'GET',
+          headers: { 'Content-Type': 'application/json' },
+        })
+        .then(response => response.json())
+        .then(data => {
+          console.log(data.records[0].infoskjerm_id)
+          var largest = parseInt(data.records[0].infoskjerm_id)
+          for(var i = 0; i < data.records.length; i++) {
+            if(largest < data.records[i].infoskjerm_id) {
+              largest = data.records[i].infoskjerm_id
+          }
+        }
+          key = largest + 1
+          console.log(key)
+        })
+
       await fetch(`https://g4informant.com/api.php/records/infoskjerm`, {
-        method: 'GET',
+        method: 'POST',
         headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({"infoskjerm_id":key,"tittel":title,"user_name":localStorage.getItem('token').replace(/"/g, "")})
       })
       .then(response => response.json())
       .then(data => {
-        console.log(data.records[0].infoskjerm_id)
-        var largest = parseInt(data.records[0].infoskjerm_id)
-        for(var i = 0; i < data.records.length; i++) {
-          if(largest < data.records[i].infoskjerm_id) {
-            largest = data.records[i].infoskjerm_id
-        }
-      }
-        key = largest + 1
-        console.log(key)
+          console.log(data)
+          /*if(data.code === 1009) {
+              window.alert("There is already a workbench with that name")
+              return null
+          } else if (data.code === 9999) {
+              window.alert("Somthing went wrong")
+              return null
+          } else {*/
+            sendToBackend(mData)
+            window.alert("Screen saved")
+            sessionStorage.removeItem("element1Nr")
+            sessionStorage.removeItem("element2Nr")
+            sessionStorage.removeItem("element3Nr")
+            sessionStorage.removeItem("element4Nr")
+            sessionStorage.removeItem("element5Nr")
+            sessionStorage.removeItem("element6Nr")
+          //}
       })
-
-    await fetch(`https://g4informant.com/api.php/records/infoskjerm`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({"infoskjerm_id":key,"tittel":title,"user_name":localStorage.getItem('token').replace(/"/g, "")})
-    })
-    .then(response => response.json())
-    .then(data => {
-        console.log(data)
-        /*if(data.code === 1009) {
-            window.alert("There is already a workbench with that name")
-            return null
-        } else if (data.code === 9999) {
-            window.alert("Somthing went wrong")
-            return null
-        } else {*/
-          sendToBackend(mData)
-          window.alert("Screen saved")
-        //}
-    })
-    .catch(error => {
-        console.error(error)
-        return null
-    })
+      .catch(error => {
+          console.error(error)
+          return null
+      })
+  }
   }
     
   async function sendToBackend(data) {

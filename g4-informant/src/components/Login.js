@@ -10,7 +10,7 @@ export default function Login({ setToken }) {
 
     /* Get User from DB */
     async function getUser() {
-        const response = await fetch(`https://g4informant.com/api.php/records/bruker/?filter=epost,eq,${email}&passord,eq,${password}`, {
+        const response = await fetch(`https://g4informant.com/api.php/records/bruker?filter=epost,eq,${email}&filter=passord,eq,${password}`, {
             method: 'GET',
         })
         .then(response => {
@@ -33,7 +33,7 @@ export default function Login({ setToken }) {
             navigate('/')
             window.location.reload(false)}
         else {
-            window.alert("User not found! Check your email and password input")
+            window.alert("Wrong username or password! Check your email and password input")
             return null
         }
     }
