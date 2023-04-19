@@ -2,27 +2,31 @@ import MainTemplate from './templates/MainTemplate'
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react'
 
-export default function Display(props) {
+export default function FullDisplay(props) {
   let element
-  const { infoscreen } = useParams();
+  const { infoscreen } = useParams()
   const [liste, setListe] = useState({})
+ 
 
-  async function submitButtonHent() {
-    await fetch(`http://localhost:3001/data/${props.title}`, {
+  async function getScreen() {
+    await fetch(`http://localhost:3001/data/${infoscreen}`, {
       method: 'GET',
       headers: { 'Content-Type': 'application/json' },
-    })
-    .then(response => {
+      })
+      .then(response => {
       return response.json()
-    })
-    .then(data => {
-      setListe(data)
-    })
+      })
+      .then(data => {
+        console.log(JSON.stringify(data))
+        setListe(data)
+      })
   }
   
   useEffect(() => {
-    submitButtonHent()
-  },[])
+    getScreen()
+    props.onShow(false)
+  }, [])
+
   element = <MainTemplate  
                   count={liste.count} 
                   heighten={liste.tmpheight} 
@@ -37,10 +41,11 @@ export default function Display(props) {
                   capital={liste.capital}
                   squares={liste.squares}
                   tatext={liste.tatext}
+                  fulldisplay={props.fulldisplay}
             />  
 
   return (
-      <div className={props.changeboolean ? "profile-display-screen" : "workbench--screen"}> 
+      <div className="full-display-screen"> 
           {element}
       </div>
   )

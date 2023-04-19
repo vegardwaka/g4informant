@@ -24,10 +24,18 @@ app.post('/data/:name', (req, res) => {
   const data = { message: 'Saved succ' }
   console.log(message)
   res.json(data)
-  fs.writeFile(`infoScreens/${req.params.name}.js`, JSON.stringify(message), 'utf8' , function (err) {
-    if (err) throw err
-    console.log('File written!')
+  try{
+  fs.writeFile(`infoScreens/${req.params.name}.js`, JSON.stringify(message), 'utf8' , (err) =>{
+    if(!err){
+      console.log('File written!')
+    } else {
+      console.error('error writing to file')
+      throw new Error(err)
+    } 
   })
+} catch (error) {
+  console.error(error)
+  res.status(500).send('Error saving data')}
 })
 
 app.delete('/data/:name', (req, res) => {

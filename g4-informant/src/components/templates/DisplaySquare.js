@@ -32,7 +32,7 @@ export default function DisplaySquare(props) {
  
     return(
         <div 
-            className="div1-display"
+            className={props.fulldisplay ? "div1-full-screen" : "div1-display"}
             onClick={()=>props.toggle(props.id)}
             style={{width: props.sqwidth, height: props.sqheight}}
         >

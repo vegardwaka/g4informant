@@ -26,7 +26,7 @@ export default function HomeCard(props) {
         element = <TimeEdit />
     }
     else if (props.id === 6) {
-        element = <News height="100%" hide={true} homeChannel={false}/> 
+        element = <News height="100%"  hide={true} channelList={true} homeChannel={false}/> 
         link = <small className="home-API-p">Top stories provided by NRK.</small>
     }
 

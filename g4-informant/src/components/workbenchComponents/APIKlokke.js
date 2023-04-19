@@ -58,9 +58,16 @@ export default function APIKlokke(props){
     }
 
     useEffect(() => {
-                    setInterval(function(){
+        setPosition([sessionStorage.getItem("continent"), sessionStorage.getItem("capital")])
+        function runClock() {
+            var now = new Date();
+            var timeToNextTick = (60 - now.getSeconds()) * 1000 - now.getMilliseconds() + 60000;
+            setTimeout(function() {
                 setPosition([sessionStorage.getItem("continent"), sessionStorage.getItem("capital")])
-            },60000)
+                runClock();
+            }, timeToNextTick);
+        }
+            runClock()
     }, [])
         
 

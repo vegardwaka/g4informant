@@ -27,6 +27,6 @@ export default [
     {  
         id:6,
         title:"News.js",
-        desc:"The news component keeps you updated on current events, either locally or world wide. You are able to see headlines and a bit of the content connected to the news item."
+        desc:"The news component keeps you updated on current events, either locally or world wide. You are able to see headlines and a bit of the content connected to the news item. Try it out!"
     }
 ]

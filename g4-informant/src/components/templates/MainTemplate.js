@@ -36,6 +36,7 @@ export default function MainTemplate(props) {
                 capital={props.capital}
                 squares={props.squares}
                 tatext={props.tatext}
+                fulldisplay={props.fulldisplay}
             />
     )
 

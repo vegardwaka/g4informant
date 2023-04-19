@@ -6,9 +6,7 @@ import { useState, useEffect } from 'react'
 
 
 export default function ProfileCard(props) {
-
-    const [componentLoaded, setComponentLoaded] = useState(false);
-    const [MyComponent, setMyComponent] = useState(null);
+let link
     function deleteScreen() {
         async function deleteScreen(data) {
             await fetch(`http://localhost:3001/data/${props.title}`, {
@@ -58,50 +56,15 @@ export default function ProfileCard(props) {
     function editScreen(){
         
     }
-
-
-
-    const handleClick = async () => {
-
-              // Define the file contents
-              const fileContents = `import React from 'react';
-          
-          function MyComponent() {
-            return (
-              <div>
-                <h1>Hello, World!</h1>
-              </div>
-            );
-          }
-          
-          export default MyComponent
-          `
-           
-          const blob = new window.Blob([fileContents], { type: 'application/javascript' });
-          const url = URL.createObjectURL(blob);
-          console.log('url:', url);
-          const { default: MyComponent } = await import(url);
-          setComponentLoaded(true);
-          setMyComponent(() => MyComponent);
-          URL.revokeObjectURL(url)
-
-  
-    
-            }
-    
+   
     return(
         <div className="profile-card">
             <h2>Screen {props.title}</h2>
             
-                <Display changeboolean={true} title={props.title}/>
+            <Display changeboolean={true} title={props.title}/>
             <div className="profile-buttons">
                 <div>
-                <button className="profile--display" onClick={handleClick}>Display screen</button>
-                {componentLoaded && (
-        <React.Suspense fallback={<div>Loading...</div>}>
-          <MyComponent />
-        </React.Suspense>
-                )}
+                <a className="profile--link"href={`screen/${props.title}`}><button className="profile--display">Display screen</button></a>
                 </div>
                 <button className="profile--edit" onClick={editScreen}>Edit</button>
                 <button className="profile--delete" onClick={deleteScreen}>Delete</button>

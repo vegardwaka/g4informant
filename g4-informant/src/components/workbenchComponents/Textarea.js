@@ -9,8 +9,6 @@ export default function Textarea(props) {
         sessionStorage.setItem("taText", text)
     }
 
-    
-
     return(
         <div className="API-container" onClick={props.toggle} style={{height:props.taheight, width:props.tawidth, border:props.show ? '3px dashed black' : ''}}>
             <textarea 

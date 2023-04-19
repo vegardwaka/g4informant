@@ -761,6 +761,27 @@ body {
   cursor: pointer;
 }
 
+.news-button{
+  align-items: center;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: bold;
+  margin-left: 10px;
+  margin-right: 10px;
+  letter-spacing: .1rem;
+  padding: 10px;
+  color: rgb(0, 0, 0);
+  background-color: rgb(240, 240, 240);
+  border-radius: 5px;
+  cursor: pointer;
+}
+.news-button:hover{
+  background-color: rgb(164, 164, 164);
+}
+/*
+.news-description{
+  height: 15px;
+}*/
 
 textarea{
   font-family:"Times New Roman"
@@ -778,31 +799,25 @@ textarea{
 }
 
 div.slide-left {
-  display: grid;
-  box-sizing: border-box;
-  justify-content: center;
-  align-items: center;
-  width: 200px;
-  height: 200px;
-  text-align: center;
-  border: 2px rgb(0, 0, 0);
-  border-style: solid;
-  border-radius: 2px;
+
+  width: 100%;
   overflow: hidden;
+
 }
 div.slide-left p {
-  animation: slide-left 10s;
+  animation: slide-left 15s;
+  display: inline-block;
+  white-space: nowrap;
+  clear: both;
 }
 
 @keyframes slide-left {
   from {
-    margin-left: 100%;
-    width: 300%; 
+    transform: translateX(100%);
   }
 
   to {
-    margin-left: 0%;
-    width: 100%;
+    transform: translateX(-100%);
   }
 }
 
@@ -896,4 +911,55 @@ div.slide-left p {
 
 .profile--delete:hover {
   background-color: rgb(255, 86, 86);
+}
+
+.profile--link {
+  text-decoration: none;
+}
+
+.profile--display:hover {
+  background-color:grey
+}
+
+/* Full Display */
+.full-display-screen{
+  margin-left: -20px;
+  width: 100vw;
+  height: 100vh;
+}
+
+.div1-full-screen{
+  width: 100%;
+  height: 100%;
+}
+
+.div1-full-screen h1{
+  font-size: 45px;
+}
+.div1-full-screeny h2{
+  font-size: 32px;
+}
+.div1-full-screen h3{
+  font-size: 25px;
+}
+.div1-full-screen p{
+  font-size: 17px;
+}
+.div1-full-screen #weathericon{
+  width: 70px;
+  height: 200%;
+}
+.div1-full-screen #news-pic{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 70px;
+} 
+.div1-full-screen textarea{
+  text-align: center;
+  font-size: 1.3rem;
+  height: 100%;
+  width: 100%;
 }

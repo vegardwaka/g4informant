@@ -1,7 +1,7 @@
 import ProfileCard from './ProfileCard'
 import { useState, useEffect } from "react"
 
-export default function Profile(){
+export default function Profile(props){
     const [thingsArray, setThingsArray] = useState([])
     useEffect(() => {
     
@@ -28,7 +28,6 @@ export default function Profile(){
         setThingsArray(oldValues => {
             return oldValues.filter((_, i) => i !== index)
         })
-        console.log("value verdi: " + index)
     }
     
     const thingsElements = thingsArray.map((thing, i) => (
@@ -39,6 +38,7 @@ export default function Profile(){
           user_name={thing.user_name}
           toggle={() => addItem(i)}
           number={i + 1}
+          
         />
       ));
         

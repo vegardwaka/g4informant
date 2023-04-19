@@ -110,13 +110,13 @@ export default function Weather(props) {
             setShow(false)} 
             })  
     }
-
+//weathericon not work!
     return (
         <div className="weatherBox" onClick={props.toggle} style={{height:props.height, width:props.width, border:props.show ? '3px dashed black' : ''}}>
             {show && <button className="weather-location-button" onClick={changeLocation}>Set location</button>}
             {display && <h1 className="weather-location-city">{JSON.stringify(location).split(',').at(0).replace(/"/g, "")}</h1>}
             {display && <p className="weather-location-state">{JSON.stringify(location).split(',').at(1)}</p>}
-            <img src={`weathericon/png/${imgSrc}.png`} alt="" id="weathericon"/>
+            <img src={`weathericon/png/${imgSrc}.png`} alt="emptypicture" id="weathericon"/>
             {display && <h1 className="weather-location-degrees">{weatherHour+" °C"}</h1>}
         </div>
     )
