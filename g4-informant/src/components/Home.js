@@ -2,7 +2,6 @@ import HomeCard from './HomeCard'
 import info from '../json/info'
 
 export default function Home() { 
-  
   const list = info.map(x => 
     <HomeCard 
         id={x.id} 

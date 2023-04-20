@@ -17,7 +17,7 @@ export default function Template(props) {
     )
 
     return (
-        <div className="templateBox" >
+        <div className="templateBox">
             {templateCount}
         </div>
     )

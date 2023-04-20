@@ -3,6 +3,24 @@ import { useState } from 'react'
 export default function Image(props) {
     const [image, setImage] = useState(null)
     const [show, setShow] = useState(props.hide)
+
+    async function sendToBackend(image) {
+        const formData = new FormData()
+        formData.append('inImage', image)
+        const fileName = image.name
+        await fetch(`http://localhost:3001/data/Images/${fileName}`, {
+          method: 'POST',
+          body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+          console.log(data.message)
+        })
+        .catch(error => {
+          console.error(error)
+        })
+      }
+      sendToBackend()
     
     return(
         <div 
@@ -16,27 +34,26 @@ export default function Image(props) {
             }}
         >
             {image && (
-            <div>
-                <img
-                    id="image-image"
-                    alt="not found"
-                    style={{'object-fit': "cover", 'max-width': "100%", 'max-height': "100%"}}
-                    src={URL.createObjectURL(image)}
-                />
-                <br />
-            </div>
+                <div>
+                    <img
+                        id="image-image"
+                        alt="not found"
+                        style={{'object-fit': "cover", 'max-width': "100%", 'max-height': "100%"}}
+                        src={URL.createObjectURL(image)}
+                    />
+                    <br />
+                </div>
             )}
             {show ? (
-            <input
-                type="file"
-                name="myImage"
-                id="image-file-input" 
-                onChange={(e) => {
-                setImage(e.target.files[0]);
-                }}
-            />
-            ) : <h1>IMAGE</h1>}
-            
+                <input
+                    type="file"
+                    name="myImage"
+                    id="image-file-input" 
+                    onChange={(e) => {
+                        setImage(e.target.files[0]);
+                    }}
+                />)
+            : <h1>IMAGE</h1>}
         </div>
     )
 }

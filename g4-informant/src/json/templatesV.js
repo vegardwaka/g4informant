@@ -8,13 +8,13 @@ export default [
     {
         id:2,
         count:"6",
-        height:"50%",
-        width:"33.3%",
+        height:"33.3%",
+        width:"50%",
     },
     {
         id:3,
         count:"2",
-        height:"50%",
-        width:"100%",
+        height:"100%",
+        width:"50%",
     }
 ]

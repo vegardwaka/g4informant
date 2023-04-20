@@ -3,18 +3,16 @@ import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react'
 
 export default function FullDisplay(props) {
-  let element
   const { infoscreen } = useParams()
   const [liste, setListe] = useState({})
  
-
   async function getScreen() {
     await fetch(`http://localhost:3001/data/${infoscreen}`, {
       method: 'GET',
       headers: { 'Content-Type': 'application/json' },
       })
       .then(response => {
-      return response.json()
+        return response.json()
       })
       .then(data => {
         console.log(JSON.stringify(data))
@@ -27,7 +25,9 @@ export default function FullDisplay(props) {
     props.onShow(false)
   }, [])
 
-  element = <MainTemplate  
+  return (
+      <div className="full-display-screen"> 
+          <MainTemplate  
                   count={liste.count} 
                   heighten={liste.tmpheight} 
                   widthen={liste.tmpwidth}
@@ -41,12 +41,9 @@ export default function FullDisplay(props) {
                   capital={liste.capital}
                   squares={liste.squares}
                   tatext={liste.tatext}
+                  newsnumber={liste.newsnumber}
                   fulldisplay={props.fulldisplay}
-            />  
-
-  return (
-      <div className="full-display-screen"> 
-          {element}
+          />
       </div>
   )
 }

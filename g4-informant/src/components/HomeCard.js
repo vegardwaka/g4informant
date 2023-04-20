@@ -14,7 +14,7 @@ export default function HomeCard(props) {
     } 
     else if (props.id === 2) {
         element = <Weather height="100%" hide={true} display={true} propcity="Bø" propstate="Midt-Telemark"/>
-        link = <small className="home-API-p">Weather data is collected from Norwegian Meteorological Institute and location data is gathered from <a href="openstreetmap.org/copyright">OpenStreetMap</a>.</small>
+        link = <small className="home-API-p">Weather data is collected from Norwegian Meteorological Institute and location data is gathered from <a href="www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a>.</small>
     }
     else if (props.id === 3) {
         element = <Textarea taheight="100%"  dis={true} read={false}/>
@@ -27,7 +27,7 @@ export default function HomeCard(props) {
     }
     else if (props.id === 6) {
         element = <News height="100%"  hide={true} channelList={true} homeChannel={false}/> 
-        link = <small className="home-API-p">Top stories provided by NRK.</small>
+        link = <small className="home-API-p">Top stories provided by NRK & TV2.</small>
     }
 
     return(

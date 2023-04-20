@@ -8,7 +8,8 @@ export default function News(props) {
     const [url, setUrl] = useState("")
     const [channelList, setChannelList] = useState(props.channelList)
     const [homeChannel, setHomeChannel] = useState(props.homeChannel)
-    
+    let numbernews = props.newsnumber
+   
     const getRss = async (e) => {
         const urlRegex = /(http|ftp|https):\/\/[\w-]+(\.[\w-]+)+([\w.,@?^=%&amp;:\~+#-]*[\w@?^=%&amp;\/~+#-])*/g;
         if (url.match(urlRegex)) {
@@ -22,17 +23,34 @@ export default function News(props) {
             })   
         }
     }
-
+    
     useEffect(() => {
         getRss()
+        if(!channelList) {
+            if(numbernews === 1) {
+                setUrl("https://www.nrk.no/toppsaker.rss")
+                setImgURL("/nrk_nyheter_rgb.png")
+            } else if(numbernews === 2) {
+                setUrl("https://www.tv2.no/rss/nyheter")
+                setImgURL("http://static.cdn.tv2.no/s/img/logo/tv2-logo-rss.png")
+            }
+            console.log("props nummeret news: " + props.newsnumber)
+        }
     }, [url, count])
-
-    function handleClick(p_url, p_imgurl) {
-        setUrl(p_url)
+    
+    function handleClick(p_newsNumber) {
         setChannelList(false)
-        setImgURL(p_imgurl)
+        if(p_newsNumber === 1) {
+            sessionStorage.setItem("news", 1)
+            setUrl("https://www.nrk.no/toppsaker.rss")
+            setImgURL("/nrk_nyheter_rgb.png")
+        } else if(p_newsNumber === 2) {
+            sessionStorage.setItem("news", 2)
+            setUrl("https://www.tv2.no/rss/nyheter")
+            setImgURL("http://static.cdn.tv2.no/s/img/logo/tv2-logo-rss.png")
+        }
     }
-
+   
     if(count >= parseInt(allArticles.length)) {
         setCount(0)
     }
@@ -40,7 +58,7 @@ export default function News(props) {
     useEffect(() => {
         const timer = setInterval(() => {
             setCount(prevCount => prevCount + 1)
-            }, 15000)
+            }, 30000)
             return () => {
                 clearInterval(timer)
             }
@@ -57,17 +75,17 @@ export default function News(props) {
                     <div className="news-button-div">
                         <button 
                             className="news-button" 
-                            onClick={() => handleClick('https://www.tv2.no/rss/nyheter', 'http://static.cdn.tv2.no/s/img/logo/tv2-logo-rss.png')}
+                            onClick={() => handleClick(2)}
                         >TV2</button>
                         <button 
                             className="news-button" 
-                            onClick={() => handleClick('https://www.nrk.no/toppsaker.rss', '/nrk_nyheter_rgb.png')}
+                            onClick={() => handleClick(1)}
                         >NRK</button>
                     </div>
                 :
                     <div>
                         <img src={imgURL} alt="logo" id="news-pic" />
-                        <h3>{articles.title}</h3>
+                        <h3 className="news-title">{articles.title}</h3>
                         <p className="news-description">{articles.description}</p>
                     </div> 
             )}

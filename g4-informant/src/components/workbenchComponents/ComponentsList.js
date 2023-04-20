@@ -7,7 +7,6 @@ import TimeEdit from './TimeEdit'
 import News from './News'
 import { useState } from 'react'
 
-
 export default function CompontentsList({onQueryNumber}){
     const [isActive, setIsActive] = useState(false)
     const handleClick = () => {

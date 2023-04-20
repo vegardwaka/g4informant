@@ -3,8 +3,9 @@ import { useState, useEffect } from "react"
 
 export default function Profile(props){
     const [thingsArray, setThingsArray] = useState([])
+    let empty
+
     useEffect(() => {
-    
         fetch(`https://g4informant.com/api.php/records/infoskjerm/?filter=user_name,eq,${localStorage.getItem('token').replace(/"/g, "")}`, {
             method: 'GET',
             headers: { 'Content-Type': 'application/json' },
@@ -13,7 +14,8 @@ export default function Profile(props){
             if (!response.ok) {
                 throw new Error('Failed to fetch data')
             } else {
-                return response.json()}
+                return response.json()
+            }
         })
         .then(data => {
             console.log(data)
@@ -38,16 +40,19 @@ export default function Profile(props){
           user_name={thing.user_name}
           toggle={() => addItem(i)}
           number={i + 1}
-          
         />
-      ));
-        
+    ))
+
+    if (thingsArray.length === 0)
+        empty = <p className="empty-informationscreen-p">You dont seem to have any information screens. Make one <a href="/Workbench">here</a>.</p>
+
     return(
         <div className="profile-container">
             <h1 className="profile-title">Hi, {localStorage.getItem('token').replace(/"/g, "")}!</h1>
             <div className="profile-workbench">
                 <h2 className="profile--header">Your information screens</h2>
                 <div className="profile-workbench-container">
+                    {empty} 
                     {thingsElements}
                 </div>
             </div>

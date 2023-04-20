@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import { useParams } from "react-router-dom";
 import NavBar from './components/NavBar'
 import Home from './components/Home'
 import Footer from './components/Footer'
@@ -32,7 +31,7 @@ export default function App(props) {
               <Route path='/Blog' element={<Blog/>}/>
               <Route path='/Profile' element={<Profile/>}/>
               <Route path='/Login' element={<Login setToken={setToken} />} />
-              <Route path='/screen/:infoscreen' element={<FullDisplay/>}/>
+              <Route path='/screen/:infoscreen' element={<FullDisplay onShow={setShow} fulldisplay={true}/>}/>
               <Route path='*' element={<NotFound/>}/>
             </Routes>
           </div>

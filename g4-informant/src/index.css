@@ -434,19 +434,18 @@ body {
   border-radius: 5px;
 }
 
-.workbench-box {
-  display: grid;
-  align-items: center;
-  width: 150px;
-  height: 150px;
-  border: 1px #000000;
+.workbench--screen--vertical{
+  display: flex;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 590px;
+  height: 960px;
+  border: 3px #000000;
   border-style: solid;
-  border-radius: 10px;
+  border-radius: 5px;
 }
 
-.workbench-counter{
-  text-align: center;
-}
 
 .templateBox {
   display: flex;
@@ -482,7 +481,7 @@ body {
   background-color: rgb(164, 164, 164);
 }
 
-.div1 {
+.div1{
   width: 50%;
   height: 50%;
   border: 1px;
@@ -514,27 +513,31 @@ body {
   margin-top: -12px;
 }
 .div1-display #news-pic{
+  width: 20px;
   position: relative;
   display: flex;
   justify-content: center;
   margin-left: auto;
   margin-right: auto;
-  width: 20px;
+
 } 
 .div1-display textarea{
   height: 100%;
   width: 100%;
 }
 
-.div2 {
-  width: 25%;
-  height: 25%;
-  border: 1px;
-  border-style: dotted;
-  box-sizing: border-box;
-}
-
 .templateBoxMain {
+  display: flex;
+  position: relative;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 100%;
+  border: 1px;
+  border-style: solid;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+}
+.templateBoxVerticalMain{
   display: flex;
   position: relative;
   flex-wrap: wrap;
@@ -921,6 +924,12 @@ div.slide-left p {
   background-color:grey
 }
 
+.empty-informationscreen-p{
+  border-top: 1px solid #000000;
+  padding-top: 30px;
+  text-align: center;
+}
+
 /* Full Display */
 .full-display-screen{
   margin-left: -20px;
@@ -934,7 +943,7 @@ div.slide-left p {
 }
 
 .div1-full-screen h1{
-  font-size: 45px;
+  font-size: 46px;
 }
 .div1-full-screeny h2{
   font-size: 32px;
@@ -946,8 +955,7 @@ div.slide-left p {
   font-size: 17px;
 }
 .div1-full-screen #weathericon{
-  width: 70px;
-  height: 200%;
+  width: 200px;
 }
 .div1-full-screen #news-pic{
   position: relative;

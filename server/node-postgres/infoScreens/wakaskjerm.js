@@ -1,1 +1,0 @@
-{"title":"wakaskjerm","count":"4","tmpheight":"50%","tmpwidth":"50%","squares":[{"ruteNr":0,"elementNr":6},{"ruteNr":1,"elementNr":2},{"ruteNr":2,"elementNr":3},{"ruteNr":3,"elementNr":2},{"ruteNr":4,"elementNr":null},{"ruteNr":5,"elementNr":null}],"user":"vebteo","city":"Oslo","state":"Oslo","continent":null,"capital":null}

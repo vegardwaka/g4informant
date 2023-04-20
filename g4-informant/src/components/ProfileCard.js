@@ -21,7 +21,7 @@ let link
             .catch(error => {
               console.error(error)
             })
-          }
+        }
 
         async function deleteFromDatabase() {
             const response = await fetch(`https://g4informant.com/api.php/records/infoskjerm/${props.id}`, {
@@ -60,8 +60,7 @@ let link
     return(
         <div className="profile-card">
             <h2>Screen {props.title}</h2>
-            
-            <Display changeboolean={true} title={props.title}/>
+            <Display changeboolean={true} fulldisplay={false} title={props.title}/>
             <div className="profile-buttons">
                 <div>
                 <a className="profile--link"href={`screen/${props.title}`}><button className="profile--display">Display screen</button></a>

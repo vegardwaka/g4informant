@@ -23,14 +23,14 @@ export default function DisplaySquare(props) {
             else if (props.squares[i].elementNr === 5)
                 element = <TimeEdit width="100%" height="100%"/>
             else if (props.squares[i].elementNr === 6)
-                element = <News width="100%" height="100%"/>
+                element = <News width="100%" height="100%" homeChannel={false} channelList={false} newsnumber={props.newsnumber}/>
         } else {
             element = <h1>{ }</h1>
         }
         list[i] = element
     }
  
-    return(
+    return ( 
         <div 
             className={props.fulldisplay ? "div1-full-screen" : "div1-display"}
             onClick={()=>props.toggle(props.id)}

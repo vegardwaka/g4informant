@@ -1,0 +1,1 @@
+{"title":"klokke","count":"1","tmpheight":"100%","tmpwidth":"100%","squares":[{"ruteNr":0,"elementNr":1},{"ruteNr":1,"elementNr":0},{"ruteNr":2,"elementNr":0},{"ruteNr":3,"elementNr":0},{"ruteNr":4,"elementNr":0},{"ruteNr":5,"elementNr":0}],"user":"tester","continent":"Europe","capital":"Oslo","tatext":null}

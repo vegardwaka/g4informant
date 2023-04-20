@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-import ExampleTime from '../../json/ExampleTime'
 
 export default function APIKlokke(props){
     const [SyncTime, setSyncTime] = useState([])
@@ -10,8 +9,7 @@ export default function APIKlokke(props){
     console.log("Capital: " + props.propcapital)
 
     useEffect(() => {
-        const proxyUrl = `http://localhost:3001/APIClock/${position[0]}&${position[1]}`
-        fetch(proxyUrl) 
+        fetch(`http://localhost:3001/APIClock/${position[0]}&${position[1]}`) 
         .then(response => response.json())
         .then(data => {
             console.log(data.time)
@@ -46,28 +44,31 @@ export default function APIKlokke(props){
                     return
                 }
                 else {
-                
-                setPosition([outArray[0], outArray[1]])
-                console.log("array " + outArray[0], outArray[1])
-                console.log(position[0], position[1])
-                setShow(false)
-                sessionStorage.setItem("continent",outArray[0])
-                sessionStorage.setItem("capital", outArray[1])
-            } 
+                    setPosition([outArray[0], outArray[1]])
+                    console.log("array " + outArray[0], outArray[1])
+                    console.log(position[0], position[1])
+                    setShow(false)
+                    sessionStorage.setItem("continent",outArray[0])
+                    sessionStorage.setItem("capital", outArray[1])
+                    props.setClockObj({
+                        continent: outArray[0],
+                        capital: outArray[1]
+                    })
+                } 
             })  
     }
 
     useEffect(() => {
-        setPosition([sessionStorage.getItem("continent"), sessionStorage.getItem("capital")])
+        setPosition([position[0], position[1]])
         function runClock() {
             var now = new Date();
-            var timeToNextTick = (60 - now.getSeconds()) * 1000 - now.getMilliseconds() + 60000;
+            var timeToNextTick = (60 - now.getSeconds()) * 1000 - now.getMilliseconds();
             setTimeout(function() {
-                setPosition([sessionStorage.getItem("continent"), sessionStorage.getItem("capital")])
+                setPosition([position[0], position[1]])
                 runClock();
             }, timeToNextTick);
         }
-            runClock()
+        runClock()
     }, [])
         
 
@@ -75,7 +76,8 @@ export default function APIKlokke(props){
         <div 
             className="API-container" 
             style={{width: props.width, height: props.height, border: props.show ? '3px dashed black' : ''}} 
-            onClick={props.toggle}>
+            onClick={props.toggle}
+        >
             {show && <button className="weather-location-button" onClick={changeLocation}>Set location</button>}
             {display ? <h3 className="clockbox-day">{SyncTime.dayOfWeek}</h3> : null}
             <h1 className="clockbox-time">{SyncTime.time}</h1>
@@ -84,73 +86,3 @@ export default function APIKlokke(props){
         </div>
     )     
 }
-
-
-
-
-/*import { useState, useEffect } from 'react';
-import ExampleTime from '../../json/ExampleTime'
-
-export default function APIKlokke(props){
-    const [syncTime, setSyncTime] = useState('')
-    const [isActive, setIsActive] = useState(false)
-
-    const handleClick = () => {
-        setIsActive(current => !current)
-    }
-
-    const list = ExampleTime.map(item => {
-        return (
-            <div className="clockBox" style={{width: props.width, border: isActive ? '4px solid red' : ''}} onClick={handleClick}>
-                <p>{item.time}</p>
-                <p>{item.dayOfWeek}</p>
-                <p>{item.timeZone.split('/')[1]}</p>
-                <p>{item.date}</p>
-            </div>
-        )     
-    }) 
-            
-    
-*/
-    /*
-    useEffect(() => {
-        let midlDataTime = '15:07'
-        const proxyUrl = 'https://cors-anywhere.herokuapp.com/'
-        const apiUrl = 'https://timeapi.io/api/Time/current/zone?timeZone=Europe/Oslo'
-    fetch(apiUrl) 
-    .then(response => response.json())
-    .then(data => {
-        
-       // setSyncTime(data)
-        console.log(list.time)
-        //console.log(midlDataTime)
-        setSyncTime(list)
-    })
-    .catch(error => console.log(error))   
-    }, []) */
-
-  /*  return(
-        <div>
-            <h3>{list}</h3>
-        </div>
-    )
-}*/
-//  <h1>{syncTime.time}</h1>
-//  <p>{syncTime.date}</p>
-  /*fetch(proxyUrl + apiUrl), {
-        method: 'GET',
-        headers: {
-            'Host': 'timeapi.io',
-            'Content-Type': 'application/json',
-            'Access-Control-Allow-Origin':'https://timeapi.io/api/Time/current/zone?timeZone=Europe/Oslo',
-
-    .then(response => response.json())
-    .then(data => {
-        
-        //setSyncTime(data)
-        //console.log(data.time)
-        console.log(midlDataTime)
-    })
-    .catch(error => console.log(error))   
-    }, []);
-        }*/

@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useNavigate } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
@@ -64,6 +64,15 @@ export default function Login({ setToken }) {
         }
         tokenHandler()
     }
+    useEffect(() => {
+        const passwordInput = document.querySelector("#password");
+        passwordInput.addEventListener("keyup", function (event) {
+            event.preventDefault();
+            if (event.keyCode === 13) {
+                document.getElementById("loginBtn").click();
+            }
+        })
+    }, [])
 
     return (
         <div className="input-container">
@@ -76,6 +85,7 @@ export default function Login({ setToken }) {
                     value={email} 
                     onChange={(e) => setEmail(e.target.value)} 
                     className="input--email" 
+                    id="email"
                     placeholder="Email..."
                 />
                 <br/>
@@ -86,10 +96,11 @@ export default function Login({ setToken }) {
                     value={password} 
                     onChange={(e) => setPassword(e.target.value)} 
                     className="input--password" 
+                    id="password"
                     placeholder="Password..."
                 />
                 <br/>
-                <button className="input--button" onClick={handleSubmit}>submit</button>
+                <button className="input--button" id="loginBtn" onClick={handleSubmit}>submit</button>
                 <br/>
             </div>
         </div>

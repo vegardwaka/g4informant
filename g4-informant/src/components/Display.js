@@ -3,7 +3,6 @@ import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react'
 
 export default function Display(props) {
-  let element
   const { infoscreen } = useParams();
   const [liste, setListe] = useState({})
 
@@ -23,7 +22,10 @@ export default function Display(props) {
   useEffect(() => {
     submitButtonHent()
   },[])
-  element = <MainTemplate  
+
+  return (
+      <div className={props.changeboolean ? "profile-display-screen" : "workbench--screen"}> 
+          <MainTemplate  
                   count={liste.count} 
                   heighten={liste.tmpheight} 
                   widthen={liste.tmpwidth}
@@ -37,11 +39,8 @@ export default function Display(props) {
                   capital={liste.capital}
                   squares={liste.squares}
                   tatext={liste.tatext}
-            />  
-
-  return (
-      <div className={props.changeboolean ? "profile-display-screen" : "workbench--screen"}> 
-          {element}
+                  newsnumber={liste.newsnumber}
+          />
       </div>
   )
 }

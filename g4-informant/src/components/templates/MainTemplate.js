@@ -1,7 +1,10 @@
 import Square from './Square'
 import DisplaySquare from './DisplaySquare'
+import { useState } from 'react' 
 
 export default function MainTemplate(props) {
+    const [show, setShow] = useState(false)
+
     let list = []
     for(let i=0; i<props.count; i++)
         list[i] = i
@@ -19,6 +22,10 @@ export default function MainTemplate(props) {
                 toggle={toggle}
                 id={i}
                 sizen={props.count}
+                elements={props.elements}
+                elementsvar={props.elementsvar}
+                setClockObj={props.setClockObj}
+                setWeatherObj={props.setWeatherObj}
             />
         :
             <DisplaySquare 
@@ -28,8 +35,6 @@ export default function MainTemplate(props) {
                 toggle={toggle}
                 id={i}
                 sizen={props.count}
-                tall1={props.tall1}
-                elementtall={props.elementtall}
                 state={props.state}
                 city={props.city}
                 continent={props.continent}
@@ -37,11 +42,12 @@ export default function MainTemplate(props) {
                 squares={props.squares}
                 tatext={props.tatext}
                 fulldisplay={props.fulldisplay}
+                newsnumber={props.newsnumber}
             />
     )
 
     return (
-        <div className="templateBoxMain">
+        <div className={show ? "templateBoxMain" : "templateBoxVerticalMain"}>
             {templateCount}
         </div>
     )

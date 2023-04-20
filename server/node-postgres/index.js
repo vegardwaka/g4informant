@@ -19,6 +19,21 @@ app.use(function (req, res, next) {
 
 app.use(bodyParser.json())
 
+app.post('/data/images/:name', (req, res) => {
+  const file = req.files.inImage
+const filename = req.params.filename
+const path = '/images/${filename}'
+file.mv(path, (err) => {
+  if(err) {
+    console.error(err)
+    res.status(500).send('Error saving image file')
+  } else {
+    console.log('File saved')
+    res.json({ message: 'File saved'})
+  }
+})
+})
+
 app.post('/data/:name', (req, res) => {
   const message = req.body
   const data = { message: 'Saved succ' }

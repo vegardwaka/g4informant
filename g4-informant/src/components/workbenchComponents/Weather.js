@@ -21,7 +21,8 @@ export default function Weather(props) {
                 if (!response.ok) {
                     throw new Error('Failed to fetch location data')
                 } else {
-                    return response.json()}
+                    return response.json()
+                }
             })
             .then(data => { 
                 console.log(lat)
@@ -35,25 +36,25 @@ export default function Weather(props) {
 
 
     useEffect(() => {
-    async function getWeather() {
-
-        await fetch(`http://localhost:3001/Weather/${lat}&${lon}`, {
-        method: 'GET',
-        })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Failed to fetch weather data')
-            } else {
-            return response.json()}
-        })
-        .then(data => { 
-            setWeather(data)
-        })
-    }
-        if(lat && lon) {
-            console.log("Weather fetched successfully")
-            getWeather()
+        async function getWeather() {
+            await fetch(`http://localhost:3001/Weather/${lat}&${lon}`, {
+            method: 'GET',
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Failed to fetch weather data')
+                } else {
+                    return response.json()
+                }
+            })
+            .then(data => { 
+                setWeather(data)
+            })
         }
+            if(lat && lon) {
+                console.log("Weather fetched successfully")
+                getWeather()
+            }
     }, [lat, lon])       
 
     if(location) {
@@ -94,7 +95,8 @@ export default function Weather(props) {
                 if (!response.ok) {
                     throw new Error('Failed to fetch location data')
                 } else {  
-                return response.json()}
+                    return response.json()
+                }
             })
             .then(data => { 
                 if(data.length === 0) {
@@ -102,21 +104,26 @@ export default function Weather(props) {
                     return
                 }
                 else {
-            setCity(outArray[0])
-            setState(outArray[1])
-            console.log(outArray[0], outArray[1])
-            sessionStorage.setItem("city", outArray[0])
-            sessionStorage.setItem("state", outArray[1])
-            setShow(false)} 
+                    setCity(outArray[0])
+                    setState(outArray[1])
+                    console.log(outArray[0], outArray[1])
+                    setShow(false)
+                    sessionStorage.setItem("city", outArray[0])
+                    sessionStorage.setItem("state", outArray[1])
+                    props.setWeatherObj({
+                        city: outArray[0],
+                        state: outArray[1]
+                    })
+                } 
             })  
     }
-//weathericon not work!
+
     return (
         <div className="weatherBox" onClick={props.toggle} style={{height:props.height, width:props.width, border:props.show ? '3px dashed black' : ''}}>
             {show && <button className="weather-location-button" onClick={changeLocation}>Set location</button>}
             {display && <h1 className="weather-location-city">{JSON.stringify(location).split(',').at(0).replace(/"/g, "")}</h1>}
             {display && <p className="weather-location-state">{JSON.stringify(location).split(',').at(1)}</p>}
-            <img src={`weathericon/png/${imgSrc}.png`} alt="emptypicture" id="weathericon"/>
+            <img src={`/weathericon/png/${imgSrc}.png`} alt="emptypicture" id="weathericon"/>
             {display && <h1 className="weather-location-degrees">{weatherHour+" °C"}</h1>}
         </div>
     )
