@@ -1,30 +1,40 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 export default function Image(props) {
-    const [image, setImage] = useState(null)
+    const [image, setImage] = useState()
     const [show, setShow] = useState(props.hide)
+    const [imageName, setImageName] = useState()
 
-    async function sendToBackend(image) {
+    useEffect(() => {
+    if(image){        
+        //props.setImageName(image.name)
+        console.log(imageName)
+        console.log(image)
+        console.log("imagename.name" + imageName)
+        //console.log(props.imageName)
+     //funker   console.log(image.name)
+     sendImageToBackend()
+    }}, [image])
+
+    async function sendImageToBackend() {
         const formData = new FormData()
-        formData.append('inImage', image)
-        const fileName = image.name
-        await fetch(`http://localhost:3001/data/Images/${fileName}`, {
+        formData.append('inImage', image, imageName)
+        try {
+        const response = await fetch(`http://localhost:3001/images/${imageName}`, {
           method: 'POST',
+          headers: { 'Content-Type': 'multipart/form-data; boundary=20' },
           body: formData
         })
-        .then(response => response.json())
-        .then(data => {
-          console.log(data.message)
-        })
-        .catch(error => {
+        const data = response
+          console.log("Image: "+data.message)
+        } catch(error) {
           console.error(error)
-        })
+        }
       }
-      sendToBackend()
-    
+
     return(
         <div 
-            className="API-container"
+            className={props.fulldisplay ? "API-container-fulldisplay" : "API-container"}
             onClick={props.toggle}
             style={{
                 width: props.imgwidth, 
@@ -51,6 +61,7 @@ export default function Image(props) {
                     id="image-file-input" 
                     onChange={(e) => {
                         setImage(e.target.files[0]);
+                        setImageName(e.target.files[0].name)
                     }}
                 />)
             : <h1>IMAGE</h1>}

@@ -1,6 +1,5 @@
 import APIKlokke from './APIKlokke'
 import Weather from './Weather'
-import Logo from './Logo'
 import Textarea from './Textarea'
 import Image from './Image'
 import TimeEdit from './TimeEdit'
@@ -9,6 +8,7 @@ import { useState } from 'react'
 
 export default function CompontentsList({onQueryNumber}){
     const [isActive, setIsActive] = useState(false)
+    
     const handleClick = () => {
         setIsActive(current => !current)
         onQueryNumber(1)
@@ -90,7 +90,6 @@ export default function CompontentsList({onQueryNumber}){
                 <br />
                 <News width="100%" toggle={handleClick6} show={isActive6} homeChannel={true}/>
                 <br />
-                <Logo/>
             </div>
         </div>
     )

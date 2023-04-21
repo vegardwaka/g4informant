@@ -1,0 +1,1 @@
+{"title":"wakakskjermdawd","count":"4","tmpheight":"50%","tmpwidth":"50%","squares":[{"ruteNr":0,"elementNr":2},{"ruteNr":1,"elementNr":1},{"ruteNr":2,"elementNr":6},{"ruteNr":3,"elementNr":6}],"user":"wakaroni","city":"Bø","state":"Midt-Telemark","continent":"Europe","capital":"Oslo","newsnumber":1,"tatext":null,"image":{},"imageName":"","bgImage":null}

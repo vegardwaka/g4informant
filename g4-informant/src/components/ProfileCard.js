@@ -44,7 +44,7 @@ let link
                     return null
                 } else {
                     console.log(data)
-                    window.alert("Screen deleted!")
+                    window.alert(`Screen ${props.title} deleted!`)
                     deleteScreen()
                     props.toggle(props.title)
                 }

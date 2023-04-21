@@ -25,7 +25,7 @@ export default function Weather(props) {
                 }
             })
             .then(data => { 
-                console.log(lat)
+             //   console.log(lat)
                 setLat(data[0].lat)
                 setLon(data[0].lon)
                 setLocation(data[0].display_name)
@@ -52,7 +52,7 @@ export default function Weather(props) {
             })
         }
             if(lat && lon) {
-                console.log("Weather fetched successfully")
+              //  console.log("Weather fetched successfully")
                 getWeather()
             }
     }, [lat, lon])       
@@ -106,7 +106,6 @@ export default function Weather(props) {
                 else {
                     setCity(outArray[0])
                     setState(outArray[1])
-                    console.log(outArray[0], outArray[1])
                     setShow(false)
                     sessionStorage.setItem("city", outArray[0])
                     sessionStorage.setItem("state", outArray[1])
@@ -119,7 +118,11 @@ export default function Weather(props) {
     }
 
     return (
-        <div className="weatherBox" onClick={props.toggle} style={{height:props.height, width:props.width, border:props.show ? '3px dashed black' : ''}}>
+        <div 
+            className={props.fulldisplay ? "weatherBox-fulldisplay" : "weatherBox"}
+            onClick={props.toggle} 
+            style={{height:props.height, width:props.width, border:props.show ? '3px dashed black' : ''}}
+        >
             {show && <button className="weather-location-button" onClick={changeLocation}>Set location</button>}
             {display && <h1 className="weather-location-city">{JSON.stringify(location).split(',').at(0).replace(/"/g, "")}</h1>}
             {display && <p className="weather-location-state">{JSON.stringify(location).split(',').at(1)}</p>}

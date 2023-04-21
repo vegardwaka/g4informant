@@ -40,6 +40,7 @@ export default function Display(props) {
                   squares={liste.squares}
                   tatext={liste.tatext}
                   newsnumber={liste.newsnumber}
+                  bgImage={liste.bgImage}
           />
       </div>
   )

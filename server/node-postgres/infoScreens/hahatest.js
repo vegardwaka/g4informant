@@ -1,1 +1,0 @@
-{"title":"hahatest","count":"2","tmpheight":"100%","tmpwidth":"50%","squares":[{"ruteNr":0,"elementNr":2},{"ruteNr":1,"elementNr":1},{"ruteNr":2},{"ruteNr":3},{"ruteNr":4},{"ruteNr":5}],"user":"tester","city":"Stavanger","state":"Rogaland","continent":"Europe","capital":"Oslo","tatext":null}

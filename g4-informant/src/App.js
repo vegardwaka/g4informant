@@ -24,7 +24,7 @@ export default function App(props) {
       <Router>
         <div className="App">
         <NavBar/> 
-          <div className="content">
+        <div className="content">
             <Routes>
               <Route path='/' element={<Home/>}/>
               <Route path='/About' element={<About/>}/>

@@ -5,8 +5,8 @@ export default function APIKlokke(props){
     const [position, setPosition] = useState(["" + props.propcontinent,"" + props.propcapital])
     const [show, setShow] = useState(props.hide)
     const [display, setDisplay] = useState(props.display)
-    console.log("Continent: " + props.propcontinent)
-    console.log("Capital: " + props.propcapital)
+ //  console.log("Continent: " + props.propcontinent)
+ //   console.log("Capital: " + props.propcapital)
 
     useEffect(() => {
         fetch(`http://localhost:3001/APIClock/${position[0]}&${position[1]}`) 
@@ -74,7 +74,7 @@ export default function APIKlokke(props){
 
     return (
         <div 
-            className="API-container" 
+            className={props.fulldisplay ? "API-container-fulldisplay" : "API-container"}
             style={{width: props.width, height: props.height, border: props.show ? '3px dashed black' : ''}} 
             onClick={props.toggle}
         >

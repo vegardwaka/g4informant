@@ -43,6 +43,7 @@ export default function FullDisplay(props) {
                   tatext={liste.tatext}
                   newsnumber={liste.newsnumber}
                   fulldisplay={props.fulldisplay}
+                  bgImage={liste.bgImage}
           />
       </div>
   )

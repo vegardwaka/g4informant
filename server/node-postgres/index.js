@@ -2,6 +2,8 @@ const express = require('express')
 const NodeCache = require( "node-cache" )
 const fetch = require('node-fetch')
 const bodyParser = require('body-parser')
+const multer  = require('multer')
+
 const app = express()
 const fs = require('fs')
 
@@ -18,20 +20,36 @@ app.use(function (req, res, next) {
 })
 
 app.use(bodyParser.json())
-
-app.post('/data/images/:name', (req, res) => {
-  const file = req.files.inImage
-const filename = req.params.filename
-const path = '/images/${filename}'
-file.mv(path, (err) => {
-  if(err) {
-    console.error(err)
-    res.status(500).send('Error saving image file')
-  } else {
-    console.log('File saved')
-    res.json({ message: 'File saved'})
-  }
+const upload = multer({
+  storage: multer.memoryStorage(),
+    limits: { fileSize: 10485760, fields: 10 * 1024 * 1024 },
+  fileFilter: (req, file, callback) => {
+    // perform file type validation here
+    callback(null, true);
+  },
+  onParseEnd: (req, next) => {
+    if (req.rawBody && req.headers['content-type'].startsWith('multipart/form-data')) {
+      req.body = parseMultipart(req.rawBody, req.headers['content-type'], req.boundary);
+    }
+    next();
+  },
+  // set the boundary string to match the one used in the client request
+  boundary: '20'
 })
+app.post(`/images/:name`, upload.single('inImage'), (req, res) => {
+console.log("SKRIK TIL VEBJØRN OM DU SER DETTE")
+try {
+fs.writeFile(`Images/${req.file.filename}`, req.file.buffer, (err) => {
+  if(!err) {
+    console.log('ADSAIDUSHJDISAHDIAUDHSAIUDUSAHIUADAH')
+    res.status(200).send('Image saved')
+  } else {
+    console.error('error writing to image file')
+    throw new Error(err)
+  }})
+} catch (error) {
+  console.error(error)
+  res.status(500).send('Error saving image data')}
 })
 
 app.post('/data/:name', (req, res) => {
@@ -39,7 +57,7 @@ app.post('/data/:name', (req, res) => {
   const data = { message: 'Saved succ' }
   console.log(message)
   res.json(data)
-  try{
+  try {
   fs.writeFile(`infoScreens/${req.params.name}.js`, JSON.stringify(message), 'utf8' , (err) =>{
     if(!err){
       console.log('File written!')

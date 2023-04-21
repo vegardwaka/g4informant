@@ -34,8 +34,7 @@ export default function TemplateList({ onQueryObj, onQueryHide, onQueryList}) {
             <h3 className="template-title">Templates</h3>
             <div className="workbench-templates">
                 {templateListH}
-                {templateListV}
             </div>
         </div>
     )
-}
+}//{templateListV}

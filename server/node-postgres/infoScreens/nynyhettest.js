@@ -1,0 +1,1 @@
+{"title":"nynyhettest","count":"4","tmpheight":"50%","tmpwidth":"50%","squares":[{"ruteNr":0,"elementNr":6},{"ruteNr":1,"elementNr":2},{"ruteNr":2},{"ruteNr":3}],"user":"sigve123","city":"Stavanger","state":"Rogaland","newsnumber":2,"tatext":null,"image":{},"imageName":"","bgImage":null}

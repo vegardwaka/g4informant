@@ -66,7 +66,7 @@ export default function News(props) {
     
     return(
         <div
-            className="API-container"
+            className={props.fulldisplay ? "API-container-fulldisplay" : "API-container"}
             onClick={props.toggle} 
             style={{height:props.height, width:props.width, border:props.show ? '3px dashed black' : ''}}
         >

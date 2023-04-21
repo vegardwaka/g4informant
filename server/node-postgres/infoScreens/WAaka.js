@@ -1,0 +1,1 @@
+{"title":"WAaka","count":"4","tmpheight":"50%","tmpwidth":"50%","squares":[{"ruteNr":0,"elementNr":1},{"ruteNr":1,"elementNr":2},{"ruteNr":2,"elementNr":6},{"ruteNr":3,"elementNr":3}],"user":"wakaroni","city":"Haugesund","state":"Rogaland","continent":"Europe","capital":"Oslo","newsnumber":2,"tatext":"daliwdoainwdoaidnwoaind","image":{},"imageName":""}

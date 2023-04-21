@@ -1,157 +1,135 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import MainTemplate from "./templates/MainTemplate"
 import TemplateList from "./templates/TemplateList"
+import BgImageList from "./templates/BgImageList"
 import ComponentList from "./workbenchComponents/ComponentsList"
+import Image from './workbenchComponents/Image'
 
 export default function Workbench() {
-    const [queryObj, setQueryObj] = useState({})
-    const [queryHide, setQueryHide] = useState(false)
-    const [queryList, setQueryList] = useState(true)
-    const [title, setTitle] = useState('')
-    const [queryNumber, setQueryNumber] = useState(0)
-    let tmData = {}
-    let test = true
-    let key
-    const [elements, setElements] = useState({})
-    const [clockObj, setClockObj] = useState({})
-    const [weatherObj, setWeatherObj] = useState({})
+      const [queryObj, setQueryObj] = useState({})
+      const [queryHide, setQueryHide] = useState(false)
+      const [queryList, setQueryList] = useState(true)
+      const [image, setImage] = useState({})
+      const [imageName, setImageName] = useState("")
+      const [title, setTitle] = useState('')
+      const [queryNumber, setQueryNumber] = useState(0)
+      let tmData = {}
+      let test = true
+      let key
+      const [elements, setElements] = useState({})
+      const [clockObj, setClockObj] = useState({})
+      const [weatherObj, setWeatherObj] = useState({city: "Juneau", state: "Alaska" })
+      const [bgImage, setBGImage] = useState('')
+      let testcheck = 0
+      let itemtest = sessionStorage.getItem('bg')
+    
+      function handleClick() {
+          setQueryHide(false)
+          setQueryList(true)
+          setQueryObj({count:0})
+          setQueryNumber(0)
+          sessionStorage.removeItem('bg')
+      }
 
-    function handleClick() {
-        setQueryHide(false)
-        setQueryList(true)
-        setQueryObj({count:0})
-        setQueryNumber(0)
-    }
-
-    async function submitButton() {
-      if(title.length === 0) {
-        window.alert("Give the informationscreen a name")
-      } 
-      else {
-        tmData = {
-          title: title, 
-          count: queryObj.count,
-          tmpheight: queryObj.height,
-          tmpwidth: queryObj.width, 
-          tmpquery: queryObj.queryNumber,
-          squares: [],
-          user: localStorage.getItem('token').replace(/"/g, ""),
-          city: weatherObj.city,
-          state: weatherObj.state,
-          continent: clockObj.continent,
-          capital: clockObj.capital,
-          newsnumber: parseInt(sessionStorage.getItem("news")),
-          tatext: sessionStorage.getItem('taText')
+      async function submitButton() {
+        if(feiltest()) {
         }
-         
-        for (var i = 0; i < queryObj.count; i++) {
-          let temp = (i+1)
-          tmData.squares[i] = {ruteNr: i,elementNr: elements["e" + temp]}
-          console.log(tmData.squares[i])}
+        else {
+          tmData = {
+            title: title, 
+            count: queryObj.count,
+            tmpheight: queryObj.height,
+            tmpwidth: queryObj.width, 
+            tmpquery: queryObj.queryNumber,
+            squares: [],
+            user: localStorage.getItem('token').replace(/"/g, ""),
+            city: weatherObj.city,
+            state: weatherObj.state,
+            continent: clockObj.continent,
+            capital: clockObj.capital,
+            newsnumber: parseInt(sessionStorage.getItem("news")),
+            tatext: sessionStorage.getItem('taText'),
+            image: image,
+            imageName: imageName,
+            bgImage: itemtest
+          }
+          
+          for (var i = 0; i < queryObj.count; i++) {
+            let temp = (i+1)
+            tmData.squares[i] = {ruteNr: i,elementNr: elements["e" + temp]}
+            console.log(tmData.squares[i])}
 
-        /*const mData = { 
-          title: title, 
-          count: queryObj.count,
-          tmpheight: queryObj.height,
-          tmpwidth: queryObj.width, 
-          tmpquery: queryObj.queryNumber,
-          squares: [
-            {
-              ruteNr: 0,
-              elementNr: elements.e1
-            },
-            {
-              ruteNr: 1,
-              elementNr: elements.e2
-            },
-            {
-              ruteNr: 2,
-              elementNr: elements.e3
-            },
-            {
-              ruteNr: 3,
-              elementNr: elements.e4
-            },
-            {
-              ruteNr: 4,
-              elementNr: elements.e5
-            },
-            {
-              ruteNr: 5,
-              elementNr: elements.e6
-            },
-          ],
-          user: localStorage.getItem('token').replace(/"/g, ""),
-          city: weatherObj.city,
-          state: weatherObj.state,
-          continent: clockObj.continent,
-          capital: clockObj.capital,
-          newsnumber: parseInt(sessionStorage.getItem("news")),
-          tatext: sessionStorage.getItem('taText')
-      }*/
-        //for(var i = 0; i =< props.sizen; i++) {test={ruteNr: i, elementNr: 0}; mData.square =+ test}
-        /*
-        for(let i=0; i< queryObj.count; i++) {
-          mData.square[i] = {ruteNr: i, elementNr: 0}
-        } */
+          await fetch(`https://g4informant.com/api.php/records/infoskjerm`, {
+            method: 'GET',
+            headers: { 'Content-Type': 'application/json' },
+          })
+          .then(response => response.json())
+          .then(data => {
+            var largest = parseInt(data.records[0].infoskjerm_id)
+            for(var i = 0; i < data.records.length; i++) {
+              if(largest < data.records[i].infoskjerm_id) {
+                largest = data.records[i].infoskjerm_id
+            }
+          }
+            key = largest + 1
+            console.log(key)
+          })
+
         await fetch(`https://g4informant.com/api.php/records/infoskjerm`, {
-          method: 'GET',
+          method: 'POST',
           headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({"infoskjerm_id":key,"tittel":title,"user_name":localStorage.getItem('token').replace(/"/g, "")})
         })
         .then(response => response.json())
         .then(data => {
-          //console.log(data.records[0].infoskjerm_id)
-          var largest = parseInt(data.records[0].infoskjerm_id)
-          for(var i = 0; i < data.records.length; i++) {
-            if(largest < data.records[i].infoskjerm_id) {
-              largest = data.records[i].infoskjerm_id
-          }
-        }
-          key = largest + 1
-          console.log(key)
+            console.log(data)
+            /*if(data.code === 1009) {
+                window.alert("There is already a workbench with that name")
+                return null
+            } else if (data.code === 9999) {
+                window.alert("Somthing went wrong")
+                return null
+            } else {*/
+              sendToBackend(tmData)
+              sessionStorage.removeItem('bg')
+              window.alert(`Screen ${title} saved`)
+            
+            //}
         })
+        .catch(error => {
+            console.error(error)
+            return null
+        })
+    }
+    }
 
-      await fetch(`https://g4informant.com/api.php/records/infoskjerm`, {
+    function feiltest() {
+      if(!title.trim().length) {
+        window.alert("Give the informationscreen a name")
+        return true
+      }
+      else if(Object.values(elements).includes(2)) {
+        if(weatherObj.city === "Juneau" && weatherObj.state === "Alaska") {
+          window.alert("Choose a location for weather element")
+          return true
+        }
+      }
+    }
+      
+    async function sendToBackend(data) {
+      await fetch(`http://localhost:3001/data/${title}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({"infoskjerm_id":key,"tittel":title,"user_name":localStorage.getItem('token').replace(/"/g, "")})
+        body: JSON.stringify(data),
       })
       .then(response => response.json())
       .then(data => {
-          console.log(data)
-          /*if(data.code === 1009) {
-              window.alert("There is already a workbench with that name")
-              return null
-          } else if (data.code === 9999) {
-              window.alert("Somthing went wrong")
-              return null
-          } else {*/
-            sendToBackend(tmData)
-            window.alert("Screen saved")
-           
-          //}
+        console.log(data.message)
       })
       .catch(error => {
-          console.error(error)
-          return null
+        console.error(error)
       })
-  }
-  }
-    
-  async function sendToBackend(data) {
-    await fetch(`http://localhost:3001/data/${title}`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data),
-    })
-    .then(response => response.json())
-    .then(data => {
-      console.log(data.message)
-    })
-    .catch(error => {
-      console.error(error)
-    })
-  }
+    }
 
     return (
       <div>
@@ -167,7 +145,6 @@ export default function Workbench() {
                     placeholder="NAME YOUR WORK"
                 />
             }
-            {queryHide && <button type="submit" className="image-workbench-button">Upload background image</button>}
             {queryHide && <button type="submit" className="save-workbench-button" onClick={submitButton}>Save your work</button>}
         </div>
         {queryHide && 
@@ -198,8 +175,12 @@ export default function Workbench() {
                     elementsvar={elements}
                     setClockObj={setClockObj}
                     setWeatherObj={setWeatherObj}
+                    setBGImage={itemtest}
+                    setImage={setImage}
+                    setImageName={setImageName} 
                 />
             </div>
+            <BgImageList bgImage={bgImage}/>
         </div>
       </div>
     )
