@@ -1,1 +1,0 @@
-{"title":"wakatesten","count":"4","tmpheight":"50%","tmpwidth":"50%","squares":[{"ruteNr":0,"elementNr":1},{"ruteNr":1,"elementNr":2},{"ruteNr":2,"elementNr":6},{"ruteNr":3,"elementNr":6},{"ruteNr":4},{"ruteNr":5}],"user":"wakaroni","city":"Haugesund","state":"Rogaland","continent":"Europe","capital":"Oslo","newsnumber":1,"tatext":"JAJJAJajajajjaJAJAJAJAJJAJAJAJAJjajajajJAJA"}

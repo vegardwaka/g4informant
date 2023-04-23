@@ -9,6 +9,7 @@ export default function News(props) {
     const [channelList, setChannelList] = useState(props.channelList)
     const [homeChannel, setHomeChannel] = useState(props.homeChannel)
     let numbernews = props.newsnumber
+    let string 
    
     const getRss = async (e) => {
         const urlRegex = /(http|ftp|https):\/\/[\w-]+(\.[\w-]+)+([\w.,@?^=%&amp;:\~+#-]*[\w@?^=%&amp;\/~+#-])*/g;
@@ -41,14 +42,13 @@ export default function News(props) {
     function handleClick(p_newsNumber) {
         setChannelList(false)
         if(p_newsNumber === 1) {
-            sessionStorage.setItem("news", 1)
             setUrl("https://www.nrk.no/toppsaker.rss")
             setImgURL("/nrk_nyheter_rgb.png")
         } else if(p_newsNumber === 2) {
-            sessionStorage.setItem("news", 2)
             setUrl("https://www.tv2.no/rss/nyheter")
             setImgURL("http://static.cdn.tv2.no/s/img/logo/tv2-logo-rss.png")
         }
+        props.setNews(p_newsNumber)
     }
    
     if(count >= parseInt(allArticles.length)) {
@@ -63,7 +63,11 @@ export default function News(props) {
                 clearInterval(timer)
             }
     }, [])
-    
+
+    /* 
+    if (articles.description.length >= 150)
+        articles.description.substring(0, 100) + "...";
+    */ 
     return(
         <div
             className={props.fulldisplay ? "API-container-fulldisplay" : "API-container"}

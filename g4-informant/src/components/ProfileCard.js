@@ -62,13 +62,11 @@ let link
             <h2>Screen {props.title}</h2>
             <Display changeboolean={true} fulldisplay={false} title={props.title}/>
             <div className="profile-buttons">
-                <div>
                 <a className="profile--link"href={`screen/${props.title}`}><button className="profile--display">Display screen</button></a>
-                </div>
-                <button className="profile--edit" onClick={editScreen}>Edit</button>
                 <button className="profile--delete" onClick={deleteScreen}>Delete</button>
             </div>
         </div>
     )
 
 }
+//<button className="profile--edit" onClick={editScreen}>Edit</button>

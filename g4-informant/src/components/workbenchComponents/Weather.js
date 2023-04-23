@@ -107,8 +107,6 @@ export default function Weather(props) {
                     setCity(outArray[0])
                     setState(outArray[1])
                     setShow(false)
-                    sessionStorage.setItem("city", outArray[0])
-                    sessionStorage.setItem("state", outArray[1])
                     props.setWeatherObj({
                         city: outArray[0],
                         state: outArray[1]
@@ -126,7 +124,7 @@ export default function Weather(props) {
             {show && <button className="weather-location-button" onClick={changeLocation}>Set location</button>}
             {display && <h1 className="weather-location-city">{JSON.stringify(location).split(',').at(0).replace(/"/g, "")}</h1>}
             {display && <p className="weather-location-state">{JSON.stringify(location).split(',').at(1)}</p>}
-            <img src={`/weathericon/png/${imgSrc}.png`} alt="emptypicture" id="weathericon"/>
+            {display ? <img src={`/weathericon/png/${imgSrc}.png`} alt="emptypicture" id="weathericon"/> : <h1>Weather</h1>}
             {display && <h1 className="weather-location-degrees">{weatherHour+" °C"}</h1>}
         </div>
     )

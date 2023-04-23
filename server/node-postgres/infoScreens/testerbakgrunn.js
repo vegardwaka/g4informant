@@ -1,0 +1,1 @@
+{"title":"testerbakgrunn","count":"1","tmpheight":"100%","tmpwidth":"100%","squares":[{"ruteNr":0,"elementNr":1}],"user":"sigve123","city":"Juneau","state":"Alaska","continent":"Europe","capital":"Oslo","newsnumber":0,"tatext":"","image":{},"imageName":"","bgImage":"/images/backgroundX3.jpg"}

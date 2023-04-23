@@ -14,6 +14,7 @@ import NotFound from './components/NotFound'
 import useToken from './components/useToken'
 import Profile from './components/Profile'
 import FullDisplay from './components/FullDisplay'
+import Documentation from './components/Documentation'
 
 export default function App(props) {
   const [show, setShow] = useState(true)
@@ -23,11 +24,12 @@ export default function App(props) {
     return (
       <Router>
         <div className="App">
-        <NavBar/> 
+        {show && <NavBar/>} 
         <div className="content">
             <Routes>
               <Route path='/' element={<Home/>}/>
               <Route path='/About' element={<About/>}/>
+              <Route path='/Documentation' element={<Documentation />}/>
               <Route path='/Blog' element={<Blog/>}/>
               <Route path='/Profile' element={<Profile/>}/>
               <Route path='/Login' element={<Login setToken={setToken} />} />
@@ -37,8 +39,8 @@ export default function App(props) {
           </div>
         </div>
         <div className="footer">
-        <Footer/>
-        </div>
+        {show && <Footer/>}
+        </div> 
       </Router>
     ) 
   }
@@ -52,6 +54,7 @@ export default function App(props) {
             <Routes>
               <Route path='/' element={<Home/>}/>
               <Route path='/About' element={<About/>}/>
+              <Route path='/Documentation' element={<Documentation />}/>
               <Route path='/Blog' element={<Blog/>}/>
               <Route path='/Profile' element={<Profile/>}/>
               <Route path='/Login' element={<Login setToken={setToken} />} />
@@ -62,7 +65,7 @@ export default function App(props) {
               <Route path='/screen/:infoscreen' element={<FullDisplay onShow={setShow} fulldisplay={true}/>}/>
               <Route path='*' element={<NotFound/>}/>
             </Routes>
-          </div>
+         </div>
           <div className="footer">
             {show && <Footer/>}
           </div>

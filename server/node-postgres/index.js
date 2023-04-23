@@ -18,38 +18,19 @@ app.use(function (req, res, next) {
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Access-Control-Allow-Headers')
   next()
 })
-
-app.use(bodyParser.json())
-const upload = multer({
-  storage: multer.memoryStorage(),
-    limits: { fileSize: 10485760, fields: 10 * 1024 * 1024 },
-  fileFilter: (req, file, callback) => {
-    // perform file type validation here
-    callback(null, true);
-  },
-  onParseEnd: (req, next) => {
-    if (req.rawBody && req.headers['content-type'].startsWith('multipart/form-data')) {
-      req.body = parseMultipart(req.rawBody, req.headers['content-type'], req.boundary);
-    }
-    next();
-  },
-  // set the boundary string to match the one used in the client request
-  boundary: '20'
-})
-app.post(`/images/:name`, upload.single('inImage'), (req, res) => {
+const path = require('path')
+const upload = multer({ dest: path.join(__dirname, '/Images/')})
+app.post(`/images/:name`, upload.single('myImage'), (req, res) => {
+  console.log(req.params.name);
 console.log("SKRIK TIL VEBJØRN OM DU SER DETTE")
-try {
-fs.writeFile(`Images/${req.file.filename}`, req.file.buffer, (err) => {
-  if(!err) {
-    console.log('ADSAIDUSHJDISAHDIAUDHSAIUDUSAHIUADAH')
-    res.status(200).send('Image saved')
-  } else {
-    console.error('error writing to image file')
-    throw new Error(err)
-  }})
-} catch (error) {
-  console.error(error)
-  res.status(500).send('Error saving image data')}
+  try {
+    fs.writeFileSync(`Images/${req.params.name}.png`, req.file.buffer);
+    console.log('Image saved');
+    res.status(200).send('Image saved');
+  } catch (error) {
+    console.error('Error saving image data:', error);
+    res.status(500).send('Error saving image data');
+  }
 })
 
 app.post('/data/:name', (req, res) => {

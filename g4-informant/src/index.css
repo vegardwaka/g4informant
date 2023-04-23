@@ -21,6 +21,7 @@ body {
   align-items: center;
   margin: 0 auto;
   border-bottom: 1px solid #e4e4e4;
+  
 }
 #navbar-title{
   color: rgb(0, 0, 0);
@@ -46,20 +47,44 @@ body {
 
 .content {
   max-width: auto;
-  margin: 40px auto;
   padding: 20px;
 }
 
 /* Footer */
-.footer *{
-  position: fixed;
-  left: 0;
-  bottom: 0;
+.footer {
+  position: relative;
   width: 100%;
-  color: white;
+  margin-top: 50px;
+  color: rgb(0, 0, 0);
   font-size: 12px;
-  background-color: rgb(34, 34, 34);
+  background-color: rgba(179, 179, 179, 0.9);
   text-align: center;
+}
+.footer-gh{
+  padding-bottom: 10px;
+}
+.footer-gh #gh-logo{
+  width: 25px;
+  padding-right: 10px;
+}
+
+.footer-usn{
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 300px;
+  border-top: 1px solid #000000;
+}
+.footer-usn small{
+  margin-top: 10px;
+}
+.footer-usn #usn-logo{
+  width: 40px;
+  padding-right: 10px;
 }
 
 /* blog previews / list */
@@ -84,11 +109,12 @@ body {
   display: flex;
   justify-content: center;
   width: 300px;
-  height: 400px;
+  height: 450px;
   border: 1px #161616;
   border-style: solid;
   border-radius: 5px;
   margin: auto;
+  margin-top: 30px;
 }
 
 .input--title {
@@ -196,6 +222,12 @@ body {
   justify-content: center;
   margin-top: auto;
   margin-bottom: auto;
+}
+
+/* Documentation */
+
+.documentation-container{
+  height: 500px;
 }
 
 /* About */
@@ -510,7 +542,9 @@ body {
 
 } 
 .div1-display textarea{
-  height: 100%;
+  font-family: "Poppins";
+  background-color: transparent;
+  height: 80%;
   width: 100%;
 }
 
@@ -600,7 +634,7 @@ body {
 .no-backgroundimg{
   width: 100%;
   height: 85px;
-  background-color: white;
+  background-color: whitesmoke;
   text-align: center;
   justify-content: center;
   padding-top: 30px;
@@ -682,10 +716,9 @@ body {
   display: grid;
   justify-content: center;
   align-items: center;
-  color: whitesmoke;
+  color: rgb(0, 0, 0);
   width: 200px;
   height: 200px;
-  background-color: rgba(108, 189, 243, 0.7); 
   border: 1px rgb(0, 0, 0);
   border-style: solid;
   border-radius: 2px;
@@ -747,6 +780,7 @@ body {
   border-style: solid;
   border-radius: 2px;
 }
+
 .API-container #news-pic{
   position: relative;
   display: flex;
@@ -804,13 +838,15 @@ body {
 .news-button:hover{
   background-color: rgb(164, 164, 164);
 }
-/*
+
 .news-description{
-  height: 15px;
-}*/
+  
+}
 
 textarea{
-  font-family:"Times New Roman"
+  height: 80%;
+  width: 100%;
+  font-family: "Poppins";
 }
 
 .logo-component{
@@ -880,15 +916,18 @@ div.slide-left p {
   position: relative;
   display: grid; 
   justify-content: right;
+  align-items: center;
   padding: 10px;
-  margin-top: -250px;
+  margin-top: -220px;
   margin-right: 60px;
 }
 
 .profile-display-screen{
   width: 480px;
   height: 295px;
-  padding-left: 30px;
+  border: 3px #000000;
+  border-style: solid;
+  border-radius: 5px;
 }
 
 .profile--display{
@@ -906,20 +945,7 @@ div.slide-left p {
   border-radius: 5px;
   cursor: pointer;
 }
-.profile--edit{
-  align-items: center;
-  text-transform: uppercase;
-  font-size: 14px;
-  font-weight: bold;
-  letter-spacing: .1rem;
-  width: 200px;
-  margin-top: 10px;
-  padding: 10px;
-  color: rgb(0, 0, 0);
-  background-color: rgb(240, 240, 240);
-  border-radius: 5px;
-  cursor: pointer;
-}
+
 .profile--delete{
   align-items: center;
   text-transform: uppercase;
@@ -944,7 +970,7 @@ div.slide-left p {
 }
 
 .profile--display:hover {
-  background-color:grey
+  background-color:rgb(137, 236, 126)
 }
 
 .empty-informationscreen-p{
@@ -962,12 +988,8 @@ div.slide-left p {
   right: 0;
   width: 100vw;
   height: 100vh;
+  overflow: hidden;
 }
-
-/*
-::-webkit-scrollbar {
-  display: none;
-} */
 
 .div1-full-screen{
   width: 100%;
@@ -988,6 +1010,7 @@ div.slide-left p {
 }
 .div1-full-screen #weathericon{
   width: 170px;
+  padding-top: 20px;
 }
 .div1-full-screen #news-pic{
   position: relative;
@@ -998,12 +1021,13 @@ div.slide-left p {
   width: 70px;
 } 
 .div1-full-screen textarea{
+  font-family: "Poppins";
+  background-color: transparent;
   text-align: center;
   font-size: 1.3rem;
-  height: 100%;
+  height: 80%;
   width: 100%;
 }
-
 
 .API-container-fulldisplay{
   display: grid;
@@ -1029,9 +1053,14 @@ div.slide-left p {
   display: grid;
   justify-content: center;
   align-items: center;
-  color: white;
+  color: rgb(0, 0, 0);
   margin-top: 0px;
   width: 100%;
   height: 100%;
-  background-color: rgb(108, 189, 243); 
 }
+.weatherBox-fulldisplay h1{
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+

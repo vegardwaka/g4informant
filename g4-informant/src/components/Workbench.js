@@ -21,14 +21,27 @@ export default function Workbench() {
       const [weatherObj, setWeatherObj] = useState({city: "Juneau", state: "Alaska" })
       const [bgImage, setBGImage] = useState('')
       let testcheck = 0
-      let itemtest = sessionStorage.getItem('bg')
-    
+      const [textObj, setTextObj] = useState("")
+      const [newsObj, setNewsObj] = useState(0)
+      const [imgObj, setImgObj] = useState("")
+
+      function setImgs(p_img) {
+        setImgObj(p_img)
+      }
+
+      function getTexts(p_text) {
+        setTextObj(p_text)
+      }
+
+      function setNews(p_news) {
+        setNewsObj(p_news)
+      }
+     
       function handleClick() {
           setQueryHide(false)
           setQueryList(true)
           setQueryObj({count:0})
           setQueryNumber(0)
-          sessionStorage.removeItem('bg')
       }
 
       async function submitButton() {
@@ -47,12 +60,13 @@ export default function Workbench() {
             state: weatherObj.state,
             continent: clockObj.continent,
             capital: clockObj.capital,
-            newsnumber: parseInt(sessionStorage.getItem("news")),
-            tatext: sessionStorage.getItem('taText'),
+            newsnumber: newsObj,
+            tatext: textObj,
             image: image,
             imageName: imageName,
-            bgImage: itemtest
+            bgImage: imgObj
           }
+         
           
           for (var i = 0; i < queryObj.count; i++) {
             let temp = (i+1)
@@ -91,7 +105,6 @@ export default function Workbench() {
                 return null
             } else {*/
               sendToBackend(tmData)
-              sessionStorage.removeItem('bg')
               window.alert(`Screen ${title} saved`)
             
             //}
@@ -133,6 +146,7 @@ export default function Workbench() {
 
     return (
       <div>
+        
         <h2 className="workbench-title">Welcome to your workbench</h2>
         <div className="workbench-buttons">
             {queryHide && 
@@ -175,12 +189,15 @@ export default function Workbench() {
                     elementsvar={elements}
                     setClockObj={setClockObj}
                     setWeatherObj={setWeatherObj}
-                    setBGImage={itemtest}
+                    setBGImage={imgObj}
                     setImage={setImage}
-                    setImageName={setImageName} 
+                    setImageName={setImageName}
+                    getTexts={getTexts}
+                    setNews={setNews}
+                    bgImage={imgObj}
                 />
             </div>
-            <BgImageList bgImage={bgImage}/>
+            <BgImageList bgImage={bgImage} setImgs={setImgs}/>
         </div>
       </div>
     )

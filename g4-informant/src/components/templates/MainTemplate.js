@@ -4,6 +4,7 @@ import { useState } from 'react'
 
 export default function MainTemplate(props) {
     const [show, setShow] = useState(true)
+    const [imglink, setImgLink] = useState(props.bgImage)
     
     let list = []
     for(let i=0; i<props.count; i++)
@@ -28,7 +29,8 @@ export default function MainTemplate(props) {
                 setWeatherObj={props.setWeatherObj}
                 setImage={props.setImage}
                 setImageName={props.setImageName}
-               
+                getTexts={props.getTexts}
+                setNews={props.setNews}
             />
         :
             <DisplaySquare 

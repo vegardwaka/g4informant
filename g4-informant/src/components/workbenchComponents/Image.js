@@ -4,9 +4,8 @@ export default function Image(props) {
     const [image, setImage] = useState()
     const [show, setShow] = useState(props.hide)
     const [imageName, setImageName] = useState()
-
     useEffect(() => {
-    if(image){        
+    if(imageName == 'jegerentest.png'){        
         //props.setImageName(image.name)
         console.log(imageName)
         console.log(image)
@@ -14,22 +13,17 @@ export default function Image(props) {
         //console.log(props.imageName)
      //funker   console.log(image.name)
      sendImageToBackend()
-    }}, [image])
+    }}, [image, imageName])
 
-    async function sendImageToBackend() {
-        const formData = new FormData()
-        formData.append('inImage', image, imageName)
-        try {
+    async function sendImageToBackend(imageName, file) {
+        const form = new FormData()
+        form.append('myImage', file)
         const response = await fetch(`http://localhost:3001/images/${imageName}`, {
           method: 'POST',
-          headers: { 'Content-Type': 'multipart/form-data; boundary=20' },
-          body: formData
+          body: form,
+        }).then((response) =>     {
+            return response.status
         })
-        const data = response
-          console.log("Image: "+data.message)
-        } catch(error) {
-          console.error(error)
-        }
       }
 
     return(
@@ -40,7 +34,6 @@ export default function Image(props) {
                 width: props.imgwidth, 
                 height: props.imgheight, 
                 border: props.show ? '3px dashed black' : '', 
-                background: show ? '' : 'repeating-linear-gradient( 45deg, #606dbc, #606dbc 10px, #465298 10px, #465298 20px)'
             }}
         >
             {image && (
@@ -57,14 +50,16 @@ export default function Image(props) {
             {show ? (
                 <input
                     type="file"
-                    name="myImage"
+                    name='myImage'
                     id="image-file-input" 
                     onChange={(e) => {
-                        setImage(e.target.files[0]);
+                        setImage(e.target.files[0])
                         setImageName(e.target.files[0].name)
+                        const file = e.target.files[0]
+                        sendImageToBackend(e.target.files[0].name, file)
                     }}
                 />)
-            : <h1>IMAGE</h1>}
+            : <h1>Image</h1>}
         </div>
     )
 }

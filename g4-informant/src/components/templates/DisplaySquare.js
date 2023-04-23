@@ -17,7 +17,7 @@ export default function DisplaySquare(props) {
             else if (props.squares[i].elementNr === 2) 
                 element = <Weather height="100%" width="100%" hide={false} display={true} propcity={props.city} propstate={props.state} fulldisplay={true}/>
             else if (props.squares[i].elementNr === 3) 
-                element = <Textarea tawidth="100%" taheight="100%" dis={true} read={true} tatext={props.tatext} fulldisplay={true}/>
+                element = <Textarea tawidth="100%" taheight="100%" hide={true} dis={true} read={true} tatext={props.tatext} fulldisplay={true}/>
             else if (props.squares[i].elementNr === 4)
                 element = <Image imgwidth="100%" imgheight="100%" fulldisplay={true}/>
             else if (props.squares[i].elementNr === 5)

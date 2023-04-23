@@ -111,7 +111,7 @@ export default function UserCreate() {
 
     return (
         <div className="input-container">
-        <div className="input--form">
+            <div className="input--form">
                 <h2 className="login--title">Create user</h2>
                 <input 
                     required

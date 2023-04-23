@@ -48,8 +48,6 @@ export default function APIKlokke(props){
                     console.log("array " + outArray[0], outArray[1])
                     console.log(position[0], position[1])
                     setShow(false)
-                    sessionStorage.setItem("continent",outArray[0])
-                    sessionStorage.setItem("capital", outArray[1])
                     props.setClockObj({
                         continent: outArray[0],
                         capital: outArray[1]
@@ -80,7 +78,7 @@ export default function APIKlokke(props){
         >
             {show && <button className="weather-location-button" onClick={changeLocation}>Set location</button>}
             {display ? <h3 className="clockbox-day">{SyncTime.dayOfWeek}</h3> : null}
-            <h1 className="clockbox-time">{SyncTime.time}</h1>
+            {display ? <h1 className="clockbox-time">{SyncTime.time}</h1> : <h1>Clock</h1>}
             {display ? <p className="clockbox-zone">{SyncTime.timeZone}</p> : null}
             {display ? <h3 className="clockbox-date">{SyncTime.date}</h3> : null}
         </div>

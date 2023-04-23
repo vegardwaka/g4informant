@@ -37,7 +37,7 @@ export default [
     {
         id: 6,
         title: "Prosjektrapport",
-        description: "Ferdig prosjektrapport.",
+        description: "Coming soon.",
         url:"",
         urlName:""
     }
