@@ -18,20 +18,32 @@ app.use(function (req, res, next) {
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Access-Control-Allow-Headers')
   next()
 })
+
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true }))
 const path = require('path')
-const upload = multer({ dest: path.join(__dirname, '/Images/')})
-app.post(`/images/:name`, upload.single('myImage'), (req, res) => {
-  console.log(req.params.name);
-console.log("SKRIK TIL VEBJØRN OM DU SER DETTE")
-  try {
-    fs.writeFileSync(`Images/${req.params.name}.png`, req.file.buffer);
-    console.log('Image saved');
-    res.status(200).send('Image saved');
-  } catch (error) {
-    console.error('Error saving image data:', error);
-    res.status(500).send('Error saving image data');
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, path.join(__dirname, 'Images'))
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.originalname)
   }
-})
+});
+
+const upload = multer({ storage: storage })
+
+app.post('/images/:name', upload.single('myImage'), (req, res) => {
+  console.log(req.params.name)
+  console.log("SKRIK TIL VEBJØRN OM DU SER DETTE")
+  res.send('File uploaded successfully!')
+});
+
+app.use(express.static(path.join(__dirname, 'Images')))
+app.get('/images/:name', function (req, res) {
+  const imageName = req.params.name
+  res.sendFile(path.join(__dirname, 'Images', imageName))
+});
 
 app.post('/data/:name', (req, res) => {
   const message = req.body

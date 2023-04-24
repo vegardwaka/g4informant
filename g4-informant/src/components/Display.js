@@ -1,9 +1,9 @@
 import MainTemplate from './templates/MainTemplate'
-import { useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 
 export default function Display(props) {
-  const { infoscreen } = useParams();
+  const { infoscreen } = useParams()
   const [liste, setListe] = useState({})
 
   async function submitButtonHent() {
@@ -41,6 +41,8 @@ export default function Display(props) {
                   tatext={liste.tatext}
                   newsnumber={liste.newsnumber}
                   bgImage={liste.bgImage}
+                  imageName={liste.imageName}
+                  fontColor={liste.fontColor}
           />
       </div>
   )

@@ -1,5 +1,5 @@
 import MainTemplate from './templates/MainTemplate'
-import { useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 
 export default function FullDisplay(props) {
@@ -15,7 +15,6 @@ export default function FullDisplay(props) {
         return response.json()
       })
       .then(data => {
-        console.log(JSON.stringify(data))
         setListe(data)
       })
   }
@@ -44,6 +43,8 @@ export default function FullDisplay(props) {
                   newsnumber={liste.newsnumber}
                   fulldisplay={props.fulldisplay}
                   bgImage={liste.bgImage}
+                  imageName={liste.imageName}
+                  fontColor={liste.fontColor}
           />
       </div>
   )

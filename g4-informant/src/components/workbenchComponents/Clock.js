@@ -1,19 +1,18 @@
 import { useState, useEffect } from 'react'
 
-export default function APIKlokke(props){
+export default function Clock(props){
     const [SyncTime, setSyncTime] = useState([])
     const [position, setPosition] = useState(["" + props.propcontinent,"" + props.propcapital])
     const [show, setShow] = useState(props.hide)
     const [display, setDisplay] = useState(props.display)
- //  console.log("Continent: " + props.propcontinent)
- //   console.log("Capital: " + props.propcapital)
+   
 
     useEffect(() => {
         fetch(`http://localhost:3001/APIClock/${position[0]}&${position[1]}`) 
         .then(response => response.json())
         .then(data => {
-            console.log(data.time)
             setSyncTime(data)
+            console.log("font fargen: " + props.fontColor)
         })
         .catch(error => console.log(error))   
     }, [position])
@@ -45,8 +44,6 @@ export default function APIKlokke(props){
                 }
                 else {
                     setPosition([outArray[0], outArray[1]])
-                    console.log("array " + outArray[0], outArray[1])
-                    console.log(position[0], position[1])
                     setShow(false)
                     props.setClockObj({
                         continent: outArray[0],
@@ -59,12 +56,12 @@ export default function APIKlokke(props){
     useEffect(() => {
         setPosition([position[0], position[1]])
         function runClock() {
-            var now = new Date();
-            var timeToNextTick = (60 - now.getSeconds()) * 1000 - now.getMilliseconds();
+            var now = new Date() 
+            var timeToNextTick = (60 - now.getSeconds()) * 1000 - now.getMilliseconds()
             setTimeout(function() {
                 setPosition([position[0], position[1]])
-                runClock();
-            }, timeToNextTick);
+                runClock()
+            }, timeToNextTick)
         }
         runClock()
     }, [])
@@ -73,14 +70,18 @@ export default function APIKlokke(props){
     return (
         <div 
             className={props.fulldisplay ? "API-container-fulldisplay" : "API-container"}
-            style={{width: props.width, height: props.height, border: props.show ? '3px dashed black' : ''}} 
             onClick={props.toggle}
+            style={{
+                width: props.width, 
+                height: props.height, 
+                border: props.show ? '3px dashed black' : ''
+            }} 
         >
             {show && <button className="weather-location-button" onClick={changeLocation}>Set location</button>}
-            {display ? <h3 className="clockbox-day">{SyncTime.dayOfWeek}</h3> : null}
-            {display ? <h1 className="clockbox-time">{SyncTime.time}</h1> : <h1>Clock</h1>}
-            {display ? <p className="clockbox-zone">{SyncTime.timeZone}</p> : null}
-            {display ? <h3 className="clockbox-date">{SyncTime.date}</h3> : null}
+            {display && <h3 className="clockbox-day">{SyncTime.dayOfWeek}</h3>}
+            {display ? <h1 className="clockbox-time">{SyncTime.time}</h1> : <img src="/images/icons/clock.png" alt="clock" width="100px"/>}
+            {display && <p className="clockbox-zone">{SyncTime.timeZone}</p>}
+            {display && <h3 className="clockbox-date">{SyncTime.date}</h3>}
         </div>
     )     
 }

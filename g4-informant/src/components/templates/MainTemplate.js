@@ -11,7 +11,7 @@ export default function MainTemplate(props) {
         list[i] = i
 
     function toggle(id) {
-        console.log("ID:" + id)
+       
     }
 
     const templateCount = list.map((x,i) => 
@@ -27,10 +27,9 @@ export default function MainTemplate(props) {
                 elementsvar={props.elementsvar}
                 setClockObj={props.setClockObj}
                 setWeatherObj={props.setWeatherObj}
-                setImage={props.setImage}
-                setImageName={props.setImageName}
                 getTexts={props.getTexts}
                 setNews={props.setNews}
+                setSingleImg={props.setSingleImg}
             />
         :
             <DisplaySquare 
@@ -48,14 +47,14 @@ export default function MainTemplate(props) {
                 tatext={props.tatext}
                 fulldisplay={props.fulldisplay}
                 newsnumber={props.newsnumber}
-            
+                imageName={props.imageName}
             />
     )
 
     return (
         <div 
             className={show ? "templateBoxMain" : "templateBoxVerticalMain"}
-            style={{'background-image': `url(${props.bgImage})`,'background-repeat': 'no-repeat', 'background-size': '100% 100%'}}
+            style={{'background-image': `url(${props.bgImage})`,'background-repeat': 'no-repeat', 'background-size': '100% 100%', 'color': props.fontColor}}
         >
             {templateCount}
         </div>

@@ -9,21 +9,24 @@ export default function Workbench() {
       const [queryObj, setQueryObj] = useState({})
       const [queryHide, setQueryHide] = useState(false)
       const [queryList, setQueryList] = useState(true)
-      const [image, setImage] = useState({})
       const [imageName, setImageName] = useState("")
       const [title, setTitle] = useState('')
       const [queryNumber, setQueryNumber] = useState(0)
-      let tmData = {}
-      let test = true
-      let key
       const [elements, setElements] = useState({})
       const [clockObj, setClockObj] = useState({})
       const [weatherObj, setWeatherObj] = useState({city: "Juneau", state: "Alaska" })
       const [bgImage, setBGImage] = useState('')
-      let testcheck = 0
       const [textObj, setTextObj] = useState("")
       const [newsObj, setNewsObj] = useState(0)
       const [imgObj, setImgObj] = useState("")
+      let tmData = {}
+      let test = true
+      let key
+      const [fontColor, setFontColor] = useState("Black")
+
+      const onOptionChange = e => {
+        setFontColor(e.target.value)
+      }
 
       function setImgs(p_img) {
         setImgObj(p_img)
@@ -36,6 +39,10 @@ export default function Workbench() {
       function setNews(p_news) {
         setNewsObj(p_news)
       }
+
+      function setSingleImg(p_simg) {
+        setImageName(p_simg)
+      }
      
       function handleClick() {
           setQueryHide(false)
@@ -45,7 +52,7 @@ export default function Workbench() {
       }
 
       async function submitButton() {
-        if(feiltest()) {
+        if(failTest()) {
         }
         else {
           tmData = {
@@ -62,12 +69,11 @@ export default function Workbench() {
             capital: clockObj.capital,
             newsnumber: newsObj,
             tatext: textObj,
-            image: image,
             imageName: imageName,
-            bgImage: imgObj
+            bgImage: imgObj,
+            fontColor: fontColor
           }
          
-          
           for (var i = 0; i < queryObj.count; i++) {
             let temp = (i+1)
             tmData.squares[i] = {ruteNr: i,elementNr: elements["e" + temp]}
@@ -116,7 +122,7 @@ export default function Workbench() {
     }
     }
 
-    function feiltest() {
+    function failTest() {
       if(!title.trim().length) {
         window.alert("Give the informationscreen a name")
         return true
@@ -146,9 +152,32 @@ export default function Workbench() {
 
     return (
       <div>
+
         
+
         <h2 className="workbench-title">Welcome to your workbench</h2>
         <div className="workbench-buttons">
+          {queryHide && 
+                <div className="font-color-container">
+                  <input 
+                    type="radio"
+                    name="fontColor"
+                    value="Black"
+                    id="black"
+                    checked={fontColor === "Black"}
+                    onChange={onOptionChange}
+                  />
+                  <label htmlFor="black">Black</label>
+                  <input 
+                    type="radio"
+                    name="fontColor"
+                    value="White"
+                    id="white"
+                    checked={fontColor === "White"}
+                    onChange={onOptionChange}
+                  />
+                  <label htmlFor="white">White</label>
+                </div>}
             {queryHide && 
                 <input 
                     required
@@ -161,12 +190,14 @@ export default function Workbench() {
             }
             {queryHide && <button type="submit" className="save-workbench-button" onClick={submitButton}>Save your work</button>}
         </div>
+        
         {queryHide && 
             <button 
                 className="prev-button" 
                 onClick={handleClick}
-            >&larr;</button>}
+            ><img src="/images/icons/arrow-left.png" alt="" width="15px"/></button>}
         <div className="workbench">
+          
             {queryList ? 
                 <TemplateList
                     onQueryObj={setQueryObj}
@@ -190,11 +221,11 @@ export default function Workbench() {
                     setClockObj={setClockObj}
                     setWeatherObj={setWeatherObj}
                     setBGImage={imgObj}
-                    setImage={setImage}
-                    setImageName={setImageName}
                     getTexts={getTexts}
                     setNews={setNews}
                     bgImage={imgObj}
+                    setSingleImg={setSingleImg}
+                    fontColor={fontColor}
                 />
             </div>
             <BgImageList bgImage={bgImage} setImgs={setImgs}/>

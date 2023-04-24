@@ -9,7 +9,6 @@ import About from './components/About'
 import Request from './components/Request'
 import Workbench from './components/Workbench'
 import UserCreate from './components/UserCreate'
-import Weather from './components/workbenchComponents/Weather'
 import NotFound from './components/NotFound'
 import useToken from './components/useToken'
 import Profile from './components/Profile'
@@ -19,13 +18,13 @@ import Documentation from './components/Documentation'
 export default function App(props) {
   const [show, setShow] = useState(true)
   const { token, setToken } = useToken()
-
+  
   if(!localStorage.getItem('token')) { 
     return (
       <Router>
         <div className="App">
         {show && <NavBar/>} 
-        <div className="content">
+          <main className="content">
             <Routes>
               <Route path='/' element={<Home/>}/>
               <Route path='/About' element={<About/>}/>
@@ -36,10 +35,10 @@ export default function App(props) {
               <Route path='/screen/:infoscreen' element={<FullDisplay onShow={setShow} fulldisplay={true}/>}/>
               <Route path='*' element={<NotFound/>}/>
             </Routes>
-          </div>
+          </main>
         </div>
         <div className="footer">
-        {show && <Footer/>}
+          {show && <Footer/>}
         </div> 
       </Router>
     ) 
@@ -49,27 +48,26 @@ export default function App(props) {
       <Router>
         <div className="App"> 
         {show && <NavBar/>}
-        
-          <div className="content">
+          <main className="content">
             <Routes>
               <Route path='/' element={<Home/>}/>
               <Route path='/About' element={<About/>}/>
               <Route path='/Documentation' element={<Documentation />}/>
               <Route path='/Blog' element={<Blog/>}/>
-              <Route path='/Profile' element={<Profile/>}/>
+              <Route exact path='/Profile' element={<Profile/>}/>
               <Route path='/Login' element={<Login setToken={setToken} />} />
               <Route path='/Request' element={<Request/>}/>
               <Route path='/Workbench' element={<Workbench/>}/>
-              <Route path='/Weather' element={<Weather/>}/>
               <Route path='/UserCreate' element={<UserCreate/>}/>
               <Route path='/screen/:infoscreen' element={<FullDisplay onShow={setShow} fulldisplay={true}/>}/>
               <Route path='*' element={<NotFound/>}/>
             </Routes>
-         </div>
+          </main>
           <div className="footer">
-            {show && <Footer/>}
+            
           </div>
         </div>
       </Router>
   )
 }
+//{show && <Footer/>}

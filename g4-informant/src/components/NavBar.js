@@ -16,8 +16,6 @@ export default function NavBar() {
             <div className="links">
                 <NavLink to="/" activeclassname="active">Home</NavLink>
                 <NavLink to="/about">About</NavLink>
-                <NavLink to="/documentation">Docs</NavLink>
-                <NavLink to="/blog">Blog</NavLink>
                 {localStorage.getItem('token') ? <NavLink to="/Profile">Profile</NavLink> : null}
                 {localStorage.getItem('token') ? <NavLink to="/Request">Request</NavLink> : null}
                 {localStorage.getItem('token') ? <NavLink to="/Workbench">Workbench</NavLink>: null}
@@ -27,3 +25,4 @@ export default function NavBar() {
         </nav>
     )
 }
+//<NavLink to="/documentation">Docs</NavLink>

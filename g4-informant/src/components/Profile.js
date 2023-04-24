@@ -3,6 +3,7 @@ import { useState, useEffect } from "react"
 
 export default function Profile(props){
     const [thingsArray, setThingsArray] = useState([])
+    const [isPending, setIsPending] = useState(true)
     let empty
 
     useEffect(() => {
@@ -20,6 +21,7 @@ export default function Profile(props){
         .then(data => {
             console.log(data)
             setThingsArray(data.records)
+            setIsPending(false)
         })
         .catch(error => {
             console.log(error)
@@ -52,8 +54,9 @@ export default function Profile(props){
             <div className="profile-workbench">
                 <h2 className="profile--header">Your information screens</h2>
                 <div className="profile-workbench-container">
-                    {empty} 
                     {thingsElements}
+                    {isPending ? <div className="loading-text">Loading ...</div> : empty}
+                    
                 </div>
             </div>
         </div>

@@ -13,12 +13,12 @@ export default function About() {
     })
     
     return(
-        <section className="about" id="about">
+        <section className="about">
             <h2 className="about-title">Our team</h2>
             <div className="about-list">
                 {list}
             </div>
-            <button className="about--button">Contact us</button>
+            <a className="contact--link" href="mailto:contact@g4informant.com"><button className="about--button">Contact us</button></a>
         </section>
     )
 }

@@ -11,6 +11,9 @@ export default function Weather(props) {
     var weatherHour = null
     const [show, setShow] = useState(props.hide)
     const [display, setDisplay] = useState(props.display)
+    let style={
+        color: props.fontColor
+    }
 
     useEffect(() => {
         async function getLocation() {
@@ -25,7 +28,6 @@ export default function Weather(props) {
                 }
             })
             .then(data => { 
-             //   console.log(lat)
                 setLat(data[0].lat)
                 setLon(data[0].lon)
                 setLocation(data[0].display_name)
@@ -52,7 +54,6 @@ export default function Weather(props) {
             })
         }
             if(lat && lon) {
-              //  console.log("Weather fetched successfully")
                 getWeather()
             }
     }, [lat, lon])       
@@ -60,25 +61,25 @@ export default function Weather(props) {
     if(location) {
     } 
     else {
-        console.log("there was an error fetching location")
+        
     }
 
     if (weather) {
         imgSrc = weather?.properties?.timeseries[2]?.data?.next_1_hours?.summary?.symbol_code
     } 
     else {
-        console.log("there was an error fetching weather type")
+ 
     }
     
     if (weather) {
         weatherHour = weather?.properties?.timeseries[2]?.data?.instant?.details?.air_temperature
     } 
     else {
-        console.log("there was an error fetching weather temperature")
+        
     }
 
     function changeLocation() {
-        const out = prompt("Write city and state/area separated by a space.", "Stavanger Rogaland")
+        const out = prompt("Write city and state/area separated by a space.", "Bø Telemark")
         const outArray = out.split(" ")
         if(outArray.length > 2) {
             alert("Location not found, please write city and state/area separated by a space.")
@@ -119,12 +120,16 @@ export default function Weather(props) {
         <div 
             className={props.fulldisplay ? "weatherBox-fulldisplay" : "weatherBox"}
             onClick={props.toggle} 
-            style={{height:props.height, width:props.width, border:props.show ? '3px dashed black' : ''}}
+            style={{
+                height:props.height, 
+                width:props.width, 
+                border:props.show ? '3px dashed black' : ''
+            }}
         >
             {show && <button className="weather-location-button" onClick={changeLocation}>Set location</button>}
             {display && <h1 className="weather-location-city">{JSON.stringify(location).split(',').at(0).replace(/"/g, "")}</h1>}
             {display && <p className="weather-location-state">{JSON.stringify(location).split(',').at(1)}</p>}
-            {display ? <img src={`/weathericon/png/${imgSrc}.png`} alt="emptypicture" id="weathericon"/> : <h1>Weather</h1>}
+            {display ? <img src={`/weathericon/png/${imgSrc}.png`} alt="emptypicture" id="weathericon"/> : <img src="/images/icons/sun.png" alt="sun" width="100px"/>}
             {display && <h1 className="weather-location-degrees">{weatherHour+" °C"}</h1>}
         </div>
     )

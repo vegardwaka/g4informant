@@ -50,6 +50,84 @@ body {
   padding: 20px;
 }
 
+/* HomeCard */
+
+.home-section{
+  position: relative;
+  display: block;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  height: 100%;
+  width: 80vw;
+}
+
+.home-title{ 
+  text-align: center;
+  font-size: 40px;
+  text-transform: uppercase;
+  letter-spacing: .1rem;
+  margin-top: 200px;
+  margin-bottom: 250px;
+}
+
+.home-paragraph-1{
+  text-align: center;
+}
+.home-paragraph-2 {
+  text-align: center;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #000000;
+}
+
+.home-card-container{
+  width: 50%;
+  height: 200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.home-section-h1{
+  text-align: center;
+  letter-spacing: .1rem;
+  text-transform: uppercase;
+}
+
+.API-home-section{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #000000;
+}
+.API-text-div{
+  position: relative;
+  display: grid;
+  padding-left: 50px;
+}
+.API-text-div img{
+  width: 40px;
+  padding-right: 10px;
+}
+.home-API-title{
+  position: relative;
+  text-decoration: underline;
+  display: flex;
+  align-items: center;
+}
+.home-API-p{
+  position: relative;
+  width: 400px;
+}
+
+.home-card-title{
+  text-align: center;
+  letter-spacing: .1rem;
+  text-transform: uppercase;
+  text-decoration: underline;
+}
+
 /* Footer */
 .footer {
   position: relative;
@@ -61,6 +139,9 @@ body {
   text-align: center;
 }
 .footer-gh{
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding-bottom: 10px;
 }
 .footer-gh #gh-logo{
@@ -69,15 +150,15 @@ body {
 }
 
 .footer-usn{
+  width: 500px;
   display: flex;
   align-items: center;
-  text-align: center;
+  justify-content: center;
   margin-left: auto;
   margin-right: auto;
   padding-top: 10px;
   padding-bottom: 10px;
-  width: 300px;
-  border-top: 1px solid #000000;
+  border-top: 1px solid rgb(134, 134, 134);
 }
 .footer-usn small{
   margin-top: 10px;
@@ -227,6 +308,7 @@ body {
 /* Documentation */
 
 .documentation-container{
+  text-align: center;
   height: 500px;
 }
 
@@ -235,6 +317,7 @@ body {
 .about {
   display: grid;
   justify-content: center;
+  align-items: center;
 }
 
 .about-title {
@@ -247,6 +330,7 @@ body {
 .about-list {
   display: flex;
   justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
   gap: 100px;
 }
@@ -260,27 +344,36 @@ body {
   width: 100%;
   height: auto;
   align-self: center;
-  border-radius: 15px;
+  border-radius: 200px;
   object-fit: cover;
 }
 
 .about--name {
   text-align: center;
+  font-size: 17px;
   padding-top: 10px;
+}
+
+.about--role{
+  text-align: center;
+  font-size: 11px;
+  margin-top: 15px;
 }
 
 .about--desc {
   text-align: center;
-  padding-top: 10px;
+  font-size: 14px;
+  margin-top: -5px;
 }
 
 .about--button {
-  align-items: center;
+  display: flex;
+  justify-content: center;
   text-transform: uppercase;
+  width: 200px;
   font-size: 16px;
   font-weight: bold;
   letter-spacing: .1rem;
-  width: 200px;
   margin-left: auto;
   margin-right: auto;
   margin-top: 70px;
@@ -289,6 +382,9 @@ body {
   background-color: rgb(240, 240, 240);
   border-radius: 5px;
   cursor: pointer;
+}
+.contact--link{
+  text-decoration: none;
 }
 
 .about--button:hover {
@@ -347,11 +443,32 @@ body {
   display: flex;
 }
 
+.font-color-container{
+  display: flex;
+  justify-content: center;
+  margin-right: 5px;
+  border: 1px solid #000000;
+  border-radius: 5px;
+  padding:7px;
+
+}
+.font-color-container input{
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.font-color-container label{
+  margin-right: 10px;
+}
+
 .workbench-buttons{
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-left: auto;
+  margin-right: auto;
   margin-bottom: 5px;
 }
 
@@ -382,10 +499,12 @@ body {
 }
 
 .prev-button{
+  display: flex;
+  justify-content: center;
   position: static; 
   display: block;
   padding-top: 5px;
-  padding-bottom: 5px;
+  
   padding-left: 10px;
   padding-right: 10px;
   margin-top: -25px;
@@ -404,6 +523,7 @@ body {
 .workbench-title{
   text-align: center;
   padding-bottom: 10px;
+  font-size: 27px;
   letter-spacing: .1rem;
   text-transform: uppercase;
 }
@@ -411,7 +531,7 @@ body {
 .workbench-template-list{
   width: 250px;
   height: auto;
-  border: 2px #000000;
+  border: 3px #000000;
   border-style: solid;
   border-radius: 5px;
   flex-direction: row;
@@ -428,7 +548,7 @@ body {
 .workbench-component-list{
   width: 250px;
   height: 590px;
-  border: 2px #000000;
+  border: 3px #000000;
   border-style: solid;
   border-radius: 5px;
   flex-direction: row;
@@ -571,22 +691,23 @@ body {
   margin-bottom: 10px;
 }
 
-.MainTemplateCross{
+#MainTemplateCross{
   display: block;
   position: relative;
-  top: -100%;
+  background-color: #f4f4f4;
+  border-radius: 16px;
   width: 30px;
-  padding-left: 9px;
+  top: -97%;
+  left: 0.3%;
   margin-left: 10px;
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  border: 1px #000000;
-  border-style: solid;
-  border-radius: 30px;
-  background-color: whitesmoke;
 }
-
+#MainTemplateCross:hover{
+  background-color: rgb(252, 90, 90);
+  border-radius: 15px;
+}
 .feature-button{
   display: flex;
   position: relative;
@@ -607,22 +728,23 @@ body {
 }
 
 .background-image-list-container{
-  width: 150px;
-  height: auto;
-  border: 2px #000000;
+  width: 200px;
+  height: 590px;
+  border: 3px #000000;
   border-style: solid;
   border-radius: 5px;
   flex-direction: row;
   flex: 0 0 auto;
-  overflow-x: auto;
+  overflow-x: hidden;
 }
+
 .background-images{
   position: relative;
   display: grid;
   justify-content: center;
   width: 100%;
   height: 100%;
-  padding: 10px;
+  padding: 10px 10px 0px 10px;
 }
 
 #backgroundimage{
@@ -633,81 +755,12 @@ body {
 
 .no-backgroundimg{
   width: 100%;
-  height: 85px;
+  height: 110px;
   background-color: whitesmoke;
   text-align: center;
   justify-content: center;
   padding-top: 30px;
   border: 1px solid #000000;
-}
-
-/* HomeCard */
-
-#home-section{
-  position: relative;
-  display: block;
-  justify-content: center;
-  margin-left: auto;
-  margin-right: auto;
-  height: 100%;
-  width: 80%;
-}
-
-.home-title{ 
-  text-align: center;
-  font-size: 40px;
-  text-transform: uppercase;
-  letter-spacing: .1rem;
-  margin-top: 150px;
-  margin-bottom: 250px;
-}
-
-.home-paragraph{
-  text-align: center;
-  padding-bottom: 30px;
-  border-bottom: 1px solid #000000;
-}
-
-.home-card-container{
-  width: 50%;
-  height: 200px;
-  margin-left: auto;
-  margin-right: auto;
-}
-.home-section-h1{
-  text-align: center;
-  letter-spacing: .1rem;
-  text-transform: uppercase;
-}
-
-.API-home-section{
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center; 
-  padding-top: 20px;
-  padding-bottom: 20px;
-  border-bottom: 1px solid #000000;
-}
-.API-text-div{
-  position: relative;
-  display: grid;
-  padding-left: 50px;
-}
-.home-API-title{
-  position: relative;
-  text-decoration: underline;
-}
-.home-API-p{
-  position: relative;
-  width: 400px;
-}
-
-.home-card-title{
-  text-align: center;
-  letter-spacing: .1rem;
-  text-transform: uppercase;
-  text-decoration: underline;
 }
 
 /* API Boxes */
@@ -716,12 +769,11 @@ body {
   display: grid;
   justify-content: center;
   align-items: center;
-  color: rgb(0, 0, 0);
   width: 200px;
   height: 200px;
   border: 1px rgb(0, 0, 0);
   border-style: solid;
-  border-radius: 2px;
+  border-radius: 5px;
 }
 
 .weatherBox h3{
@@ -778,7 +830,7 @@ body {
   text-align: center;
   border: 1px rgb(0, 0, 0);
   border-style: solid;
-  border-radius: 2px;
+  border-radius: 5px;
 }
 
 .API-container #news-pic{
@@ -849,17 +901,6 @@ textarea{
   font-family: "Poppins";
 }
 
-.logo-component{
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100px;
-  height: 100px;
-  border: 2px solid #000000;
-  border-radius: 50px;
-}
-
 div.slide-left {
 
   width: 100%;
@@ -884,6 +925,11 @@ div.slide-left p {
 }
 
 /* Profile */
+
+.loading-text{
+  text-align: center;
+  padding-top: 30px;
+}
 
 .profile-title{
   text-align: center;
@@ -912,6 +958,10 @@ div.slide-left p {
 .profile-card h2{
   text-align: center;
 }
+.profile-card-title{
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
 .profile-buttons{
   position: relative;
   display: grid; 
@@ -939,7 +989,7 @@ div.slide-left p {
   width: 200px;
   margin-left: auto;
   margin-right: auto;
-  padding: 10px;
+  padding: 13px 10px 13px 10px;
   color: rgb(0, 0, 0);
   background-color: rgb(240, 240, 240);
   border-radius: 5px;
@@ -1053,7 +1103,7 @@ div.slide-left p {
   display: grid;
   justify-content: center;
   align-items: center;
-  color: rgb(0, 0, 0);
+  
   margin-top: 0px;
   width: 100%;
   height: 100%;
@@ -1063,4 +1113,7 @@ div.slide-left p {
   margin-bottom: 10px;
 }
 
-
+.uploaded--image {
+  height: 200px;
+  width: 200px;
+}

@@ -1,0 +1,1 @@
+{"title":"ParisTest","count":"4","tmpheight":"50%","tmpwidth":"50%","squares":[{"ruteNr":0,"elementNr":2},{"ruteNr":1,"elementNr":2},{"ruteNr":2,"elementNr":4},{"ruteNr":3,"elementNr":6}],"user":"tester","city":"Europe","state":"France","continent":"Asia","capital":"Tokyo","newsnumber":2,"tatext":"","imageName":"timeedit.png","bgImage":"/images/backgroundX6.jpg"}

@@ -9,7 +9,6 @@ export default function News(props) {
     const [channelList, setChannelList] = useState(props.channelList)
     const [homeChannel, setHomeChannel] = useState(props.homeChannel)
     let numbernews = props.newsnumber
-    let string 
    
     const getRss = async (e) => {
         const urlRegex = /(http|ftp|https):\/\/[\w-]+(\.[\w-]+)+([\w.,@?^=%&amp;:\~+#-]*[\w@?^=%&amp;\/~+#-])*/g;
@@ -35,7 +34,6 @@ export default function News(props) {
                 setUrl("https://www.tv2.no/rss/nyheter")
                 setImgURL("http://static.cdn.tv2.no/s/img/logo/tv2-logo-rss.png")
             }
-            console.log("props nummeret news: " + props.newsnumber)
         }
     }, [url, count])
     
@@ -68,13 +66,18 @@ export default function News(props) {
     if (articles.description.length >= 150)
         articles.description.substring(0, 100) + "...";
     */ 
+   
     return(
         <div
             className={props.fulldisplay ? "API-container-fulldisplay" : "API-container"}
             onClick={props.toggle} 
-            style={{height:props.height, width:props.width, border:props.show ? '3px dashed black' : ''}}
+            style={{
+                height:props.height, 
+                width:props.width, 
+                border:props.show ? '3px dashed black' : ''
+            }}
         >
-            {homeChannel ? <h1>News</h1> : (
+            {homeChannel ? <img src="images/icons/news.png" alt="news" width="100px"/> : (
                 channelList ? 
                     <div className="news-button-div">
                         <button 

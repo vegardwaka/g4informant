@@ -1,4 +1,4 @@
-import APIKlokke from './workbenchComponents/APIKlokke'
+import Clock from './workbenchComponents/Clock'
 import Weather from './workbenchComponents/Weather'
 import Textarea from './workbenchComponents/Textarea'
 import Image from './workbenchComponents/Image'
@@ -10,17 +10,18 @@ export default function HomeCard(props) {
     let link
     
     if (props.id === 1) {
-        element = <APIKlokke height="100%" hide={true} display={true} propcontinent="Asia" propcapital="Tokyo"/>
+        element = <Clock height="100%" hide={true} display={true} propcontinent="Asia" propcapital="Tokyo"/>
     } 
     else if (props.id === 2) {
         element = <Weather height="100%" hide={true} display={true} propcity="Bø" propstate="Midt-Telemark"/>
-        link = <small className="home-API-p">Weather data is collected from Norwegian Meteorological Institute and location data is gathered from <a href="www.openstreetmap.org/copyright">OpenStreetMap</a>.</small>
+        link = <small className="home-API-p">Weather data is collected from Norwegian Meteorological Institute and location data is gathered from <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>.</small>
     }
     else if (props.id === 3) {
-        element = <Textarea taheight="100%"  dis={true} read={false}/>
+        element = <Textarea taheight="100%" hide={true} dis={true} read={false}/>
     }
     else if (props.id === 4) {
-        element = <Image imgheight="100%" hide={true}/>
+        element = <Image imgheight="100%" hide={false} imgboo={false} show={false}/>
+        link = <small className="home-API-p">Images should be 960 x 590 pixels to perfectly fit the component.</small>
     }
     else if (props.id === 5) {
         element = <TimeEdit />
@@ -34,10 +35,12 @@ export default function HomeCard(props) {
         <div className="API-home-section">
             {element}
             <div className="API-text-div">
-              <h2 className="home-API-title">{props.title}</h2>
-              <p className="home-API-p">{props.desc}</p>
-              <p className="home-API-p">{props.descLink}</p>
-              {link}
+                <h2 className="home-API-title">
+                    <img src={`/images/icons/${props.url}.png`} alt="pic" />
+                    {props.title}
+                </h2>
+                <p className="home-API-p">{props.desc}</p>
+                {link} 
             </div>
         </div>
     )

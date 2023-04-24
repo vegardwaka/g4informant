@@ -13,7 +13,11 @@ export default function Textarea(props) {
         <div 
             className={props.fulldisplay ? "API-container-fulldisplay" : "API-container"}
             onClick={props.toggle} 
-            style={{height:props.taheight, width:props.tawidth, border:props.show ? '3px dashed black' : ''}}
+            style={{
+                height:props.taheight, 
+                width:props.tawidth, 
+                border:props.show ? '3px dashed black' : ''
+            }}
         >
             {show ? <textarea 
                 rows="12" 
@@ -22,9 +26,7 @@ export default function Textarea(props) {
                 value={props.dis ? props.tatext : text}
                 onChange={handleChange}
                 style={{resize: props.dis ? "none" : "", border:"none", background:"none"}}
-            /> : <h1>TextArea</h1>}
+            /> : <img src="/images/icons/text.png" alt="textarea" width="100px"/>}
         </div>
     )
 }
-
-// , border:"none", background:"none"

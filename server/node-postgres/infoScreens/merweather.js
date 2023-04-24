@@ -1,0 +1,1 @@
+{"title":"merweather","count":"4","tmpheight":"50%","tmpwidth":"50%","squares":[{"ruteNr":0,"elementNr":2},{"ruteNr":1,"elementNr":1},{"ruteNr":2},{"ruteNr":3}],"user":"sigve123","city":"Stavanger","state":"Rogaland","continent":"Europe","capital":"Oslo","newsnumber":0,"tatext":"","imageName":"","bgImage":"/images/backgroundX3.jpg"}

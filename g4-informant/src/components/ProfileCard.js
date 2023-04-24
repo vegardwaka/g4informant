@@ -1,12 +1,7 @@
-import React, { Component } from 'react';
-import Template from "./templates/Template"
-import MainTemplate from './templates/MainTemplate'
+import React from 'react';
 import Display from './Display'
-import { useState, useEffect } from 'react'
-
 
 export default function ProfileCard(props) {
-let link
     function deleteScreen() {
         async function deleteScreen(data) {
             await fetch(`http://localhost:3001/data/${props.title}`, {
@@ -52,21 +47,16 @@ let link
         }
         deleteFromDatabase()
     }
-
-    function editScreen(){
-        
-    }
    
     return(
         <div className="profile-card">
-            <h2>Screen {props.title}</h2>
+            <h2 className="profile-card-title">Screen {props.title}</h2>
             <Display changeboolean={true} fulldisplay={false} title={props.title}/>
             <div className="profile-buttons">
                 <a className="profile--link"href={`screen/${props.title}`}><button className="profile--display">Display screen</button></a>
-                <button className="profile--delete" onClick={deleteScreen}>Delete</button>
+                <button className="profile--delete" onClick={deleteScreen}><img src="/images/icons/trash.png" width="20px"/></button>
             </div>
         </div>
     )
 
 }
-//<button className="profile--edit" onClick={editScreen}>Edit</button>
