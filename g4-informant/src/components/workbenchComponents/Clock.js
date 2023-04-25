@@ -6,9 +6,8 @@ export default function Clock(props){
     const [show, setShow] = useState(props.hide)
     const [display, setDisplay] = useState(props.display)
    
-
     useEffect(() => {
-        fetch(`http://localhost:3001/APIClock/${position[0]}&${position[1]}`) 
+        fetch(`https://g4informant.azurewebsites.net//APIClock/${position[0]}&${position[1]}`) 
         .then(response => response.json())
         .then(data => {
             setSyncTime(data)
@@ -28,7 +27,7 @@ export default function Clock(props){
             alert("Location not found, please write continent and capital separated by a space.")
             return
         }
-         fetch(`http://localhost:3001/APIClock/${position[0]}&${position[1]}`, {
+         fetch(`https://g4informant.azurewebsites.net//APIClock/${position[0]}&${position[1]}`, {
             method: 'GET'
             })
             .then(response => {

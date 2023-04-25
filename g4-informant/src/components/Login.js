@@ -10,7 +10,7 @@ export default function Login({ setToken }) {
 
     /* Get User from DB */
     async function getUser() {
-        const response = await fetch(`https://g4informant.com/api.php/records/bruker?filter=epost,eq,${email}&filter=passord,eq,${password}`, {
+        const response = await fetch(`https://g4informant.com/api.php/records/user?filter=email,eq,${email}&filter=password,eq,${password}`, {
             method: 'GET',
         })
         .then(response => {
@@ -19,7 +19,7 @@ export default function Login({ setToken }) {
         .then(data => {
             setUser(data)
             if (data.records.length > 0) {
-                const token = data.records[0].brukernavn
+                const token = data.records[0].username
                 setToken(token)
             }
         })
@@ -38,7 +38,7 @@ export default function Login({ setToken }) {
         }
     }
 
-    /* Hente bruker */
+    /* Get user */
     function validateEmail() {
             let res = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/
             return res.test(email)

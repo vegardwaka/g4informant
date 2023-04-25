@@ -17,7 +17,7 @@ export default function Weather(props) {
 
     useEffect(() => {
         async function getLocation() {
-            await fetch(`http://localhost:3001/Location/${city}&${state}`, {
+            await fetch(`https://g4informant.azurewebsites.net//Location/${city}&${state}`, {
             method: 'GET'
             })
             .then(response => {
@@ -39,7 +39,7 @@ export default function Weather(props) {
 
     useEffect(() => {
         async function getWeather() {
-            await fetch(`http://localhost:3001/Weather/${lat}&${lon}`, {
+            await fetch(`https://g4informant.azurewebsites.net//Weather/${lat}&${lon}`, {
             method: 'GET',
             })
             .then(response => {
@@ -89,7 +89,7 @@ export default function Weather(props) {
             alert("Location not found, please write city and state/area separated by a space.")
             return
         }
-         fetch(`http://localhost:3001/Location/${outArray[0]}&${outArray[1]}`, {
+         fetch(`https://g4informant.azurewebsites.net//Location/${outArray[0]}&${outArray[1]}`, {
             method: 'GET'
             })
             .then(response => {

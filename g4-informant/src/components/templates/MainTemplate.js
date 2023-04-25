@@ -10,9 +10,7 @@ export default function MainTemplate(props) {
     for(let i=0; i<props.count; i++)
         list[i] = i
 
-    function toggle(id) {
-       
-    }
+    function toggle(id) {}
 
     const templateCount = list.map((x,i) => 
         props.choice ?

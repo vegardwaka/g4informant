@@ -1,5 +1,5 @@
 import React from "react"
-import AboutCard from "./AboutCard"
+import AboutCard from "./cards/AboutCard"
 import omoss from "../json/omoss"
 
 export default function About() {

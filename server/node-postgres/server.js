@@ -10,7 +10,7 @@ const fs = require('fs')
 const weatherCache = new NodeCache()
 const locationCache = new NodeCache()
        
-app.use(express.json())
+app.use(express.static("test"))
 
 app.use(function (req, res, next) {
   res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000')
@@ -34,8 +34,6 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage })
 
 app.post('/images/:name', upload.single('myImage'), (req, res) => {
-  console.log(req.params.name)
-  console.log("SKRIK TIL VEBJØRN OM DU SER DETTE")
   res.send('File uploaded successfully!')
 });
 
@@ -48,7 +46,6 @@ app.get('/images/:name', function (req, res) {
 app.post('/data/:name', (req, res) => {
   const message = req.body
   const data = { message: 'Saved succ' }
-  console.log(message)
   res.json(data)
   try {
   fs.writeFile(`infoScreens/${req.params.name}.js`, JSON.stringify(message), 'utf8' , (err) =>{
@@ -139,6 +136,6 @@ app.get('/Weather/:lat&:lon', async (req, res) => {
   }
 }})
 
-app.listen(3001, () => {
-  console.log('Server listening on port 3001')
+app.listen(process.env.PORT || 8080, () => {
+  console.log('Server listening')
 })

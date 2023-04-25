@@ -1,1 +1,0 @@
-{"title":"lololol","count":"4","tmpheight":"50%","tmpwidth":"50%","squares":[{"ruteNr":0,"elementNr":1},{"ruteNr":1,"elementNr":6},{"ruteNr":2,"elementNr":3},{"ruteNr":3,"elementNr":2}],"user":"sigve123","city":"Bø","state":"Telemark","continent":"Europe","capital":"Oslo","newsnumber":1,"tatext":"hhhjjhjhhjj","imageName":"","bgImage":"/images/backgroundX2.png"}

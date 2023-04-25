@@ -1,1 +1,0 @@
-{"title":"walllabaia","count":"4","tmpheight":"50%","tmpwidth":"50%","squares":[{"ruteNr":0,"elementNr":1},{"ruteNr":1,"elementNr":2},{"ruteNr":2,"elementNr":6},{"ruteNr":3,"elementNr":3}],"user":"wakaroni","city":"Bø","state":"Telemark","newsnumber":2,"tatext":"HALLA HALLA HALLA","imageName":"","bgImage":"/images/backgroundX2.png","fontColor":"White"}

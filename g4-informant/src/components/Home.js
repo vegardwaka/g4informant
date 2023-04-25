@@ -1,9 +1,10 @@
-import HomeCard from './HomeCard'
+import HomeCard from './cards/HomeCard'
 import info from '../json/info'
 
 export default function Home() { 
   const list = info.map(x => 
-    <HomeCard 
+    <HomeCard
+        key={x.id} 
         id={x.id} 
         title={x.title} 
         desc={x.desc}
@@ -21,7 +22,8 @@ export default function Home() {
               We are currently InDev, which means there will be more components coming soon. 
               Our application is open-source and is available on GitHub  <a href="https://github.com/vegardwaka/g4informant">here</a>!
           </h3>
-          <h5 className="home-paragraph-2">Bachelor project developed at USN (Universitetet i Sør-Øst Norge).</h5>
+          <h5 className="home-paragraph-1">Bachelor project developed at USN (University of Southeast-Norway).</h5>
+          <h5 className="home-paragraph-2">Our API-components is displayed below. If you need more information on our API-components and how they interact with rest of our application you can visit our documentation.</h5>
         </div>
         <div className="home-section">
           <br />

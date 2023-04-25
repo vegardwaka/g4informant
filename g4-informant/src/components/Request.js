@@ -16,7 +16,7 @@ export default function Request() {
 
     /* Insert request */
     async function createRequest() { 
-        const response = await fetch(`https://g4informant.com/api.php/records/api_foresporsel`, {
+        const response = await fetch(`https://g4informant.com/api.php/records/api_request`, {
             method: 'GET',
         })
         .then(response => {
@@ -26,51 +26,51 @@ export default function Request() {
             primaryKey = data.records.length + 1         
         })
         
-        fetch(`https://g4informant.com/api.php/records/api_foresporsel`, {      
+        fetch(`https://g4informant.com/api.php/records/api_request`, {      
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },    
-          body: JSON.stringify({"apiid":primaryKey,"tittel":title,"kategori":category,"brukernavn":localStorage.getItem('token').replace(/"/g, ""),"fritekst":message})
+          body: JSON.stringify({"apiid":primaryKey,"title":title,"category":category,"username":localStorage.getItem('token').replace(/"/g, ""),"text":message})
         })
         .then(response => {
             return response.text()
         })
         .then(data => {
-            alert(data)
+            alert("Request with id number: " + data + ". Has succesfully been sent. Thank you for your valuable input.")
         })
     }
 
     return (    
-        <div className="foresporsel--div">
-            <form className="foresporsel--form" onSubmit={handleSubmit}>
-                <h1 className="foresporsel--tittel">API request</h1>
-                <label htmlFor="foresporsel-label">Title</label><br/>
+        <div className="request--div">
+            <form className="request--form" onSubmit={handleSubmit}>
+                <h1 className="request--title">API request</h1>
+                <label htmlFor="request-label">Title</label><br/>
                 <input 
                     required
                     value={title} 
                     onChange={(e) => setTitle(e.target.value)}
                     type="text"
                     name="title" 
-                    className="foresporsel-label"
+                    className="request-label"
                 />
                 <br/>
-                <label htmlFor="cars" className="foresporsel-label">Choose a category:</label>
+                <label htmlFor="dropdown" className="request-label">Choose a category:</label>
                 <select 
-                    id="cars"  
+                    id="dropdown"  
                     required
                     value={category} 
                     onChange={(e) => setCategory(e.target.value)}
                     name="category"
-                    className="foresporsel--liste"
+                    className="request--list"
                 >
                     <option value="" selected disabled hidden>Choose here</option>
-                    <option value="Nyheter">News</option>
-                    <option value="Vær">Weather</option>
-                    <option value="Skole">School</option>
-                    <option value="Jobb">Job</option>
-                    <option value="Finans">Finance</option>
-                    <option value="Annen">Other</option>
+                    <option value="News">News</option>
+                    <option value="Weather">Weather</option>
+                    <option value="School">School</option>
+                    <option value="Work">Job</option>
+                    <option value="Finance">Finance</option>
+                    <option value="Other">Other</option>
                 </select><br/>
 
                 <label htmlFor="test">Additional information</label><br/>
@@ -81,10 +81,10 @@ export default function Request() {
                     name="message"
                     rows="10" 
                     cols="30" 
-                    className="foresporsel--fritekst"
+                    className="request--text"
                 >
                 </textarea><br/>
-                <button type="submit" className="foresporsel--button">submit</button>
+                <button type="submit" className="request--button">submit</button>
             </form>
         </div>
     )

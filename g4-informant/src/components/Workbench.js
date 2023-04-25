@@ -79,26 +79,26 @@ export default function Workbench() {
             tmData.squares[i] = {ruteNr: i,elementNr: elements["e" + temp]}
             console.log(tmData.squares[i])}
 
-          await fetch(`https://g4informant.com/api.php/records/infoskjerm`, {
+          await fetch(`https://g4informant.com/api.php/records/infoscreen`, {
             method: 'GET',
             headers: { 'Content-Type': 'application/json' },
           })
           .then(response => response.json())
           .then(data => {
-            var largest = parseInt(data.records[0].infoskjerm_id)
+            var largest = parseInt(data.records[0].infoscreen_id)
             for(var i = 0; i < data.records.length; i++) {
-              if(largest < data.records[i].infoskjerm_id) {
-                largest = data.records[i].infoskjerm_id
+              if(largest < data.records[i].infoscreen_id) {
+                largest = data.records[i].infoscreen_id
             }
           }
             key = largest + 1
             console.log(key)
           })
 
-        await fetch(`https://g4informant.com/api.php/records/infoskjerm`, {
+        await fetch(`https://g4informant.com/api.php/records/infoscreen`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({"infoskjerm_id":key,"tittel":title,"user_name":localStorage.getItem('token').replace(/"/g, "")})
+          body: JSON.stringify({"infoscreen_id":key,"title":title,"username":localStorage.getItem('token').replace(/"/g, "")})
         })
         .then(response => response.json())
         .then(data => {
@@ -136,7 +136,7 @@ export default function Workbench() {
     }
       
     async function sendToBackend(data) {
-      await fetch(`http://localhost:3001/data/${title}`, {
+      await fetch(`https://g4informant.azurewebsites.net//data/${title}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),

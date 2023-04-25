@@ -1,1 +1,0 @@
-{"title":"testetstetsten1","count":"1","tmpheight":"100%","tmpwidth":"100%","squares":[{"ruteNr":0,"elementNr":1}],"user":"wakaroni","city":"Juneau","state":"Alaska","continent":"Europe","capital":"Oslo","newsnumber":null,"tatext":null,"image":{},"imageName":"","bgImage":"/images/backgroundX1.png"}

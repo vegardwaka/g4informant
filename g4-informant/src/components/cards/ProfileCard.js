@@ -1,10 +1,10 @@
 import React from 'react';
-import Display from './Display'
+import Display from '../Display'
 
 export default function ProfileCard(props) {
     function deleteScreen() {
         async function deleteScreen(data) {
-            await fetch(`http://localhost:3001/data/${props.title}`, {
+            await fetch(`https://g4informant.azurewebsites.net//data/${props.title}`, {
               method: 'DELETE',
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify(data),
@@ -19,7 +19,7 @@ export default function ProfileCard(props) {
         }
 
         async function deleteFromDatabase() {
-            const response = await fetch(`https://g4informant.com/api.php/records/infoskjerm/${props.id}`, {
+            const response = await fetch(`https://g4informant.com/api.php/records/infoscreen/${props.id}`, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json'

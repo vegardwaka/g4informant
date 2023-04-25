@@ -29,8 +29,7 @@ export default function App(props) {
               <Route path='/' element={<Home/>}/>
               <Route path='/About' element={<About/>}/>
               <Route path='/Documentation' element={<Documentation />}/>
-              <Route path='/Blog' element={<Blog/>}/>
-              <Route path='/Profile' element={<Profile/>}/>
+              <Route path='/Blog' element={<Blog  onShow={setShow}/>}/>
               <Route path='/Login' element={<Login setToken={setToken} />} />
               <Route path='/screen/:infoscreen' element={<FullDisplay onShow={setShow} fulldisplay={true}/>}/>
               <Route path='*' element={<NotFound/>}/>
@@ -52,8 +51,8 @@ export default function App(props) {
             <Routes>
               <Route path='/' element={<Home/>}/>
               <Route path='/About' element={<About/>}/>
-              <Route path='/Documentation' element={<Documentation />}/>
-              <Route path='/Blog' element={<Blog/>}/>
+              <Route path='/Documentation' element={show && <Documentation />}/>
+              <Route path='/Blog' element={<Blog  onShow={setShow}/>}/>
               <Route exact path='/Profile' element={<Profile/>}/>
               <Route path='/Login' element={<Login setToken={setToken} />} />
               <Route path='/Request' element={<Request/>}/>

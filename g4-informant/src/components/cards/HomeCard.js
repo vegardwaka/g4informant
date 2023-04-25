@@ -1,9 +1,9 @@
-import Clock from './workbenchComponents/Clock'
-import Weather from './workbenchComponents/Weather'
-import Textarea from './workbenchComponents/Textarea'
-import Image from './workbenchComponents/Image'
-import TimeEdit from './workbenchComponents/TimeEdit'
-import News from './workbenchComponents/News'
+import Clock from '../workbenchComponents/Clock'
+import Weather from '../workbenchComponents/Weather'
+import Textarea from '../workbenchComponents/Textarea'
+import Image from '../workbenchComponents/Image'
+import TimeEdit from '../workbenchComponents/TimeEdit'
+import News from '../workbenchComponents/News'
 
 export default function HomeCard(props) {
     let element

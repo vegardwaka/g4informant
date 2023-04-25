@@ -18,7 +18,7 @@ export default function Image(props) {
     async function sendImageToBackend(currentImageName, file) {
         const form = new FormData()
         form.append('myImage', file)
-        const response = await fetch(`http://localhost:3001/images/${currentImageName}`, {
+        const response = await fetch(`https://g4informant.azurewebsites.net//images/${currentImageName}`, {
           method: 'POST',
           body: form,
         }).then((response) =>     {
@@ -37,7 +37,7 @@ export default function Image(props) {
             }}
         >
             {props.imgboo ? (
-                <div className="uploaded--image" style={{'background-image': `url(http://localhost:3001/Images/${props.imageName})`,'background-repeat': 'no-repeat', 'background-size': '100% 100%'}}></div>
+                <div className="uploaded--image" style={{'background-image': `url(https://g4informant.azurewebsites.net//Images/${props.imageName})`,'background-repeat': 'no-repeat', 'background-size': '100% 100%'}}></div>
                 
             ) : (
                 <>

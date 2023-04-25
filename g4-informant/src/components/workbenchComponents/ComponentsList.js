@@ -11,28 +11,18 @@ export default function CompontentsList({onQueryNumber}){
     const [isActive2, setIsActive2] = useState(false)
     const [isActive3, setIsActive3] = useState(false)
     const [isActive4, setIsActive4] = useState(false)
-    //const [isActive5, setIsActive5] = useState(false)
+    const [isActive5, setIsActive5] = useState(false)
     const [isActive6, setIsActive6] = useState(false)
+    const setTab = [setIsActive,setIsActive2,setIsActive3,setIsActive4,setIsActive5,setIsActive6]
 
     function handleClick(p_number) {
-        setIsActive(false)
-        setIsActive2(false)
-        setIsActive3(false)
-        setIsActive4(false)
-        //setIsActive5(false)
-        setIsActive6(false)
-        switch(p_number) {
-            case 1: setIsActive(true); break;
-            case 2: setIsActive2(true); break;
-            case 3: setIsActive3(true); break;
-            case 4: setIsActive4(true); break;
-           // case 5: setIsActive5(true); break;
-            case 6: setIsActive6(true); break;
-        }
+        for(let i=0; i<setTab.length; i++)
+            setTab[i](false)
+        setTab[p_number-1](true)
         onQueryNumber(p_number)
     }
 
-    if(!isActive && !isActive2 && !isActive3 && !isActive4 /* && !isActive5 */ && !isActive6) {
+    if(!isActive && !isActive2 && !isActive3 && !isActive4  && !isActive5  && !isActive6) {
         onQueryNumber(0)
     }
 
@@ -48,6 +38,8 @@ export default function CompontentsList({onQueryNumber}){
                 <br />
                 <Image imgwidth="100%" toggle={() => handleClick(4)} show={isActive4} hide={false} imgboo={false}/>
                 <br />
+                <TimeEdit width="100%" toggle={() => handleClick(5)} show={isActive5}/>
+                <br />
                 <News width="100%" toggle={() => handleClick(6)} show={isActive6} hide={false} homeChannel={true}/>
                 <br />
             </div>
@@ -55,7 +47,6 @@ export default function CompontentsList({onQueryNumber}){
     )
 }
 
-/*
-  <TimeEdit width="100%" toggle={() => handleClick(5)} show={isActive5}/>
-    <br />
-*/
+
+  
+

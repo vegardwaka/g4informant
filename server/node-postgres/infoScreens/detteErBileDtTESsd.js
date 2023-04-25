@@ -1,1 +1,0 @@
-{"title":"detteErBileDtTESsd","count":"1","tmpheight":"100%","tmpwidth":"100%","squares":[{"ruteNr":0,"elementNr":4}],"user":"vebteo","city":"Juneau","state":"Alaska","newsnumber":0,"tatext":"","imageName":"jegerentest.png","bgImage":""}

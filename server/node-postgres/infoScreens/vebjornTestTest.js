@@ -1,1 +1,0 @@
-{"title":"vebjornTestTest","count":"4","tmpheight":"50%","tmpwidth":"50%","squares":[{"ruteNr":0,"elementNr":1},{"ruteNr":1,"elementNr":2},{"ruteNr":2,"elementNr":3},{"ruteNr":3,"elementNr":6}],"user":"vebteo","city":"Stavanger","state":"Rogaland","continent":"Europe","capital":"Oslo","newsnumber":2,"tatext":"detteerenTes","image":{},"imageName":"","bgImage":null}

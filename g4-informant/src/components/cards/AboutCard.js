@@ -1,5 +1,4 @@
 export default function AboutCard(props) {
-
     return(
         <div className="about-card">
             <img className="about--img" src={`/images/${props.item.img}`} alt="team member"/>

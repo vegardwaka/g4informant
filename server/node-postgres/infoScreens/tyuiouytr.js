@@ -1,1 +1,0 @@
-{"title":"tyuiouytr","count":"1","tmpheight":"100%","tmpwidth":"100%","squares":[{"ruteNr":0,"elementNr":4}],"user":"tester","city":"Juneau","state":"Alaska","newsnumber":null,"tatext":null,"image":{},"imageName":"Nitro_Wallpaper_5000x2813.jpg"}

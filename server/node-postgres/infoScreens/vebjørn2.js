@@ -1,1 +1,0 @@
-{"title":"vebjørn2","count":"1","tmpheight":"100%","tmpwidth":"100%","squares":[{"ruteNr":0,"elementNr":2}],"user":"vebteo","city":"Stavanger","state":"Rogaland","newsnumber":null,"tatext":null,"image":{},"imageName":"","bgImage":null}

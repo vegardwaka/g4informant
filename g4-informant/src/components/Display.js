@@ -7,7 +7,7 @@ export default function Display(props) {
   const [liste, setListe] = useState({})
 
   async function submitButtonHent() {
-    await fetch(`http://localhost:3001/data/${props.title}`, {
+    await fetch(`https://g4informant.azurewebsites.net//data/${props.title}`, {
       method: 'GET',
       headers: { 'Content-Type': 'application/json' },
     })
@@ -30,8 +30,6 @@ export default function Display(props) {
                   heighten={liste.tmpheight} 
                   widthen={liste.tmpwidth}
                   number= {liste.tmpquery}
-                  tall1={0}
-                  elementtall={9}
                   choice={false}
                   city={liste.city}
                   state={liste.state}
@@ -43,6 +41,7 @@ export default function Display(props) {
                   bgImage={liste.bgImage}
                   imageName={liste.imageName}
                   fontColor={liste.fontColor}
+                  
           />
       </div>
   )

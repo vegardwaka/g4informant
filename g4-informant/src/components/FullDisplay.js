@@ -7,7 +7,7 @@ export default function FullDisplay(props) {
   const [liste, setListe] = useState({})
  
   async function getScreen() {
-    await fetch(`http://localhost:3001/data/${infoscreen}`, {
+    await fetch(`https://g4informant.azurewebsites.net//data/${infoscreen}`, {
       method: 'GET',
       headers: { 'Content-Type': 'application/json' },
       })
@@ -31,8 +31,6 @@ export default function FullDisplay(props) {
                   heighten={liste.tmpheight} 
                   widthen={liste.tmpwidth}
                   number= {liste.tmpquery}
-                  tall1={0}
-                  elementtall={9}
                   choice={false}
                   city={liste.city}
                   state={liste.state}

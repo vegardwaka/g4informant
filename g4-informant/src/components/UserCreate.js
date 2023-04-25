@@ -10,7 +10,7 @@ export default function UserCreate() {
     let key
 
     async function createUser() {
-        const response = await fetch('https://g4informant.com/api.php/records/bruker', {
+        const response = await fetch('https://g4informant.com/api.php/records/user', {
             method: 'GET',
         })
         .then(response => {
@@ -20,12 +20,12 @@ export default function UserCreate() {
             key = data.records.length + 1
         })
 
-        const response2 = await fetch('https://g4informant.com/api.php/records/bruker', {
+        const response2 = await fetch('https://g4informant.com/api.php/records/user', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({"bruker_id":key ,"epost": email,"passord": password,"brukernavn": username})
+            body: JSON.stringify({"user_id":key ,"email": email,"password": password,"username": username})
         })
         .then(response2 => {
             return response2.json()
