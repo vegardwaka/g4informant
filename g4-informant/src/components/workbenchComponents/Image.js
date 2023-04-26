@@ -7,6 +7,12 @@ export default function Image(props) {
     const [show, setShow] = useState(props.hide)
     const [imageName, setImageName] = useState(props.hide)
     const [currentImageName, setCurrentImageName] = useState()
+    let height
+    let width
+    if(!props.fulldisplay) {
+        height = "100%"
+        width = "150px"
+    }
 
     useEffect(() => {
     if(currentImageName && image){ 
@@ -37,8 +43,7 @@ export default function Image(props) {
             }}
         >
             {props.imgboo ? (
-                <div className="uploaded--image" style={{'background-image': `url(https://g4informant.azurewebsites.net//Images/${props.imageName})`,'background-repeat': 'no-repeat', 'background-size': '100% 100%'}}></div>
-                
+                <div className="uploaded--image" style={{'width': width, 'height': height,'background-image': `url(https://g4informant.azurewebsites.net//Images/${props.imageName})`,'background-repeat': 'no-repeat',  'background-size': '100% 100%'}}></div> 
             ) : (
                 <>
                     {image && (

@@ -1,10 +1,10 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 export default function TimeEdit(props) {
+
     const [show, setShow] = useState(props.hide)
-
-    // SOAP API kall
-
+    const [currSchedule, setCurrSchedule] = useState()
+        
     return(
         <div 
             className={props.fulldisplay ? "API-container-fulldisplay" : "API-container"}
@@ -15,7 +15,8 @@ export default function TimeEdit(props) {
                 border: props.show ? '3px dashed black' : ''
             }} 
         >
-            <img src="/images/icons/calendar-lines.png" alt="textarea" width="100px"/>
+            {show && <img src="/images/icons/calendar-lines.png" alt="textarea" width="100px"/>}
+            
         </div>
     )
 }

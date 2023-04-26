@@ -22,16 +22,11 @@ export default [
     {
         id:4,
         title:"Image.js",
-        desc:"The image component is just an image tag which gets it source from a button where the user uploads an image file from you file directory. An image component is very dynamic in the sense of the amount of information an image can contain. An image says more than a thousand words some once said which makes it a crucial component to include."
+        desc:"The image component is just an image tag which gets it source from a button where the user uploads an image file from you file directory. An image component is very dynamic in the sense of the amount of information an image can contain. An image says more than a thousand words someone once said, which makes it a crucial component to include."
     },
     {
         id:5,
-        title:"Timeedit.js",
-        desc:""
-    },
-    {
-        id:6,
         title:"News.js",
-        desc:"The news API currently gets its information from NRK and TV2 but is definetly not limited to these two. News feeds are exported as RSS which is in XML format, and by sending the XML data through a filter to turn it into JSON, it lets us gather daily top stories provided by different networks. It is very easy to include other networks, may they be local or global, by adding another RSS link to the component. It is updated daily by the news source to the same RSS link which makes this component the easiest to render."
+        desc:"The news API currently gets it's information from NRK and TV2, but is definetly not limited to these two. News feeds are exported as RSS which is in XML format, and by sending the XML data through a filter to turn it into JSON, it lets us gather daily top stories provided by different networks. It is very easy to include other networks, may they be local or global, by adding RSS links to the component. It is updated daily by the news source to the same RSS link which makes this component the easiest to render."
     }
 ]

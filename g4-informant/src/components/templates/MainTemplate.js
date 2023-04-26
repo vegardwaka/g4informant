@@ -28,6 +28,7 @@ export default function MainTemplate(props) {
                 getTexts={props.getTexts}
                 setNews={props.setNews}
                 setSingleImg={props.setSingleImg}
+                fontColor= {props.fontColor}
             />
         :
             <DisplaySquare 
@@ -46,6 +47,8 @@ export default function MainTemplate(props) {
                 fulldisplay={props.fulldisplay}
                 newsnumber={props.newsnumber}
                 imageName={props.imageName}
+                imgboo={props.imgboo}
+                hide={props.hide}
             />
     )
 

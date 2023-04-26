@@ -2,7 +2,6 @@ import Clock from '../workbenchComponents/Clock'
 import Weather from '../workbenchComponents/Weather'
 import Textarea from '../workbenchComponents/Textarea'
 import Image from '../workbenchComponents/Image'
-import TimeEdit from '../workbenchComponents/TimeEdit'
 import News from '../workbenchComponents/News'
 
 export default function DocumentationCard(props){
@@ -21,9 +20,6 @@ export default function DocumentationCard(props){
         element = <Image imgheight="100%" hide={false} imgboo={false} show={false}/>
     }
     else if (props.id === 5) {
-        element = <TimeEdit />
-    }
-    else if (props.id === 6) {
         element = <News height="100%"  hide={true} channelList={true} homeChannel={false}/> 
     }
 

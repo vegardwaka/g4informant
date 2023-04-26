@@ -6,6 +6,8 @@ export default function News(props) {
     const [count, setCount] = useState(0)
     const [imgURL, setImgURL] = useState("")
     const [url, setUrl] = useState("")
+    const [linkUrl, setLinkUrl] = useState("")
+    const [link, setLink] = useState("")
     const [channelList, setChannelList] = useState(props.channelList)
     const [homeChannel, setHomeChannel] = useState(props.homeChannel)
     let numbernews = props.newsnumber
@@ -30,9 +32,13 @@ export default function News(props) {
             if(numbernews === 1) {
                 setUrl("https://www.nrk.no/toppsaker.rss")
                 setImgURL("/nrk_nyheter_rgb.png")
+                setLinkUrl("https://www.nrk.no")
+                setLink("nrk.no")
             } else if(numbernews === 2) {
                 setUrl("https://www.tv2.no/rss/nyheter")
                 setImgURL("http://static.cdn.tv2.no/s/img/logo/tv2-logo-rss.png")
+                setLinkUrl("https://www.TV2.no")
+                setLink("TV2.no")
             }
         }
     }, [url, count])
@@ -42,11 +48,15 @@ export default function News(props) {
         if(p_newsNumber === 1) {
             setUrl("https://www.nrk.no/toppsaker.rss")
             setImgURL("/nrk_nyheter_rgb.png")
+            setLinkUrl("https://www.nrk.no")
+            setLink("nrk.no")
         } else if(p_newsNumber === 2) {
             setUrl("https://www.tv2.no/rss/nyheter")
             setImgURL("http://static.cdn.tv2.no/s/img/logo/tv2-logo-rss.png")
+            setLinkUrl("https://www.TV2.no")
+            setLink("TV2.no")
         }
-        props.setNews(p_newsNumber)
+        props.setNews(p_newsNumber)   
     }
    
     if(count >= parseInt(allArticles.length)) {
@@ -94,6 +104,7 @@ export default function News(props) {
                         <img src={imgURL} alt="logo" id="news-pic" />
                         <h3 className="news-title">{articles.title}</h3>
                         <p className="news-description">{articles.description}</p>
+                        <p className="news-link"><a href={linkUrl}>{link}</a></p>
                     </div> 
             )}
         </div>

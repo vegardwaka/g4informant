@@ -2,7 +2,6 @@ import Clock from './Clock'
 import Weather from './Weather'
 import Textarea from './Textarea'
 import Image from './Image'
-import TimeEdit from './TimeEdit'
 import News from './News'
 import { useState } from 'react'
 
@@ -12,8 +11,7 @@ export default function CompontentsList({onQueryNumber}){
     const [isActive3, setIsActive3] = useState(false)
     const [isActive4, setIsActive4] = useState(false)
     const [isActive5, setIsActive5] = useState(false)
-    const [isActive6, setIsActive6] = useState(false)
-    const setTab = [setIsActive,setIsActive2,setIsActive3,setIsActive4,setIsActive5,setIsActive6]
+    const setTab = [setIsActive,setIsActive2,setIsActive3,setIsActive4,setIsActive5]
 
     function handleClick(p_number) {
         for(let i=0; i<setTab.length; i++)
@@ -22,7 +20,7 @@ export default function CompontentsList({onQueryNumber}){
         onQueryNumber(p_number)
     }
 
-    if(!isActive && !isActive2 && !isActive3 && !isActive4  && !isActive5  && !isActive6) {
+    if(!isActive && !isActive2 && !isActive3 && !isActive4  && !isActive5) {
         onQueryNumber(0)
     }
 
@@ -38,9 +36,7 @@ export default function CompontentsList({onQueryNumber}){
                 <br />
                 <Image imgwidth="100%" toggle={() => handleClick(4)} show={isActive4} hide={false} imgboo={false}/>
                 <br />
-                <TimeEdit width="100%" toggle={() => handleClick(5)} show={isActive5}/>
-                <br />
-                <News width="100%" toggle={() => handleClick(6)} show={isActive6} hide={false} homeChannel={true}/>
+                <News width="100%" toggle={() => handleClick(5)} show={isActive5} hide={false} homeChannel={true}/>
                 <br />
             </div>
         </div>

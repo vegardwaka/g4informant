@@ -25,12 +25,6 @@ export default [
     },
     {  
         id:5,
-        title:"Timeedit.js",
-        desc:"The TimeEdit component lets you see different lessons, classrooms and professors connected to different subjects. You are able to log in with your school or university email so you can easily navigate to your class.",
-        url:"calendar-lines"
-    },
-    {  
-        id:6,
         title:"News.js",
         desc:"The news component keeps you updated on current events, either locally or world wide. You are able to see headlines and a bit of the content connected to the news item. Try it out!",
         url:"news"

@@ -7,6 +7,7 @@ export default function Profile(props){
     let empty
 
     useEffect(() => {
+        
         fetch(`https://g4informant.com/api.php/records/infoscreen/?filter=username,eq,${localStorage.getItem('token').replace(/"/g, "")}`, {
             method: 'GET',
             headers: { 'Content-Type': 'application/json' },
@@ -34,6 +35,7 @@ export default function Profile(props){
         })
     }
     
+    
     const thingsElements = thingsArray.map((thing, i) => (
         <ProfileCard
           key={thing.infoscreen_id}
@@ -46,7 +48,7 @@ export default function Profile(props){
     ))
 
     if (thingsArray.length === 0)
-        empty = <p className="empty-informationscreen-p">You dont seem to have any information screens. Make one <a href="/Workbench">here</a>.</p>
+        empty = <p className="empty-informationscreen-p">You don't seem to have any information screens. Make one <a href="/Workbench">here</a>.</p>
 
     return(
         <div className="profile-container">

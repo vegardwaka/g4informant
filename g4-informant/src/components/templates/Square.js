@@ -3,7 +3,6 @@ import Weather from '../workbenchComponents/Weather'
 import Clock from '../workbenchComponents/Clock'
 import Textarea from '../workbenchComponents/Textarea'
 import Image from '../workbenchComponents/Image'
-import TimeEdit from '../workbenchComponents/TimeEdit'
 import News from '../workbenchComponents/News'
 
 export default function Square(props) {
@@ -20,8 +19,6 @@ export default function Square(props) {
     else if (props.elementnumber === 4)
         element = <Image imgheight="100%" imgwidth="100%" hide={true} setSingleImg={props.setSingleImg} imgboo={false}/>
     else if (props.elementnumber === 5)
-        element = <TimeEdit height="100%" width="100%" />
-    else if (props.elementnumber === 6)
         element = <News height="100%" width="100%" channelList={true} homeChannel={false} setNews={props.setNews}/>
     
   
@@ -67,6 +64,9 @@ export default function Square(props) {
             list[props.id] = element
             setShow(false)
         }
+        else {
+            window.alert("Choose a element from the componentlist")
+        }
     }
 
     function crossButton() {
@@ -111,7 +111,7 @@ export default function Square(props) {
         >
             {show ? <button className="feature-button" onClick={hideButton} style={{display: show ? "block" : "none"}}>Add Feature +</button>
             : list[props.id]}
-            {show ? null : <img src="/images/icons/cross-circle.png" onClick={crossButton} id="MainTemplateCross"/>}
+            {show ? null : <img src="/images/icons/cross-circle.png" alt="cross" onClick={crossButton} id="MainTemplateCross"/>}
         </div>
     )
 }

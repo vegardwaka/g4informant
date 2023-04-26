@@ -43,6 +43,8 @@ export default function FullDisplay(props) {
                   bgImage={liste.bgImage}
                   imageName={liste.imageName}
                   fontColor={liste.fontColor}
+                  imgboo={true}
+                  hide={true} 
           />
       </div>
   )

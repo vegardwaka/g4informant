@@ -41,7 +41,9 @@ export default function Display(props) {
                   bgImage={liste.bgImage}
                   imageName={liste.imageName}
                   fontColor={liste.fontColor}
-                  
+                  fulldisplay={false}
+                  imgboo={false}
+                  hide={false}     
           />
       </div>
   )

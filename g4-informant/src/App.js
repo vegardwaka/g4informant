@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, setState } from 'react'
 import NavBar from './components/NavBar'
 import Home from './components/Home'
 import Footer from './components/Footer'
@@ -17,10 +17,16 @@ import Documentation from './components/Documentation'
 
 export default function App(props) {
   const [show, setShow] = useState(true)
-  const { token, setToken } = useToken()
+  const {token, setToken } = useToken()
+
+  const hideFooter = (pathname) => {
+    return (pathname === "/Profile" || pathname === "/Workbench" || pathname.includes("/screen"))
+  }
   
   if(!localStorage.getItem('token')) { 
+
     return (
+      <>
       <Router>
         <div className="App">
         {show && <NavBar/>} 
@@ -31,19 +37,19 @@ export default function App(props) {
               <Route path='/Documentation' element={<Documentation />}/>
               <Route path='/Blog' element={<Blog  onShow={setShow}/>}/>
               <Route path='/Login' element={<Login setToken={setToken} />} />
-              <Route path='/screen/:infoscreen' element={<FullDisplay onShow={setShow} fulldisplay={true}/>}/>
+              <Route path='/screen/:infoscreen' element={<FullDisplay onShow={setShow} fulldisplay={true} />}/>
               <Route path='*' element={<NotFound/>}/>
             </Routes>
           </main>
         </div>
-        <div className="footer">
-          {show && <Footer/>}
-        </div> 
       </Router>
+      {!hideFooter(window.location.pathname) && show &&<div className="footer"><Footer/></div>}
+      </>
     ) 
   }
-  
+
   return (
+    <>
       <Router>
         <div className="App"> 
         {show && <NavBar/>}
@@ -62,11 +68,9 @@ export default function App(props) {
               <Route path='*' element={<NotFound/>}/>
             </Routes>
           </main>
-          <div className="footer">
-            
-          </div>
         </div>
       </Router>
+      {!hideFooter(window.location.pathname) && show &&<div className="footer"><Footer/></div>}
+      </>
   )
 }
-//{show && <Footer/>}

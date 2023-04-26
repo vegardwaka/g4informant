@@ -3,7 +3,6 @@ import MainTemplate from "./templates/MainTemplate"
 import TemplateList from "./templates/TemplateList"
 import BgImageList from "./templates/BgImageList"
 import ComponentList from "./workbenchComponents/ComponentsList"
-import Image from './workbenchComponents/Image'
 
 export default function Workbench() {
       const [queryObj, setQueryObj] = useState({})
@@ -19,10 +18,11 @@ export default function Workbench() {
       const [textObj, setTextObj] = useState("")
       const [newsObj, setNewsObj] = useState(0)
       const [imgObj, setImgObj] = useState("")
+      const [fontColor, setFontColor] = useState("Black")
+      sessionStorage.setItem("font", fontColor)
       let tmData = {}
       let test = true
       let key
-      const [fontColor, setFontColor] = useState("Black")
 
       const onOptionChange = e => {
         setFontColor(e.target.value)
@@ -53,6 +53,9 @@ export default function Workbench() {
 
       async function submitButton() {
         if(failTest()) {
+        }
+        else if(Object.values(elements).includes(5) && newsObj === 0) {
+          window.alert("Choose a news channel")
         }
         else {
           tmData = {
@@ -152,9 +155,6 @@ export default function Workbench() {
 
     return (
       <div>
-
-        
-
         <h2 className="workbench-title">Welcome to your workbench</h2>
         <div className="workbench-buttons">
           {queryHide && 
