@@ -2,6 +2,8 @@
 G4 Informant is a webapplication that let our users create and display their very own screen.
 You are able to choose from a range of components that will display different information.
 
+This application is programmed in JavaScript.
+
 ## Commands
 Using Node, these are the commands you need to run:
 
@@ -22,6 +24,21 @@ The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+## Frontend
+The frontend uses Meta's React JavaScript library
+
+#### Frontend/React dependencies:
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "bcryptjs": "^2.4.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.8.1",
+    "react-scripts": "5.0.1",
+    "rss-parser": "^3.13.0",
+    "web-vitals": "^2.1.4"
 
 ## Database
 The database script is built in a PostgreSQL environment,
@@ -76,17 +93,4 @@ https://github.com/vegardwaka/g4informant/blob/f24bbf24c73f0ab13b48fd1ab571bfda5
     "node-cache": "^5.1.2",
     "node-fetch": "^2.6.9",
     "pg": "^8.10.0"
-
-## Frontend
-#### Frontend/React dependencies:
-    "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
-    "bcryptjs": "^2.4.3",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-router-dom": "^6.8.1",
-    "react-scripts": "5.0.1",
-    "rss-parser": "^3.13.0",
-    "web-vitals": "^2.1.4"
 
