@@ -58,7 +58,7 @@ g4-informant/src/components/Display.js:10
 
 g4-informant/src/components/FullDisplay.js:10
 
-/g4-informant/src/components/Workbench.js:161
+https://github.com/vegardwaka/g4informant/blob/main/g4-informant/src/components/Workbench.js:161
 
 #### Database links
 
