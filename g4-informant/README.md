@@ -1,4 +1,4 @@
-![GitHub contributors](https://img.shields.io/github/contributors/vegardwaka/g4informant)
+![GitHub contributors](https://img.shields.io/github/contributors/vegardwaka/g4informant) ![Website](https://img.shields.io/website?up_message=online&url=https%3A%2F%2Fg4informant.com%2F)
 ## Welcome to G4 Informant
 G4 Informant is a webapplication that let our users create and display their very own screen.
 You are able to choose from a range of components that will display different information.
