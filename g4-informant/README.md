@@ -58,6 +58,8 @@ g4-informant/src/components/Display.js:10
 
 g4-informant/src/components/FullDisplay.js:10
 
+/g4-informant/src/components/Workbench.js:161
+
 #### Database links
 
 g4-informant/src/components/Login.js:15
@@ -70,4 +72,8 @@ g4-informant/src/components/Request.js:30
 
 g4-informant/src/components/UserCreate.js:17
 
-/g4-informant/src/components/UserCreate.js:30
+g4-informant/src/components/UserCreate.js:30
+
+g4-informant/src/components/Workbench.js:104
+
+g4-informant/src/components/Workbench.js:120
