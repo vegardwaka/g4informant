@@ -40,7 +40,7 @@ database.sql
 ## Code
 
 #### Server links
-Clock.js:10
-Clock.js:10
+g4-informant/src/components/workbenchComponents/Clock.js:10
+g4-informant/src/components/workbenchComponents/Clock.js:30
 
 #### Database links
