@@ -44,9 +44,9 @@ https://github.com/vegardwaka/g4informant/blob/ed188d0cdf3834c3f18aa5e3204b20045
 
 https://github.com/vegardwaka/g4informant/blob/ed188d0cdf3834c3f18aa5e3204b200457e35c09/g4-informant/src/components/workbenchComponents/Clock.js#L30
 
-g4-informant/src/components/workbenchComponents/Image.js:28
+https://github.com/vegardwaka/g4informant/blob/8b16a5ec7cb7fc1cd00970f6f421a069ed48d7e0/g4-informant/src/components/workbenchComponents/Image.js#L30
 
-g4-informant/src/components/workbenchComponents/Image.js:28
+https://github.com/vegardwaka/g4informant/blob/8b16a5ec7cb7fc1cd00970f6f421a069ed48d7e0/g4-informant/src/components/workbenchComponents/Image.js#L49
 
 g4-informant/src/components/workbenchComponents/Weather.js:20
 
