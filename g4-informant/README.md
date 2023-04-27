@@ -1,3 +1,4 @@
+https://contrib.rocks/image?repo=vegardwaka/g4informant
 ## Welcome to G4 Informant
 G4 Informant is a webapplication that let our users create and display their very own screen.
 You are able to choose from a range of components that will display different information.
