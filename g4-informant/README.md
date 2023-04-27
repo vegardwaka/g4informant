@@ -3,7 +3,9 @@
 G4 Informant is a webapplication that let our users create and display their very own screen.
 You are able to choose from a range of components that will display different information.
 
-it's built in react so these are the commands you need to run:
+## Commands
+
+Using Node, these are the commands you need to run:
 
 ### `npm start`
 
@@ -28,7 +30,10 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-You wil also need a postgresSQL database where you need to run this script
+## Database
+
+The database script is built in a PostgreSQL environment,
+so you'd need to use one yourself or manually change the script to work with whichever database you wanna use.
 
 database.sql
 
