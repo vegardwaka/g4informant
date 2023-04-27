@@ -38,9 +38,9 @@ so you'd need to use one yourself or manually change the script to work with whi
 database.sql
 
 ## Code
-
+https://github.com/vegardwaka/g4informant/blob/main/g4-informant/src/components/Home.js
 #### Server links
-g4-informant/src/components/workbenchComponents/Clock.js:10
+https://github.com/vegardwaka/g4informant/blob/main/g4-informant/src/components/workbenchComponents/Clock.js:10
 
 g4-informant/src/components/workbenchComponents/Clock.js:30
 
