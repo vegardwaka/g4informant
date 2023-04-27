@@ -7,8 +7,8 @@ export default function Profile(props){
     let empty
     props.foot(false)
 
+    /* Gets the users information screens from database */
     useEffect(() => {
-        
         fetch(`https://g4informant.com/api.php/records/infoscreen/?filter=username,eq,${localStorage.getItem('token').replace(/"/g, "")}`, {
             method: 'GET',
             headers: { 'Content-Type': 'application/json' },
@@ -21,7 +21,6 @@ export default function Profile(props){
             }
         })
         .then(data => {
-            console.log(data)
             setThingsArray(data.records)
             setIsPending(false)
         })
@@ -30,6 +29,7 @@ export default function Profile(props){
         })
     } , [])
    
+
     function addItem(index) {
         setThingsArray(oldValues => {
             return oldValues.filter((_, i) => i !== index)

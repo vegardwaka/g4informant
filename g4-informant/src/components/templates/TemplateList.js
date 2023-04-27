@@ -1,9 +1,7 @@
 import Template from './Template'
-import TemplateVertical from './TemplateVertical'
 import templatesH from "../../json/templatesH"
-import templatesV from "../../json/templatesV"
 
-export default function TemplateList({ onQueryObj, onQueryHide, onQueryList}) {
+export default function TemplateList({ setTemplateStyle, setHideInputs, setChangeList}) {
     
     const templateListH = templatesH.map(x => 
         <Template 
@@ -14,27 +12,18 @@ export default function TemplateList({ onQueryObj, onQueryHide, onQueryList}) {
         />
     )
 
-    const templateListV = templatesV.map(x =>
-        <TemplateVertical 
-            count = {x.count}
-            height = {x.height}
-            width = {x.width}
-            swap={() => handleClick(x.count, x.height, x.width)}
-        />
-    )
-
     function handleClick(count, height, width) {
-        onQueryObj({count: count, height: height, width: width})
-        onQueryHide(true)
-        onQueryList(false)
+        setTemplateStyle({count: count, height: height, width: width})
+        setHideInputs(true)
+        setChangeList(false)
     }
     
     return (
-        <div className="workbench-template-list" style={{display: onQueryList ? 'block' : 'none'}} >
+        <div className="workbench-template-list" style={{display: setChangeList ? 'block' : 'none'}} >
             <h3 className="template-title">Templates</h3>
             <div className="workbench-templates">
                 {templateListH}
             </div>
         </div>
     )
-}//{templateListV}
+}

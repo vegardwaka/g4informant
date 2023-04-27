@@ -14,7 +14,7 @@ export default function BgImageList(props) {
     const setTab = [setIsActive, setIsActive2, setIsActive3, setIsActive4, setIsActive5, setIsActive6, setIsActive7, setIsActive8]
 
     function handleClick(p_number, p_img) {
-        props.setImgs(p_img)
+        props.setBackground(p_img)
         for(let i=0; i<setTab.length; i++) 
             setTab[i](false)
         setTab[p_number-1](true)

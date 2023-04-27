@@ -5,7 +5,8 @@ import { useState, useEffect } from 'react'
 export default function FullDisplay(props) {
   const { infoscreen } = useParams()
   const [liste, setListe] = useState({})
- 
+  
+  /* Gets the information screens and the data for the subcomponents */ 
   async function getScreen() {
     await fetch(`https://g4informant.azurewebsites.net//data/${infoscreen}`, {
       method: 'GET',
@@ -28,9 +29,9 @@ export default function FullDisplay(props) {
       <div className="full-display-screen"> 
           <MainTemplate  
                   count={liste.count} 
-                  heighten={liste.tmpheight} 
-                  widthen={liste.tmpwidth}
-                  number= {liste.tmpquery}
+                  heighten={liste.height} 
+                  widthen={liste.width}
+                  number= {liste.elementNumber}
                   choice={false}
                   city={liste.city}
                   state={liste.state}

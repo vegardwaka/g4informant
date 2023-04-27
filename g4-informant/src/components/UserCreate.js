@@ -49,7 +49,7 @@ export default function UserCreate(props) {
             }
         })
     }
-    
+    /* Validation */
     function validateEmail() {
         let res = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
         return res.test(email)
@@ -75,7 +75,7 @@ export default function UserCreate(props) {
         }
         return true
     }
-
+    /* Handle submit to validate email and password, and run getUser() function */
     async function submitButton(){
         validateEmail()
         validatePassword()

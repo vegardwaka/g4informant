@@ -5,7 +5,8 @@ export default function Clock(props){
     const [position, setPosition] = useState(["" + props.propcontinent,"" + props.propcapital])
     const [show, setShow] = useState(props.hide)
     const [display, setDisplay] = useState(props.display)
-   
+
+   /* fetches the clock API from our server that we use as a proxy on a change in the position useState */
     useEffect(() => {
         fetch(`https://g4informant.azurewebsites.net//APIClock/${position[0]}&${position[1]}`) 
         .then(response => response.json())
@@ -16,6 +17,7 @@ export default function Clock(props){
         .catch(error => console.log(error))   
     }, [position])
 
+    /* Updates the clock when a user inputs a new position */
     function changeLocation() {
         const out = prompt("Please write continent and capital separated by a space.", "Europe Oslo")
         const outArray = out.split(" ")
@@ -49,11 +51,12 @@ export default function Clock(props){
                         capital: outArray[1]
                     })
                     let object = {continent: outArray[0], capital: outArray[1]}
-                    props.setLists(props.squareid, props.elementnumber, object)
+                    props.setList(props.squareid, props.elementnumber, object)
                 } 
             })  
     }
 
+    /* Updates the clock time every minute, however due to JavaScript limits it is not 100% accurate */
     useEffect(() => {
         setPosition([position[0], position[1]])
         function runClock() {

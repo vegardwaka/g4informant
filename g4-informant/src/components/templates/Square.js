@@ -21,7 +21,7 @@ export default function Square(props) {
                         setClockObj={props.setClockObj}
                         elementnumber={props.elementnumber} 
                         squareid={props.id} 
-                        setLists={props.setLists}
+                        setList={props.setList}
                     />
     else if (props.elementnumber === 2) 
         element = <Weather 
@@ -35,28 +35,28 @@ export default function Square(props) {
                         setWeatherObj={props.setWeatherObj} 
                         elementnumber={props.elementnumber} 
                         squareid={props.id} 
-                        setLists={props.setLists}
+                        setList={props.setList}
                     />
     else if (props.elementnumber === 3) 
         element = <Textarea 
                         taheight="100%" 
                         tawidth="100%" 
                         hide={true} 
-                        getTexts={props.getTexts}
+                        setText={props.setText}
                         elementnumber={props.elementnumber} 
                         squareid={props.id} 
-                        setLists={props.setLists}
+                        setList={props.setList}
                     />
     else if (props.elementnumber === 4)
         element = <Image 
                         imgheight="100%" 
                         imgwidth="100%" 
                         hide={true} 
-                        setSingleImg={props.setSingleImg} 
+                        setImage={props.setImage} 
                         imgboo={false}
                         elementnumber={props.elementnumber} 
                         squareid={props.id} 
-                        setLists={props.setLists}
+                        setList={props.setList}
                     />
     else if (props.elementnumber === 5)
         element = <News 
@@ -67,7 +67,7 @@ export default function Square(props) {
                         setNews={props.setNews}
                         elementnumber={props.elementnumber} 
                         squareid={props.id} 
-                        setLists={props.setLists}
+                        setList={props.setList}
                     />
     
   

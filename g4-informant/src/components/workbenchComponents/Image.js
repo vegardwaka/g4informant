@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-import Display from '../Display'
 
 export default function Image(props) {
     const [display, setDisplay] = useState(props.display)
@@ -10,30 +9,33 @@ export default function Image(props) {
     let height
     let width
     
+    /* Conditionally changes the image size to fit in the informationscreen fullscreen display */
     if(!props.fulldisplay) {
         height = "100%"
         width = "150px"
     }
 
+    /* Binds variables to necessary values for props and file upload */
     useEffect(() => {
-    if(currentImageName && image){ 
-        setImageName(currentImageName)
-        props.setSingleImg(currentImageName)
-        let object = {imagen: currentImageName}
-        props.setLists(props.squareid, props.elementnumber, object)
-        sendImageToBackend(currentImageName, image)
+        if(currentImageName && image){ 
+            setImageName(currentImageName)
+            props.setImage(currentImageName)
+            let object = {imagen: currentImageName}
+            props.setList(props.squareid, props.elementnumber, object)
+            sendImageToBackend(currentImageName, image)
     }}, [image, currentImageName])
 
+    /* Sends the uploaded image to the server, which saves it in a backend folder */
     async function sendImageToBackend(currentImageName, file) {
         const form = new FormData()
         form.append('myImage', file)
-        const response = await fetch(`https://g4informant.azurewebsites.net//images/${currentImageName}`, {
-          method: 'POST',
-          body: form,
+        await fetch(`https://g4informant.azurewebsites.net//images/${currentImageName}`, {
+        method: 'POST',
+        body: form,
         }).then((response) =>     {
             return response.status
         })
-      }
+    }
 
     return(
         <div 
@@ -65,6 +67,8 @@ export default function Image(props) {
                             type="file"
                             name='myImage'
                             id="image-file-input" 
+
+                            /* Saves image file and image name to useState variables */ 
                             onChange={(e) => {
                                 setImage(e.target.files[0])
                                 setImageName(e.target.files[0].name)

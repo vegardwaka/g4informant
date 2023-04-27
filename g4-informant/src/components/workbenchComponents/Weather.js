@@ -11,10 +11,8 @@ export default function Weather(props) {
     var weatherHour = null
     const [show, setShow] = useState(props.hide)
     const [display, setDisplay] = useState(props.display)
-    let style={
-        color: props.fontColor
-    }
 
+    /* Gets latitude and longitude from user location data input, using server as proxy */
     useEffect(() => {
         async function getLocation() {
             await fetch(`https://g4informant.azurewebsites.net//Location/${city}&${state}`, {
@@ -36,7 +34,7 @@ export default function Weather(props) {
         getLocation()
     }, [city, state])
 
-
+    /* Gets weatherdata from backend using the latitude and longditude values returned by the previous fetch */
     useEffect(() => {
         async function getWeather() {
             await fetch(`https://g4informant.azurewebsites.net//Weather/${lat}&${lon}`, {
@@ -58,26 +56,15 @@ export default function Weather(props) {
             }
     }, [lat, lon])       
 
-    if(location) {
-    } 
-    else {
-        
-    }
-
     if (weather) {
         imgSrc = weather?.properties?.timeseries[2]?.data?.next_1_hours?.summary?.symbol_code
     } 
-    else {
- 
-    }
     
     if (weather) {
         weatherHour = weather?.properties?.timeseries[2]?.data?.instant?.details?.air_temperature
     } 
-    else {
-        
-    }
 
+    /* Changes location based on user input */
     function changeLocation() {
         const out = prompt("Write city and state/area separated by a space.", "Bø Telemark")
         const outArray = out.split(" ")
@@ -113,7 +100,7 @@ export default function Weather(props) {
                         state: outArray[1]
                     })
                     let object = {city: outArray[0], state: outArray[1]}
-                    props.setLists(props.squareid, props.elementnumber, object)
+                    props.setList(props.squareid, props.elementnumber, object)
                 } 
             })  
     }

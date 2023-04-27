@@ -5,35 +5,35 @@ import BgImageList from "./templates/BgImageList"
 import ComponentList from "./workbenchComponents/ComponentsList"
 
 export default function Workbench(props) {
-      const [queryObj, setQueryObj] = useState({})
-      const [queryHide, setQueryHide] = useState(false)
-      const [queryList, setQueryList] = useState(true)
+      const [templateStyle, setTemplateStyle] = useState({})
+      const [hideInputs, setHideInputs] = useState(false)
+      const [changeList, setChangeList] = useState(true)
+      const [elementNumber, setElementNumber] = useState(0)
       const [imageName, setImageName] = useState("")
       const [title, setTitle] = useState('')
-      const [queryNumber, setQueryNumber] = useState(0)
       const [elements, setElements] = useState({})
       const [clockObj, setClockObj] = useState({})
       const [weatherObj, setWeatherObj] = useState({city: "Juneau", state: "Alaska" })
-      const [bgImage, setBGImage] = useState('')
       const [textObj, setTextObj] = useState("")
       const [newsObj, setNewsObj] = useState(0)
-      const [imgObj, setImgObj] = useState("")
+      const [bgImage, setBGImage] = useState('')
       const [fontColor, setFontColor] = useState("Black")
       const [listData, setlistData] = useState([])
       sessionStorage.setItem("font", fontColor)
       let tmData = {}
       let key
       props.foot(false)
+      const [imgBG, setImgBG] = useState("")
 
-      const onOptionChange = e => {
+      function onOptionChange(e) {
         setFontColor(e.target.value)
       }
 
-      function setImgs(p_img) {
-        setImgObj(p_img)
+      function setBackground(p_bgImg) {
+        setImgBG(p_bgImg)
       }
 
-      function getTexts(p_text) {
+      function setText(p_text) {
         setTextObj(p_text)
       }
 
@@ -41,33 +41,28 @@ export default function Workbench(props) {
         setNewsObj(p_news)
       }
 
-      function setSingleImg(p_simg) {
-        setImageName(p_simg)
+      function setImage(p_img) {
+        setImageName(p_img)
       }
 
-      function setLists(p_squarenr, p_elementnr, p_obj) {
-        if(p_elementnr === 1) {
-          listData[p_squarenr] = p_obj
-        }
-        else if(p_elementnr === 2) {
-          listData[p_squarenr] = p_obj
-        }
-        else if(p_elementnr === 3){
-          listData[p_squarenr] = p_obj
-        }
-        else if(p_elementnr === 4){
-          listData[p_squarenr] = p_obj
-        }
-        else if(p_elementnr === 5) {
-          listData[p_squarenr] = p_obj
-        }
+      function setList(p_squareNr, p_elementNr, p_object) {
+        if(p_elementNr === 1) 
+          listData[p_squareNr] = p_object
+        else if(p_elementNr === 2) 
+          listData[p_squareNr] = p_object
+        else if(p_elementNr === 3)
+          listData[p_squareNr] = p_object
+        else if(p_elementNr === 4)
+          listData[p_squareNr] = p_object
+        else if(p_elementNr === 5) 
+          listData[p_squareNr] = p_object
       }
      
       function handleClick() {
-          setQueryHide(false)
-          setQueryList(true)
-          setQueryObj({count:0})
-          setQueryNumber(0)
+          setHideInputs(false)
+          setChangeList(true)
+          setTemplateStyle({count:0})
+          setElementNumber(0)
       }
 
       async function submitButton() {
@@ -79,20 +74,20 @@ export default function Workbench(props) {
         else {
           tmData = {
             title: title, 
-            count: queryObj.count,
-            tmpheight: queryObj.height,
-            tmpwidth: queryObj.width, 
-            tmpquery: queryObj.queryNumber,
+            count: templateStyle.count,
+            height: templateStyle.height,
+            width: templateStyle.width, 
+            elementNumber: templateStyle.elementNumber,
             squares: [],
             user: localStorage.getItem('token').replace(/"/g, ""),
-            bgImage: imgObj,
+            bgImage: imgBG,
             fontColor: fontColor,
             listData: listData
           }
          
-          for (var i = 0; i < queryObj.count; i++) {
+          for (var i = 0; i < templateStyle.count; i++) {
             let temp = (i+1)
-            tmData.squares[i] = {ruteNr: i,elementNr: elements["e" + temp]}
+            tmData.squares[i] = {squareNr: i,elementNr: elements["e" + temp]}
             console.log(tmData.squares[i])}
 
           await fetch(`https://g4informant.com/api.php/records/infoscreen`, {
@@ -169,80 +164,81 @@ export default function Workbench(props) {
     return (
       <div>
         <h2 className="workbench-title">Welcome to your workbench</h2>
-        <div className="workbench-buttons">
-          {queryHide && 
-                <div className="font-color-container">
+        {hideInputs && 
+          <div className="workbench-buttons">
+                  <div className="font-color-container">
+                    <input 
+                      type="radio"
+                      name="fontColor"
+                      value="Black"
+                      id="black"
+                      checked={fontColor === "Black"}
+                      onChange={onOptionChange}
+                    />
+                    <label htmlFor="black">Black</label>
+                    <input 
+                      type="radio"
+                      name="fontColor"
+                      value="White"
+                      id="white"
+                      checked={fontColor === "White"}
+                      onChange={onOptionChange}
+                    />
+                    <label htmlFor="white">White</label>
+                  </div>
+          
                   <input 
-                    type="radio"
-                    name="fontColor"
-                    value="Black"
-                    id="black"
-                    checked={fontColor === "Black"}
-                    onChange={onOptionChange}
+                      required
+                      value={title} 
+                      onChange={(e) => setTitle(e.target.value)}
+                      type="text" 
+                      className="name-your-work" 
+                      placeholder="NAME YOUR WORK"
                   />
-                  <label htmlFor="black">Black</label>
-                  <input 
-                    type="radio"
-                    name="fontColor"
-                    value="White"
-                    id="white"
-                    checked={fontColor === "White"}
-                    onChange={onOptionChange}
-                  />
-                  <label htmlFor="white">White</label>
-                </div>}
-            {queryHide && 
-                <input 
-                    required
-                    value={title} 
-                    onChange={(e) => setTitle(e.target.value)}
-                    type="text" 
-                    className="name-your-work" 
-                    placeholder="NAME YOUR WORK"
-                />
-            }
-            {queryHide && <button type="submit" className="save-workbench-button" onClick={submitButton}>Save your work</button>}
-        </div>
+              
+              <button type="submit" className="save-workbench-button" onClick={submitButton}>Save your work</button>
+          </div>
+        }
         
-        {queryHide && 
+        {hideInputs && 
             <button 
                 className="prev-button" 
                 onClick={handleClick}
             ><img src="/images/icons/arrow-left.png" alt="" width="15px"/></button>}
         <div className="workbench">
           
-            {queryList ? 
+            {changeList ? 
                 <TemplateList
-                    onQueryObj={setQueryObj}
-                    onQueryHide={setQueryHide}
-                    onQueryList={setQueryList}
+                    setTemplateStyle={setTemplateStyle}
+                    setHideInputs={setHideInputs}
+                    setChangeList={setChangeList}
                 /> 
               : <ComponentList
-                    onQueryNumber={setQueryNumber}
+                    setElementNumber={setElementNumber}
                 />
             }
 
             <div className="workbench--screen">
                 <MainTemplate  
-                    count={queryObj.count} 
-                    heighten={queryObj.height} 
-                    widthen={queryObj.width}
-                    number={queryNumber}
+                    count={templateStyle.count} 
+                    heighten={templateStyle.height} 
+                    widthen={templateStyle.width}
+                    number={elementNumber}
                     choice={true}
                     elements={setElements}
                     elementsvar={elements}
                     setClockObj={setClockObj}
                     setWeatherObj={setWeatherObj}
-                    setBGImage={imgObj}
-                    getTexts={getTexts}
+                    setBGImage={imgBG}
+                    setText={setText}
                     setNews={setNews}
-                    bgImage={imgObj}
-                    setSingleImg={setSingleImg}
+                    bgImage={imgBG}
+                    setImage={setImage}
                     fontColor={fontColor}
-                    setLists={setLists}
+                    setList={setList}
                 />
             </div>
-            <BgImageList bgImage={bgImage} setImgs={setImgs}/>
+            <BgImageList bgImage={bgImage} setBackground={setBackground}/>
         </div>
       </div>
     )

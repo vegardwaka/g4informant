@@ -1,8 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import NavBar from './components/NavBar';
 import Home from './components/Home';
 import Footer from './components/Footer';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Blog from './components/Blog';
 import Login from './components/Login';
 import About from './components/About';
@@ -20,6 +20,7 @@ export default function App(props) {
   const [showFooter, setShowFooter] = useState(true);
   const { token, setToken } = useToken();
 
+/* checks if user is logged in before choosing which routes are available in the navbar and through direct links */
   if (!localStorage.getItem('token')) {
     return (
       <>

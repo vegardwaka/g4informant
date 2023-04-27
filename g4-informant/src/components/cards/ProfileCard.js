@@ -2,26 +2,29 @@ import React from 'react';
 import Display from '../Display'
 
 export default function ProfileCard(props) {    
+
+    /* Function to delete information screen from database */
     function deleteScreen() {
         const answer = prompt("Are you sure you want to delete your information screen?\nType Yes/No")
         if(answer === "Yes" || answer === "yes"){
+
             async function deleteScreen(data) {
                 await fetch(`https://g4informant.azurewebsites.net//data/${props.title}`, {
-                method: 'DELETE',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(data),
+                    method: 'DELETE',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data),
                 })
                 .then(response => response.json())
                 .then(data => {
-                console.log(data.message)
+                    console.log(data.message)
                 })
                 .catch(error => {
-                console.error(error)
+                    console.error(error)
                 })
             }
 
             async function deleteFromDatabase() {
-                const response = await fetch(`https://g4informant.com/api.php/records/infoscreen/${props.id}`, {
+                await fetch(`https://g4informant.com/api.php/records/infoscreen/${props.id}`, {
                     method: 'DELETE',
                     headers: {
                         'Content-Type': 'application/json'

@@ -6,9 +6,9 @@ export default function Textarea(props) {
    
     function handleChange(event) {
         setText(event.target.value)
-        props.getTexts(event.target.value)
+        props.setText(event.target.value)
         let object = {tatext: event.target.value}
-        props.setLists(props.squareid,  props.elementnumber, object)
+        props.setList(props.squareid,  props.elementnumber, object)
     }
 
     return(

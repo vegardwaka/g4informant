@@ -2,6 +2,7 @@ import HomeCard from './cards/HomeCard'
 import info from '../json/info'
 
 export default function Home(props) { 
+  
   props.foot(true)
   const list = info.map(x => 
     <HomeCard
@@ -36,11 +37,13 @@ export default function Home(props) {
           {list}
         </div>
         <h1 className="home-wbexamples-h1">screen examples</h1>
-        <div className="home-wb-examples">
-          <img src="/images/homescreen1.png" alt="home" id="home-wb-examples-img" width="100px"/>
-          <img src="/images/homescreen2.png" alt="home" id="home-wb-examples-img" width="100px"/>
-          <img src="/images/homescreen3.png" alt="home" id="home-wb-examples-img" width="100px"/>
-        </div>
+        <section className="row bottom slider-container">
+          <div className="home-wb-examples">
+            <img src="/images/homescreen1.png" alt="home" className="slider-image"/>
+            <img src="/images/homescreen2.png" alt="home" className="slider-image"/>
+            <img src="/images/homescreen3.png" alt="home" className="slider-image"/>
+          </div>
+        </section>
       </div>
   )
 }

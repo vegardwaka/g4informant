@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server",
-    "dev": "nodemon server"
+    "start": "node server"
   },
   "author": "",
   "license": "ISC",
@@ -16,8 +15,5 @@
     "node-cache": "^5.1.2",
     "node-fetch": "^2.6.9",
     "pg": "^8.10.0"
-  },
-  "devDependencies": {
-    "nodemon": "^2.0.22"
   }
 }

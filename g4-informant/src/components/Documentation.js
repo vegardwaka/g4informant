@@ -18,9 +18,6 @@ export default function Documentation(props){
             <div className="documentation-card-container">
                 {card}
             </div>
-            <div>
-                <h2 className="documentation-title-t">Tutorial</h2>
-            </div>
         </div>
     )
 }

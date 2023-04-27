@@ -3,7 +3,6 @@ import DisplaySquare from './DisplaySquare'
 import { useState } from 'react' 
 
 export default function MainTemplate(props) {
-    const [show, setShow] = useState(true)
     const [imglink, setImgLink] = useState(props.bgImage)
     
     let list = []
@@ -25,11 +24,11 @@ export default function MainTemplate(props) {
                 elementsvar={props.elementsvar}
                 setClockObj={props.setClockObj}
                 setWeatherObj={props.setWeatherObj}
-                getTexts={props.getTexts}
+                setText={props.setText}
                 setNews={props.setNews}
-                setSingleImg={props.setSingleImg}
+                setImage={props.setImage}
                 fontColor= {props.fontColor}
-                setLists={props.setLists}
+                setList={props.setList}
             />
         :
             <DisplaySquare 
@@ -56,7 +55,7 @@ export default function MainTemplate(props) {
 
     return (
         <div 
-            className={show ? "templateBoxMain" : "templateBoxVerticalMain"}
+            className="templateBoxMain"
             style={{'background-image': `url(${props.bgImage})`,'background-repeat': 'no-repeat', 'background-size': '100% 100%', 'color': props.fontColor}}
         >
             {templateCount}

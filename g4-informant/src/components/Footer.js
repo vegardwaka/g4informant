@@ -1,8 +1,4 @@
-import {useEffect} from "react"
 export default function Footer() {
-
-
-  
     return (
       <div className="footer">
             <h4 className="footer-title"><img src="/images/g4.png" alt="logo" id="footer-logo" width="20px" />G4 INFORMANT</h4>

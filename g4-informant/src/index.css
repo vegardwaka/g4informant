@@ -64,12 +64,17 @@ body {
   padding: 20px;
 }
 
+
 /* Not Found */
+
 .not-found{
   height: 100vh;
 }
 
-/* HomeCard */
+/* 
+Homepage, all styles related to the home page,
+including the HomeCard component
+*/
 
 .home-section1{
   position: relative;
@@ -118,14 +123,14 @@ body {
 }
 .home-p-div{
   position: relative;
-  top: 50vh;
+  top: 49vh;
 }
 .home-paragraph-1{
   text-align: center;
 }
 .home-paragraph-2 {
   text-align: center;
-  padding-bottom: 30px;
+  padding-bottom: 20px;
   border-bottom: 1px solid #000000;
 }
 
@@ -185,7 +190,7 @@ body {
   letter-spacing: .1rem;
   text-transform: uppercase;
 }
-.home-wb-examples{
+.home-wb-examples1{
   display: flex;
   justify-content: center;
   align-items: center;
@@ -199,8 +204,60 @@ body {
   border-radius: 2px;
   margin: 20px;
 }
+.slider-container {
+  width: 100%;
+  height: 500px;
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+}
+
+.home-wb-examples {
+  width: 4260px;
+  height: 510px;
+  margin: 20px;
+  clear: both;
+  position: relative;
+  animation-name: slider;
+  animation-duration: 30s;
+  animation-delay: 5s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: forwards;
+  animation-fill-mode: backwards;
+  animation-play-state: running;
+}
+
+.slider-image {
+  width: auto;
+  height: 446px;
+  position: relative;
+  align-items: center;
+  border: 2px solid #000000;
+  border-radius: 5px;
+  margin-left: 200px;
+}
+
+@keyframes slider {
+  0% {
+      transform: translate(-585px, 0);
+  }
+  25% {
+      transform: translate(-1500px, 0);
+  }
+  50% {
+      transform: translate(-2400px, 0);
+  }
+  75% {
+    transform: translate(-1500px, 0);
+  }
+  100% {
+    transform: translate(-585px, 0);
+  }
+}
 
 /* Footer */
+
 .footer {
   position: relative; 
   width: 100%;
@@ -251,7 +308,7 @@ body {
   margin-right: 10px;
 }
 
-/* Login input */
+/* Login form */
 
 .input-container {
   text-align: center;
@@ -275,7 +332,7 @@ body {
 }
 
 .input--email {
-    width: 200px;
+  width: 200px;
   padding: 10px 10px 10px 10px;
   border-radius: 5px;
   border: 1px solid #D5D4D8;
@@ -319,7 +376,6 @@ body {
 
 .input--button:hover {
   background-color: darkgrey;
-
 }
 
 .input--form {
@@ -375,7 +431,6 @@ body {
   margin: 10px;
 }
 .blog-card:hover {
-  /*background-color: rgb(203, 203, 203); */
   transform: scale(1.05);
   box-shadow: 1px 1px 1px 1px #000;
 }
@@ -616,10 +671,12 @@ body {
 
 .request--button:hover {
   background-color: darkgrey;
-
 }
 
-/* Workbench */
+/* 
+Workbench, styling related to all 
+components that are rendered on the workbench
+*/
 
 .workbench{
   display: flex;
@@ -756,19 +813,6 @@ body {
   border-radius: 5px;
 }
 
-.workbench--screen--vertical{
-  display: flex;
-  justify-content: center;
-  margin-left: auto;
-  margin-right: auto;
-  width: 590px;
-  height: 960px;
-  border: 3px #000000;
-  border-style: solid;
-  border-radius: 5px;
-}
-
-
 .templateBox {
   display: flex;
   position: relative;
@@ -784,25 +828,6 @@ body {
 .templateBox:hover {
   background-color: rgb(164, 164, 164);
 }
-
-.templateBoxVertical{
-  transform: rotate(90deg);
-  margin-top: 60px;
-  margin-bottom: 110px;
-  display: flex;
-  position: relative;
-  flex-wrap: wrap;
-  width: 100%;
-  height: 100%;
-  border: 1px;
-  border-style: solid;
-  box-sizing: border-box;  
-}
-
-.templateBoxVertical:hover {
-  background-color: rgb(164, 164, 164);
-}
-
 .div1{
   width: 50%;
   height: 50%;
@@ -852,17 +877,6 @@ body {
 }
 
 .templateBoxMain {
-  display: flex;
-  position: relative;
-  flex-wrap: wrap;
-  width: 100%;
-  height: 100%;
-  border: 1px;
-  border-style: solid;
-  box-sizing: border-box;
-  margin-bottom: 10px;
-}
-.templateBoxVerticalMain{
   display: flex;
   position: relative;
   flex-wrap: wrap;
@@ -946,7 +960,10 @@ body {
   border: 1px solid #000000;
 }
 
-/* API Boxes */
+/* 
+API Boxes, styles for the different
+boxes displaying information from API
+*/
 
 .weatherBox{
   display: grid;
@@ -1074,9 +1091,6 @@ body {
   background-color: rgb(164, 164, 164);
 }
 
-.news-description{
-  
-}
 .news-link{
   font-size: 8px;
 }
@@ -1086,29 +1100,6 @@ textarea{
   width: 100%;
   font-size: 20px;
   font-family: "Poppins";
-}
-
-div.slide-left {
-
-  width: 100%;
-  overflow: hidden;
-
-}
-div.slide-left p {
-  animation: slide-left 15s;
-  display: inline-block;
-  white-space: nowrap;
-  clear: both;
-}
-
-@keyframes slide-left {
-  from {
-    transform: translateX(100%);
-  }
-
-  to {
-    transform: translateX(-100%);
-  }
 }
 
 /* Profile */
@@ -1216,7 +1207,10 @@ div.slide-left p {
   text-align: center;
 }
 
-/* Full Display */
+/* 
+Full Display, styles for the different 
+boxes when displaying your information screen
+*/
 .full-display-screen{
   position: fixed;
   top: 0;
