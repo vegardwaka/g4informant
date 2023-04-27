@@ -44,7 +44,7 @@ The frontend uses Meta's React JavaScript library. React conventions have been f
 The database script is built in a PostgreSQL environment,
 so you'd need to use one yourself or manually change the script to work with whichever database you wanna use.
 
-database.sql
+https://github.com/vegardwaka/g4informant/blob/g4-informant/database.sql
 
 #### Database links
 https://github.com/vegardwaka/g4informant/blob/7237b0d27337692fc6d96a2ffebdd5568cfa2043/g4-informant/src/components/Login.js#L15
