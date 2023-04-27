@@ -39,8 +39,8 @@ database.sql
 
 ## Links that need to be changed
 
-# Server links
+#### Server links
 Clock.js:10
 Clock.js:10
 
-# Database links
+#### Database links
