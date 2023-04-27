@@ -37,7 +37,7 @@ so you'd need to use one yourself or manually change the script to work with whi
 
 database.sql
 
-## Links that need to be changed
+## Code
 
 #### Server links
 Clock.js:10
