@@ -58,7 +58,7 @@ export default function News(props) {
         }
         props.setNews(p_newsNumber)
         let object = {newsNumber: p_newsNumber}
-        props.setList(props.squareid, props.elementnumber, object)  
+        props.setList(props.squareid, props.elementNumber, object)  
     }
    
     if(count >= parseInt(allArticles.length)) {

@@ -4,12 +4,11 @@ import bloggInnlegg from "../json/bloggInnlegg"
 import { useEffect } from 'react'
 
 export default function Blog(props) {
-
   useEffect(() =>{
     props.onShow(false)
-}, [])
+  },[])
 
-  const liste = bloggInnlegg.map(x => {
+  const list = bloggInnlegg.map(x => {
     return(
        <BlogCard 
           key={x.id} 
@@ -33,7 +32,7 @@ export default function Blog(props) {
         </div>
       </div>
       <div className="blog">
-          {liste}
+          {list}
       </div>
       <footer className="blog-footer-usn">
           <img src="https://www.usn.no/getfile.php/13520469-1677146025/usn.no/om_USN/Logo%20og%20grafiske%20elementer/USN_logotype.png" alt="usn-logo" id="usn-logo"/>

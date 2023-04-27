@@ -49,7 +49,7 @@ export default function CompontentsList(props){
                 />
                 <br />
                 <Textarea 
-                    tawidth="100%" 
+                    width="100%" 
                     toggle={() => handleClick(3)} 
                     show={isActive3} 
                     hide={false} 
@@ -58,7 +58,7 @@ export default function CompontentsList(props){
                 />
                 <br />
                 <Image 
-                    imgwidth="100%" 
+                    width="100%" 
                     toggle={() => handleClick(4)} 
                     show={isActive4} 
                     hide={false} 

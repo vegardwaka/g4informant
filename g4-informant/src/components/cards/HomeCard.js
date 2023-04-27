@@ -19,7 +19,7 @@ export default function HomeCard(props) {
         element = <Textarea hide={true} dis={true} read={false}/>
     }
     else if (props.id === 4) {
-        element = <Image imgheight="200px" hide={false} imgboo={false} show={false}/>
+        element = <Image height="200px" hide={false} imgboo={false} show={false}/>
         link = <small className="home-API-p">Images should be 539 x 600 pixels to perfectly fit the component.</small>
     }
     else if (props.id === 5) {

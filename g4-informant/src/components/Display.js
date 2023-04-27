@@ -2,7 +2,7 @@ import MainTemplate from './templates/MainTemplate'
 import { useState, useEffect } from 'react'
 
 export default function Display(props) {
-  const [liste, setListe] = useState({})
+  const [list, setList] = useState({})
 
   /* Gets information screens, it's subcomponents and data, to display them in profile preview */
   async function submitButtonHent() {
@@ -14,7 +14,7 @@ export default function Display(props) {
       return response.json()
     })
     .then(data => {
-      setListe(data)
+      setList(data)
     })
   }
   
@@ -26,25 +26,18 @@ export default function Display(props) {
   return (
       <div className={props.changeboolean ? "profile-display-screen" : "workbench--screen"}> 
           <MainTemplate  
-                  count={liste.count} 
-                  heighten={liste.height} 
-                  widthen={liste.width}
-                  number={liste.elementNumber}
+                  count={list.count} 
+                  height={list.height} 
+                  width={list.width}
+                  elementNumber={list.elementNumber}
                   choice={false}
-                  squares={liste.squares}
-                  bgImage={liste.bgImage}
-                  fontColor={liste.fontColor}
-                  city={liste.city}
-                  state={liste.state}
-                  continent={liste.continent}
-                  capital={liste.capital}
-                  tatext={liste.tatext}
-                  newsnumber={liste.newsnumber}
-                  imageName={liste.imageName}
+                  squares={list.squares}
+                  bgImage={list.bgImage}
+                  fontColor={list.fontColor}
                   fulldisplay={false}
-                  imgboo={false}
+                  showImage={false}
                   hide={false}
-                  listData={liste.listData}     
+                  listData={list.listData}     
           />
       </div>
   )

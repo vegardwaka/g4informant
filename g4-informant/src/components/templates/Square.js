@@ -10,7 +10,7 @@ export default function Square(props) {
     const[list, setList] = useState([])
     let element
 
-    if(props.elementnumber === 1) 
+    if(props.elementNumber === 1) 
         element = <Clock 
                         height="100%" 
                         width="100%" 
@@ -18,12 +18,11 @@ export default function Square(props) {
                         display={true} 
                         propcontinent="Asia" 
                         propcapital="Tokyo" 
-                        setClockObj={props.setClockObj}
-                        elementnumber={props.elementnumber} 
+                        elementNumber={props.elementNumber} 
                         squareid={props.id} 
                         setList={props.setList}
                     />
-    else if (props.elementnumber === 2) 
+    else if (props.elementNumber === 2) 
         element = <Weather 
                         height="100%" 
                         width="100%" 
@@ -31,82 +30,78 @@ export default function Square(props) {
                         display={true} 
                         propcity="Juneau" 
                         propstate="Alaska" 
-                        onQueryCityen={props.onQueryCityen} 
                         setWeatherObj={props.setWeatherObj} 
-                        elementnumber={props.elementnumber} 
+                        elementNumber={props.elementNumber} 
                         squareid={props.id} 
                         setList={props.setList}
                     />
-    else if (props.elementnumber === 3) 
+    else if (props.elementNumber === 3) 
         element = <Textarea 
-                        taheight="100%" 
-                        tawidth="100%" 
+                        height="100%" 
+                        width="100%" 
                         hide={true} 
-                        setText={props.setText}
-                        elementnumber={props.elementnumber} 
+                        elementNumber={props.elementNumber} 
                         squareid={props.id} 
                         setList={props.setList}
                     />
-    else if (props.elementnumber === 4)
+    else if (props.elementNumber === 4)
         element = <Image 
-                        imgheight="100%" 
-                        imgwidth="100%" 
+                        height="100%" 
+                        width="100%" 
                         hide={true} 
-                        setImage={props.setImage} 
                         imgboo={false}
-                        elementnumber={props.elementnumber} 
+                        elementNumber={props.elementNumber} 
                         squareid={props.id} 
                         setList={props.setList}
                     />
-    else if (props.elementnumber === 5)
+    else if (props.elementNumber === 5)
         element = <News 
                         height="100%" 
                         width="100%" 
                         channelList={true} 
                         homeChannel={false} 
                         setNews={props.setNews}
-                        elementnumber={props.elementnumber} 
+                        elementNumber={props.elementNumber} 
                         squareid={props.id} 
                         setList={props.setList}
                     />
     
-  
-    const addButton = () => {
-        if(props.elementnumber > 0) {
+    function addButton() {
+        if(props.elementNumber > 0) {
             if(props.id === 0) {
-                props.elements({
-                   ...props.elementsvar,
-                    e1: props.elementnumber
+                props.setElements({
+                   ...props.elements,
+                    e1: props.elementNumber
                 })
             }
             else if(props.id === 1) {
-                props.elements({
-                    ...props.elementsvar,
-                    e2: props.elementnumber
+                props.setElements({
+                    ...props.elements,
+                    e2: props.elementNumber
                 })
             }
             else if(props.id === 2) {
-                props.elements({
-                    ...props.elementsvar,
-                    e3: props.elementnumber
+                props.setElements({
+                    ...props.elements,
+                    e3: props.elementNumber
                 })
             }
             else if(props.id === 3) {
-                props.elements({
-                    ...props.elementsvar,
-                    e4: props.elementnumber
+                props.setElements({
+                    ...props.elements,
+                    e4: props.elementNumber
                 })
             }
             else if(props.id === 4) {
-                props.elements({
-                    ...props.elementsvar,
-                    e5: props.elementnumber
+                props.setElements({
+                    ...props.elements,
+                    e5: props.elementNumber
                 })
             }
             else if(props.id === 5) {
-                props.elements({
-                    ...props.elementsvar,
-                    e6: props.elementnumber
+                props.setElements({
+                    ...props.elements,
+                    e6: props.elementNumber
                 })
             }
             
@@ -121,34 +116,34 @@ export default function Square(props) {
     function crossButton() {
         setShow(true)
         if(props.id === 0) {
-            if(props.elementsvar.e1 === 2)
+            if(props.elements.e1 === 2)
                 props.setWeatherObj({city: "Juneau", state: "Alaska"})
-            props.elementsvar.e1 = 0
+            props.elements.e1 = 0
         }
         else if(props.id === 1) {
-            if(props.elementsvar.e2 === 2)
+            if(props.elements.e2 === 2)
                 props.setWeatherObj({city: "Juneau", state: "Alaska"})
-            props.elementsvar.e2 = 0
+            props.elements.e2 = 0
         }
         else if(props.id === 2) {
-            if(props.elementsvar.e3 === 2)
+            if(props.elements.e3 === 2)
                 props.setWeatherObj({city: "Juneau", state: "Alaska"})
-            props.elementsvar.e3 = 0
+            props.elements.e3 = 0
         }
         else if(props.id === 3) {
-            if(props.elementsvar.e4 === 2)
+            if(props.elements.e4 === 2)
                 props.setWeatherObj({city: "Juneau", state: "Alaska"})
-            props.elementsvar.e4 = 0
+            props.elements.e4 = 0
         }
         else if(props.id === 4) {
-            if(props.elementsvar.e5 === 2)
+            if(props.elements.e5 === 2)
                 props.setWeatherObj({city: "Juneau", state: "Alaska"})
-            props.elementsvar.e5 = 0
+            props.elements.e5 = 0
         } 
         else if(props.id === 5) {
-            if(props.elementsvar.e6 === 2)
+            if(props.elements.e6 === 2)
                 props.setWeatherObj({city: "Juneau", state: "Alaska"})
-            props.elementsvar.e6 = 0
+            props.elements.e6 = 0
         }
     }
 
@@ -156,11 +151,11 @@ export default function Square(props) {
         <div 
             className="div1" 
             onClick={()=>props.toggle(props.id)}
-            style={{width: props.sqwidth, height: props.sqheight}}
+            style={{width: props.width, height: props.height}}
         >
             {show ? <button className="feature-button" onClick={addButton} style={{display: show ? "block" : "none"}}>Add Feature +</button>
             : list[props.id]}
-            {show ? null : <img src="/images/icons/cross-circle.png" alt="cross" onClick={crossButton} id="MainTemplateCross"/>}
+            {!show && <img src="/images/icons/cross-circle.png" alt="cross" onClick={crossButton} id="MainTemplateCross"/>}
         </div>
     )
 }

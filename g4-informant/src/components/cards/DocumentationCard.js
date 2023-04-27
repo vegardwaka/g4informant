@@ -14,7 +14,7 @@ export default function DocumentationCard(props){
     else if (props.id === 3) 
         element = <Textarea hide={true} dis={true} read={false}/>
     else if (props.id === 4) 
-        element = <Image imgheight="100%" hide={false} imgboo={false} show={false}/>
+        element = <Image height="100%" hide={false} imgboo={false} show={false}/>
     else if (props.id === 5) 
         element = <News height="100%"  hide={true} channelList={true} homeChannel={false}/> 
     

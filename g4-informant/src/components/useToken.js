@@ -1,7 +1,6 @@
 import {useState} from 'react'
 
 export default function useToken() {
-
   /* Gets the user token from localstorage so other pages can use it */
   const getToken = () => {
     const tokenString = localStorage.getItem('token')

@@ -6,9 +6,8 @@ export default function Textarea(props) {
    
     function handleChange(event) {
         setText(event.target.value)
-        props.setText(event.target.value)
         let object = {tatext: event.target.value}
-        props.setList(props.squareid,  props.elementnumber, object)
+        props.setList(props.squareid,  props.elementNumber, object)
     }
 
     return(
@@ -16,8 +15,8 @@ export default function Textarea(props) {
             className={props.fulldisplay ? "API-container-fulldisplay" : "API-container"}
             onClick={props.toggle} 
             style={{
-                height:props.taheight, 
-                width:props.tawidth, 
+                height:props.height, 
+                width:props.width, 
                 border:props.show ? '3px dashed black' : ''
             }}
         >
@@ -29,7 +28,7 @@ export default function Textarea(props) {
                         onChange={handleChange}
                         style={{resize: props.dis ? "none" : "", border:"none", background:"none", color:sessionStorage.getItem("font")}}
                     /> 
-                    : 
+                : 
                     <img src="/images/icons/text.png" alt="textarea" width="100px"/>
             }
         </div>

@@ -8,7 +8,7 @@ import News from '../workbenchComponents/News'
 export default function DisplaySquare(props) {
     const [list, setList] = useState([])
     
-    for(let i=0; i<props.sizen; i++) {
+    for(let i=0; i<props.count; i++) {
         let element
         if(props.squares[i].elementNr > 0) {
             if(props.squares[i].elementNr === 1) 
@@ -33,8 +33,8 @@ export default function DisplaySquare(props) {
                             />
             else if (props.squares[i].elementNr === 3) 
                 element = <Textarea 
-                                tawidth="100%" 
-                                taheight="100%" 
+                                width="100%" 
+                                height="100%" 
                                 hide={true} 
                                 dis={true} 
                                 read={true} 
@@ -43,11 +43,11 @@ export default function DisplaySquare(props) {
                             />
             else if (props.squares[i].elementNr === 4)
                 element = <Image 
-                                imgwidth="100%" 
-                                imgheight="100%" 
+                                height="100%" 
+                                width="100%" 
                                 fulldisplay={true} 
-                                imageName={props.listData[i].imagen} 
-                                imgboo={props.imgboo} 
+                                imageName={props.listData[i].image} 
+                                showImage={props.showImage} 
                                 hide={props.hide}
                             />
             else if (props.squares[i].elementNr === 5)
@@ -69,7 +69,7 @@ export default function DisplaySquare(props) {
         <div 
             className={props.fulldisplay ? "div1-full-screen" : "div1-display"}
             onClick={()=>props.toggle(props.id)}
-            style={{width: props.sqwidth, height: props.sqheight}}
+            style={{width: props.width, height: props.height}}
         >
             {list[props.id]}
         </div>

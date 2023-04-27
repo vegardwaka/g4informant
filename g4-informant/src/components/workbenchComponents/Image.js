@@ -1,9 +1,7 @@
 import { useState, useEffect } from 'react'
 
 export default function Image(props) {
-    const [display, setDisplay] = useState(props.display)
     const [image, setImage] = useState()
-    const [show, setShow] = useState(props.hide)
     const [imageName, setImageName] = useState(props.hide)
     const [currentImageName, setCurrentImageName] = useState()
     let height
@@ -19,9 +17,8 @@ export default function Image(props) {
     useEffect(() => {
         if(currentImageName && image){ 
             setImageName(currentImageName)
-            props.setImage(currentImageName)
-            let object = {imagen: currentImageName}
-            props.setList(props.squareid, props.elementnumber, object)
+            let object = {image: currentImageName}
+            props.setList(props.squareid, props.elementNumber, object)
             sendImageToBackend(currentImageName, image)
     }}, [image, currentImageName])
 
@@ -30,8 +27,8 @@ export default function Image(props) {
         const form = new FormData()
         form.append('myImage', file)
         await fetch(`https://g4informant.azurewebsites.net//images/${currentImageName}`, {
-        method: 'POST',
-        body: form,
+            method: 'POST',
+            body: form,
         }).then((response) =>     {
             return response.status
         })
@@ -42,12 +39,12 @@ export default function Image(props) {
             className={props.fulldisplay ? "API-container-fulldisplay" : "API-container"}
             onClick={props.toggle}
             style={{
-                width: props.imgwidth, 
-                height: props.imgheight, 
+                width: props.width, 
+                height: props.height, 
                 border: props.show ? '3px dashed black' : '' 
             }}
         >
-            {props.imgboo ? (
+            {props.showImage ? (
                 <div className="uploaded--image" style={{'width': width, 'height': height,'background-image': `url(https://g4informant.azurewebsites.net//Images/${props.imageName})`,'background-repeat': 'no-repeat',  'background-size': '100% 100%'}}></div> 
             ) : (
                 <>
@@ -62,7 +59,7 @@ export default function Image(props) {
                             <br/>
                         </div>
                     )}
-                    {show ? (
+                    {props.hide ? (
                         <input
                             type="file"
                             name='myImage'
@@ -80,7 +77,7 @@ export default function Image(props) {
                     ) : (
                         <img src="/images/icons/picture.png" alt="clock" width="100px"/>
                     )}
-                    {display && <img src="/images/icons/picture.png" alt="clock" width="50px"/>}
+                    {props.display && <img src="/images/icons/picture.png" alt="clock" width="50px"/>}
                 </>
             )}
         </div>

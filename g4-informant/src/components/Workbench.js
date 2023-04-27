@@ -5,106 +5,94 @@ import BgImageList from "./templates/BgImageList"
 import ComponentList from "./workbenchComponents/ComponentsList"
 
 export default function Workbench(props) {
-      const [templateStyle, setTemplateStyle] = useState({})
-      const [hideInputs, setHideInputs] = useState(false)
-      const [changeList, setChangeList] = useState(true)
-      const [elementNumber, setElementNumber] = useState(0)
-      const [imageName, setImageName] = useState("")
-      const [title, setTitle] = useState('')
-      const [elements, setElements] = useState({})
-      const [clockObj, setClockObj] = useState({})
-      const [weatherObj, setWeatherObj] = useState({city: "Juneau", state: "Alaska" })
-      const [textObj, setTextObj] = useState("")
-      const [newsObj, setNewsObj] = useState(0)
-      const [bgImage, setBGImage] = useState('')
-      const [fontColor, setFontColor] = useState("Black")
-      const [listData, setlistData] = useState([])
-      sessionStorage.setItem("font", fontColor)
-      let tmData = {}
-      let key
-      props.foot(false)
-      const [imgBG, setImgBG] = useState("")
+    const [templateStyle, setTemplateStyle] = useState({})
+    const [hideInputs, setHideInputs] = useState(false)
+    const [changeList, setChangeList] = useState(true)
+    const [elementNumber, setElementNumber] = useState(0)
+    const [title, setTitle] = useState('')
+    const [elements, setElements] = useState({})
+    const [weatherObj, setWeatherObj] = useState({city: "Juneau", state: "Alaska" })
+    const [newsObj, setNewsObj] = useState(0)
+    const [fontColor, setFontColor] = useState("Black")
+    const [listData, setlistData] = useState([])
+    const [bgImage, setBGImage] = useState("")
+    let tmData = {}
+    let key
+    sessionStorage.setItem("font", fontColor)
+    props.foot(false)
 
-      function onOptionChange(e) {
-        setFontColor(e.target.value)
-      }
+    function onOptionChange(e) {
+      setFontColor(e.target.value)
+    }
 
-      function setBackground(p_bgImg) {
-        setImgBG(p_bgImg)
-      }
+    function setBackground(p_bgImg) {
+      setBGImage(p_bgImg)
+    }
 
-      function setText(p_text) {
-        setTextObj(p_text)
-      }
+    function setNews(p_news) {
+      setNewsObj(p_news)
+    }
 
-      function setNews(p_news) {
-        setNewsObj(p_news)
-      }
+    function setList(p_squareNr, p_elementNr, p_object) {
+      if(p_elementNr === 1) 
+        listData[p_squareNr] = p_object
+      else if(p_elementNr === 2) 
+        listData[p_squareNr] = p_object
+      else if(p_elementNr === 3)
+        listData[p_squareNr] = p_object
+      else if(p_elementNr === 4)
+        listData[p_squareNr] = p_object
+      else if(p_elementNr === 5) 
+        listData[p_squareNr] = p_object
+    }
+    
+    function handleClick() {
+        setHideInputs(false)
+        setChangeList(true)
+        setTemplateStyle({count:0})
+        setElementNumber(0)
+    }
 
-      function setImage(p_img) {
-        setImageName(p_img)
+    async function submitButton() {
+      if(failTest()) {
       }
-
-      function setList(p_squareNr, p_elementNr, p_object) {
-        if(p_elementNr === 1) 
-          listData[p_squareNr] = p_object
-        else if(p_elementNr === 2) 
-          listData[p_squareNr] = p_object
-        else if(p_elementNr === 3)
-          listData[p_squareNr] = p_object
-        else if(p_elementNr === 4)
-          listData[p_squareNr] = p_object
-        else if(p_elementNr === 5) 
-          listData[p_squareNr] = p_object
+      else if(Object.values(elements).includes(5) && newsObj === 0) {
+        window.alert("Choose a news channel")
       }
-     
-      function handleClick() {
-          setHideInputs(false)
-          setChangeList(true)
-          setTemplateStyle({count:0})
-          setElementNumber(0)
-      }
-
-      async function submitButton() {
-        if(failTest()) {
+      else {
+        tmData = {
+          title: title, 
+          count: templateStyle.count,
+          height: templateStyle.height,
+          width: templateStyle.width, 
+          elementNumber: templateStyle.elementNumber,
+          squares: [],
+          user: localStorage.getItem('token').replace(/"/g, ""),
+          bgImage: bgImage,
+          fontColor: fontColor,
+          listData: listData
         }
-        else if(Object.values(elements).includes(5) && newsObj === 0) {
-          window.alert("Choose a news channel")
-        }
-        else {
-          tmData = {
-            title: title, 
-            count: templateStyle.count,
-            height: templateStyle.height,
-            width: templateStyle.width, 
-            elementNumber: templateStyle.elementNumber,
-            squares: [],
-            user: localStorage.getItem('token').replace(/"/g, ""),
-            bgImage: imgBG,
-            fontColor: fontColor,
-            listData: listData
-          }
-         
-          for (var i = 0; i < templateStyle.count; i++) {
-            let temp = (i+1)
-            tmData.squares[i] = {squareNr: i,elementNr: elements["e" + temp]}
-            console.log(tmData.squares[i])}
+        
+        for (let i = 0; i < templateStyle.count; i++) {
+          let temp = (i+1)
+          tmData.squares[i] = {squareNr: i,elementNr: elements["e" + temp]}
+          console.log(tmData.squares[i])}
 
-          await fetch(`https://g4informant.com/api.php/records/infoscreen`, {
-            method: 'GET',
-            headers: { 'Content-Type': 'application/json' },
-          })
-          .then(response => response.json())
-          .then(data => {
-            var largest = parseInt(data.records[0].infoscreen_id)
-            for(var i = 0; i < data.records.length; i++) {
-              if(largest < data.records[i].infoscreen_id) {
-                largest = data.records[i].infoscreen_id
+        await fetch(`https://g4informant.com/api.php/records/infoscreen`, {
+          method: 'GET',
+          headers: { 'Content-Type': 'application/json' },
+        })
+        .then(response => response.json())
+        .then(data => {
+          let largest = parseInt(data.records[0].infoscreen_id)
+          for(let i = 0; i < data.records.length; i++) {
+            if(largest < data.records[i].infoscreen_id) {
+              largest = data.records[i].infoscreen_id
             }
           }
-            key = largest + 1
-            console.log(key)
-          })
+          key = largest + 1
+          console.log(key)
+        })
 
         await fetch(`https://g4informant.com/api.php/records/infoscreen`, {
           method: 'POST',
@@ -130,7 +118,7 @@ export default function Workbench(props) {
             console.error(error)
             return null
         })
-    }
+      }
     }
 
     function failTest() {
@@ -195,50 +183,42 @@ export default function Workbench(props) {
                       className="name-your-work" 
                       placeholder="NAME YOUR WORK"
                   />
-              
               <button type="submit" className="save-workbench-button" onClick={submitButton}>Save your work</button>
           </div>
         }
         
         {hideInputs && 
-            <button 
-                className="prev-button" 
-                onClick={handleClick}
-            ><img src="/images/icons/arrow-left.png" alt="" width="15px"/></button>}
+          <button className="prev-button" onClick={handleClick}>
+          <img src="/images/icons/arrow-left.png" alt="" width="15px"/></button>
+        }
         <div className="workbench">
-          
-            {changeList ? 
-                <TemplateList
-                    setTemplateStyle={setTemplateStyle}
-                    setHideInputs={setHideInputs}
-                    setChangeList={setChangeList}
-                /> 
-              : <ComponentList
-                    setElementNumber={setElementNumber}
-                />
-            }
-
-            <div className="workbench--screen">
-                <MainTemplate  
-                    count={templateStyle.count} 
-                    heighten={templateStyle.height} 
-                    widthen={templateStyle.width}
-                    number={elementNumber}
-                    choice={true}
-                    elements={setElements}
-                    elementsvar={elements}
-                    setClockObj={setClockObj}
-                    setWeatherObj={setWeatherObj}
-                    setBGImage={imgBG}
-                    setText={setText}
-                    setNews={setNews}
-                    bgImage={imgBG}
-                    setImage={setImage}
-                    fontColor={fontColor}
-                    setList={setList}
-                />
-            </div>
-            <BgImageList bgImage={bgImage} setBackground={setBackground}/>
+          {changeList ? 
+              <TemplateList
+                  setTemplateStyle={setTemplateStyle}
+                  setHideInputs={setHideInputs}
+                  setChangeList={setChangeList}
+              /> 
+            : <ComponentList
+                  setElementNumber={setElementNumber}
+              />
+          }
+          <div className="workbench--screen">
+              <MainTemplate  
+                  count={templateStyle.count} 
+                  height={templateStyle.height} 
+                  width={templateStyle.width}
+                  elementNumber={elementNumber}
+                  choice={true}
+                  setElements={setElements}
+                  elements={elements}
+                  setWeatherObj={setWeatherObj}
+                  setNews={setNews}
+                  bgImage={bgImage}
+                  fontColor={fontColor}
+                  setList={setList}
+              />
+          </div>
+          <BgImageList setBackground={setBackground}/>
         </div>
       </div>
     )

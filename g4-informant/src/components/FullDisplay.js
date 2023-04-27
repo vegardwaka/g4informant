@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 
 export default function FullDisplay(props) {
   const { infoscreen } = useParams()
-  const [liste, setListe] = useState({})
+  const [list, setList] = useState({})
   
   /* Gets the information screens and the data for the subcomponents */ 
   async function getScreen() {
@@ -16,7 +16,7 @@ export default function FullDisplay(props) {
         return response.json()
       })
       .then(data => {
-        setListe(data)
+        setList(data)
       })
   }
   
@@ -28,25 +28,18 @@ export default function FullDisplay(props) {
   return (
       <div className="full-display-screen"> 
           <MainTemplate  
-                  count={liste.count} 
-                  heighten={liste.height} 
-                  widthen={liste.width}
-                  number= {liste.elementNumber}
+                  count={list.count} 
+                  height={list.height} 
+                  width={list.width}
+                  elementNumber={list.elementNumber}
                   choice={false}
-                  city={liste.city}
-                  state={liste.state}
-                  continent={liste.continent}
-                  capital={liste.capital}
-                  squares={liste.squares}
-                  tatext={liste.tatext}
-                  newsnumber={liste.newsnumber}
+                  squares={list.squares}
                   fulldisplay={props.fulldisplay}
-                  bgImage={liste.bgImage}
-                  imageName={liste.imageName}
-                  fontColor={liste.fontColor}
-                  imgboo={true}
+                  bgImage={list.bgImage}
+                  fontColor={list.fontColor}
+                  showImage={true}
                   hide={true} 
-                  listData={liste.listData} 
+                  listData={list.listData} 
           />
       </div>
   )

@@ -100,7 +100,7 @@ export default function Weather(props) {
                         state: outArray[1]
                     })
                     let object = {city: outArray[0], state: outArray[1]}
-                    props.setList(props.squareid, props.elementnumber, object)
+                    props.setList(props.squareid, props.elementNumber, object)
                 } 
             })  
     }

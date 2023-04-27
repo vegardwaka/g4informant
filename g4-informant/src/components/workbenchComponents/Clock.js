@@ -46,12 +46,8 @@ export default function Clock(props){
                 else {
                     setPosition([outArray[0], outArray[1]])
                     setShow(false)
-                    props.setClockObj({
-                        continent: outArray[0],
-                        capital: outArray[1]
-                    })
                     let object = {continent: outArray[0], capital: outArray[1]}
-                    props.setList(props.squareid, props.elementnumber, object)
+                    props.setList(props.squareid, props.elementNumber, object)
                 } 
             })  
     }
@@ -70,7 +66,6 @@ export default function Clock(props){
         runClock()
     }, [])
         
-
     return (
         <div 
             className={props.fulldisplay ? "API-container-fulldisplay" : "API-container"}

@@ -13,7 +13,6 @@ export default function NavBar() {
     return (  
         <nav className="navbar">
             <NavLink to="/" id="navbar-title"><img src="/images/g4.png" alt="logo" id="navbar-logo"/>G4 Informant</NavLink>
-            
             <div className="links">
                 <NavLink to="/" activeclassname="active">Home</NavLink>
                 <NavLink to="/about">About</NavLink>
@@ -23,9 +22,7 @@ export default function NavBar() {
                 {localStorage.getItem('token') && <NavLink to="/Workbench">Workbench</NavLink>}
                 {localStorage.getItem('token') && <NavLink to="/UserCreate">Create User</NavLink>}
                 {localStorage.getItem('token') ? <NavLink to="/login" onClick={signOut}>Sign Out</NavLink> : <NavLink to="/login">Login</NavLink>}
-                
             </div>
-            
         </nav>
     )
 }
