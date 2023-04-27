@@ -35,6 +35,12 @@ export default function Home(props) {
           <br />
           {list}
         </div>
+        <h1 className="home-wbexamples-h1">screen examples</h1>
+        <div className="home-wb-examples">
+          <img src="/images/homescreen1.png" alt="home" id="home-wb-examples-img" width="100px"/>
+          <img src="/images/homescreen2.png" alt="home" id="home-wb-examples-img" width="100px"/>
+          <img src="/images/homescreen3.png" alt="home" id="home-wb-examples-img" width="100px"/>
+        </div>
       </div>
   )
 }

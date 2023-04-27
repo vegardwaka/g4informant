@@ -43,7 +43,8 @@ export default function Display(props) {
                   fontColor={liste.fontColor}
                   fulldisplay={false}
                   imgboo={false}
-                  hide={false}     
+                  hide={false}
+                  listData={liste.listData}     
           />
       </div>
   )

@@ -103,7 +103,7 @@ body {
 .home-title{ 
   position: relative;
   text-align: center;
-  font-size: 40px;
+  font-size: 50px;
   top: 200px;
   margin-top: -20px;
   text-transform: uppercase;
@@ -143,12 +143,15 @@ body {
 
 .API-home-section{
   position: relative;
-  display: flex;
   justify-content: center;
   align-items: center; 
-  padding-top: 20px;
-  padding-bottom: 20px;
-  border-bottom: 1px solid #000000;
+  display: flex;
+  width: 60vw;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #717171;
 }
 .API-text-div{
   position: relative;
@@ -175,6 +178,26 @@ body {
   letter-spacing: .1rem;
   text-transform: uppercase;
   text-decoration: underline;
+}
+.home-wbexamples-h1{
+  padding-top: 20px;
+  text-align: center;
+  letter-spacing: .1rem;
+  text-transform: uppercase;
+}
+.home-wb-examples{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  padding: 20px;
+}
+#home-wb-examples-img{
+  border: 1px solid #000000;
+  border-radius: 2px;
+  margin: 20px;
 }
 
 /* Footer */

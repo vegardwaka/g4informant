@@ -1,9 +1,11 @@
-Welcome to G4 informat
+## Welcome to G4 Informant
 
 G4 Informant is a webapplication that let our users create and display their very own screen.
 You are able to choose from a range of components that will display different information.
 
-it's build in react so theses are the commands you need to know:
+## Commands
+
+Using Node, these are the commands you need to run:
 
 ### `npm start`
 
@@ -28,7 +30,50 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-You wil also need a postgresSQL database where you need to run this script
+## Database
+
+The database script is built in a PostgreSQL environment,
+so you'd need to use one yourself or manually change the script to work with whichever database you wanna use.
 
 database.sql
 
+## Code
+
+#### Server links
+https://github.com/vegardwaka/g4informant/blob/ed188d0cdf3834c3f18aa5e3204b200457e35c09/g4-informant/src/components/workbenchComponents/Clock.js#L10
+
+https://github.com/vegardwaka/g4informant/blob/ed188d0cdf3834c3f18aa5e3204b200457e35c09/g4-informant/src/components/workbenchComponents/Clock.js#L30
+
+g4-informant/src/components/workbenchComponents/Image.js:28
+
+g4-informant/src/components/workbenchComponents/Image.js:28
+
+g4-informant/src/components/workbenchComponents/Weather.js:20
+
+g4-informant/src/components/workbenchComponents/Weather.js:42
+
+g4-informant/src/components/workbenchComponents/Weather.js:92
+
+g4-informant/src/components/Display.js:10
+
+g4-informant/src/components/FullDisplay.js:10
+
+https://github.com/vegardwaka/g4informant/blob/main/g4-informant/src/components/Workbench.js#L161
+
+#### Database links
+
+g4-informant/src/components/Login.js:15
+
+g4-informant/src/components/Profile.js:12
+
+g4-informant/src/components/Request.js:20
+
+g4-informant/src/components/Request.js:30
+
+g4-informant/src/components/UserCreate.js:17
+
+g4-informant/src/components/UserCreate.js:30
+
+g4-informant/src/components/Workbench.js:104
+
+g4-informant/src/components/Workbench.js:120

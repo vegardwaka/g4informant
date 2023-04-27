@@ -12,15 +12,53 @@ export default function DisplaySquare(props) {
         let element
         if(props.squares[i].elementNr > 0) {
             if(props.squares[i].elementNr === 1) 
-                element = <Clock height="100%" width="100%" hide={false} display={true} propcapital={props.capital} propcontinent={props.continent} fulldisplay={true}/>
+                element = <Clock 
+                                height="100%" 
+                                width="100%" 
+                                hide={false} 
+                                display={true} 
+                                propcapital={props.listData[i].capital} 
+                                propcontinent={props.listData[i].continent} 
+                                fulldisplay={true}
+                            />
             else if (props.squares[i].elementNr === 2) 
-                element = <Weather height="100%" width="100%" hide={false} display={true} propcity={props.city} propstate={props.state} fulldisplay={true}/>
+                element = <Weather 
+                                height="100%" 
+                                width="100%" 
+                                hide={false} 
+                                display={true} 
+                                propcity={props.listData[i].city} 
+                                propstate={props.listData[i].state} 
+                                fulldisplay={true}
+                            />
             else if (props.squares[i].elementNr === 3) 
-                element = <Textarea tawidth="100%" taheight="100%" hide={true} dis={true} read={true} tatext={props.tatext} fulldisplay={true}/>
+                element = <Textarea 
+                                tawidth="100%" 
+                                taheight="100%" 
+                                hide={true} 
+                                dis={true} 
+                                read={true} 
+                                tatext={props.listData[i].tatext} 
+                                fulldisplay={true}
+                            />
             else if (props.squares[i].elementNr === 4)
-                element = <Image imgwidth="100%" imgheight="100%" fulldisplay={true} imageName={props.imageName} imgboo={props.imgboo} hide={props.hide}/>
+                element = <Image 
+                                imgwidth="100%" 
+                                imgheight="100%" 
+                                fulldisplay={true} 
+                                imageName={props.listData[i].imagen} 
+                                imgboo={props.imgboo} 
+                                hide={props.hide}
+                            />
             else if (props.squares[i].elementNr === 5)
-                element = <News width="100%" height="100%" homeChannel={false} channelList={false} newsnumber={props.newsnumber} fulldisplay={true}/>
+                element = <News 
+                                width="100%" 
+                                height="100%" 
+                                homeChannel={false} 
+                                channelList={false} 
+                                newsnumber={props.listData[i].newsNumber} 
+                                fulldisplay={true}
+                            />
         } else {
             element = <h1>{ }</h1>
         }

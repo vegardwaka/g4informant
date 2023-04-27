@@ -19,6 +19,8 @@ export default function Image(props) {
     if(currentImageName && image){ 
         setImageName(currentImageName)
         props.setSingleImg(currentImageName)
+        let object = {imagen: currentImageName}
+        props.setLists(props.squareid, props.elementnumber, object)
         sendImageToBackend(currentImageName, image)
     }}, [image, currentImageName])
 

@@ -112,6 +112,8 @@ export default function Weather(props) {
                         city: outArray[0],
                         state: outArray[1]
                     })
+                    let object = {city: outArray[0], state: outArray[1]}
+                    props.setLists(props.squareid, props.elementnumber, object)
                 } 
             })  
     }

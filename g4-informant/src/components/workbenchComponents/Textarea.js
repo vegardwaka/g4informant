@@ -7,6 +7,8 @@ export default function Textarea(props) {
     function handleChange(event) {
         setText(event.target.value)
         props.getTexts(event.target.value)
+        let object = {tatext: event.target.value}
+        props.setLists(props.squareid,  props.elementnumber, object)
     }
 
     return(
@@ -20,13 +22,16 @@ export default function Textarea(props) {
             }}
         >
             {show ? <textarea 
-                rows="12" 
-                cols="40" 
-                readOnly={props.read}
-                value={props.dis ? props.tatext : text}
-                onChange={handleChange}
-                style={{resize: props.dis ? "none" : "", border:"none", background:"none", color:sessionStorage.getItem("font")}}
-            /> : <img src="/images/icons/text.png" alt="textarea" width="100px"/>}
+                        rows="12" 
+                        cols="40" 
+                        readOnly={props.read}
+                        value={props.dis ? props.tatext : text}
+                        onChange={handleChange}
+                        style={{resize: props.dis ? "none" : "", border:"none", background:"none", color:sessionStorage.getItem("font")}}
+                    /> 
+                    : 
+                    <img src="/images/icons/text.png" alt="textarea" width="100px"/>
+            }
         </div>
     )
 }

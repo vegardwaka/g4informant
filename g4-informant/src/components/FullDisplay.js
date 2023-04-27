@@ -45,6 +45,7 @@ export default function FullDisplay(props) {
                   fontColor={liste.fontColor}
                   imgboo={true}
                   hide={true} 
+                  listData={liste.listData} 
           />
       </div>
   )

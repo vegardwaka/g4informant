@@ -45,8 +45,22 @@ export default function Workbench(props) {
         setImageName(p_simg)
       }
 
-      function setLists(p_squarenr, p_indata) {
-        listData[p_squarenr] = p_indata
+      function setLists(p_squarenr, p_elementnr, p_obj) {
+        if(p_elementnr === 1) {
+          listData[p_squarenr] = p_obj
+        }
+        else if(p_elementnr === 2) {
+          listData[p_squarenr] = p_obj
+        }
+        else if(p_elementnr === 3){
+          listData[p_squarenr] = p_obj
+        }
+        else if(p_elementnr === 4){
+          listData[p_squarenr] = p_obj
+        }
+        else if(p_elementnr === 5) {
+          listData[p_squarenr] = p_obj
+        }
       }
      
       function handleClick() {
@@ -71,15 +85,9 @@ export default function Workbench(props) {
             tmpquery: queryObj.queryNumber,
             squares: [],
             user: localStorage.getItem('token').replace(/"/g, ""),
-            city: weatherObj.city,
-            state: weatherObj.state,
-            continent: clockObj.continent,
-            capital: clockObj.capital,
-            newsnumber: newsObj,
-            tatext: textObj,
-            imageName: imageName,
             bgImage: imgObj,
-            fontColor: fontColor
+            fontColor: fontColor,
+            listData: listData
           }
          
           for (var i = 0; i < queryObj.count; i++) {
@@ -231,6 +239,7 @@ export default function Workbench(props) {
                     bgImage={imgObj}
                     setSingleImg={setSingleImg}
                     fontColor={fontColor}
+                    setLists={setLists}
                 />
             </div>
             <BgImageList bgImage={bgImage} setImgs={setImgs}/>

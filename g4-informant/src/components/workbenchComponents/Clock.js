@@ -48,6 +48,8 @@ export default function Clock(props){
                         continent: outArray[0],
                         capital: outArray[1]
                     })
+                    let object = {continent: outArray[0], capital: outArray[1]}
+                    props.setLists(props.squareid, props.elementnumber, object)
                 } 
             })  
     }

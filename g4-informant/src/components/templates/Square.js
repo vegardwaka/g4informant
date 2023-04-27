@@ -11,15 +11,64 @@ export default function Square(props) {
     let element
 
     if(props.elementnumber === 1) 
-        element = <Clock height="100%" width="100%" hide={true} display={true} propcontinent="Asia" propcapital="Tokyo" setClockObj={props.setClockObj}/>
+        element = <Clock 
+                        height="100%" 
+                        width="100%" 
+                        hide={true} 
+                        display={true} 
+                        propcontinent="Asia" 
+                        propcapital="Tokyo" 
+                        setClockObj={props.setClockObj}
+                        elementnumber={props.elementnumber} 
+                        squareid={props.id} 
+                        setLists={props.setLists}
+                    />
     else if (props.elementnumber === 2) 
-        element = <Weather height="100%" width="100%" hide={true} display={true} propcity="Juneau" propstate="Alaska" onQueryCityen={props.onQueryCityen} setWeatherObj={props.setWeatherObj}/>
+        element = <Weather 
+                        height="100%" 
+                        width="100%" 
+                        hide={true} 
+                        display={true} 
+                        propcity="Juneau" 
+                        propstate="Alaska" 
+                        onQueryCityen={props.onQueryCityen} 
+                        setWeatherObj={props.setWeatherObj} 
+                        elementnumber={props.elementnumber} 
+                        squareid={props.id} 
+                        setLists={props.setLists}
+                    />
     else if (props.elementnumber === 3) 
-        element = <Textarea taheight="100%" tawidth="100%" hide={true} getTexts={props.getTexts}/>
+        element = <Textarea 
+                        taheight="100%" 
+                        tawidth="100%" 
+                        hide={true} 
+                        getTexts={props.getTexts}
+                        elementnumber={props.elementnumber} 
+                        squareid={props.id} 
+                        setLists={props.setLists}
+                    />
     else if (props.elementnumber === 4)
-        element = <Image imgheight="100%" imgwidth="100%" hide={true} setSingleImg={props.setSingleImg} imgboo={false}/>
+        element = <Image 
+                        imgheight="100%" 
+                        imgwidth="100%" 
+                        hide={true} 
+                        setSingleImg={props.setSingleImg} 
+                        imgboo={false}
+                        elementnumber={props.elementnumber} 
+                        squareid={props.id} 
+                        setLists={props.setLists}
+                    />
     else if (props.elementnumber === 5)
-        element = <News height="100%" width="100%" channelList={true} homeChannel={false} setNews={props.setNews}/>
+        element = <News 
+                        height="100%" 
+                        width="100%" 
+                        channelList={true} 
+                        homeChannel={false} 
+                        setNews={props.setNews}
+                        elementnumber={props.elementnumber} 
+                        squareid={props.id} 
+                        setLists={props.setLists}
+                    />
     
   
     const addButton = () => {
@@ -64,9 +113,9 @@ export default function Square(props) {
             list[props.id] = element
             setShow(false)
         }
-       /* else {
+        else {
             window.alert("Choose a element from the componentlist")
-        }*/
+        }
     }
 
     function crossButton() {

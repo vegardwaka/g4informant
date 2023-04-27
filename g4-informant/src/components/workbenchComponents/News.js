@@ -56,7 +56,9 @@ export default function News(props) {
             setLinkUrl("https://www.TV2.no")
             setLink("TV2.no")
         }
-        props.setNews(p_newsNumber)   
+        props.setNews(p_newsNumber)
+        let object = {newsNumber: p_newsNumber}
+        props.setLists(props.squareid, props.elementnumber, object)  
     }
    
     if(count >= parseInt(allArticles.length)) {
