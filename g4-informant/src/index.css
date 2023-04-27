@@ -246,17 +246,20 @@ body {
 .input--title {
   width: 100%;
   text-align: center;
+  letter-spacing: .1rem;
   padding-bottom: 10px;
   text-transform: uppercase;
 }
 
 .input--email {
+    width: 200px;
   padding: 10px 10px 10px 10px;
   border-radius: 5px;
   border: 1px solid #D5D4D8;
 }
 
 .input--username {
+  width: 200px;
   padding: 10px 10px 10px 10px;
   border-radius: 5px;
   margin-top: 10px;
@@ -264,6 +267,7 @@ body {
 }
 
 .input--password {
+  width: 200px;
   padding: 10px 10px 10px 10px;
   border-radius: 5px;
   margin-top: 10px;
@@ -273,13 +277,13 @@ body {
 .input--button {
   cursor: pointer;
   display: flex;
+  width: 200px;
   justify-content: center;
   align-items: center;
   text-transform: uppercase;
   font-size: 16px;
   font-weight: bold;
   letter-spacing: .1rem;
-  width: 100%;
   margin-left: auto;
   margin-right: auto;
   margin-top: 50px;
@@ -299,11 +303,6 @@ body {
   padding: 20px; 
 }
 
-.input--feil {
-  text-align: center;
-  padding-top: 10px;
-  color:red;
-}
 
 /* Blog */
 
@@ -397,7 +396,15 @@ body {
   height: auto;
   width: 80%;
 }
-
+.documentation-title-t{
+  border-top: 1px solid #a1a1a1;
+  padding-top: 40px;
+  text-align: center;
+  padding-bottom: 10px;
+  font-size: 27px;
+  letter-spacing: .1rem;
+  text-transform: uppercase;
+}
 .doc-card-element{
   position: relative;
   display: block;
@@ -525,6 +532,7 @@ body {
 .request--div {
   display: flex;
   justify-content: center;
+  padding-top: 40px;
 }
 
 .request--form {
@@ -533,15 +541,38 @@ body {
   border: 1px #161616;
   border-style: solid;
   border-radius: 5px;
-
+}
+.request--form input, select, textarea{
+  margin-top: -15px;
 }
 
 .request--title {
   width: 100%;
   text-transform: uppercase;
+  letter-spacing: .1rem;
   text-align: center;
 }
+.request-label{
+  text-transform: uppercase;
+  letter-spacing: .1rem;
+}
+.request-input{
+  padding: 5px;
+  font-size: 14px;
+  font-family: "Poppins";
+}
+.request--list{
+  margin-top: 10px;
+  padding: 5px; 
+  font-size: 14px;
+  font-family: "Poppins";
+}
+.request--text{
+  padding: 5px; 
+  font-size: 14px;
+  font-family: "Poppins";
 
+}
 .request--button {
   display: flex;
   justify-content: center;
@@ -553,7 +584,6 @@ body {
   width: 100%;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 10px;
   padding: 10px 10px 10px 10px;
   color: rgb(0, 0, 0);
   background-color: rgb(240, 240, 240);
@@ -792,6 +822,7 @@ body {
 } 
 .div1-display textarea{
   font-family: "Poppins";
+  font-size: 16px;
   background-color: transparent;
   height: 80%;
   width: 100%;
@@ -1030,6 +1061,7 @@ body {
 textarea{
   height: 80%;
   width: 100%;
+  font-size: 20px;
   font-family: "Poppins";
 }
 

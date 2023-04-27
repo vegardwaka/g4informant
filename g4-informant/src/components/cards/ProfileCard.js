@@ -3,7 +3,7 @@ import Display from '../Display'
 
 export default function ProfileCard(props) {    
     function deleteScreen() {
-        const answer = prompt("Are you sure you want to delete your information screen? Type Yes/No")
+        const answer = prompt("Are you sure you want to delete your information screen?\nType Yes/No")
         if(answer === "Yes" || answer === "yes"){
             async function deleteScreen(data) {
                 await fetch(`https://g4informant.azurewebsites.net//data/${props.title}`, {

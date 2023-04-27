@@ -1,49 +1,51 @@
 import { useState, useEffect } from "react"
 import { useNavigate } from 'react-router-dom'
 import PropTypes from 'prop-types'
+import bcrypt from 'bcryptjs'
 
-export default function Login({ setToken }) {
+export default function Login({ setToken, foot}) {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [user, setUser] = useState([])
     const navigate = useNavigate()
+    foot(true)
 
-    /* Get User from DB */
+    /* Check if user exists in the database */
     async function getUser() {
-        const response = await fetch(`https://g4informant.com/api.php/records/user?filter=email,eq,${email}&filter=password,eq,${password}`, {
+        await fetch(`https://g4informant.com/api.php/records/user?filter=email,eq,${email}`, {
             method: 'GET',
         })
         .then(response => {
             return response.json()
         })
         .then(data => {
-            setUser(data)
-            if (data.records.length > 0) {
-                const token = data.records[0].username
-                setToken(token)
-            }
+            bcrypt.compare(password, data.records[0].password,function(err,res){
+                if (res) {
+                    setUser(data)
+                    if (data.records.length > 0) {
+                        const token = data.records[0].username
+                        setToken(token)
+                        if(localStorage.getItem('token')){
+                            navigate('/')
+                            window.location.reload(false)
+                        }
+                    }
+                }
+                else {
+                    window.alert("Wrong username or password! Check your email and password input") 
+                }
+            })
         })
     }
 
-    /* Set Token */
-    const tokenHandler = async (e) => {
-        //e.preventDefault()
-        await getUser()
-        if(localStorage.getItem('token')){
-            navigate('/')
-            window.location.reload(false)}
-        else {
-            window.alert("Wrong username or password! Check your email and password input")
-            return null
-        }
-    }
 
-    /* Get user */
+    /* Validate Email */
     function validateEmail() {
-            let res = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/
-            return res.test(email)
+        let res = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/
+        return res.test(email)
     }
     
+    /* Validate Password */
     function validatePassword() {
         if (password.length < 4) {
             return false
@@ -51,6 +53,7 @@ export default function Login({ setToken }) {
         return true
     }
     
+    /* Handle submit to validate email and password, and run getUser() function */
     function handleSubmit(){
         validateEmail()
         validatePassword()
@@ -62,8 +65,9 @@ export default function Login({ setToken }) {
             window.alert("Passwords cannot be less than 4 characters!")
             return null
         }
-        tokenHandler()
+        getUser()
     }
+
     useEffect(() => {
         const passwordInput = document.querySelector("#password");
         passwordInput.addEventListener("keyup", function (event) {

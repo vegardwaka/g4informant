@@ -22,7 +22,7 @@ export default function Square(props) {
         element = <News height="100%" width="100%" channelList={true} homeChannel={false} setNews={props.setNews}/>
     
   
-    const hideButton = () => {
+    const addButton = () => {
         if(props.elementnumber > 0) {
             if(props.id === 0) {
                 props.elements({
@@ -64,9 +64,9 @@ export default function Square(props) {
             list[props.id] = element
             setShow(false)
         }
-        else {
+       /* else {
             window.alert("Choose a element from the componentlist")
-        }
+        }*/
     }
 
     function crossButton() {
@@ -109,7 +109,7 @@ export default function Square(props) {
             onClick={()=>props.toggle(props.id)}
             style={{width: props.sqwidth, height: props.sqheight}}
         >
-            {show ? <button className="feature-button" onClick={hideButton} style={{display: show ? "block" : "none"}}>Add Feature +</button>
+            {show ? <button className="feature-button" onClick={addButton} style={{display: show ? "block" : "none"}}>Add Feature +</button>
             : list[props.id]}
             {show ? null : <img src="/images/icons/cross-circle.png" alt="cross" onClick={crossButton} id="MainTemplateCross"/>}
         </div>

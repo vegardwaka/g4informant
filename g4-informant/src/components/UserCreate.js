@@ -1,16 +1,20 @@
 import { useState } from "react"
+import bcrypt from 'bcryptjs'
 
-export default function UserCreate() {
+const salt = bcrypt.genSaltSync(10)
+
+export default function UserCreate(props) {
     const [email, setEmail] = useState("")
     const [username, setUsername] = useState('')
     const [password,  setPassword] = useState('')
-    const [confirmPassword, setconfirmPassword] = useState('')
-    const [primaryKey, setPrimaryKey] = useState('')
-    let text
+    const [confirmPassword, setConfirmPassword] = useState('')
     let key
-
+    props.foot(true)
+        
+    /* Creating user */
     async function createUser() {
-        const response = await fetch('https://g4informant.com/api.php/records/user', {
+        /* Finding primary key for the new user */
+        await fetch('https://g4informant.com/api.php/records/user', {
             method: 'GET',
         })
         .then(response => {
@@ -20,45 +24,32 @@ export default function UserCreate() {
             key = data.records.length + 1
         })
 
-        const response2 = await fetch('https://g4informant.com/api.php/records/user', {
+        const hashedPassword = bcrypt.hashSync(password, salt)
+
+        /* POST request for a new user */
+        await fetch('https://g4informant.com/api.php/records/user', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({"user_id":key ,"email": email,"password": password,"username": username})
+            body: JSON.stringify({"user_id":key ,"email": email,"password": hashedPassword,"username": username})
         })
-        .then(response2 => {
-            return response2.json()
+        .then(response => {
+            return response.json()
         })
         .then(data => { 
-            console.log(data)
             if (data.code === 1009) {
                 window.alert("User already exists!")
                 return null
             } else if (data.code === 9999) {
-                console.log(data.code)
                 window.alert("Something went wrong. Try again!")
                 return null
             } else {
-                console.log(data)
                 window.alert("User created!")
-                text = "User created!"
             }
         })
     }
-    /*
-        async function getUserId(){
-            const response = await fetch('https://g4informant.com/api.php/records/bruker', {
-                method: 'GET',
-            })
-            .then(response => {
-                return response.json()
-            })
-            .then(data => {
-                setPrimaryKey(data.records.length + 1)
-            })
-        }
-    */
+    
     function validateEmail() {
         let res = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
         return res.test(email)
@@ -112,7 +103,7 @@ export default function UserCreate() {
     return (
         <div className="input-container">
             <div className="input--form">
-                <h2 className="login--title">Create user</h2>
+                <h2 className="input--title">Create user</h2>
                 <input 
                     required
                     type="email" 
@@ -147,14 +138,12 @@ export default function UserCreate() {
                     type="password" 
                     name="confirmPassword"
                     value={confirmPassword} 
-                    onChange={(e) => setconfirmPassword (e.target.value)} 
+                    onChange={(e) => setConfirmPassword (e.target.value)} 
                     className="input--password" 
                     placeholder="Confirm Password..."
                 />
                 <br/>
                 <button className="input--button" onClick={submitButton}>submit</button>
-                <br/>
-                <p className="input--feil">{text}</p>
             </div>
         </div>
     )

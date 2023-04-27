@@ -9,6 +9,7 @@ export default function Image(props) {
     const [currentImageName, setCurrentImageName] = useState()
     let height
     let width
+    
     if(!props.fulldisplay) {
         height = "100%"
         width = "150px"

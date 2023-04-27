@@ -5,6 +5,7 @@ export default function Profile(props){
     const [thingsArray, setThingsArray] = useState([])
     const [isPending, setIsPending] = useState(true)
     let empty
+    props.foot(false)
 
     useEffect(() => {
         

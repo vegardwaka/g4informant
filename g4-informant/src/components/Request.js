@@ -1,12 +1,13 @@
 import {  useState } from "react"
 import { useNavigate } from 'react-router-dom'
 
-export default function Request() {
+export default function Request(props) {
     const [title, setTitle] = useState("")
     const [category, setCategory] = useState('')
     const [message, setMessage] = useState('')
     const navigate = useNavigate()
     let primaryKey
+    props.foot(true)
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -16,7 +17,7 @@ export default function Request() {
 
     /* Insert request */
     async function createRequest() { 
-        const response = await fetch(`https://g4informant.com/api.php/records/api_request`, {
+        await fetch(`https://g4informant.com/api.php/records/api_request`, {
             method: 'GET',
         })
         .then(response => {
@@ -45,17 +46,24 @@ export default function Request() {
         <div className="request--div">
             <form className="request--form" onSubmit={handleSubmit}>
                 <h1 className="request--title">API request</h1>
-                <label htmlFor="request-label">Title</label><br/>
+                <label 
+                    htmlFor="request-label" 
+                    className="request-label"
+                >Title</label>
+                <br/>
                 <input 
                     required
                     value={title} 
                     onChange={(e) => setTitle(e.target.value)}
                     type="text"
                     name="title" 
-                    className="request-label"
+                    className="request-input"
                 />
                 <br/>
-                <label htmlFor="dropdown" className="request-label">Choose a category:</label>
+                <label 
+                    htmlFor="dropdown" 
+                    className="request-label"
+                >Choose a category:</label>
                 <select 
                     id="dropdown"  
                     required
@@ -73,7 +81,11 @@ export default function Request() {
                     <option value="Other">Other</option>
                 </select><br/>
 
-                <label htmlFor="test">Additional information</label><br/>
+                <label 
+                    htmlFor="test" 
+                    className="request-label"
+                >Additional information</label>
+                <br/>
                 <textarea  
                     required
                     value={message}  
@@ -83,7 +95,7 @@ export default function Request() {
                     cols="30" 
                     className="request--text"
                 >
-                </textarea><br/>
+                </textarea>
                 <button type="submit" className="request--button">submit</button>
             </form>
         </div>

@@ -1,7 +1,8 @@
 import DocumentationCard from './cards/DocumentationCard'
 import documentation from "../json/documentation"
 
-export default function Documentation(){
+export default function Documentation(props){
+    props.foot(true)
     const card = documentation.map(x =>
         <DocumentationCard
             key={x.id} 
@@ -18,7 +19,7 @@ export default function Documentation(){
                 {card}
             </div>
             <div>
-                <h2 className="workbench-title">Tutorial</h2>
+                <h2 className="documentation-title-t">Tutorial</h2>
             </div>
         </div>
     )

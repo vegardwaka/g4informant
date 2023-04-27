@@ -16,7 +16,7 @@ export default function HomeCard(props) {
         link = <small className="home-API-p">Weather data is collected from Norwegian Meteorological Institute and location data is gathered from <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>.</small>
     }
     else if (props.id === 3) {
-        element = <Textarea taheight="100%" hide={true} dis={true} read={false}/>
+        element = <Textarea hide={true} dis={true} read={false}/>
     }
     else if (props.id === 4) {
         element = <Image imgheight="200px" hide={false} imgboo={false} show={false}/>

@@ -14,7 +14,7 @@ export default function DocumentationCard(props){
         element = <Weather height="100%" hide={true} display={true} propcity="Bø" propstate="Midt-Telemark"/>
     }
     else if (props.id === 3) {
-        element = <Textarea taheight="100%" hide={true} dis={true} read={false}/>
+        element = <Textarea hide={true} dis={true} read={false}/>
     }
     else if (props.id === 4) {
         element = <Image imgheight="100%" hide={false} imgboo={false} show={false}/>

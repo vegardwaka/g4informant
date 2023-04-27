@@ -2,7 +2,8 @@ import React from "react"
 import AboutCard from "./cards/AboutCard"
 import omoss from "../json/omoss"
 
-export default function About() {
+export default function About(props) {
+    props.foot(true)
     const list = omoss.map(item => {
         return(
             <AboutCard 

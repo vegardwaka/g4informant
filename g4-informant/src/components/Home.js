@@ -1,7 +1,8 @@
 import HomeCard from './cards/HomeCard'
 import info from '../json/info'
 
-export default function Home() { 
+export default function Home(props) { 
+  props.foot(true)
   const list = info.map(x => 
     <HomeCard
         key={x.id} 

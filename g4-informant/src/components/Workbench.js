@@ -4,7 +4,7 @@ import TemplateList from "./templates/TemplateList"
 import BgImageList from "./templates/BgImageList"
 import ComponentList from "./workbenchComponents/ComponentsList"
 
-export default function Workbench() {
+export default function Workbench(props) {
       const [queryObj, setQueryObj] = useState({})
       const [queryHide, setQueryHide] = useState(false)
       const [queryList, setQueryList] = useState(true)
@@ -19,10 +19,11 @@ export default function Workbench() {
       const [newsObj, setNewsObj] = useState(0)
       const [imgObj, setImgObj] = useState("")
       const [fontColor, setFontColor] = useState("Black")
+      const [listData, setlistData] = useState([])
       sessionStorage.setItem("font", fontColor)
       let tmData = {}
-      let test = true
       let key
+      props.foot(false)
 
       const onOptionChange = e => {
         setFontColor(e.target.value)
@@ -42,6 +43,10 @@ export default function Workbench() {
 
       function setSingleImg(p_simg) {
         setImageName(p_simg)
+      }
+
+      function setLists(p_squarenr, p_indata) {
+        listData[p_squarenr] = p_indata
       }
      
       function handleClick() {
@@ -209,7 +214,7 @@ export default function Workbench() {
                 />
             }
 
-            <div className={test ? "workbench--screen" : "workbench--screen--vertical"}>
+            <div className="workbench--screen">
                 <MainTemplate  
                     count={queryObj.count} 
                     heighten={queryObj.height} 
