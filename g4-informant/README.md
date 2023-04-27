@@ -48,17 +48,17 @@ https://github.com/vegardwaka/g4informant/blob/8b16a5ec7cb7fc1cd00970f6f421a069e
 
 https://github.com/vegardwaka/g4informant/blob/8b16a5ec7cb7fc1cd00970f6f421a069ed48d7e0/g4-informant/src/components/workbenchComponents/Image.js#L49
 
-g4-informant/src/components/workbenchComponents/Weather.js:20
+https://github.com/vegardwaka/g4informant/blob/f24bbf24c73f0ab13b48fd1ab571bfda58afcdb2/g4-informant/src/components/workbenchComponents/Weather.js#L20
 
-g4-informant/src/components/workbenchComponents/Weather.js:42
+https://github.com/vegardwaka/g4informant/blob/f24bbf24c73f0ab13b48fd1ab571bfda58afcdb2/g4-informant/src/components/workbenchComponents/Weather.js#L42
 
-g4-informant/src/components/workbenchComponents/Weather.js:92
+https://github.com/vegardwaka/g4informant/blob/f24bbf24c73f0ab13b48fd1ab571bfda58afcdb2/g4-informant/src/components/workbenchComponents/Weather.js#L92
 
-g4-informant/src/components/Display.js:10
+https://github.com/vegardwaka/g4informant/blob/f24bbf24c73f0ab13b48fd1ab571bfda58afcdb2/g4-informant/src/components/Display.js#L10
 
-g4-informant/src/components/FullDisplay.js:10
+https://github.com/vegardwaka/g4informant/blob/f24bbf24c73f0ab13b48fd1ab571bfda58afcdb2/g4-informant/src/components/FullDisplay.js#L10
 
-https://github.com/vegardwaka/g4informant/blob/main/g4-informant/src/components/Workbench.js#L161
+https://github.com/vegardwaka/g4informant/blob/f24bbf24c73f0ab13b48fd1ab571bfda58afcdb2/g4-informant/src/components/Workbench.js#L155
 
 #### Database links
 
