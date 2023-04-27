@@ -44,4 +44,30 @@ g4-informant/src/components/workbenchComponents/Clock.js:10
 
 g4-informant/src/components/workbenchComponents/Clock.js:30
 
+g4-informant/src/components/workbenchComponents/Image.js:28
+
+g4-informant/src/components/workbenchComponents/Image.js:28
+
+g4-informant/src/components/workbenchComponents/Weather.js:20
+
+g4-informant/src/components/workbenchComponents/Weather.js:42
+
+g4-informant/src/components/workbenchComponents/Weather.js:92
+
+g4-informant/src/components/Display.js:10
+
+g4-informant/src/components/FullDisplay.js:10
+
 #### Database links
+
+g4-informant/src/components/Login.js:15
+
+g4-informant/src/components/Profile.js:12
+
+g4-informant/src/components/Request.js:20
+
+g4-informant/src/components/Request.js:30
+
+g4-informant/src/components/UserCreate.js:17
+
+/g4-informant/src/components/UserCreate.js:30
