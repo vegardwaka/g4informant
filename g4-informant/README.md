@@ -26,7 +26,7 @@ Your app is ready to be deployed!
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
 ## Frontend
-The frontend uses Meta's React JavaScript library
+The frontend uses Meta's React JavaScript library. React conventions have been followed and the application is assembled in /components/App.js.
 
 #### Frontend/React dependencies:
     "@testing-library/jest-dom": "^5.16.5",
