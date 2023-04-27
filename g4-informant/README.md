@@ -1,9 +1,9 @@
-Welcome to G4 informat
+## Welcome to G4 Informant
 
 G4 Informant is a webapplication that let our users create and display their very own screen.
 You are able to choose from a range of components that will display different information.
 
-it's build in react so theses are the commands you need to know:
+it's built in react so these are the commands you need to run:
 
 ### `npm start`
 
