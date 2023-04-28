@@ -171,6 +171,47 @@ ALTER TABLE ONLY public."user" ALTER COLUMN user_id SET DEFAULT nextval('public.
 
 
 --
+-- Name: api_foresporsel_apiid_seq; Type: SEQUENCE SET; Schema: public; Owner: g4infzsz
+--
+
+SELECT pg_catalog.setval('public.api_foresporsel_apiid_seq', 1, false);
+
+
+--
+-- Data for Name: api_request; Type: TABLE DATA; Schema: public; Owner: g4infzsz
+--
+
+
+
+--
+-- Name: bruker_bruker_id_seq; Type: SEQUENCE SET; Schema: public; Owner: g4infzsz
+--
+
+SELECT pg_catalog.setval('public.bruker_bruker_id_seq', 2, true);
+
+
+--
+-- Data for Name: infoscreen; Type: TABLE DATA; Schema: public; Owner: g4infzsz
+--
+
+INSERT INTO public.infoscreen VALUES (0, 'adm', 'adm');
+
+
+--
+-- Name: infoskjerm_infoskjerm_id_seq; Type: SEQUENCE SET; Schema: public; Owner: g4infzsz
+--
+
+SELECT pg_catalog.setval('public.infoskjerm_infoskjerm_id_seq', 1, false);
+
+
+--
+-- Data for Name: user; Type: TABLE DATA; Schema: public; Owner: g4infzsz
+--
+
+INSERT INTO public."user" VALUES (0, 'admin@admin.com', '$2a$10$OhVW9nw0bq6F7S.WA8rOJ.dw1zNEqai.BeofuCpeDJARLDEltaMA6', 'admin');
+
+
+--
 -- Name: api_request api_foresporsel_pkey; Type: CONSTRAINT; Schema: public; Owner: g4infzsz
 --
 
