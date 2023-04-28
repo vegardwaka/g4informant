@@ -17,7 +17,6 @@ export default function NavBar() {
             <NavLink to="/" id="navbar-title"><img src="/images/g4.png" alt="logo" id="navbar-logo"/>G4 Informant</NavLink>
             <div className="links">
                 <NavLink to="/" activeclassname="active">Home</NavLink>
-                <NavLink to="/about">About</NavLink>
                 <NavLink to="/documentation">Docs</NavLink>
                 {localStorage.getItem('token') && <NavLink to="/Profile">Profile</NavLink>}
                 {localStorage.getItem('token') && <NavLink to="/Request">Request</NavLink>}

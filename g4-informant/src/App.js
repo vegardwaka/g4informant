@@ -3,9 +3,7 @@ import NavBar from './components/NavBar';
 import Home from './components/Home';
 import Footer from './components/Footer';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Blog from './components/Blog';
 import Login from './components/Login';
-import About from './components/About';
 import Request from './components/Request';
 import Workbench from './components/Workbench';
 import UserCreate from './components/UserCreate';
@@ -30,9 +28,7 @@ export default function App(props) {
             <main className="content">
               <Routes>
                 <Route path="/" element={<Home foot={setShowFooter}/>} />
-                <Route path="/About" element={<About foot={setShowFooter}/>} />
                 <Route path="/Documentation" element={<Documentation foot={setShowFooter} />} />
-                <Route path="/Blog" element={<Blog onShow={setShow} />} />
                 <Route path="/Login" element={<Login setToken={setToken} foot={setShowFooter}/>} />
                 <Route path="/screen/:infoscreen" element={<FullDisplay onShow={setShow} fulldisplay={true} />} />
                 <Route path="*" element={<NotFound />} />
@@ -54,9 +50,7 @@ export default function App(props) {
           <main className="content">
             <Routes>
               <Route path="/" element={<Home foot={setShowFooter}/>} />
-              <Route path="/About" element={<About foot={setShowFooter}/>} />
               <Route path="/Documentation" element={show && <Documentation foot={setShowFooter}/>} />
-              <Route path="/Blog" element={<Blog onShow={setShow}  foot={setShowFooter}/>} />
               <Route exact path="/Profile" element={<Profile foot={setShowFooter}/>} />
               <Route path="/Login" element={<Login setToken={setToken} />} />
               <Route path="/Request" element={<Request foot={setShowFooter}/>} />
