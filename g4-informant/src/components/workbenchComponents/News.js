@@ -11,11 +11,12 @@ export default function News(props) {
     const [channelList, setChannelList] = useState(props.channelList)
     const [homeChannel, setHomeChannel] = useState(props.homeChannel)
     let numbernews = props.newsnumber
-   
+
+    /* Gets the RSS XML file from link and runs it through a JSON filter to make it easier to seperate */
     const getRss = async (e) => {
         const urlRegex = /(http|ftp|https):\/\/[\w-]+(\.[\w-]+)+([\w.,@?^=%&amp;:\~+#-]*[\w@?^=%&amp;\/~+#-])*/g;
         if (url.match(urlRegex)) {
-            const response = await fetch(
+            await fetch(
                 `https://api.rss2json.com/v1/api.json?rss_url=${url}`
             )
             .then(response => response.json())
@@ -25,7 +26,7 @@ export default function News(props) {
             })   
         }
     }
-    
+    /* Sets the news source to be either norwegian TV2 or NRK */
     useEffect(() => {
         getRss()
         if(!channelList) {
@@ -43,6 +44,7 @@ export default function News(props) {
         }
     }, [url, count])
     
+    /* Sets the news source based on user input and saves the choice to the square */
     function handleClick(p_newsNumber) {
         setChannelList(false)
         if(p_newsNumber === 1) {
@@ -65,6 +67,7 @@ export default function News(props) {
         setCount(0)
     }
     
+    /* Sets a timer for the interval in which the article will change to the next one */
     useEffect(() => {
         const timer = setInterval(() => {
             setCount(prevCount => prevCount + 1)

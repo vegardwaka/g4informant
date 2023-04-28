@@ -81,7 +81,7 @@ export default function Login({ setToken, foot}) {
     return (
         <div className="input-container">
             <div className="input--form">
-                <h2 className="input--title">Login</h2>
+                <h2 className="input--title-login">Login</h2>
                 <input 
                     required
                     type="email" 
@@ -104,8 +104,7 @@ export default function Login({ setToken, foot}) {
                     placeholder="Password..."
                 />
                 <br/>
-                <button className="input--button" id="loginBtn" onClick={handleSubmit}>submit</button>
-                <br/>
+                <button className="input--button-login" id="loginBtn" onClick={handleSubmit}>submit</button>
             </div>
         </div>
     )

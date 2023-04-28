@@ -30,13 +30,14 @@ export default function Profile(props){
     } , [])
    
 
+    /* sets the title from the new inserted card from ProfileCard */
     function addItem(index) {
         setThingsArray(oldValues => {
             return oldValues.filter((_, i) => i !== index)
         })
     }
     
-    
+    /* Maps the different screens related to the user */
     const thingsElements = thingsArray.map((thing, i) => (
         <ProfileCard
           key={thing.infoscreen_id}

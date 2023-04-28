@@ -13,6 +13,7 @@ export default function BgImageList(props) {
     const stateTab = [isActive, isActive2, isActive3, isActive4, isActive5, isActive6, isActive7]
     const setTab = [setIsActive, setIsActive2, setIsActive3, setIsActive4, setIsActive5, setIsActive6, setIsActive7, setIsActive8]
 
+    /* Sets the background of the screen and adds a border to the selected background in the list*/
     function handleClick(p_number, p_img) {
         props.setBackground(p_img)
         for(let i=0; i<setTab.length; i++) 

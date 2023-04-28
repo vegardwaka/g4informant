@@ -10,6 +10,7 @@ export default function Square(props) {
     const[list, setList] = useState([])
     let element
 
+    /* Decides what API component gets put in the square by looking at the element number that was chosen in ComponentList*/
     if(props.elementNumber === 1) 
         element = <Clock 
                         height="100%" 
@@ -66,6 +67,7 @@ export default function Square(props) {
                         setList={props.setList}
                     />
     
+    /* First checks that a element has been chosen from the componentlist and then saves what element went in which square in setElements and then displays the element in the square*/
     function addButton() {
         if(props.elementNumber > 0) {
             if(props.id === 0) {
@@ -113,6 +115,7 @@ export default function Square(props) {
         }
     }
 
+    /* Removes the element from the square and if it was a Weather element resets the values to default*/
     function crossButton() {
         setShow(true)
         if(props.id === 0) {

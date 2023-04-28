@@ -7,23 +7,49 @@ import News from '../workbenchComponents/News'
 export default function HomeCard(props) {
     let element
     let link
-    
+    /* list of all the difrent functions the user can use to be displayd on the home page */
     if (props.id === 1) {
-        element = <Clock height="100%" hide={true} display={true} propcontinent="Asia" propcapital="Tokyo"/>
+        element =   <Clock 
+                        height="100%"
+                        hide={true} 
+                        display={true} 
+                        propcontinent="Asia" 
+                        propcapital="Tokyo"
+                    />
     } 
     else if (props.id === 2) {
-        element = <Weather height="100%" hide={true} display={true} propcity="Bø" propstate="Midt-Telemark"/>
+        element =   <Weather 
+                        height="100%" 
+                        hide={true} 
+                        display={true} 
+                        propcity="Bø" 
+                        propstate="Midt-Telemark"
+                    />
         link = <small className="home-API-p">Weather data is collected from Norwegian Meteorological Institute and location data is gathered from <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>.</small>
     }
     else if (props.id === 3) {
-        element = <Textarea hide={true} dis={true} read={false}/>
+        element =   <Textarea 
+                        hide={true} 
+                        dis={true} 
+                        read={false}
+                    />
     }
     else if (props.id === 4) {
-        element = <Image height="200px" hide={false} imgboo={false} show={false}/>
+        element =   <Image 
+                        height="200px" 
+                        hide={false} 
+                        imgboo={false} 
+                        show={false}
+                    />
         link = <small className="home-API-p">Images should be 539 x 600 pixels to perfectly fit the component.</small>
     }
     else if (props.id === 5) {
-        element = <News height="100%"  hide={true} channelList={true} homeChannel={false}/> 
+        element =   <News 
+                        height="100%"  
+                        hide={true} 
+                        channelList={true} 
+                        homeChannel={false}
+                    /> 
         link = <small className="home-API-p">Top stories provided by NRK & TV2.</small>
     }
 

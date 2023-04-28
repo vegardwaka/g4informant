@@ -8,6 +8,7 @@ import News from '../workbenchComponents/News'
 export default function DisplaySquare(props) {
     const [list, setList] = useState([])
     
+    /* Checks which squares contain a element or not and adds them to each DisplaySquare in the information screen. This is used to make the information screen viewable in profile and through URL*/
     for(let i=0; i<props.count; i++) {
         let element
         if(props.squares[i].elementNr > 0) {

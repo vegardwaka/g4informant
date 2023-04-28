@@ -3,6 +3,7 @@ import templatesH from "../../json/templatesH"
 
 export default function TemplateList({ setTemplateStyle, setHideInputs, setChangeList}) {
     
+    /* Creates templates from .js file and makes a list */
     const templateListH = templatesH.map(x => 
         <Template 
             count={x.count}
@@ -12,6 +13,7 @@ export default function TemplateList({ setTemplateStyle, setHideInputs, setChang
         />
     )
 
+    /* When clicking on a template it displays that template on the workbench screen */
     function handleClick(count, height, width) {
         setTemplateStyle({count: count, height: height, width: width})
         setHideInputs(true)

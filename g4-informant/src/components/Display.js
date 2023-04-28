@@ -22,7 +22,6 @@ export default function Display(props) {
     submitButtonHent()
   },[])
 
-  /* props */
   return (
       <div className={props.changeboolean ? "profile-display-screen" : "workbench--screen"}> 
           <MainTemplate  

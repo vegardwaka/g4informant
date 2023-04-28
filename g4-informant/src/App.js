@@ -20,7 +20,7 @@ export default function App(props) {
   const [showFooter, setShowFooter] = useState(true);
   const { token, setToken } = useToken();
 
-/* checks if user is logged in before choosing which routes are available in the navbar and through direct links */
+  /* Checks if user is logged in before choosing which routes are available in the navbar and through direct links */
   if (!localStorage.getItem('token')) {
     return (
       <>

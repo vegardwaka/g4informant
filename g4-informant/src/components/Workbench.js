@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import MainTemplate from "./templates/MainTemplate"
 import TemplateList from "./templates/TemplateList"
 import BgImageList from "./templates/BgImageList"
@@ -14,7 +14,7 @@ export default function Workbench(props) {
     const [weatherObj, setWeatherObj] = useState({city: "Juneau", state: "Alaska" })
     const [newsObj, setNewsObj] = useState(0)
     const [fontColor, setFontColor] = useState("Black")
-    const [listData, setlistData] = useState([])
+    const [listData, setListData] = useState([])
     const [bgImage, setBGImage] = useState("")
     let tmData = {}
     let key
@@ -33,6 +33,7 @@ export default function Workbench(props) {
       setNewsObj(p_news)
     }
 
+    /* Function that gets passed down to the API components and saves the specific data for each component*/
     function setList(p_squareNr, p_elementNr, p_object) {
       if(p_elementNr === 1) 
         listData[p_squareNr] = p_object
@@ -46,6 +47,7 @@ export default function Workbench(props) {
         listData[p_squareNr] = p_object
     }
     
+    /* Hides user inputfields and resets values back to default*/
     function handleClick() {
         setHideInputs(false)
         setChangeList(true)
@@ -53,11 +55,20 @@ export default function Workbench(props) {
         setElementNumber(0)
     }
 
+    function characterCheck(string) {
+      const invalidChar = /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
+      return invalidChar.test(string);
+    }
+    
+    /* Saves everything the user did in workbench */
     async function submitButton() {
       if(failTest()) {
       }
       else if(Object.values(elements).includes(5) && newsObj === 0) {
         window.alert("Choose a news channel")
+      }
+      else if(characterCheck(title)) {
+        window.alert("The name of the information screen can not contain special characters")
       }
       else {
         tmData = {
@@ -102,17 +113,17 @@ export default function Workbench(props) {
         .then(response => response.json())
         .then(data => {
             console.log(data)
-            /*if(data.code === 1009) {
-                window.alert("There is already a workbench with that name")
+            if(data.code === 1009) {
+                window.alert("There is already a screen with that name")
                 return null
             } else if (data.code === 9999) {
-                window.alert("Somthing went wrong")
+                window.alert("Something went wrong")
                 return null
-            } else {*/
+            } else {
               sendToBackend(tmData)
               window.alert(`Screen ${title} saved`)
             
-            //}
+            }
         })
         .catch(error => {
             console.error(error)
@@ -120,7 +131,7 @@ export default function Workbench(props) {
         })
       }
     }
-
+    /* Checks if the input field for the workbench name is empty and that you have set a location for the Weather component*/
     function failTest() {
       if(!title.trim().length) {
         window.alert("Give the informationscreen a name")
@@ -133,7 +144,8 @@ export default function Workbench(props) {
         }
       }
     }
-      
+    
+    /* Sends the data to the backend in a .js file */
     async function sendToBackend(data) {
       await fetch(`https://g4informant.azurewebsites.net//data/${title}`, {
         method: 'POST',
@@ -183,13 +195,18 @@ export default function Workbench(props) {
                       className="name-your-work" 
                       placeholder="NAME YOUR WORK"
                   />
-              <button type="submit" className="save-workbench-button" onClick={submitButton}>Save your work</button>
+              <button 
+                type="submit" 
+                className="save-workbench-button" 
+                onClick={submitButton}
+              >Save your work</button>
           </div>
         }
         
         {hideInputs && 
           <button className="prev-button" onClick={handleClick}>
-          <img src="/images/icons/arrow-left.png" alt="" width="15px"/></button>
+            <img src="/images/icons/arrow-left.png" alt="" width="15px"/>
+          </button>
         }
         <div className="workbench">
           {changeList ? 
@@ -218,7 +235,9 @@ export default function Workbench(props) {
                   setList={setList}
               />
           </div>
-          <BgImageList setBackground={setBackground}/>
+          <BgImageList 
+            setBackground={setBackground}
+          />
         </div>
       </div>
     )

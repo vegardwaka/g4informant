@@ -1,6 +1,5 @@
 import Square from './Square'
 import DisplaySquare from './DisplaySquare'
-import { useState } from 'react' 
 
 export default function MainTemplate(props) {
     let list = []
@@ -9,6 +8,7 @@ export default function MainTemplate(props) {
 
     function toggle(id) {}
 
+    /* Creates the amount of squares that the template you chose contains */
     const templateCount = list.map((x,i) => 
         props.choice ?
             <Square 

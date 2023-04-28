@@ -2,7 +2,8 @@ export default function Template(props) {
     let list = []
     for(let i=0; i<props.count; i++)
         list[i] = i
-
+        
+/* When you press a template in the TemplateList it gathers the data tied to the selected template and displays it in MainTemplate */
     function toggle(id) {
         props.swap()
     }

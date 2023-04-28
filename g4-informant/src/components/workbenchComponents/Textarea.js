@@ -3,7 +3,7 @@ import {useState} from "react"
 export default function Textarea(props) {
     const [text, setText] = useState('')
     const [show, setShow] = useState(props.hide)
-   
+   /* Saves the user input everytime they type a letter into the box */
     function handleChange(event) {
         setText(event.target.value)
         let object = {tatext: event.target.value}

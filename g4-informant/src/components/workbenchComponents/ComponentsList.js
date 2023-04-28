@@ -13,6 +13,7 @@ export default function CompontentsList(props){
     const [isActive5, setIsActive5] = useState(false)
     const setTab = [setIsActive,setIsActive2,setIsActive3,setIsActive4,setIsActive5]
 
+    /* Adds a border to the currently selected element in the list and sets the current element number to the element you chose*/
     function handleClick(p_number) {
         for(let i=0; i<setTab.length; i++)
             setTab[i](false)

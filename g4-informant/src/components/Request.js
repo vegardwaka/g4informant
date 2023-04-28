@@ -17,6 +17,8 @@ export default function Request(props) {
 
     /* Insert request */
     async function createRequest() { 
+
+        /* checks latest request's primary key and adds 1 */
         await fetch(`https://g4informant.com/api.php/records/api_request`, {
             method: 'GET',
         })
@@ -27,6 +29,7 @@ export default function Request(props) {
             primaryKey = data.records.length + 1         
         })
         
+        /* Posts the new request with the updated primary key to the database */
         fetch(`https://g4informant.com/api.php/records/api_request`, {      
           method: 'POST',
           headers: {

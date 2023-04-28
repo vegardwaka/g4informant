@@ -13,6 +13,7 @@ export default function UserCreate(props) {
         
     /* Creating user */
     async function createUser() {
+
         /* Finding primary key for the new user */
         await fetch('https://g4informant.com/api.php/records/user', {
             method: 'GET',
@@ -24,6 +25,7 @@ export default function UserCreate(props) {
             key = data.records.length + 1
         })
 
+        /* Hashing the password entered in by the user */
         const hashedPassword = bcrypt.hashSync(password, salt)
 
         /* POST request for a new user */
@@ -49,7 +51,8 @@ export default function UserCreate(props) {
             }
         })
     }
-    /* Validation */
+
+    /* Input validation */
     function validateEmail() {
         let res = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
         return res.test(email)
@@ -75,7 +78,8 @@ export default function UserCreate(props) {
         }
         return true
     }
-    /* Handle submit to validate email and password, and run getUser() function */
+
+    /* Handle submit to validate email and password, and run createUser() function */
     async function submitButton(){
         validateEmail()
         validatePassword()

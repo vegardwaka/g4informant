@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 
 export default function NotFound() {
+    /* 404 page */
     return(
         <div className="not-found">
             <h2>Sorry</h2>
