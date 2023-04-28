@@ -59,9 +59,9 @@ https://github.com/vegardwaka/g4informant/blob/c4489e52cf8d9a437bbc94bdec294e037
 
 https://github.com/vegardwaka/g4informant/blob/c4489e52cf8d9a437bbc94bdec294e037f3d8504/g4-informant/src/components/UserCreate.js#L32
 
-https://github.com/vegardwaka/g4informant/blob/c4489e52cf8d9a437bbc94bdec294e037f3d8504/g4-informant/src/components/Workbench.js#L108
+https://github.com/vegardwaka/g4informant/blob/c4489e52cf8d9a437bbc94bdec294e037f3d8504/g4-informant/src/components/Workbench.js#L92
 
-https://github.com/vegardwaka/g4informant/blob/c4489e52cf8d9a437bbc94bdec294e037f3d8504/g4-informant/src/components/Workbench.js#L150
+https://github.com/vegardwaka/g4informant/blob/c4489e52cf8d9a437bbc94bdec294e037f3d8504/g4-informant/src/components/Workbench.js#L108
 
 ## Server
 The server is hosted in Microsoft Azure, and it uses the Node.js runtime environment.
