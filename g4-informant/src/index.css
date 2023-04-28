@@ -15,21 +15,36 @@ body {
 /* NavBar */
 
 .navbar {
-  padding: 20px;
+  padding: 10px;
   display: flex;
   align-items: center;
   margin: 0 auto;
   border-bottom: 1px solid #e4e4e4;
+  
 }
+#navbar-logo{
+  display: flex;
+  width: 55px;
+  margin-right: 30px;
+}
+
 #navbar-title{
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: rgb(0, 0, 0);
   font-size: 25px;
 }
+
 .navbar .links {
+  text-align: right;
   margin-left: auto;
+  padding-right: 10px;
 }
+
 .navbar a {
   margin-left: 25px;
+  margin-right: 5px;
   text-decoration: none;
   padding: 10px;
   color: black;
@@ -45,66 +60,296 @@ body {
 
 .content {
   max-width: auto;
-  margin: 40px auto;
   padding: 20px;
 }
 
-/* Footer */
-.footer *{
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  color: white;
-  font-size: 12px;
-  background-color: rgb(0, 0, 0);
-  text-align: center;
-}
-/* blog previews / list */
-.blog-preview {
-  padding: 10px 16px;
-  margin: 20px 0;
-  border-bottom: 1px solid #fafafa;
-}
-.blog-preview:hover {
-  box-shadow: 1px 3px 3px rgba(0,0,0,0.1);
-}
-.blog-preview h2 {
-  font-size: 20px;
-  color: #5b35f1;
-  margin-bottom: 8px;
+
+/* Not Found */
+
+.not-found{
+  height: 100vh;
 }
 
-/* input */
+/* 
+Homepage, all styles related to the home page,
+including the HomeCard component
+*/
+
+.home-section1{
+  position: relative;
+  display: block;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  height: 100vh;
+  width: 80vw;
+}
+.home-section2{
+  position: relative;
+  display: block;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80vw;
+}
+
+#homepage-img{
+  position: absolute;
+  display: block;
+  justify-content: center;
+  width: 96vw;
+  height: 87vh;
+  opacity: 0.08;
+  object-fit: cover;
+  margin-left: -140px; 
+}
+
+.home-title{ 
+  position: relative;
+  text-align: center;
+  font-size: 50px;
+  top: 200px;
+  margin-top: -20px;
+  text-transform: uppercase;
+  letter-spacing: 0.4rem;
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  transition: 1.5s;
+}
+.home-title:hover{
+  letter-spacing: 2.5rem;
+}
+.home-p-div{
+  position: relative;
+  top: 49vh;
+}
+.home-paragraph-1{
+  text-align: center;
+}
+.home-paragraph-2 {
+  text-align: center;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #000000;
+}
+
+.home-card-container{
+  width: 50%;
+  height: 200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.home-section-h1{
+  border-top: 1px solid #000000;
+  text-align: center;
+  letter-spacing: .1rem;
+  padding-top: 50px;
+  text-transform: uppercase;
+}
+
+.API-home-section{
+  position: relative;
+  justify-content: center;
+  align-items: center; 
+  display: flex;
+  width: 60vw;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #717171;
+}
+.API-text-div{
+  position: relative;
+  display: grid;
+  padding-left: 50px;
+}
+.API-text-div img{
+  width: 40px;
+  padding-right: 10px;
+}
+.home-API-title{
+  position: relative;
+  text-decoration: underline;
+  display: flex;
+  align-items: center;
+}
+.home-API-p{
+  position: relative;
+  width: 400px;
+}
+
+.home-card-title{
+  text-align: center;
+  letter-spacing: .1rem;
+  text-transform: uppercase;
+  text-decoration: underline;
+}
+.home-wbexamples-h1{
+  text-align: center;
+  letter-spacing: .1rem;
+  text-transform: uppercase;
+}
+.home-wb-examples1{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  padding: 20px;
+}
+#home-wb-examples-img{
+  border: 1px solid #000000;
+  border-radius: 2px;
+  margin: 20px;
+}
+.slider-container {
+  width: 100%;
+  height: 500px;
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+}
+
+.home-wb-examples {
+  width: 4260px;
+  height: 510px;
+  margin: 20px;
+  clear: both;
+  position: relative;
+  animation-name: slider;
+  animation-duration: 30s;
+  animation-delay: 0s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: forwards;
+  animation-fill-mode: backwards;
+  animation-play-state: running;
+}
+
+.slider-image {
+  width: auto;
+  height: 446px;
+  position: relative;
+  align-items: center;
+  border: 2px solid #000000;
+  border-radius: 5px;
+  margin-left: 200px;
+}
+
+@keyframes slider {
+  0% {
+      transform: translate(-585px, 0);
+  }
+  25% {
+      transform: translate(-1500px, 0);
+  }
+  50% {
+      transform: translate(-2400px, 0);
+  }
+  75% {
+    transform: translate(-1500px, 0);
+  }
+  100% {
+    transform: translate(-585px, 0);
+  }
+}
+
+/* Footer */
+
+.footer {
+  position: relative; 
+  width: 100%;
+  margin-top: 50px;
+  color: rgb(0, 0, 0);
+  font-size: 12px;
+  background-color: rgba(203, 203, 203, 0.9);
+  text-align: center;
+}
+.footer-title{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  letter-spacing: .05rem;
+  padding-top: 10px;
+}
+.footer-gh{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 10px;
+}
+.footer-gh #gh-logo{
+  width: 25px;
+  padding-right: 10px;
+}
+
+.footer-usn{
+  width: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-top: 1px solid rgb(134, 134, 134);
+}
+.footer-usn small{
+  margin-top: 10px;
+}
+.footer-usn #usn-logo{
+  width: 40px;
+  padding-right: 10px;
+}
+
+#footer-logo{
+  margin-right: 10px;
+}
+
+/* Login form */
 
 .input-container {
   text-align: center;
   display: flex;
   justify-content: center;
   width: 300px;
-  height: 400px;
+  height: 450px;
   border: 1px #161616;
   border-style: solid;
   border-radius: 5px;
   margin: auto;
+  margin-top: 30px;
 }
 
 .input--title {
   width: 100%;
+  font-size: 25px;
   text-align: center;
+  letter-spacing: .1rem;
+  padding-bottom: 10px;
+  text-transform: uppercase;
+}
+.input--title-login {
+  width: 100%;
+  font-size: 30px;
+  text-align: center;
+  letter-spacing: .1rem;
   padding-bottom: 10px;
   text-transform: uppercase;
 }
 
-.input--email {
 
+.input--email {
+  width: 200px;
   padding: 10px 10px 10px 10px;
   border-radius: 5px;
   border: 1px solid #D5D4D8;
 }
 
 .input--username {
-
+  width: 200px;
   padding: 10px 10px 10px 10px;
   border-radius: 5px;
   margin-top: 10px;
@@ -112,6 +357,7 @@ body {
 }
 
 .input--password {
+  width: 200px;
   padding: 10px 10px 10px 10px;
   border-radius: 5px;
   margin-top: 10px;
@@ -121,13 +367,13 @@ body {
 .input--button {
   cursor: pointer;
   display: flex;
+  width: 200px;
   justify-content: center;
   align-items: center;
   text-transform: uppercase;
   font-size: 16px;
   font-weight: bold;
   letter-spacing: .1rem;
-  width: 100%;
   margin-left: auto;
   margin-right: auto;
   margin-top: 50px;
@@ -137,22 +383,34 @@ body {
   border-radius: 5px;
   cursor: pointer;
 }
+.input--button-login {
+  cursor: pointer;
+  display: flex;
+  width: 200px;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: .1rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 150px;
+  padding: 10px 10px 10px 10px;
+  color: rgb(0, 0, 0);
+  background-color: rgb(240, 240, 240);
+  border-radius: 5px;
+  cursor: pointer;
+}
 
 .input--button:hover {
   background-color: darkgrey;
-
 }
 
 .input--form {
-padding: 20px;
-  
+  padding: 20px; 
 }
 
-.input--feil {
-  text-align: center;
-  padding-top: 10px;
-  color:red;
-}
 
 /* Blog */
 
@@ -162,10 +420,34 @@ padding: 20px;
   flex-wrap: wrap;
   gap: 40px;
 }
+.blog-header{
+  text-align: center;
+}
+
+.blog-title{
+  font-size: 45px;
+  text-align: center;
+  letter-spacing: .3rem;
+  text-transform: uppercase;
+}
+.blog-img{
+  margin-top: -10px;
+  width: 100%;
+}
+.blog-img img{
+  margin: 20px
+}
+#blog-clock{
+  margin-right: -20px;
+}
+
+.blog-undertitle{
+  font-size: 25px;
+}
 
 .blog-card {
   display: flow-root;
-  width: 200px;
+  width: 300px;
   height: 300px;
   border: 1px #161616;
   border-style: solid;
@@ -178,9 +460,8 @@ padding: 20px;
   margin: 10px;
 }
 .blog-card:hover {
-  /*background-color: rgb(203, 203, 203); */
-  transform: scale(1.1);
-  box-shadow: 2px 2px 2px 2px #000;
+  transform: scale(1.05);
+  box-shadow: 1px 1px 1px 1px #000;
 }
 
 .blog-tittel {
@@ -192,11 +473,94 @@ padding: 20px;
   padding: 10px 10px 0px 0px;
 }
 
+.blog-footer-usn{
+  width: 700px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 10px;
+  margin-top: 10px;
+  margin-bottom: -40px;
+  border-top: 1px solid rgb(134, 134, 134);
+}
+.blog-footer-usn img{
+  width: 40px;
+  padding-right: 10px;
+}
+
+
+/* Documentation */
+
+.documentation-container{
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  height: auto;
+  width: 80%;
+}
+.documentation-title-t{
+  border-top: 1px solid #a1a1a1;
+  padding-top: 40px;
+  text-align: center;
+  padding-bottom: 10px;
+  font-size: 27px;
+  letter-spacing: .1rem;
+  text-transform: uppercase;
+}
+.doc-card-element{
+  position: relative;
+  display: block;
+  margin-top: 10px;
+}
+
+.documentation-card-box{
+  position: relative;
+  display: flex;
+  justify-content: left;
+  align-items: left; 
+  border: 0.5px solid #8f8f8f;
+  border-radius: 15px;
+  transition: 0.3s;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 50px;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  
+}
+.documentation-card-text{
+  position: relative;
+  display: grid;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+.documentation-card-box:hover{
+  transform: scale(1.05);
+  box-shadow: 1px 1px 1px 1px #000;
+}
+.doc-card-title{
+  position: relative;
+  text-decoration: underline;
+  display: flex;
+  align-items: center;
+}
+
+.doc-card-p{
+ position: relative;
+ text-align: left;
+}
+
 /* About */
 
 .about {
   display: grid;
   justify-content: center;
+  align-items: center;
 }
 
 .about-title {
@@ -209,6 +573,7 @@ padding: 20px;
 .about-list {
   display: flex;
   justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
   gap: 100px;
 }
@@ -222,27 +587,36 @@ padding: 20px;
   width: 100%;
   height: auto;
   align-self: center;
-  border-radius: 15px;
+  border-radius: 200px;
   object-fit: cover;
 }
 
 .about--name {
   text-align: center;
+  font-size: 17px;
   padding-top: 10px;
+}
+
+.about--role{
+  text-align: center;
+  font-size: 11px;
+  margin-top: 15px;
 }
 
 .about--desc {
   text-align: center;
-  padding-top: 10px;
+  font-size: 14px;
+  margin-top: -5px;
 }
 
 .about--button {
-  align-items: center;
+  display: flex;
+  justify-content: center;
   text-transform: uppercase;
+  width: 200px;
   font-size: 16px;
   font-weight: bold;
   letter-spacing: .1rem;
-  width: 200px;
   margin-left: auto;
   margin-right: auto;
   margin-top: 70px;
@@ -252,42 +626,61 @@ padding: 20px;
   border-radius: 5px;
   cursor: pointer;
 }
+.contact--link{
+  text-decoration: none;
+}
 
 .about--button:hover {
    background-color: darkgrey;
 
 }
 
-/* foresporsel side */
-.foresporsel--div {
+/* Request */
+.request--div {
   display: flex;
   justify-content: center;
+  padding-top: 40px;
 }
 
-.foresporsel--form {
+.request--form {
   display: grid;
   padding: 10px 100px 30px 100px;
   border: 1px #161616;
   border-style: solid;
   border-radius: 5px;
-
+}
+.request--form input, select, textarea{
+  margin-top: -15px;
 }
 
-.foresporsel--tittel {
+.request--title {
   width: 100%;
   text-transform: uppercase;
+  letter-spacing: .1rem;
   text-align: center;
 }
-
-.foresporsel--liste {
+.request-label{
+  text-transform: uppercase;
+  letter-spacing: .1rem;
+}
+.request-input{
+  padding: 5px;
+  font-size: 14px;
+  font-family: "Poppins";
+}
+.request--list{
+  margin-top: 10px;
+  padding: 5px; 
+  font-size: 14px;
+  font-family: "Poppins";
+}
+.request--text{
+  padding: 5px; 
+  font-size: 14px;
+  font-family: "Poppins";
 
 }
-
-.foresporsel--fritekst {
-
-}
-
-.foresporsel--button {
+.request--button {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -298,7 +691,6 @@ padding: 20px;
   width: 100%;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 10px;
   padding: 10px 10px 10px 10px;
   color: rgb(0, 0, 0);
   background-color: rgb(240, 240, 240);
@@ -306,43 +698,108 @@ padding: 20px;
   cursor: pointer;
 }
 
-.foresporsel--button:hover {
+.request--button:hover {
   background-color: darkgrey;
-
 }
 
-/* Workbench */
+/* 
+Workbench, styling related to all 
+components that are rendered on the workbench
+*/
 
 .workbench{
   display: flex;
 }
 
+.font-color-container{
+  display: flex;
+  justify-content: center;
+  margin-right: 5px;
+  border: 1px solid #000000;
+  border-radius: 5px;
+  padding:7px;
+
+}
+.font-color-container input{
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.font-color-container label{
+  margin-right: 10px;
+}
+
+.workbench-buttons{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 5px;
+}
+
+.name-your-work{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 11px;
+  padding-right: 80px;
+}
+
 .save-workbench-button{
   position: relative;
   display: flex;
-  justify-content: right;
-  margin-left: auto;
-  margin-right: 65px;
-  margin-bottom: 5px;
-  padding: 5px;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: .1rem;
+  color: rgb(0, 0, 0);
+  background-color: rgb(240, 240, 240);
+  border-radius: 5px;
+  padding: 10px;
+  margin-left: 5px;
+  cursor: pointer;
 }
 
 .prev-button{
-  position: absolute;
+  display: flex;
+  justify-content: center;
+  position: static; 
+  display: block;
+  padding-top: 5px;
+  
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-top: -25px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.prev-button:hover{
+  background-color: #c0c0c0;
 }
 
 .template-title{
-  text-align: center;
+  text-align: center; 
 }
 
 .workbench-title{
   text-align: center;
+  padding-bottom: 10px;
+  font-size: 27px;
+  letter-spacing: .1rem;
+  text-transform: uppercase;
 }
 
 .workbench-template-list{
   width: 250px;
   height: auto;
-  border: 2px #000000;
+  border: 3px #000000;
   border-style: solid;
   border-radius: 5px;
   flex-direction: row;
@@ -359,7 +816,7 @@ padding: 20px;
 .workbench-component-list{
   width: 250px;
   height: 590px;
-  border: 2px #000000;
+  border: 3px #000000;
   border-style: solid;
   border-radius: 5px;
   flex-direction: row;
@@ -385,20 +842,6 @@ padding: 20px;
   border-radius: 5px;
 }
 
-.workbench-box {
-  display: grid;
-  align-items: center;
-  width: 150px;
-  height: 150px;
-  border: 1px #000000;
-  border-style: solid;
-  border-radius: 10px;
-}
-
-.workbench-counter{
-  text-align: center;
-}
-
 .templateBox {
   display: flex;
   position: relative;
@@ -414,38 +857,52 @@ padding: 20px;
 .templateBox:hover {
   background-color: rgb(164, 164, 164);
 }
-
-.templateBoxVertical{
-  transform: rotate(90deg);
-  margin-top: 60px;
-  margin-bottom: 110px;
-  display: flex;
-  position: relative;
-  flex-wrap: wrap;
-  width: 100%;
-  height: 100%;
-  border: 1px;
-  border-style: solid;
-  box-sizing: border-box;  
-}
-
-.templateBoxVertical:hover {
-  background-color: rgb(164, 164, 164);
-}
-
-.div1 {
+.div1{
   width: 50%;
   height: 50%;
   border: 1px;
   border-style: dotted;
   box-sizing: border-box;
 }
-.div2 {
-  width: 25%;
-  height: 25%;
-  border: 1px;
-  border-style: dotted;
-  box-sizing: border-box;
+
+.div1-display{
+  width: 50%;
+  height: 50%;
+}
+
+.div1-display h1{
+  font-size: 20px;
+  padding-bottom: 4px;
+  margin-top: 0px;
+}
+.div1-display h2{
+  font-size: 12px;
+}
+.div1-display h3{
+  font-size: 10px;
+}
+.div1-display p{
+  font-size: 7px;
+}
+.div1-display #weathericon{
+  width: 70px; 
+  margin-top: -12px;
+}
+.div1-display #news-pic{
+  width: 20px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+
+} 
+.div1-display textarea{
+  font-family: "Poppins";
+  font-size: 16px;
+  background-color: transparent;
+  height: 80%;
+  width: 100%;
 }
 
 .templateBoxMain {
@@ -460,104 +917,413 @@ padding: 20px;
   margin-bottom: 10px;
 }
 
-.MainTemplateCross{
+#MainTemplateCross{
   display: block;
   position: relative;
-  top: -100%;
+  background-color: #f4f4f4;
+  border-radius: 16px;
   width: 30px;
-  padding-left: 9px;
+  top: -97%;
+  left: 0.3%;
   margin-left: 10px;
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  border: 1px #000000;
-  border-style: solid;
-  border-radius: 30px;
-  background-color: whitesmoke;
 }
-
+#MainTemplateCross:hover{
+  background-color: rgb(252, 90, 90);
+  border-radius: 15px;
+}
 .feature-button{
   display: flex;
   position: relative;
-  top: 50%;
+  top: 45%;
   justify-content: center;
   align-items: center;
   margin-left: auto;
   margin-right: auto;
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: .1rem;
+  color: rgb(0, 0, 0);
+  background-color: rgb(240, 240, 240);
+  border-radius: 5px;
+  padding: 10px;
   cursor: pointer;
 }
 
-/* HomeCard */
+.background-image-list-container{
+  width: 200px;
+  height: 590px;
+  border: 3px #000000;
+  border-style: solid;
+  border-radius: 5px;
+  flex-direction: row;
+  flex: 0 0 auto;
+  overflow-x: hidden;
+}
 
-.home-title{
+.background-images{
+  position: relative;
+  display: grid;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: 10px 10px 0px 10px;
+}
+
+#backgroundimage{
+  background-size: auto;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.no-backgroundimg{
+  width: 100%;
+  height: 110px;
+  background-color: whitesmoke;
   text-align: center;
-  font-size: 40px;
-  text-transform: uppercase;
-  letter-spacing: .1rem;
-  margin-top: 150px;
-  margin-bottom: 250px;
+  justify-content: center;
+  padding-top: 30px;
+  border: 1px solid #000000;
 }
 
-.home-card-container{
-  width: 50%;
-  height: 200px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.home-card-title{
-  text-align: center;
-  letter-spacing: .1rem;
-  text-transform: uppercase;
-  text-decoration: underline;
-}
-
-.home-card-desc{
-  text-align: center;
-
-}
+/* 
+API Boxes, styles for the different
+boxes displaying information from API
+*/
 
 .weatherBox{
   display: grid;
   justify-content: center;
   align-items: center;
-  color: whitesmoke;
   width: 200px;
   height: 200px;
-  background-color: #66e0ff;
-  border: 2px rgb(0, 0, 0);
+  border: 1px rgb(0, 0, 0);
   border-style: solid;
-  border-radius: 2px;
+  border-radius: 5px;
 }
 
 .weatherBox h3{
-
   border-bottom: 1px #f4f4f4;
 }
-
-.weatherBox h1{
+.weather-location-city{
   text-align: center;
   letter-spacing: 0.1rem;
-
+  font-size: 2rem;
 }
-
+.weather-location-state{
+  text-align: center;
+  margin-top: -25px;
+  font-size: 1rem;
+}
+.weather-location-degrees{
+  margin-top: 5px; 
+  text-align: center;
+  font-size: 2rem;
+}
+.weather-location-button {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  font-size: 10px;
+  font-weight: bold;
+  letter-spacing: .1rem;
+  color: rgb(0, 0, 0);
+  background-color: rgb(240, 240, 240);
+  border-radius: 5px;
+  padding: 5px;
+  cursor: pointer;
+  margin-bottom: -12px;
+}
 #weathericon {
-  width: 50px;
+  width: 130px;
   display: flex;
   justify-content: center;
   align-items: center;
   margin-left: auto;
   margin-right: auto;
+  margin-top: -35px;
 }
 
-.clockBox{
-  display: inline-block;
+.API-container{
+  display: grid;
   box-sizing: border-box;
   justify-content: center;
+  align-items: center;
   width: 200px;
   height: 200px;
   text-align: center;
-  border: 2px rgb(0, 0, 0);
+  border: 1px rgb(0, 0, 0);
   border-style: solid;
-  border-radius: 2px;
+  border-radius: 5px;
+}
+
+.API-container #news-pic{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50px;
+}
+
+.clockbox-day{
+  text-align: center;
+  font-size: 16px;
+  margin-top: 10px;
+  margin-bottom: 0px;
+}
+.clockbox-time{
+  font-size: 46px;
+}
+.clockbox-zone{
+  margin-top: -10px;
+  font-size: 14px;
+}
+.clockbox-date{
+  margin-top: -15px;
+  font-size: 18px;
+}
+
+#image-file-input{
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  font-weight: bold;
+  letter-spacing: .03rem;
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+}
+
+.news-button{
+  align-items: center;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: bold;
+  margin-left: 10px;
+  margin-right: 10px;
+  letter-spacing: .1rem;
+  padding: 10px;
+  color: rgb(0, 0, 0);
+  background-color: rgb(240, 240, 240);
+  border-radius: 5px;
+  cursor: pointer;
+}
+.news-button:hover{
+  background-color: rgb(164, 164, 164);
+}
+
+.news-link{
+  font-size: 8px;
+}
+
+textarea{
+  height: 80%;
+  width: 100%;
+  font-size: 20px;
+  font-family: "Poppins";
+}
+
+/* Profile */
+
+.loading-text{
+  text-align: center;
+  padding-top: 30px;
+}
+
+.profile-title{
+  text-align: center;
+}
+
+.profile--header{
+  text-align: center;
+}
+.profile-workbench-container{
+  position: relative;
+  display: block;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 1000px;
+  height: 450px;
+}
+
+.profile-card{
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  border-top: 1px solid #000000;
+}
+.profile-card h2{
+  text-align: center;
+}
+.profile-card-title{
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+.profile-buttons{
+  position: relative;
+  display: grid; 
+  justify-content: right;
+  align-items: center;
+  padding: 10px;
+  margin-top: -220px;
+  margin-right: 60px;
+}
+
+.profile-display-screen{
+  width: 480px;
+  height: 295px;
+  border: 3px #000000;
+  border-style: solid;
+  border-radius: 5px;
+}
+
+.profile--display{
+  align-items: center;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: .1rem;
+  width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 13px 10px 13px 10px;
+  color: rgb(0, 0, 0);
+  background-color: rgb(240, 240, 240);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.profile--delete{
+  align-items: center;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: .1rem;
+  width: 200px;
+  margin-top: 10px;
+  padding: 10px;
+  color: rgb(0, 0, 0);
+  background-color: rgb(240, 240, 240);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.profile--delete:hover {
+  background-color: rgb(255, 86, 86);
+}
+
+.profile--link {
+  text-decoration: none;
+}
+
+.profile--display:hover {
+  background-color:rgb(137, 236, 126)
+}
+
+.empty-informationscreen-p{
+  border-top: 1px solid #000000;
+  padding-top: 30px;
+  text-align: center;
+}
+
+/* 
+Full Display, styles for the different 
+boxes when displaying your information screen
+*/
+.full-display-screen{
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.div1-full-screen{
+  width: 100%;
+  height: 100%;
+}
+
+.div1-full-screen h1{
+  font-size: 50px;
+}
+.div1-full-screeny h2{
+  font-size: 34px;
+}
+.div1-full-screen h3{
+  font-size: 27px;
+}
+.div1-full-screen p{
+  font-size: 13px;
+}
+.div1-full-screen #weathericon{
+  width: 170px;
+  padding-top: 20px;
+}
+.div1-full-screen #news-pic{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 70px;
+} 
+.div1-full-screen textarea{
+  font-family: "Poppins";
+  background-color: transparent;
+  text-align: center;
+  font-size: 1.3rem;
+  height: 80%;
+  width: 100%;
+}
+
+.API-container-fulldisplay{
+  display: grid;
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  border: 0 solid #000000;
+}
+
+.API-container-fulldisplay #news-pic{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50px;
+}
+
+.weatherBox-fulldisplay{
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  
+  margin-top: 0px;
+  width: 100%;
+  height: 100%;
+}
+.weatherBox-fulldisplay h1{
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.uploaded--image {
+  height: 100%;
+  width: 600px;
 }

@@ -1,8 +1,9 @@
-import React from "react";
-import AboutCard from "./AboutCard";
-import omoss from "../json/omoss";
+import React from "react"
+import AboutCard from "./cards/AboutCard"
+import omoss from "../json/omoss"
 
-export default function About() {
+export default function About(props) {
+    props.foot(true)
     const list = omoss.map(item => {
         return(
             <AboutCard 
@@ -11,14 +12,14 @@ export default function About() {
             />
         )
     })
-
+    
     return(
-        <section className="about" id="about">
+        <section className="about">
             <h2 className="about-title">Our team</h2>
             <div className="about-list">
                 {list}
             </div>
-            <button className="about--button">Contact us</button>
+            <a className="contact--link" href="mailto:contact@g4informant.com"><button className="about--button">Contact us</button></a>
         </section>
     )
 }

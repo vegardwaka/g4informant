@@ -1,7 +1,13 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-/public/images
+
+/public/images/Logo3.png
+/public/images/background-logo.png
+/public/images/Sigve.jpg
+/public/images/Karlo.jpg
+/public/images/Vegard.jpg
+/public/images/Vebjørn.jpg
 /node_modules
 /.pnp
 .pnp.js
