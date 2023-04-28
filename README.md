@@ -1,4 +1,4 @@
-![GitHub contributors](https://img.shields.io/github/contributors/vegardwaka/g4informant) ![Website](https://img.shields.io/website?up_message=online&url=https%3A%2F%2Fg4informant.com%2F)
+![GitHub contributors](https://img.shields.io/github/contributors/vegardwaka/g4informant) ![Website](https://img.shields.io/website?up_message=online&url=https%3A%2F%2Fg4informant.com%2F) ![GitHub](https://img.shields.io/github/license/vegardwaka/g4informant)
 ## Welcome to G4 Informant
 G4 Informant is a webapplication that let our users create and display their very own screen.
 You are able to choose from a range of components that will display different information.
@@ -27,7 +27,7 @@ Your app is ready to be deployed!
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
 ## Frontend
-The frontend uses Meta's React JavaScript library. React conventions have been followed and the application is assembled in /components/App.js.
+The frontend uses Meta's React JavaScript library. React conventions have been followed and the application is assembled in /App.js.
 
 #### Frontend/React dependencies:
     "@testing-library/jest-dom": "^5.16.5",
@@ -44,48 +44,48 @@ The frontend uses Meta's React JavaScript library. React conventions have been f
 The database script is built in a PostgreSQL environment,
 so you'd need to use one yourself or manually change the script to work with whichever database you wanna use.
 
-https://github.com/vegardwaka/g4informant/blob/g4-informant/database.sql
+https://github.com/vegardwaka/g4informant/blob/main/g4-informant/database.sql
 
 #### Database links
-https://github.com/vegardwaka/g4informant/blob/7237b0d27337692fc6d96a2ffebdd5568cfa2043/g4-informant/src/components/Login.js#L15
+https://github.com/vegardwaka/g4informant/blob/c4489e52cf8d9a437bbc94bdec294e037f3d8504/g4-informant/src/components/Login.js#L15
 
-https://github.com/vegardwaka/g4informant/blob/7237b0d27337692fc6d96a2ffebdd5568cfa2043/g4-informant/src/components/Profile.js#L12
+https://github.com/vegardwaka/g4informant/blob/c4489e52cf8d9a437bbc94bdec294e037f3d8504/g4-informant/src/components/Profile.js#L12
 
-https://github.com/vegardwaka/g4informant/blob/7237b0d27337692fc6d96a2ffebdd5568cfa2043/g4-informant/src/components/Request.js#L20
+https://github.com/vegardwaka/g4informant/blob/c4489e52cf8d9a437bbc94bdec294e037f3d8504/g4-informant/src/components/Request.js#L22
 
-https://github.com/vegardwaka/g4informant/blob/7237b0d27337692fc6d96a2ffebdd5568cfa2043/g4-informant/src/components/Request.js#L30
+https://github.com/vegardwaka/g4informant/blob/c4489e52cf8d9a437bbc94bdec294e037f3d8504/g4-informant/src/components/Request.js#L33
 
-https://github.com/vegardwaka/g4informant/blob/7237b0d27337692fc6d96a2ffebdd5568cfa2043/g4-informant/src/components/UserCreate.js#L17
+https://github.com/vegardwaka/g4informant/blob/c4489e52cf8d9a437bbc94bdec294e037f3d8504/g4-informant/src/components/UserCreate.js#L18
 
-https://github.com/vegardwaka/g4informant/blob/7237b0d27337692fc6d96a2ffebdd5568cfa2043/g4-informant/src/components/UserCreate.js#L30
+https://github.com/vegardwaka/g4informant/blob/c4489e52cf8d9a437bbc94bdec294e037f3d8504/g4-informant/src/components/UserCreate.js#L32
 
-https://github.com/vegardwaka/g4informant/blob/7237b0d27337692fc6d96a2ffebdd5568cfa2043/g4-informant/src/components/Workbench.js#L98
+https://github.com/vegardwaka/g4informant/blob/c4489e52cf8d9a437bbc94bdec294e037f3d8504/g4-informant/src/components/Workbench.js#L108
 
-https://github.com/vegardwaka/g4informant/blob/7237b0d27337692fc6d96a2ffebdd5568cfa2043/g4-informant/src/components/Workbench.js#L114
+https://github.com/vegardwaka/g4informant/blob/c4489e52cf8d9a437bbc94bdec294e037f3d8504/g4-informant/src/components/Workbench.js#L150
 
 ## Server
 The server is hosted in Microsoft Azure, and it uses the Node.js runtime environment.
 
 #### Server links
-https://github.com/vegardwaka/g4informant/blob/ed188d0cdf3834c3f18aa5e3204b200457e35c09/g4-informant/src/components/workbenchComponents/Clock.js#L10
+https://github.com/vegardwaka/g4informant/blob/c4489e52cf8d9a437bbc94bdec294e037f3d8504/g4-informant/src/components/workbenchComponents/Clock.js#L11
 
-https://github.com/vegardwaka/g4informant/blob/ed188d0cdf3834c3f18aa5e3204b200457e35c09/g4-informant/src/components/workbenchComponents/Clock.js#L30
+https://github.com/vegardwaka/g4informant/blob/c4489e52cf8d9a437bbc94bdec294e037f3d8504/g4-informant/src/components/workbenchComponents/Clock.js#L32
 
-https://github.com/vegardwaka/g4informant/blob/8b16a5ec7cb7fc1cd00970f6f421a069ed48d7e0/g4-informant/src/components/workbenchComponents/Image.js#L30
+https://github.com/vegardwaka/g4informant/blob/c4489e52cf8d9a437bbc94bdec294e037f3d8504/g4-informant/src/components/workbenchComponents/Image.js#L29
 
-https://github.com/vegardwaka/g4informant/blob/8b16a5ec7cb7fc1cd00970f6f421a069ed48d7e0/g4-informant/src/components/workbenchComponents/Image.js#L49
+https://github.com/vegardwaka/g4informant/blob/c4489e52cf8d9a437bbc94bdec294e037f3d8504/g4-informant/src/components/workbenchComponents/Image.js#L48
 
-https://github.com/vegardwaka/g4informant/blob/f24bbf24c73f0ab13b48fd1ab571bfda58afcdb2/g4-informant/src/components/workbenchComponents/Weather.js#L20
+https://github.com/vegardwaka/g4informant/blob/c4489e52cf8d9a437bbc94bdec294e037f3d8504/g4-informant/src/components/workbenchComponents/Weather.js#L18
 
-https://github.com/vegardwaka/g4informant/blob/f24bbf24c73f0ab13b48fd1ab571bfda58afcdb2/g4-informant/src/components/workbenchComponents/Weather.js#L42
+https://github.com/vegardwaka/g4informant/blob/c4489e52cf8d9a437bbc94bdec294e037f3d8504/g4-informant/src/components/workbenchComponents/Weather.js#L40
 
-https://github.com/vegardwaka/g4informant/blob/f24bbf24c73f0ab13b48fd1ab571bfda58afcdb2/g4-informant/src/components/workbenchComponents/Weather.js#L92
+https://github.com/vegardwaka/g4informant/blob/c4489e52cf8d9a437bbc94bdec294e037f3d8504/g4-informant/src/components/workbenchComponents/Weather.js#L79
 
-https://github.com/vegardwaka/g4informant/blob/f24bbf24c73f0ab13b48fd1ab571bfda58afcdb2/g4-informant/src/components/Display.js#L10
+https://github.com/vegardwaka/g4informant/blob/c4489e52cf8d9a437bbc94bdec294e037f3d8504/g4-informant/src/components/Display.js#L9
 
-https://github.com/vegardwaka/g4informant/blob/f24bbf24c73f0ab13b48fd1ab571bfda58afcdb2/g4-informant/src/components/FullDisplay.js#L10
+https://github.com/vegardwaka/g4informant/blob/c4489e52cf8d9a437bbc94bdec294e037f3d8504/g4-informant/src/components/FullDisplay.js#L11
 
-https://github.com/vegardwaka/g4informant/blob/f24bbf24c73f0ab13b48fd1ab571bfda58afcdb2/g4-informant/src/components/Workbench.js#L155
+https://github.com/vegardwaka/g4informant/blob/c4489e52cf8d9a437bbc94bdec294e037f3d8504/g4-informant/src/components/Workbench.js#L150
 
 #### Backend/Server dependencies:
     "express": "^4.18.2",
