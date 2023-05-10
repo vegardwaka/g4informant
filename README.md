@@ -63,6 +63,10 @@ https://github.com/vegardwaka/g4informant/blob/c4489e52cf8d9a437bbc94bdec294e037
 
 https://github.com/vegardwaka/g4informant/blob/c4489e52cf8d9a437bbc94bdec294e037f3d8504/g4-informant/src/components/Workbench.js#L108
 
+#### Database dependencies:
+    "pg": "^8.10.0",
+    "PHP-CRUD-API": "^2.14.19" https://github.com/mevdschee/php-crud-api
+
 ## Server
 The server is hosted in Microsoft Azure, and it uses the Node.js runtime environment.
 
@@ -91,8 +95,7 @@ https://github.com/vegardwaka/g4informant/blob/c4489e52cf8d9a437bbc94bdec294e037
     "express": "^4.18.2",
     "multer": "^1.4.5-lts.1",
     "node-cache": "^5.1.2",
-    "node-fetch": "^2.6.9",
-    "pg": "^8.10.0"
+    "node-fetch": "^2.6.9"
     
 ## Contact information
 If you have any questions regarding the project or it's code you can contact one of the developers.
