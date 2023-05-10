@@ -93,3 +93,7 @@ https://github.com/vegardwaka/g4informant/blob/c4489e52cf8d9a437bbc94bdec294e037
     "node-cache": "^5.1.2",
     "node-fetch": "^2.6.9",
     "pg": "^8.10.0"
+    
+## Contact information
+If you have any questions regarding the project or it's code you can contact one of the developers.
+veb.rolfsnes@gmail.com
