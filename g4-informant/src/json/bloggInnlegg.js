@@ -59,22 +59,22 @@ export default [
     {
         id: 5,
         title:"Testfase",
-        description:"Etter utviklingsfasen er ferdigstilt og fremvisning av informasjonsskjerm er i havn begynnes det på testing av produktet. ....",
+        description:"Testfasen innebar å dele ut brukere til aktører av forskjellig slag som skal teste produktet. Aktører sender tekstlig referat av opplevelsen som inkluderes i rapporten.",
         url:"",
         urlName:""
     },
     {
         id: 6,
         title: "Prosjektrapport",
-        description: "Coming soon.",
-        url:"",
-        urlName:""
+        description: "Rapporten har gått fint hånd i hånd med testfasen, uten store problemer. Rapporten er nå ferdig og klar til innlevering.",
+        url:"Bacheloroppgave.pdf",
+        urlName:"Bachelorrapport"
     },
     {
         id: 6,
         title: "Presentasjon av prosjektet",
         description: "Coming soon.",
         url:"",
-        urlName:""
+        urlName:"Siste presentasjon av prosjektet"
     }
 ]
