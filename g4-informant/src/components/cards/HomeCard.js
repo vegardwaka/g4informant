@@ -7,7 +7,7 @@ import News from '../workbenchComponents/News'
 export default function HomeCard(props) {
     let element
     let link
-    /* list of all the difrent functions the user can use to be displayd on the home page */
+    /* list of all the different API-components the user can test on the home page */
     if (props.id === 1) {
         element =   <Clock 
                         height="100%"
